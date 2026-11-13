@@ -36,9 +36,9 @@ The working loop is to design and test craft in a sandbox save, then fly the rea
 missions in a career save. The whole project and its progress are presented publicly as
 a Keleusma technology demonstrator.
 
-Open questions on the brief are in
-[`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_QUESTIONS.md). They must be
-settled with the operator before the design document is final.
+The operator's answers to the first questions are the charter,
+[`docs/decisions/PROJECT_CHARTER.md`](../decisions/PROJECT_CHARTER.md). The questions
+still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_QUESTIONS.md).
 
 ## Next step
 
