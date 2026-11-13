@@ -20,6 +20,25 @@ completed, moved or abandoned.
   missions against a textbook model of the game, as a sandbox. The name is the Greek
   word for the land-based rowing benches on which crews learned to row in time.
 
+## Operator brief, 2026-11-13
+
+Ikria has three parts.
+
+1. **A global mission controller** that runs outside KSP, probably with MCP
+   functionality, and a way to run its own space-program-level driver loops.
+2. **A harness** that drives individual craft and personnel with stream processors
+   written in Keleusma. It supports many concurrent craft, whether or not that is wise
+   for a given mission. It hot loads new stream processors to change behaviour, which
+   is sometimes simpler than one complex state machine across mission phases.
+3. **A bridge** to the KSP simulator.
+
+The working loop is to design and test craft in a sandbox save, then fly the real
+missions in a career save. The whole project and its progress are presented publicly as
+a Keleusma technology demonstrator.
+
+Open questions on the brief are recorded in the admin session's reply of 2026-11-13 and
+must be settled with the operator before the design document is final.
+
 ## Next step
 
 1. Read Appendix B and check every tracked file and the seed commit message against it.
@@ -58,8 +77,27 @@ Observed by the admin session on 2026-11-13.
 - **Game settings.** Running in the background, advanced tweakables and the extra
   action groups are on. The exit and physics-warp confirmations are off. The window is
   1920 by 1080, not full screen.
-- **Not yet verified.** The kRPC server's address and ports, and a connection from a
-  client.
+- **kRPC server.** Verified 2026-11-13: version 0.7.0, listening on `127.0.0.1` ports
+  50000 (RPC) and 50001 (streams) only. The official Python client 0.7.0 connected and
+  read the save read-only. In this version the game scene is `krpc.game_scene`, not
+  `current_game_scene`.
+- **kRPC multi-vessel control,** from the installed 0.7.0 client's docstrings, since
+  the online API pages returned 404 that day:
+  - Each vessel has its own `control` and `auto_pilot`, not only the active vessel.
+  - A vessel on rails "produces no thrust and ignores control input". In orbit the game
+    puts a vessel on rails 350 m from the active vessel and unloads it at 2.5 km.
+  - `vessel.physics_range` raises one vessel's range, as PhysicsRangeExtender does for
+    KSPDG. It persists past client disconnect until the game exits, "costs
+    performance, and accumulates positional error that can destroy it".
+  - Rails time warp puts everything on rails, so multi-agent runs use real time or
+    physical warp.
+  - No documented limit on several clients at once was found.
+- **kRPC EVA control,** same source:
+  - `crew_member.eva()` returns the kerbal as a vessel that can be "walked around and
+    flown using its `Vessel.control`".
+  - `control.board()` boards only through a hatch the kerbal already stands at.
+  - The jetpack and helmet lamp switch only for the active vessel.
+  - Flags and carried items were not checked.
 
 ## Validity
 
