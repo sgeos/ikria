@@ -1,0 +1,17 @@
+# Citation metadata, read by GitHub's "Cite this repository" button and by reference
+# managers. Add `version` and `date-released` at the first release, and keep them
+# current with each later one.
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "ikria"
+abstract: >
+  A Keleusma technology demonstrator that flies Kerbal Space Program craft through kRPC, with an MCP server for agents.
+authors:
+  - family-names: "Sechter"
+    given-names: "Brendan A R"
+url: "https://github.com/sgeos/ikria"
+repository-code: "https://github.com/sgeos/ikria"
+license: "0BSD"
+type: software
+keywords:
+  - "ikria"

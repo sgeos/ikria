@@ -1,0 +1,76 @@
+# Handoff
+
+> **Navigation**: [Process](./README.md) | [Documentation Root](../README.md)
+
+This is a state file. It is overwritten whole on every update and holds only what is in
+flight, why, what is owed and the next step, within a budget of 8 KB. History lives in
+git. A rewrite that drops an open item says in its commit message whether the item was
+completed, moved or abandoned.
+
+## State on 2026-11-13
+
+- **Seeded** by the admin session from `sgeos/project-template` at `3954eba`, tag
+  `v1.0.8`. Nothing is implemented. The repository is local only, with no remote.
+- **Appendix B was not read.** The seeding session is not permitted to read it. The seed
+  holds only the operator's stated aim and generic template text, but it has not been
+  checked against Appendix B. That check is the first task below.
+- **The operator's aim.** A technology demonstrator for Keleusma, with no physical-world
+  impact. Keleusma stream processors fly craft in Kerbal Space Program 1 through the
+  kRPC mod, an MCP server exposes the same controls to agents, and the record documents
+  missions against a textbook model of the game, as a sandbox. The name is the Greek
+  word for the land-based rowing benches on which crews learned to row in time.
+
+## Next step
+
+1. Read Appendix B and check every tracked file and the seed commit message against it.
+   Report the result to the operator before any other work.
+2. Draft a design document in `docs/architecture/` for the operator to review. It should
+   cover the Rust host that embeds Keleusma, the record types for telemetry in and
+   commands out, the stepping contract between host and script, and the MCP tools. Keep
+   the agent interface free of KSP, so a stronger physics host could replace the game.
+3. Define the first milestone in `docs/roadmap/` once the design is approved.
+
+## Open
+
+- **Remote.** None yet. Creating `sgeos/ikria` on GitHub, privately, is the operator's
+  decision. Checklist step 9 in `README.md` has the commands.
+- **Gate.** `scripts/check.sh` holds only the template's checks. Add Rust lint, format
+  and test commands when code arrives.
+- **Prior art to cite and perhaps reuse.** MIT Lincoln Laboratory's KSPDG drives KSP
+  headlessly through kRPC for multi-agent pursuit-evasion games, and handles distant
+  craft with PhysicsRangeExtender.
+- **Determinism** is a result to measure, not an assumption. KSP slows the simulation
+  under load rather than taking larger physics steps, so records use game time.
+- **Mastery checklists.** KSP has no Steam achievements. Its own records are the
+  progress milestones ("world firsts") and the science archive by body, situation and
+  biome, both in `saves/<name>/persistent.sfs`.
+
+## Environment
+
+Observed by the admin session on 2026-11-13.
+
+- **The game.** KSP 1.12.5, build 03190, from Steam, at
+  `~/Library/Application Support/Steam/steamapps/common/Kerbal Space Program`, with
+  both expansions. It is Intel-only and runs under Rosetta 2. Rosetta is expected to be
+  removed in macOS 28, which would stop the game on this Mac.
+- **Mods.** kRPC 0.7.0 and Module Manager 4.2.3, installed with CKAN as the instance
+  `ksp1`. The `ckan` command wraps CKAN 1.36.4 under MacPorts Mono. kRPC is GPL-3.0.
+- **Game settings.** Running in the background, advanced tweakables and the extra
+  action groups are on. The exit and physics-warp confirmations are off. The window is
+  1920 by 1080, not full screen.
+- **Not yet verified.** The kRPC server's address and ports, and a connection from a
+  client.
+
+## Validity
+
+```sh
+git status --short          # clean
+git log --oneline -5        # the newest commit should describe this state
+./scripts/check.sh          # exits zero
+```
+
+Report any check not run, and any commit after the one that last rewrote this file.
+
+## Mailbox
+
+None assigned.
