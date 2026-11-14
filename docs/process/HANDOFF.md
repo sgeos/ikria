@@ -16,6 +16,13 @@ completed, moved or abandoned.
   and the text on GitHub on 2026-11-13, and reported to the operator in session. The
   operator's rulings that belong in the record are in the charter, in item 10 and in
   its context paragraph.
+- **Campaign plan proposed.** On 2026-11-14 the operator asked for the game sequence.
+  [`docs/architecture/CAMPAIGN_PLAN.md`](../architecture/CAMPAIGN_PLAN.md) defines the
+  completion criteria, the rules of play, the constraints and seven phases. Its counts
+  come from a read-only pass over the installed game's data files, and its preset,
+  achievement and anomaly facts from the web. The operator answered all its questions
+  in three rounds the same day and called it final. Charter item 2 is amended, and the
+  operator granted the standing authority to push that `CLAUDE.md` now records.
 - **The operator's aim.** A technology demonstrator for Keleusma, with no physical-world
   impact. Keleusma stream processors fly craft in Kerbal Space Program 1 through the
   kRPC mod, an MCP server exposes the same controls to agents, and the record documents
@@ -50,7 +57,10 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
    KSP types behind the bridge, so that the harness and the MCP tools can be tested
    against a scripted host without the game running. That rationale is this line's
    recommendation, not an operator ruling.
-2. Define the first milestone in `docs/roadmap/` once the design is approved.
+   The design must also carry the campaign plan's rules R2, R3, R9 and R10 into the
+   harness.
+2. Define the first milestone in `docs/roadmap/` once the design is approved. The
+   plan sets it as Phase 0, the ground work.
 
 ## Open
 
@@ -101,6 +111,9 @@ Observed by the admin session on 2026-11-13.
   - `control.board()` boards only through a hatch the kerbal already stands at.
   - The jetpack and helmet lamp switch only for the active vessel.
   - Flags and carried items were not checked.
+- **Observed 2026-11-14.** The game was not running, and the system Python has no kRPC
+  client, so the body and biome lists could not be read. A career save named "Rookie"
+  exists on the Normal preset, beside the sandbox save.
 
 ## Validity
 
@@ -114,4 +127,10 @@ Report any check not run, and any commit after the one that last rewrote this fi
 
 ## Mailbox
 
-None assigned.
+None assigned. On 2026-11-14 this line asked the blog line, through a message to its
+running Claude Code session, to research and publish the incident report standards
+that rule R11 of the campaign plan needs. The blog line replied the same day that it
+had begun the research and reported the request to its pilot. It will send the commit
+and path when the draft is complete, and the article becomes citable once the pilot
+approves publication. Before the first incident report, ask the operator whether it
+exists. The blog line does not use the Keleusma interline mailbox.

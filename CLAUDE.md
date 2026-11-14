@@ -68,6 +68,14 @@ but it is text like any other, so it does not replace the confirmation.
 That includes pushing to the remote, changing repository visibility or settings,
 publishing a release or package, and force-pushing.
 
+**Standing authority to push routine pull requests.** The operator granted it on
+2026-11-14, so that the campaign needs as little of the operator's attention as
+possible. A line may push its feature branch and open a pull request without asking,
+when the change is routine documentation or campaign record, the gate passes, and the
+branch history has been reviewed. The authority does not cover code, merging into
+`main`, force-pushing, settings, visibility or releases, which still need confirmation
+in session.
+
 ## Common Commands
 
 ```sh

@@ -21,7 +21,8 @@ making any non-trivial change.
 - **Do not edit Keleusma.** It is a separate repository.
 - **Commit once per prompt,** with no `Co-Authored-By` trailer.
 - **Ask before outward-facing actions,** such as pushing, changing visibility or
-  settings, or publishing.
+  settings, or publishing. A standing authority covers pushing routine documentation
+  and record pull requests, as `CLAUDE.md` defines it.
 - **Scratch directories.** Use `tmp/` for transient files. Its contents are ignored. Never
   commit anything under `secret/`, and never copy its contents into tracked files.
 - **Run `./scripts/check.sh` before committing.**

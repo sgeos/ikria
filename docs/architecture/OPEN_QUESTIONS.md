@@ -31,4 +31,6 @@ delete the question once it is settled.
 
 6. **Building craft.** By what path does an agent build a craft: kRPC's editor vessel,
    generated craft files, or something else?
-7. **Milestones.** Which career objectives make the first milestone?
+7. **Milestones.** Which career objectives make the first milestone? The proposed
+   answer is Phase 0 of [`CAMPAIGN_PLAN.md`](CAMPAIGN_PLAN.md), whose own open questions
+   are listed there.

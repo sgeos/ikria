@@ -25,7 +25,10 @@ simulator, states its limits, and uses it to exercise control software.
    drive language fixes and developments. Ikria does not invent its own swap semantics.
 2. **No manual flying.** Every flight input comes from Keleusma control loops. Quickloads
    and reverts are allowed. Ikria is a control-loop demonstrator, not a no-reload
-   challenge.
+   challenge. *Amended 2026-11-14 by the operator.* The career save plays the Hard
+   preset unmodified, which disables quickloads and reverts, so they are allowed in the
+   sandbox save only. A loss in the career is handled under rule R10 of
+   [`CAMPAIGN_PLAN.md`](../architecture/CAMPAIGN_PLAN.md).
 3. **Keleusma first.** As much of the project as reasonably possible is written in
    Keleusma, including program-level logic, and the share is expected to grow with each
    public release.
