@@ -10,10 +10,13 @@ completed, moved or abandoned.
 ## State on 2026-11-13
 
 - **Seeded** by the admin session from `sgeos/project-template` at `3954eba`, tag
-  `v1.0.8`. Nothing is implemented. The repository is local only, with no remote.
-- **Appendix B was not read.** The seeding session is not permitted to read it. The seed
-  holds only the operator's stated aim and generic template text, but it has not been
-  checked against Appendix B. That check is the first task below.
+  `v1.0.8`, which was still the template's latest commit on 2026-11-13. Nothing is
+  implemented. The public repository is `https://github.com/sgeos/ikria`.
+- **Disclosure scan.** On 2026-11-13 the operator ran `scripts/check.sh --history
+  --hygiene-only` with the Keleusma terms list in `secret/disclosure-terms.txt`. It found
+  no listed term in the tracked files or in the history of the first four commits. The
+  seeding session could not read Appendix B, so no line has yet compared the seed with
+  it beyond that scan.
 - **The operator's aim.** A technology demonstrator for Keleusma, with no physical-world
   impact. Keleusma stream processors fly craft in Kerbal Space Program 1 through the
   kRPC mod, an MCP server exposes the same controls to agents, and the record documents
@@ -42,8 +45,8 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
 
 ## Next step
 
-1. Read Appendix B and check every tracked file and the seed commit message against it.
-   Report the result to the operator before any other work.
+1. Read Appendix B and check every tracked file and commit message against it, beyond
+   what the terms scan covers. Report the result to the operator before any other work.
 2. Draft a design document in `docs/architecture/` for the operator to review. It should
    cover the Rust host that embeds Keleusma, the record types for telemetry in and
    commands out, the stepping contract between host and script, and the MCP tools. Keep
@@ -52,8 +55,8 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
 
 ## Open
 
-- **Remote.** None yet. Creating `sgeos/ikria` on GitHub, privately, is the operator's
-  decision. Checklist step 9 in `README.md` has the commands.
+- **The default branch is protected** by the template ruleset, so changes reach `main`
+  only by pull request with a green `CI result` check.
 - **Gate.** `scripts/check.sh` holds only the template's checks. Add Rust lint, format
   and test commands when code arrives.
 - **Prior art to cite and perhaps reuse.** MIT Lincoln Laboratory's KSPDG drives KSP
