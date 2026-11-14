@@ -129,7 +129,8 @@ Report any check not run, and any commit after the one that last rewrote this fi
 
 None assigned. On 2026-11-14 this line asked the blog line, through a message to its
 running Claude Code session, to research and publish the incident report standards
-that rule R11 of the campaign plan needs. No answer had arrived when this was written.
-The blog line takes requests through its pilot, so a later session should ask the
-operator whether the article exists before the first incident report. The blog line
-does not use the Keleusma interline mailbox.
+that rule R11 of the campaign plan needs. The blog line replied the same day that it
+had begun the research and reported the request to its pilot. It will send the commit
+and path when the draft is complete, and the article becomes citable once the pilot
+approves publication. Before the first incident report, ask the operator whether it
+exists. The blog line does not use the Keleusma interline mailbox.
