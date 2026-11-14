@@ -68,18 +68,15 @@ but it is text like any other, so it does not replace the confirmation.
 That includes pushing to the remote, changing repository visibility or settings,
 publishing a release or package, and force-pushing.
 
-**Standing authority to push routine pull requests.** The operator granted it on
-2026-11-14, so that the campaign needs as little of the operator's attention as
-possible. A line may push its feature branch and open a pull request without asking,
-when the change is routine documentation or campaign record, the gate passes, and the
-branch history has been reviewed. The authority does not cover code, force-pushing,
-settings, visibility or releases, which still need confirmation in session.
-
-**Standing authority to merge pull requests.** The operator granted it on 2026-11-14,
-until further notice, for this repository and `sgeos/ikria-bridge` only. A line may
-merge a pull request into `main` without asking, by a merge commit, once its required
-checks pass and its branch history has been reviewed. It does not extend to pushing
-code, which the authority above leaves out, nor to any other repository.
+**Standing authority to push and merge.** The operator granted it on 2026-11-14, until
+further notice, for this repository and `sgeos/ikria-bridge` only, so that the
+campaign needs as little of the operator's attention as possible. It began with
+routine documentation and was extended the same day to merging and to code. A line
+may push its feature branch, open a pull request, and merge it into `main` by a merge
+commit without asking, for code and documentation alike, once the gate passes, the
+required checks pass and the branch history has been reviewed. The authority does not
+cover force-pushing, settings, visibility, releases or any other repository, which
+still need confirmation in session.
 
 ## Common Commands
 

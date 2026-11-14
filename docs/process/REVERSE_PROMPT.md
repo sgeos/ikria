@@ -6,21 +6,19 @@ A state file, overwritten whole after each task. It reports what was done, what 
 decided and by whom, what was verified and how, what was not verified, and what the
 operator needs to decide. Facts, inferences and hypotheses are marked as such.
 
-## Merge authority and bridge licence, 2026-11-14
+## Push authority, 2026-11-14
 
 **Done.**
-- Recorded in `CLAUDE.md` and `AGENTS.md` the operator's standing authority to merge
-  pull requests in this repository and `sgeos/ikria-bridge`, until further notice.
-- Recorded in the bridge repository that the operator confirmed GPL-3.0-only, and the
-  same merge authority.
+- Recorded in `CLAUDE.md` and `AGENTS.md` that the operator extended the standing
+  authority to pushing, for code and documentation alike, in this repository and
+  `sgeos/ikria-bridge`.
+- In the bridge, adopted the operator's no-outside-contributions stance, with forks and
+  fork reports encouraged instead.
 
-**Decided.** By the operator on 2026-11-14, the merge authority and the bridge's
-licence.
+**Decided.** By the operator on 2026-11-14.
 
 **Verified.** `./scripts/check.sh` exits zero on this branch, on macOS.
 
 **Not verified.** Nothing new.
 
-**For the operator.** The push authority still leaves out code, so a code pull request
-needs the operator's word before it is pushed. Whether to extend it is the operator's
-call.
+**For the operator.** Nothing. The next work is the remaining Phase 0 experiments.
