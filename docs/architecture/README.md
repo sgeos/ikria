@@ -12,3 +12,6 @@ as **Decided**, **Proposed** or **Open**, and say whether it is implemented.
 - [`CAMPAIGN_SEQUENCE.md`](CAMPAIGN_SEQUENCE.md): the prospective order of research,
   purchases and upgrades, with the plan for science and funds through the early game.
   Proposed.
+- [`AGENCY_RECORD.md`](AGENCY_RECORD.md): what the agency records, from vehicle
+  specification sheets and mission documents to the program and its financials.
+  Proposed.

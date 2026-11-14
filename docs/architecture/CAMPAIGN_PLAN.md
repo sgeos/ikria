@@ -352,6 +352,15 @@ The operator answered the first eight questions on 2026-11-14.
 
 No questions remain open.
 
+## Rulings, fourth set, 2026-11-14
+
+The operator asked for an engineering specification sheet for each vehicle, with a bill
+of materials, its Keleusma control loops and a history section. The operator also asked
+for tracked missions based on industry practice, each comparing the game with the real
+world, and for the program and its financials to be tracked as a serious space agency
+would. Vehicle sheets and mission documents each rest on their own blog article. This
+extends R8. [`AGENCY_RECORD.md`](AGENCY_RECORD.md) defines the record that follows.
+
 ## Appendix, Hard preset
 
 From the official wiki pages
