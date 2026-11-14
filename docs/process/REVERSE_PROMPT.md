@@ -6,26 +6,27 @@ A state file, overwritten whole after each task. It reports what was done, what 
 decided and by whom, what was verified and how, what was not verified, and what the
 operator needs to decide. Facts, inferences and hypotheses are marked as such.
 
-## Campaign plan final, 2026-11-14
+## Technology order, 2026-11-14
 
-**Done.**
-- Recorded the operator's last two rulings in
-  [`docs/architecture/CAMPAIGN_PLAN.md`](../architecture/CAMPAIGN_PLAN.md), which
-  omit the training lessons and grant a standing authority to push. Marked the plan
-  final.
-- Recorded the standing authority in `CLAUDE.md` and `AGENTS.md`. It covers pushing
-  routine documentation and record pull requests, and nothing else.
-- Recorded in R11 that incident reports are to follow space agency and aerospace
-  industry standards, and asked the blog line to research and publish them.
+**Done.** Added a proposed technology order as the last appendix of
+[`docs/architecture/CAMPAIGN_PLAN.md`](../architecture/CAMPAIGN_PLAN.md), answering the
+operator's question on sequencing. It lists what the early nodes give and their
+minimum cost in science, gives Kerbin's science per biome, estimates whether Hard has
+enough science, and orders the tree in six steps.
 
-**Decided.** By the operator on 2026-11-14, as the plan's third rulings table records.
+**Decided.** Nothing new. The order is proposed.
 
 **Verified.**
-- The message to the blog line's running session was accepted into its inbox. Whether
-  it was read, and whether the pilot confirmed it there, is not known.
+- The node contents, costs and prerequisites were read from the installed game's data
+  files by a read-only script.
+- Kerbin's six situation multipliers were read from the existing Normal career save.
 - `./scripts/check.sh` exits zero on this branch, on macOS.
 
-**Not verified.** Facts the plan marks as recalled remain to be checked in Phase 0.
+**Not verified.**
+- The multipliers of bodies other than Kerbin are recalled, so the estimate that Hard
+  has enough science is an inference. Phase 0 replaces it with an exact total.
+- Whether the 60 percent reward on Hard scales each subject is recalled.
+- That the first probe core has no stability assist and no reaction wheel is recalled.
 
-**For the operator.** Nothing is blocking. The pull request for the plan is to be
-merged by the operator, since the standing authority does not cover merging.
+**For the operator.** Whether the proposed order matches the operator's intent. It can
+be merged as it stands, since it is marked proposed.

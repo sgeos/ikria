@@ -21,8 +21,11 @@ completed, moved or abandoned.
   completion criteria, the rules of play, the constraints and seven phases. Its counts
   come from a read-only pass over the installed game's data files, and its preset,
   achievement and anomaly facts from the web. The operator answered all its questions
-  in three rounds the same day and called it final. Charter item 2 is amended, and the
-  operator granted the standing authority to push that `CLAUDE.md` now records.
+  in three rounds the same day and called it final, and it was merged as pull request
+  4. Charter item 2 is amended, and the operator granted the standing authority to push
+  that `CLAUDE.md` now records. A proposed technology order followed as the plan's last
+  appendix, from the operator's points on aircraft, rocket planes, rovers and
+  priorities.
 - **The operator's aim.** A technology demonstrator for Keleusma, with no physical-world
   impact. Keleusma stream processors fly craft in Kerbal Space Program 1 through the
   kRPC mod, an MCP server exposes the same controls to agents, and the record documents

@@ -3,8 +3,8 @@
 > **Navigation**: [Architecture](./README.md) | [Documentation Root](../README.md)
 
 **Status.** Final, 2026-11-14. Every criterion and rule is decided by the operator.
-Facts marked *(recall)* remain to be checked in Phase 0. Nothing has been flown. Each
-fact names its source.
+The technology order in the last appendix is proposed. Facts marked *(recall)* remain
+to be checked in Phase 0. Nothing has been flown. Each fact names its source.
 
 This document plans the career campaign of Kerbal Space Program 1 that Ikria's
 Keleusma control loops are to fly. It defines what complete means, the rules the
@@ -501,3 +501,101 @@ sentinel, comet detection, station construction, survey, part testing, tourism, 
 samples, rover construction, vessel repair, and construction in orbit. Breaking Ground
 adds deployed science and surface feature contracts *(web)*. Making History appears to
 add no career contracts *(web)*.
+
+## Appendix, technology order
+
+**Proposed, 2026-11-14.** This appendix orders the technology tree within the phases.
+The operator raised four points on 2026-11-14. These were simple aircraft for science
+around Kerbin, a rocket plane program short of orbit, the parts for an early rover
+program, and priority for science parts and for parts that allow remote control of
+uncrewed craft. Node contents and costs are *(files)*. The minimum cost of a node is
+the science of the cheapest path to it from the start.
+
+### What the early nodes give
+
+| Node | Cost | Minimum cost | What it gives the campaign |
+|---|---|---|---|
+| Start | 0 | 0 | The Mk1 pod, the Flea booster, parachutes, Mystery Goo and the jetpack. No probe core, wing, wheel or antenna. |
+| Engineering 101 | 5 | 5 | The first antennas, the thermometer, a decoupler. |
+| Basic Rocketry | 5 | 5 | The first liquid engine and tank. |
+| Survivability | 15 | 20 | The barometer, heat shields, small landing struts. |
+| Stability | 18 | 23 | Winglets, nose cone, radial decoupler. |
+| Aviation | 45 | 68 | The Juno jet, the Mk1 cockpit, wings, control surfaces and fixed and steerable landing gear. |
+| Basic Science | 45 | 65 | The first probe core, the Science Jr., a high gain antenna, a battery. |
+| Space Exploration | 90 | 155 | The first powered rover wheel, the RoveMax S2, and the Breaking Ground experiment control station. |
+| Electrics | 90 | 155 | The OKTO probe core and the first solar panels. |
+| Precision Engineering | 160 | 315 | The HECS probe core, the RA-2 relay, the weather analyzer. |
+| Advanced Exploration | 160 | 315 | The Mobile Processing Lab and the light scanning arm. |
+| Scanning Tech | 300 | 615 | The atmosphere spectro-variometer, the M700 survey scanner, the infrared telescope. |
+| Electronics | 300 | 615 | The seismic accelerometer, the magnetometer, the RA-15 relay. |
+| Field Science | 300 | 615 | The RoveMax M1 wheels and the RoveMate rover core. |
+| Unmanned Tech | 300 | 615 | The QBE and OKTO2 probe cores. |
+| Automation | 550 | 1,165 | The RA-100 relay. |
+| Advanced Science Tech | 550 | 1,165 | The gravity detector, the large scanning arm, the drills. |
+
+**Findings.**
+- **Aircraft are early.** A working aircraft needs Aviation, at 68 science. A rocket
+  plane that flies short of orbit needs the same node and a liquid engine. Both land on
+  the runway, so most of their cost is recovered, which matters while funds bind.
+- **Rovers are not available at the start.** The first powered wheel comes at 155
+  science. Aircraft landing gear has no motor. Until then, ground science at the Space
+  Center is taken on foot.
+- **Remote control is possible from 65 science.** The first probe core has no
+  stability assist and no reaction wheel *(recall)*. Under R2 that is not a barrier,
+  since Keleusma control loops fly through the raw controls as a player would by hand.
+  The OKTO at 155 adds power from solar panels.
+- **The science and remote control core costs 1,765 science.** That is Engineering
+  101, Survivability, Basic Science, Electrics, Space Exploration, Precision
+  Engineering, Advanced Exploration, Scanning Tech, Electronics, Field Science and
+  Unmanned Tech together. Automation and Advanced Science Tech bring it to 2,865, which
+  is about one sixth of the tree.
+
+### Science around Kerbin
+
+The existing Normal career records Kerbin's situation multipliers *(files)*. These are
+0.3 landed, 0.4 splashed, 0.7 flying low, 0.9 flying high, 1.0 in space low and 1.5 in
+space high. With the experiment caps of the files, one landed biome on Kerbin holds
+about 35 science on Normal, or about 21 on Hard if the 60 percent reward scales each
+subject *(recall)*. A low pass over a biome holds only the crew report, the
+temperature reading, and an extravehicular report that a crewed aircraft cannot
+safely take. That is about 9 science on Normal and 5 on Hard. Aircraft therefore pay
+best when they land in each biome and fly on, rather than when they only pass over it.
+
+### Is there enough science on Hard
+
+*Inference, to be measured in Phase 0.* The tree needs 18,468 science. Kerbin alone
+cannot supply it, but the Mun and Minmus multiply each subject by several times
+Kerbin's landed value *(recall)*, and they have many biomes each. The landed subjects
+of those two bodies alone are expected to cover a large share of the tree on Hard.
+Space subjects, recoveries, contract rewards and the bodies beyond add more. The
+Mobile Processing Lab also produces science without end. C4 excludes that science
+from completion, but nothing bars spending it on research. The operator's expectation
+that Hard has enough science is therefore probably right, and the binding constraint
+early is funds, not science. Phase 0 replaces this inference with an exact total of the
+subjects.
+
+### Proposed order
+
+1. **Space Center and sounding rockets, 0 to about 70 science.** Science on foot across
+   the Space Center's small biomes, Mystery Goo and crew reports on short hops, then
+   Engineering 101, Basic Rocketry, Survivability and Stability for instruments and
+   flights short of orbit. The record contracts pay funds here.
+2. **Aircraft and rocket planes, from 68 science.** Aviation, then an aircraft program
+   that lands in Kerbin's biomes and a rocket plane program short of orbit. Basic
+   Science follows at once for the first probe core, so that remotely flown aircraft
+   carry the instruments.
+3. **First orbit and the Mun and Minmus, from about 150 science.** General Rocketry,
+   Advanced Rocketry, Flight Control and General Construction for orbit and flags.
+   Electrics and Space Exploration for power, solar panels and the first rover. The
+   first uncrewed flybys and landings follow. A relay path for Minmus may need a better
+   antenna or a Tracking Station upgrade, since Hard shortens every range *(web)*.
+4. **The science and remote control core, to about 1,800 science.** The rest of the
+   core above, taken ahead of engine and structure nodes that no planned mission yet
+   needs. Each part is bought only when a mission needs it, because purchases are the
+   larger cost on Hard. The RA-15 relay alone costs 45,000 funds to unlock *(files)*.
+5. **Deeper missions.** Engine, tank and structure nodes in the order that the launch
+   calendar of the inner and outer phases requires, with Automation and Advanced
+   Science Tech among the first of them.
+6. **The rest of the tree,** in whatever order the completion criteria and the
+   remaining missions need. The two nodes that hold no listed part come last, since
+   they unlock nothing.
