@@ -16,7 +16,10 @@ delete the question once it is settled.
 ## Harness
 
 2. **Process layout.** One host process running many Keleusma programs, or one process
-   per craft? Who owns the shared clock?
+   per craft? Who owns the shared clock? *Proposed answer in
+   [`HARNESS_DESIGN.md`](HARNESS_DESIGN.md).* One harness process steps every program
+   on one thread, with the bridge and the controller as separate processes, and the
+   harness owns the clock.
 3. **Concurrent EVA.** The jetpack and helmet lamp switch only for the active vessel in
    kRPC 0.7.0, which limits how many kerbals can manoeuvre at once.
 
@@ -24,8 +27,11 @@ delete the question once it is settled.
 
 4. **Rust client.** Is there a maintained Rust kRPC client, or must one be generated from
    kRPC's service definitions? Check the client libraries' licences before linking any.
+   *Proposed answer in [`HARNESS_DESIGN.md`](HARNESS_DESIGN.md).* `krpc-client`, which
+   is GPL-3.0, in a separate bridge repository.
 5. **Physics-tick stepping.** Measure whether kRPC can sustain one control step per
-   physics tick, and at what cost.
+   physics tick, and at what cost. kRPC 0.7.0's tick hold makes lockstep possible, as
+   [`HARNESS_DESIGN.md`](HARNESS_DESIGN.md) records. Phase 0 measures its cost.
 
 ## Space agency
 

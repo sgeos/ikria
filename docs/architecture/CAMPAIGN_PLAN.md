@@ -361,6 +361,15 @@ world, and for the program and its financials to be tracked as a serious space a
 would. Vehicle sheets and mission documents each rest on their own blog article. This
 extends R8. [`AGENCY_RECORD.md`](AGENCY_RECORD.md) defines the record that follows.
 
+## Open questions
+
+- **O9, launch sites.** C16 requires a flight from every launch site, including the
+  Making History sites. The Hard preset disables other launch sites in the career
+  *(files)*, so C16 cannot be met there under R1. The sandbox allows them. This
+  document recommends meeting C16 by launching from each site in the sandbox, and by
+  landing at each site during the career. Landing there also collects the sites'
+  location biomes for C4.
+
 ## Appendix, Hard preset
 
 From the official wiki pages
@@ -386,11 +395,31 @@ pages predate some later settings.
 | Antenna range modifier | 1.00 | 0.65 |
 | Occlusion in vacuum and in atmosphere | 0.90 and 0.75 | 1.00 and 1.00 |
 
-Not found in any readable source, so to be read from a fresh Hard save in Phase 0. These
-are kerbal experience, immediate level up, reentry heating, resource abundance, the
-kerbal and part acceleration limits, part pressure limits, the building damage
-multiplier, and the crossfeed rules. Whether quicksaving, as distinct from quickloading,
-still works on Hard is also unverified.
+**Read from the save, 2026-11-14.** *(files)* The career save "Ikria Automated Space
+Agency" records the full Hard settings. It confirms the table above and adds the
+settings the wiki lacks.
+
+| Setting | Normal | Hard |
+|---|---|---|
+| Quicksave | Yes | Yes |
+| Quickload, revert, and return to the editor from flight | Yes | No |
+| Kerbal experience, and immediate level up | On, and off | On, and off |
+| Reentry heating | 100% | 100% |
+| Resource abundance | 100% | 50% |
+| Kerbal and part acceleration limits, part pressure limits | Off | Off |
+| Negative funds allowed | No | Yes |
+| Resource transfer obeys crossfeed | No | Yes |
+| Building damage multiplier | 0.05 | 0.2 |
+| Other launch sites allowed | No | No |
+
+Three of these bear on the plan. Half the resource abundance makes mining slower.
+Negative funds mean a penalty can leave the agency in debt *(inference)*. Other launch
+sites are disabled in the career, which C16 must account for, as the rulings below
+ask. The sandbox save "Ikria Simulated Research and Dev", whose name the game shortened,
+is also on Hard. It differs from the career in three settings that the game ties to
+the sandbox mode. Its parts need no purchase, other launch sites are allowed, and
+kerbals gain no experience. The career's technology tree is Module Manager's copy,
+whose nodes and costs match the stock tree exactly.
 
 ## Appendix, achievement equivalents
 

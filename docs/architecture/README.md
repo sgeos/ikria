@@ -15,3 +15,5 @@ as **Decided**, **Proposed** or **Open**, and say whether it is implemented.
 - [`AGENCY_RECORD.md`](AGENCY_RECORD.md): what the agency records, from vehicle
   specification sheets and mission documents to the program and its financials.
   Decided in scope, formats pending.
+- [`HARNESS_DESIGN.md`](HARNESS_DESIGN.md): the bridge, the harness that runs Keleusma
+  control loops, the mission controller and its MCP tools. Proposed.
