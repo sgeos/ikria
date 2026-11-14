@@ -265,6 +265,8 @@ Each answers a question this design depends on. All run in the sandbox save.
 | 6. Funds reasons | Open. Needs the career save. |
 | 7. Inventory | **Done in part.** The game reports 17 bodies and 145 biomes between them, without the Space Center's location biomes. The science subjects follow once the experiments' situations are combined with these lists. |
 | 8. Keleusma timing | Open. Needs the first harness code. |
+| 9. Physics range after separation | Open. When the game puts a separated stage on rails or removes it, and whether raising its `physics_range` keeps it flying. Added for [`VTHL_PROGRAM.md`](VTHL_PROGRAM.md). |
+| 10. Two vessels in lockstep | Open. The cost of a held tick with two vessels each read and commanded. Added for the booster program. |
 
 **How a vessel reaches the sandbox for experiments 3 and 4** depends on open question 6
 of [`OPEN_QUESTIONS.md`](OPEN_QUESTIONS.md), how an agent builds a craft. The simplest

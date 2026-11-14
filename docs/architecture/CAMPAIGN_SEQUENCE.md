@@ -11,6 +11,17 @@ tightest. Sources are marked as in the campaign plan. *(files)* is the installed
 data, *(web)* the official wiki read on 2026-11-14, and *(recall)* memory not yet
 checked.
 
+## Operator rulings, 2026-11-14
+
+- **Return on investment.** The program is run on return on investment.
+- **Science before cash.** Science is spent to unlock every node of the tree before any
+  surplus is converted to funds. Surplus science is therefore banked until the whole
+  tree is researched, and only then may a strategy such as Patents Licensing turn
+  science into funds.
+- **The booster first.** A first-stage booster that takes off vertically and lands on
+  the runway is one of the top priorities, as
+  [`VTHL_PROGRAM.md`](VTHL_PROGRAM.md) sets out.
+
 ## The early-game problem
 
 The operator expected the early game to be the hardest part. The facility gates bear
@@ -66,10 +77,10 @@ Cumulative research assumes every listed node is taken.
 |---|---|---|---|---|---|
 | E0, day one | Then Engineering 101, Basic Rocketry, Survivability, 25 | Nothing, since the start parts are free | None | About 32 | First launch flown, payouts measured |
 | E1, sounding rockets | Stability, General Rocketry, 63 | Hammer, Swivel, small tank, decoupler, thermometer, barometer, about 12,000 | None | About 102 | Space reached and recovered |
-| E2, aircraft | Aviation, Basic Science, 153 | Juno, Mk1 cockpit, fuselage, wings, elevons, gear, intake, Science Jr., first probe core, about 26,000 | None | About 128 | Kerbin flown low and landed in six biomes |
+| E2, aircraft and booster | Aviation, Basic Science, 153 | Juno, Mk1 cockpit, fuselage, wings, elevons, gear, intake, Science Jr., first probe core, about 26,000 | None | About 128 | Kerbin flown low and landed in six biomes, and the booster's development steps V1 to V3 done in the sandbox |
 | E3, the Mun and Minmus from space | Advanced Rocketry, Flight Control, General Construction, Electrics, Fuel Systems, 468 | Terrier, Reliant, tanks, high gain antenna, battery, OKTO, solar panels, reaction wheel, about 23,000 | Mission Control to 2 | About 420 | Crewed passes of both, returned |
 | E4, first landings | Landing, Advanced Flight Control, Miniaturization, Space Exploration, 828 | Landing struts, lander can, EVA Experiments Kit, first rover wheel, about 14,000 | Astronaut Complex to 2, launch pad to 2 if needed | About 324 for one biome on each | Crewed landing and return on both |
-| E5, biome campaign | The rest of the window as missions need it, 1,188 | Parts as each mission needs them | Administration strategy, see the funds plan | Up to about 4,070 for every landed biome of both | Funds for Research and Development level 2 |
+| E5, biome campaign | The rest of the window as missions need it, 1,188 | Parts as each mission needs them | None | Up to about 4,070 for every landed biome of both, banked | Funds for Research and Development level 2 |
 | E6, leaving the window | Research and Development to 2, then the 160 tier | See the later stages | Research and Development to 2 | | The early game ends |
 
 **Notes on the stages.**
@@ -80,6 +91,9 @@ Cumulative research assumes every listed node is taken.
 - **E1.** Reports, Goo, thermometer and barometer readings flying high, in space low
   and in space high over Kerbin, one splashdown, and the readings on the pad and the
   runway. The record contracts for altitude, speed and distance belong here.
+- **E2, the booster.** The aircraft program's runway landings are the booster's first
+  development step. Steps V1 to V3 of [`VTHL_PROGRAM.md`](VTHL_PROGRAM.md) fly in the
+  sandbox during E2, so that the booster is qualified before the first launch to orbit.
 - **E2.** A crewed aircraft with a scientist aboard. Under R2 any kerbal may sit in the
   cockpit, since the Keleusma loop flies. On Kerbin the scientist may leave the
   aircraft after each landing, take reports, and reset Mystery Goo and the Science Jr.
@@ -95,7 +109,8 @@ Cumulative research assumes every listed node is taken.
   firsts that depend on them. The 18 tonne limit may force the launch pad upgrade here.
 - **E5.** Landers that hop between biomes, or several landers, collect the 26 landed
   biomes of the Mun and Minmus. That yields about 4,070 science on Hard, far beyond the
-  window's 1,188. The surplus becomes funds, as below.
+  window's 1,188. Under the science ruling the surplus is banked, not converted, and
+  pays for the 160 and 300 tiers as soon as Research and Development reaches level 2.
 
 ## Funds plan to leave the window
 
@@ -110,18 +125,17 @@ All figures are projections, to be replaced by measurement at the checkpoints.
 | Launch pad to 2, if needed | 75,000 |
 | Research and Development to 2 | 676,500 |
 | Part purchases for E1 to E4 | about 80,000 to 100,000 |
-| Launches net of recovery, about 40 to 60 flights | about 150,000 to 250,000 *(estimate)* |
+| Launches net of recovery, about 40 to 60 flights | about 150,000 to 250,000 *(estimate)*, lower once the booster flies |
 | **Total** | **about 1.2 to 1.3 million** |
 
 **Income.**
 - **Start.** 10,000 funds.
-- **Surplus science.** The Patents Licensing strategy converts a share of science from
-  field work into funds, at about 84 to 104 funds for each point of science by the
-  wiki's figures, after a setup cost of 263 to 2,700 science *(web, possibly at Normal
-  rates)*. The Administration Building's first level allows one strategy. About 3,300
-  points of surplus on Hard would yield about 280,000 to 340,000 funds. *Inference.*
-  C4 counts the subjects collected, not the points kept, so the conversion costs the
-  campaign nothing it needs. This is to be confirmed in Phase 0.
+- **Surplus science, not before the tree is complete.** The Patents Licensing strategy
+  converts a share of science from field work into funds, at about 84 to 104 funds for
+  each point of science by the wiki's figures *(web, possibly at Normal rates)*. Under
+  the science ruling it is not used before every node is researched, so it contributes
+  nothing here. The first draft of this plan counted about 280,000 to 340,000 funds from
+  it, which the ruling removes.
 - **Contracts.** The existing Normal career recorded a survey of Kerbin paying 25,937
   in advance and on completion, and a station paying 119,150 *(files)*. On Hard these
   become about 15,600 and 71,500. A rescue has a base of 92,000 before the body and
@@ -131,11 +145,12 @@ All figures are projections, to be replaced by measurement at the checkpoints.
   multipliers, and 20 percent of it is paid passively without a contract *(files)*. The
   weights are not in the files, so the payouts are measured from E0 onward.
 
-**The gap.** Contracts and world firsts must supply about 0.9 to 1.0 million funds
-before E6. At the anchors above, that is about 60 survey-sized contracts, or about 17
-rescues, or a mix. *Inference.* This is achievable within E1 to E5 if Mission Control
-is upgraded early and rescues are available, and it is the main uncertainty of the
-early game.
+**The gap.** Contracts, world firsts and recovery must supply about 1.2 million funds
+before E6. At the anchors above, that is about 75 survey-sized contracts, or about 22
+rescues, or a mix. The booster lowers the launch costs in the table, which narrows the
+gap. *Inference.* This is achievable within E1 to E5 if Mission Control is upgraded
+early, the booster flies early, and rescues are available. It is the main uncertainty
+of the early game.
 
 ## Rules for buying
 
@@ -164,8 +179,15 @@ early game.
 - **The laboratory near Minmus,** and the first interplanetary windows. The wiki's
   multipliers make every later body worth several times the Mun per subject.
 - **Research and Development level 3,** at 2,535,000 funds, opens the 550 and 1,000
-  tiers. That is the second funds gate of the campaign, met by stations, rescues,
-  contracts beyond Kerbin and the continuing conversion of surplus science.
+  tiers. That is the second funds gate of the campaign, met by stations, rescues and
+  contracts beyond Kerbin. Surplus science stays banked until the tree is complete.
+- **After the tree.** Once every node is researched, the operator expects the rest to be
+  a matter of carrying out the work rather than of lining up prerequisites. *This
+  document's assessment.* That is largely right, with funds as the exception. Buying
+  every part costs 4,655,650 funds and the remaining facility levels several million
+  more, and Patents Licensing may then turn surplus science into funds. Crew
+  experience, launch windows and comets that appear at random set the pace in time
+  rather than in prerequisites.
 
 ## Checkpoints
 
@@ -173,4 +195,4 @@ early game.
 |---|---|---|
 | End of E0 | World-first payouts on Hard, the contracts on offer, whether a kerbal may leave a vessel in orbit at the first Astronaut Complex level, the level a scientist needs to reset experiments, and how kRPC stores several results in one flight | Whether rescues can start before E4, and the size of the gap |
 | End of E3 | Funds earned per flight against this plan | The order of the launch pad and the assembly building upgrades, since 30 parts may bind before 18 tonnes |
-| During E5 | Patents Licensing yield on Hard | When to buy Research and Development level 2 |
+| During E5 | Funds earned per contract, per world first and per recovered booster | When to buy Research and Development level 2 |

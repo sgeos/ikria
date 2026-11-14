@@ -16,4 +16,7 @@ as **Decided**, **Proposed** or **Open**, and say whether it is implemented.
   specification sheets and mission documents to the program and its financials.
   Decided in scope, formats pending.
 - [`HARNESS_DESIGN.md`](HARNESS_DESIGN.md): the bridge, the harness that runs Keleusma
-  control loops, the mission controller and its MCP tools. Proposed.
+  control loops, the mission controller and its MCP tools. Proposed, with the process
+  layout and the bridge's repository decided.
+- [`VTHL_PROGRAM.md`](VTHL_PROGRAM.md): the first-stage booster that takes off
+  vertically and lands on the runway. A top priority.

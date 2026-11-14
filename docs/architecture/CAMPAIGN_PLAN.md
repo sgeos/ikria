@@ -369,6 +369,15 @@ extends R8. [`AGENCY_RECORD.md`](AGENCY_RECORD.md) defines the record that follo
 
 No questions remain open.
 
+## Rulings, sixth set, 2026-11-14
+
+| Subject | Ruling |
+|---|---|
+| Return on investment | The program is run on return on investment. |
+| Science before cash | Science is spent to unlock every node of the tree before any surplus is converted to funds. |
+| The booster | A first-stage booster that takes off vertically and lands on the runway is one of the top priorities. It may turn around, or go once around Kerbin, as the mission requires. [`VTHL_PROGRAM.md`](VTHL_PROGRAM.md) sets it out. |
+| After the tree | The operator expects that once every node is researched, the rest is a matter of carrying out the work rather than of lining up prerequisites. [`CAMPAIGN_SEQUENCE.md`](CAMPAIGN_SEQUENCE.md) gives this document's assessment. |
+
 ## Appendix, Hard preset
 
 From the official wiki pages
