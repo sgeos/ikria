@@ -22,9 +22,10 @@ completed, moved or abandoned.
   gives the early game as stages E0 to E6, with research, purchases, upgrades, science
   and a funds plan, and checkpoints for recalibration. Its end-of-E0 measurements join
   the Phase 0 questions below.
-- **Record proposed.** [`AGENCY_RECORD.md`](../architecture/AGENCY_RECORD.md) defines
+- **Record decided.** [`AGENCY_RECORD.md`](../architecture/AGENCY_RECORD.md) defines
   the agency's documents, from vehicle sheets and mission plans to program and
-  financial records, at the operator's request of 2026-11-14.
+  financial records. The operator decided its scope on 2026-11-14, and its methodology
+  is to hold up to professional scrutiny. Formats wait for the blog articles.
 - **The operator's aim.** A technology demonstrator for Keleusma, with no physical-world
   impact. Keleusma stream processors fly craft in Kerbal Space Program 1 through the
   kRPC mod, an MCP server exposes the same controls to agents, and the record documents
@@ -131,6 +132,6 @@ Report any check not run, and any commit after the one that last rewrote this fi
 None assigned. The blog line does not use the Keleusma interline mailbox, so this line
 messages its running Claude Code session. On 2026-11-14 it asked for articles on
 incident reports, drafted as A391 and unpublished, and on vehicle specification sheets
-and mission documents, with one on program and financial management suggested. The
+and mission documents, and on program and financial management. The
 templates follow the published articles. Before writing the first of each document,
 ask the operator whether its article exists.

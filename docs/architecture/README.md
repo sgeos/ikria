@@ -14,4 +14,4 @@ as **Decided**, **Proposed** or **Open**, and say whether it is implemented.
   Proposed.
 - [`AGENCY_RECORD.md`](AGENCY_RECORD.md): what the agency records, from vehicle
   specification sheets and mission documents to the program and its financials.
-  Proposed.
+  Decided in scope, formats pending.

@@ -2,10 +2,11 @@
 
 > **Navigation**: [Architecture](./README.md) | [Documentation Root](../README.md)
 
-**Status.** Proposed, 2026-11-14. The document set and its structure are proposed. The
-format of each document follows a published blog article on the matching industry
-practice, as R11 already does for incident reports. Until an article exists, the
-section lists below are provisional.
+**Status.** Decided in scope, 2026-11-14. The operator decided the document set,
+including the additions this document proposed. The designations and the directory
+layout are proposed. The format of each document follows a published blog article on
+the matching industry practice, as R11 already does for incident reports. Until an
+article exists, the section lists below are provisional.
 
 Ikria is to be run as a serious model of a space agency. This document defines what
 the agency records, why, from what data, and where. It extends rules R7, R8 and R11 of
@@ -27,10 +28,18 @@ the agency records, why, from what data, and where. It extends rules R7, R8 and 
 3. **The space program itself tracked.**
 4. **Financials tracked.**
 5. **Anything else a serious space agency would keep.** The operator expects the list
-   above to be incomplete.
+   above to be incomplete. The operator accepted this document's additions the same
+   day, which are the fleet and object registry, crew records, the science ledger, the
+   configuration and software catalogue, and public summaries later. The program and
+   financial records also rest on their own blog article, requested that day.
+6. **A methodology that holds up to scrutiny.** The initiative is to be serious enough
+   that professionals who engage with it seriously can take its methodology seriously.
 
 ## Principles
 
+- **Open to professional scrutiny.** Each document states its method, its sources, its
+  assumptions and its limits, so that a professional reader can check it and disagree
+  with it on the evidence.
 - **Grounded in practice.** Each document type follows a published article from the
   blog line on how agencies and industry keep it. The article is cited in the template.
 - **Generated, not typed.** Numbers come from the save file, kRPC telemetry, the
@@ -48,21 +57,21 @@ the agency records, why, from what data, and where. It extends rules R7, R8 and 
 
 | Record | One per | Written | Main sources | Format basis | Standing |
 |---|---|---|---|---|---|
-| Vehicle specification sheet | Vehicle design and version | Before qualification, revised with each version | Craft file, part data, sandbox qualification | Blog article requested 2026-11-14 | Provisional sections below |
-| Mission plan | Mission | Before the flight readiness review | Plan, trajectory tools, sheets of the vehicles flown | Blog article requested 2026-11-14 | Provisional sections below |
-| Mission report | Mission | After recovery or end of mission | Telemetry, save file, harness logs | Same article as the plan | Provisional sections below |
+| Vehicle specification sheet | Vehicle design and version | Before qualification, revised with each version | Craft file, part data, sandbox qualification | Blog article requested 2026-11-14 | Decided, provisional sections below |
+| Mission plan | Mission | Before the flight readiness review | Plan, trajectory tools, sheets of the vehicles flown | Blog article requested 2026-11-14 | Decided, provisional sections below |
+| Mission report | Mission | After recovery or end of mission | Telemetry, save file, harness logs | Same article as the plan | Decided, provisional sections below |
 | Incident report | Event under R11 | Within the mission's close-out | Telemetry, save file | A391 on the blog, drafted | Per R11 |
 | Campaign ledger | Campaign | After every mission | Save file | Campaign plan criteria | Defined by C1 to C18 |
-| Program status report | Kerbin year of game time | At each year's end | All of the above | Suggested blog article on program management | Proposed |
-| Financial ledger and statements | Transaction, and per mission and per year | Continuously, and summarized per mission and per year | Funds read through kRPC and the save file | Same suggested article | Proposed |
-| Launch manifest and master schedule | Campaign | Revised at each planning cycle | Plan, sequence, launch windows | Same suggested article | Proposed |
-| Fleet and object registry | Vessel or object | At launch, and at each change of state | Save file, kRPC | Practice of national registries of launched objects *(recall)* | Proposed |
-| Crew records | Kerbal | At hire or rescue, after every flight | Save file roster | To be researched | Proposed |
-| Science ledger | Subject | After every recovery or transmission | Save file science subjects | C4 | Proposed |
-| Configuration and software catalogue | Craft file and Keleusma program version | At each change | Repository, hashes under R7 | Configuration management practice | Proposed |
-| Risk register and lessons learned | Risk or lesson | At each review | Plans, reports, incidents | Same suggested article | Proposed |
-| Reviews | Design review, flight readiness review, post-flight review | At each gate | The documents above | Mission article | Proposed |
-| Public summaries | Mission | After the mission report | Mission report | Charter item 8 | Later |
+| Program status report | Kerbin year of game time | At each year's end | All of the above | Blog article on program and financial management, requested 2026-11-14 | Decided |
+| Financial ledger and statements | Transaction, and per mission and per year | Continuously, and summarized per mission and per year | Funds read through kRPC and the save file | Same program and financial article | Decided |
+| Launch manifest and master schedule | Campaign | Revised at each planning cycle | Plan, sequence, launch windows | Same program and financial article | Decided |
+| Fleet and object registry | Vessel or object | At launch, and at each change of state | Save file, kRPC | Practice of national registries of launched objects *(recall)* | Decided |
+| Crew records | Kerbal | At hire or rescue, after every flight | Save file roster | To be researched | Decided |
+| Science ledger | Subject | After every recovery or transmission | Save file science subjects | C4 | Decided |
+| Configuration and software catalogue | Craft file and Keleusma program version | At each change | Repository, hashes under R7 | Configuration management practice, and the vehicle article | Decided |
+| Risk register and lessons learned | Risk or lesson | At each review | Plans, reports, incidents | Same program and financial article | Decided |
+| Reviews | Design review, flight readiness review, post-flight review | At each gate | The documents above | Mission article | Decided |
+| Public summaries | Mission | After the mission report | Mission report | Charter item 8 | Decided, later |
 
 ## Vehicle specification sheet, provisional sections
 
