@@ -54,17 +54,15 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
 
 ## Next step
 
-1. Draft a design document in `docs/architecture/` for the operator to review. It should
-   cover the Rust host that embeds Keleusma, the record types for telemetry in and
-   commands out, the stepping contract between host and script, and the MCP tools. Keep
-   KSP types behind the bridge, so that the harness and the MCP tools can be tested
-   against a scripted host without the game running. That rationale is this line's
-   recommendation, not an operator ruling.
-   The design must also carry the campaign plan's rules R2, R3, R9 and R10 into the
-   harness. Two kRPC questions decide much of it and come first in Phase 0. Can a
-   kerbal outside the vessel take samples, run reports and plant flags under kRPC, and
-   which kRPC calls do facility levels gate?
-2. Define the first milestone in `docs/roadmap/` once the design is approved. The
+1. The operator accepted on 2026-11-14 three processes, a separate GPL-3.0 bridge
+   repository, and the plan's O9 on launch sites, all recorded in
+   [`HARNESS_DESIGN.md`](../architecture/HARNESS_DESIGN.md) and the campaign plan.
+   Creating the bridge repository is outward-facing, so it waits for the operator to
+   say who creates it and with what visibility.
+2. Run the design's Phase 0 experiments in the sandbox save once a save is loaded. The
+   kRPC server starts only then. A Python client 0.7.0 is installed in
+   `tmp/krpc-venv`, which is local scratch.
+3. Define the first milestone in `docs/roadmap/` once the design is approved. The
    plan sets it as Phase 0, the ground work.
 
 ## Open
@@ -113,9 +111,9 @@ Observed by the admin session on 2026-11-13.
   - `control.board()` boards only through a hatch the kerbal already stands at.
   - The jetpack and helmet lamp switch only for the active vessel.
   - Flags and carried items were not checked.
-- **Observed 2026-11-14.** The game was not running, and the system Python has no kRPC
-  client, so the body and biome lists could not be read. A career save named "Rookie"
-  exists on the Normal preset, beside the sandbox save.
+- **Saves, 2026-11-14.** The operator created "Ikria Automated Space Agency", a career on
+  Hard, and "Ikria Simulated Research and Dev", a sandbox on Hard whose name the game
+  shortened. The older "Rookie" and "Sandbox" saves are left untouched.
 
 ## Validity
 
