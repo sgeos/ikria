@@ -260,13 +260,24 @@ Each answers a question this design depends on. All run in the sandbox save.
 | 1. Connection and scene | **Done.** The Python client 0.7.0 connected to server 0.7.0 once the sandbox save was loaded, and read the scene as the Space Center. A plain call took about 0.26 ms there. |
 | 2. Tick hold and rate | **Done in part.** `hold_tick` with `next_tick` stepped exactly 0.02 s of game time per tick, so 50 ticks per second, at about 19.9 ms of wall time per held cycle at the Space Center. Its cost with vessels in flight is still to be measured. |
 | 3. Stepping rate | **Done for one vessel on the pad.** A held cycle of 15 calls, reading telemetry and writing the controls, took a median of 19.7 ms, 26.9 ms at the 95th percentile and 49.6 ms at most, against the game's 20 ms tick. Several vessels, and vessels in flight, are still to be measured. |
-| 4. Extravehicular activity | **Done in part.** `CrewMember.eva` put a kerbal on the pad. The kerbal's `evaReport` and `surfaceSample` experiments ran through `Experiment.run`, and boarding again with `Control.board` stored both results in the pod's container. kRPC has no call to plant a flag, but the kerbal's own module exposes a `PlantFlag` event. Triggering it on the pad, where it was inactive, planted nothing, so a flag is still to be tried off the pad. Reading `available` on the surface-feature experiment `ROCScience` raised a null reference inside kRPC, which is a defect in kRPC. |
+| 4. Extravehicular activity | **Done in part.** `CrewMember.eva` put a kerbal on the pad. The kerbal's `evaReport` and `surfaceSample` experiments ran through `Experiment.run`, and boarding again with `Control.board` stored both results in the pod's container. kRPC has no call to plant a flag, but the kerbal's own module exposes a `PlantFlag` event. Triggering it on the pad, where it was inactive, planted nothing, as the save file confirmed. A second kerbal carried no flag, and a walk off the pad failed while the kerbal held the ladder, so a flag is still to be tried with a kerbal standing clear. Reading `available` on the surface-feature experiment `ROCScience` raised a null reference inside kRPC, which is a defect in kRPC. |
 | 5. Facility gates | Open. Needs the career save, read only, or a career-mode test. |
 | 6. Funds reasons | Open. Needs the career save. |
 | 7. Inventory | **Done in part.** The game reports 17 bodies and 145 biomes between them, without the Space Center's location biomes. The science subjects follow once the experiments' situations are combined with these lists. |
 | 8. Keleusma timing | Open. Needs the first harness code. |
-| 9. Physics range after separation | Open. When the game puts a separated stage on rails or removes it, and whether raising its `physics_range` keeps it flying. Added for [`VTHL_PROGRAM.md`](VTHL_PROGRAM.md). |
-| 10. Two vessels in lockstep | Open. The cost of a held tick with two vessels each read and commanded. Added for the booster program. |
+| 9. Physics range after separation | **Done in part, 2026-11-14.** An uncrewed pod flew on its Flea as a non-active vessel while its kerbal stood on the ground as the active one. It climbed to 12.8 km, up to 12.7 km from the kerbal, stayed loaded and off rails throughout, and was destroyed on impact rather than removed in flight. The default range kRPC reported before launch, 350 m, does not govern flight in the atmosphere. Distances beyond 13 km, and a raised `physics_range`, are still to be tested. Added for [`VTHL_PROGRAM.md`](VTHL_PROGRAM.md). |
+| 10. Two vessels in lockstep | **Started.** The flight above read both vessels four times a second without a held tick. The cost of a held tick with two vessels is still to be measured. Added for the booster program. |
+
+**Findings that change the design, 2026-11-14.**
+- **Staging needs the active vessel.** kRPC refused `activate_next_stage` on a vessel that
+  was not active. Lighting the engine through `Engine.active` on that vessel worked. A
+  separated booster is therefore worked through its parts, such as engines, decouplers,
+  parachutes and gear, not through staging.
+- **kRPC's vessel list is not the fleet.** `SpaceCenter.vessels` left out kerbals outside a
+  vessel and asteroids, which the save file listed. The fleet and object registry is
+  therefore built from the save file, with kRPC for the vessels it reports.
+- **Science on Hard.** A subject's cap is its base value times the situation multiplier
+  times 0.6, as an extravehicular report from the pad showed at 1.44.
 
 **How a vessel reaches the sandbox for experiments 3 and 4** depends on open question 6
 of [`OPEN_QUESTIONS.md`](OPEN_QUESTIONS.md), how an agent builds a craft. The simplest

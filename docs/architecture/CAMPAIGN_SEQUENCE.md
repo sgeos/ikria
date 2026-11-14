@@ -163,17 +163,22 @@ The operator set these out on 2026-11-14.
   heavy descent stage on the surface and lift only a small science and command module,
   either to orbit for docking or straight onto a transfer home. Small solid motors can
   give enough Δv for that there. *(files)* Kerbal Space Program 1 has them. The FM1
-  Mite sits in a 90-science node, inside the first research window, and the Sepratron I
-  and the F3S0 Shrimp sit in 160-science nodes.
+  Mite is in Propulsion Systems, at 90 science and inside the first research window, and
+  the Sepratron I and the F3S0 Shrimp are in Precision Propulsion, at 160.
 - **Pair the solids with control.** The more realistic design pairs small solid motors
   with reaction control and small engines that can be throttled. *(files)* The Ant and
-  the Spark, and the RV-105 thruster block, are in 90-science nodes. The Spider, the
-  Twitch and the Puff are in 160-science nodes.
+  the Spark are in Propulsion Systems and the RV-105 thruster block in Advanced Flight
+  Control, both at 90 science. The Spider, the Twitch and the Puff are in Precision
+  Propulsion, at 160.
 - **Leave what earns its place.** A lander left on a surface is acceptable when an
   analysis of return on investment supports it. Fitted with solar panels, batteries and
   relay hardware, it becomes a surface relay or a historical base under rule R13 of the
-  campaign plan. *Inference.* A left lander with the right equipment may also meet
-  outpost contracts and the world first for a base.
+  campaign plan.
+- **One craft, several objectives.** Craft that meet several objectives at once are the
+  goal, as the operator set out on 2026-11-14. A lander left behind may also meet an
+  outpost construction contract or the world first for a base. The operator expects it
+  would need to be fitted to each contract's requirements, which the mission plan checks
+  against the contract.
 - **Spent stages can be infrastructure.** A stage left in orbit with relay hardware, and
   serving as a relay, is not debris.
 

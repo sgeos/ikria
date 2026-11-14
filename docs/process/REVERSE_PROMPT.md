@@ -6,38 +6,32 @@ A state file, overwritten whole after each task. It reports what was done, what 
 decided and by whom, what was verified and how, what was not verified, and what the
 operator needs to decide. Facts, inferences and hypotheses are marked as such.
 
-## Disposal policy and Phase 0 results, 2026-11-14
+## Plain KSP terms, multi-objective craft, and the physics range, 2026-11-14
 
 **Done.**
-- Recorded the operator's debris policy as rule R13 of the campaign plan. Every stage is
-  recovered, deorbited, given a second purpose such as a relay or a surface base, or as
-  a last resort logged with its orbit and state before deletion.
-- Added the operator's design principles for landers and stages to the campaign
-  sequence. They cover small solid motors paired with reaction control and small
-  throttleable engines, landers left behind on the strength of an analysis of return on
-  investment, and stages that serve as relays.
-- Ran Phase 0 experiments 3 and 4 in the sandbox. A held lockstep cycle of 15 calls fits
-  the game's 20 ms tick for one vessel. A kerbal outside the vessel took an
-  extravehicular report and a surface sample through kRPC, and kept both on boarding.
-- Updated R12 to the standing authority as it now stands.
-- Reworded one KSP word in `VTHL_PROGRAM.md` that the terms scan had missed, because
-  the gate ran before the new file was staged.
+- Returned the documents to the plain KSP words, such as "suborbital", "orbital
+  elements", "satellite deployment" and the names of the technology nodes, at the
+  operator's ruling not to talk around normal KSP terms.
+- Recorded the operator's view that craft meeting several objectives are the goal, and
+  that a lander left behind would need fitting to each contract's requirements.
+- Ran Phase 0 experiment 9 in part, and started experiment 10, in the sandbox. Recorded
+  the results in the design and the booster program.
 
-**Decided.** By the operator on 2026-11-14, the disposal policy and the design
-principles.
+**Decided.** By the operator on 2026-11-14, the plain use of KSP terms and the aim of
+craft that meet several objectives.
 
 **Verified.**
-- The Hard multiplier scales each subject's cap. An extravehicular report from the pad
-  had a cap of 1.44, which is 8 times 0.3 times 0.6.
-- The small motors and engines, and their nodes, were read from the game's data files.
-- `./scripts/check.sh` exits zero on this branch with every file staged, on macOS.
+- A non-active pod in Kerbin's atmosphere stayed loaded and off rails out to 12.7 km, and
+  was destroyed on impact rather than removed in flight.
+- kRPC stages only the active vessel, but lights an engine on another through the part.
+- kRPC's vessel list leaves out kerbals outside a vessel and asteroids, which the save
+  file lists.
+- `./scripts/check.sh`, with every file staged, and its scan of the full history both
+  exit zero on this branch, on macOS.
 
 **Not verified.**
-- Planting a flag. The kerbal's `PlantFlag` event was inactive on the pad and planted
-  nothing there.
-- Whether kRPC can delete a vessel, which R13's last resort needs.
-- The physics range of a separated stage, and several vessels at once.
+- Planting a flag. The trials so far planted nothing, as the save file shows.
+- Distances beyond 13 km, a raised physics range, and a held tick with two vessels.
 
-**For the operator.** The terms scan of the history now fails on that word in two
-published commits. The local note on the terms list has the details and a
-recommendation.
+**For the operator.** Bill Kerman is standing near the sandbox's launch pad, where kRPC
+cannot reach him. Recovering him from the Tracking Station tidies the sandbox.
