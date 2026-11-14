@@ -577,6 +577,9 @@ this installation.
 
 ### Proposed order
 
+[`CAMPAIGN_SEQUENCE.md`](CAMPAIGN_SEQUENCE.md) turns this order into stages with
+purchases, upgrades, science and funds, and governs where the two differ.
+
 1. **Space Center and sounding rockets, 0 to about 70 science.** Science on foot across
    the Space Center's small biomes, Mystery Goo and crew reports on short hops, then
    Engineering 101, Basic Rocketry, Survivability and Stability for instruments and

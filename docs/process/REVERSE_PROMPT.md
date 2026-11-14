@@ -6,31 +6,36 @@ A state file, overwritten whole after each task. It reports what was done, what 
 decided and by whom, what was verified and how, what was not verified, and what the
 operator needs to decide. Facts, inferences and hypotheses are marked as such.
 
-## Community practice, 2026-11-14
+## Campaign sequence, 2026-11-14
 
-**Done.**
-- Ran a short research pass on how experienced players approach career on Hard, at the
-  operator's request, and added its principles as an appendix of
-  [`docs/architecture/CAMPAIGN_PLAN.md`](../architecture/CAMPAIGN_PLAN.md).
-- Revised the technology order. The question of enough science now rests on the
-  official wiki's total, and the first landing goes to Minmus after a flyby of the Mun.
-- Added two kRPC questions to the front of Phase 0 in the handoff.
+**Done.** Wrote
+[`docs/architecture/CAMPAIGN_SEQUENCE.md`](../architecture/CAMPAIGN_SEQUENCE.md), the
+prospective plan the operator asked for. It holds the facility gates and costs, the
+early game as stages E0 to E6 with research, purchases, upgrades and expected science,
+a funds plan for leaving the first research window, rules for buying, a sketch of the
+stages after, and checkpoints. Linked it from the campaign plan and the architecture
+index.
 
-**Decided.** Nothing new. Both appendices are proposed.
+**Decided.** Nothing new. The sequence is proposed.
 
-**Verified.** `./scripts/check.sh` exits zero on this branch, on macOS. The research
-read the official wiki through its public interface and Steam community pages. It did
-not read Reddit or the official forum, which refused automated reading.
+**Verified.**
+- Node costs, part entry and unit costs, experiment values, strategy definitions and
+  the base rewards of world firsts and rescues were read from the installed game's data
+  files.
+- Two finished contracts' payouts were read from the existing Normal career save.
+- Facility costs and gates, biome lists, body multipliers and strategy rates were read
+  from the official wiki through its public interface.
+- The stage science was computed by a script, not by hand. `./scripts/check.sh` exits
+  zero on this branch, on macOS.
 
 **Not verified.**
-- Much community advice predates 1.12, and the wiki's total of science does not state
-  its version.
-- The wiki's facility costs were not cross-checked.
-- Whether kRPC can take samples, run reports and plant flags with a kerbal outside the
-  vessel is the largest open risk.
+- That the 60 percent reward scales each subject, the scientist level needed to reset
+  experiments, and the recalled antenna powers.
+- Whether a kerbal may leave a vessel in orbit at the first Astronaut Complex level.
+- The weights of world-first rewards, the launch costs, and whether the wiki's strategy
+  rates hold on Hard.
+- That converting science to funds leaves the subjects counted for C4.
 
-**For the operator.**
-- Principle 6 of the new appendix reads R2 and R9 as allowing a Keleusma loop to plan
-  its own transfers without the facility upgrades that manoeuvre nodes need. That could
-  defer a large expense. The operator may overrule it.
-- Otherwise nothing is blocking, and pull request 5 can be merged as it stands.
+**For the operator.** Nothing is blocking. The main uncertainty is the funds gap of
+about 0.9 to 1.0 million before the second level of Research and Development, which the
+first checkpoint measures.

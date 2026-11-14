@@ -16,16 +16,15 @@ completed, moved or abandoned.
   and the text on GitHub on 2026-11-13, and reported to the operator in session. The
   operator's rulings that belong in the record are in the charter, in item 10 and in
   its context paragraph.
-- **Campaign plan proposed.** On 2026-11-14 the operator asked for the game sequence.
-  [`docs/architecture/CAMPAIGN_PLAN.md`](../architecture/CAMPAIGN_PLAN.md) defines the
-  completion criteria, the rules of play, the constraints and seven phases. Its counts
-  come from a read-only pass over the installed game's data files, and its preset,
-  achievement and anomaly facts from the web. The operator answered all its questions
-  in three rounds the same day and called it final, and it was merged as pull request
-  4. Charter item 2 is amended, and the operator granted the standing authority to push
-  that `CLAUDE.md` now records. A proposed technology order followed as an appendix,
-  from the operator's points on aircraft, rocket planes, rovers and priorities, and
-  then an appendix of community practice on Hard from a short research pass.
+- **Campaign plan final.** [`CAMPAIGN_PLAN.md`](../architecture/CAMPAIGN_PLAN.md) holds
+  the criteria, rules, constraints and phases, settled by the operator on 2026-11-14
+  and merged in pull requests 4 and 5, with proposed appendices on technology order and
+  community practice. Charter item 2 is amended, and `CLAUDE.md` records the standing
+  authority to push.
+- **Sequence proposed.** [`CAMPAIGN_SEQUENCE.md`](../architecture/CAMPAIGN_SEQUENCE.md)
+  gives the early game as stages E0 to E6, with research, purchases, upgrades, science
+  and a funds plan, and checkpoints for recalibration. Its end-of-E0 measurements join
+  the Phase 0 questions below.
 - **The operator's aim.** A technology demonstrator for Keleusma, with no physical-world
   impact. Keleusma stream processors fly craft in Kerbal Space Program 1 through the
   kRPC mod, an MCP server exposes the same controls to agents, and the record documents
