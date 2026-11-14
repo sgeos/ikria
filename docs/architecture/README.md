@@ -5,4 +5,5 @@
 Narrative descriptions of the system, one file per component or concern. Mark each point
 as **Decided**, **Proposed** or **Open**, and say whether it is implemented.
 
-No documents yet.
+- [`OPEN_QUESTIONS.md`](OPEN_QUESTIONS.md): questions on the operator brief that must be
+  settled before the design document is final.
