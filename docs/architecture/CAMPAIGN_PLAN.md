@@ -352,6 +352,15 @@ The operator answered the first eight questions on 2026-11-14.
 
 No questions remain open.
 
+## Rulings, fourth set, 2026-11-14
+
+The operator asked for an engineering specification sheet for each vehicle, with a bill
+of materials, its Keleusma control loops and a history section. The operator also asked
+for tracked missions based on industry practice, each comparing the game with the real
+world, and for the program and its financials to be tracked as a serious space agency
+would. Vehicle sheets and mission documents each rest on their own blog article. This
+extends R8. [`AGENCY_RECORD.md`](AGENCY_RECORD.md) defines the record that follows.
+
 ## Appendix, Hard preset
 
 From the official wiki pages
@@ -576,6 +585,9 @@ the campaign rather than C1. Phase 0 replaces the wiki's figure with an exact to
 this installation.
 
 ### Proposed order
+
+[`CAMPAIGN_SEQUENCE.md`](CAMPAIGN_SEQUENCE.md) turns this order into stages with
+purchases, upgrades, science and funds, and governs where the two differ.
 
 1. **Space Center and sounding rockets, 0 to about 70 science.** Science on foot across
    the Space Center's small biomes, Mystery Goo and crew reports on short hops, then

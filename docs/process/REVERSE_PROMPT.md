@@ -6,31 +6,25 @@ A state file, overwritten whole after each task. It reports what was done, what 
 decided and by whom, what was verified and how, what was not verified, and what the
 operator needs to decide. Facts, inferences and hypotheses are marked as such.
 
-## Community practice, 2026-11-14
+## Agency record decided, 2026-11-14
 
 **Done.**
-- Ran a short research pass on how experienced players approach career on Hard, at the
-  operator's request, and added its principles as an appendix of
-  [`docs/architecture/CAMPAIGN_PLAN.md`](../architecture/CAMPAIGN_PLAN.md).
-- Revised the technology order. The question of enough science now rests on the
-  official wiki's total, and the first landing goes to Minmus after a flyby of the Mun.
-- Added two kRPC questions to the front of Phase 0 in the handoff.
+- Recorded in [`docs/architecture/AGENCY_RECORD.md`](../architecture/AGENCY_RECORD.md)
+  that the operator accepted the proposed additions to the record, and that the
+  methodology is to hold up to professional scrutiny. Added that standard as the
+  record's first principle, and marked the document set decided.
+- Asked the blog line for the article on program and financial management, at the
+  operator's approval. The articles on vehicle specification documents and on mission
+  planning and reporting were accepted by the blog line earlier the same day.
 
-**Decided.** Nothing new. Both appendices are proposed.
+**Decided.** By the operator on 2026-11-14, the article on program and financial
+management, the additions to the record, and the standard of rigour.
 
-**Verified.** `./scripts/check.sh` exits zero on this branch, on macOS. The research
-read the official wiki through its public interface and Steam community pages. It did
-not read Reddit or the official forum, which refused automated reading.
+**Verified.** The message reached the blog session's inbox. `./scripts/check.sh` exits
+zero on this branch, on macOS.
 
-**Not verified.**
-- Much community advice predates 1.12, and the wiki's total of science does not state
-  its version.
-- The wiki's facility costs were not cross-checked.
-- Whether kRPC can take samples, run reports and plant flags with a kerbal outside the
-  vessel is the largest open risk.
+**Not verified.** Whether the blog line takes up the third article, which its pilot
+confirms.
 
-**For the operator.**
-- Principle 6 of the new appendix reads R2 and R9 as allowing a Keleusma loop to plan
-  its own transfers without the facility upgrades that manoeuvre nodes need. That could
-  defer a large expense. The operator may overrule it.
-- Otherwise nothing is blocking, and pull request 5 can be merged as it stands.
+**For the operator.** Nothing is blocking. Pull request 6 holds the campaign sequence
+and the agency record.

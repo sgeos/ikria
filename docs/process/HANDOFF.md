@@ -7,25 +7,25 @@ flight, why, what is owed and the next step, within a budget of 8 KB. History li
 git. A rewrite that drops an open item says in its commit message whether the item was
 completed, moved or abandoned.
 
-## State on 2026-11-13
+## State on 2026-11-14
 
 - **Seeded** by the admin session from `sgeos/project-template` at `3954eba`, tag
   `v1.0.8`. Nothing is implemented. The public repository is
   `https://github.com/sgeos/ikria`.
-- **Seed review done.** The receiving line reviewed the tracked files, the full history
-  and the text on GitHub on 2026-11-13, and reported to the operator in session. The
-  operator's rulings that belong in the record are in the charter, in item 10 and in
-  its context paragraph.
-- **Campaign plan proposed.** On 2026-11-14 the operator asked for the game sequence.
-  [`docs/architecture/CAMPAIGN_PLAN.md`](../architecture/CAMPAIGN_PLAN.md) defines the
-  completion criteria, the rules of play, the constraints and seven phases. Its counts
-  come from a read-only pass over the installed game's data files, and its preset,
-  achievement and anomaly facts from the web. The operator answered all its questions
-  in three rounds the same day and called it final, and it was merged as pull request
-  4. Charter item 2 is amended, and the operator granted the standing authority to push
-  that `CLAUDE.md` now records. A proposed technology order followed as an appendix,
-  from the operator's points on aircraft, rocket planes, rovers and priorities, and
-  then an appendix of community practice on Hard from a short research pass.
+- **Seed review done** on 2026-11-13. The public rulings are in charter item 10.
+- **Campaign plan final.** [`CAMPAIGN_PLAN.md`](../architecture/CAMPAIGN_PLAN.md) holds
+  the criteria, rules, constraints and phases, settled by the operator on 2026-11-14
+  and merged in pull requests 4 and 5, with proposed appendices on technology order and
+  community practice. Charter item 2 is amended, and `CLAUDE.md` records the standing
+  authority to push.
+- **Sequence proposed.** [`CAMPAIGN_SEQUENCE.md`](../architecture/CAMPAIGN_SEQUENCE.md)
+  gives the early game as stages E0 to E6, with research, purchases, upgrades, science
+  and a funds plan, and checkpoints for recalibration. Its end-of-E0 measurements join
+  the Phase 0 questions below.
+- **Record decided.** [`AGENCY_RECORD.md`](../architecture/AGENCY_RECORD.md) defines
+  the agency's documents, from vehicle sheets and mission plans to program and
+  financial records. The operator decided its scope on 2026-11-14, and its methodology
+  is to hold up to professional scrutiny. Formats wait for the blog articles.
 - **The operator's aim.** A technology demonstrator for Keleusma, with no physical-world
   impact. Keleusma stream processors fly craft in Kerbal Space Program 1 through the
   kRPC mod, an MCP server exposes the same controls to agents, and the record documents
@@ -78,9 +78,6 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
   craft with PhysicsRangeExtender.
 - **Determinism** is a result to measure, not an assumption. KSP slows the simulation
   under load rather than taking larger physics steps, so records use game time.
-- **Mastery checklists.** KSP has no Steam achievements. Its own records are the
-  progress milestones ("world firsts") and the science archive by body, situation and
-  biome, both in `saves/<name>/persistent.sfs`.
 
 ## Environment
 
@@ -132,10 +129,9 @@ Report any check not run, and any commit after the one that last rewrote this fi
 
 ## Mailbox
 
-None assigned. On 2026-11-14 this line asked the blog line, through a message to its
-running Claude Code session, to research and publish the incident report standards
-that rule R11 of the campaign plan needs. The blog line replied the same day that it
-had begun the research and reported the request to its pilot. It will send the commit
-and path when the draft is complete, and the article becomes citable once the pilot
-approves publication. Before the first incident report, ask the operator whether it
-exists. The blog line does not use the Keleusma interline mailbox.
+None assigned. The blog line does not use the Keleusma interline mailbox, so this line
+messages its running Claude Code session. On 2026-11-14 it asked for articles on
+incident reports, drafted as A391 and unpublished, and on vehicle specification sheets
+and mission documents, and on program and financial management. The
+templates follow the published articles. Before writing the first of each document,
+ask the operator whether its article exists.
