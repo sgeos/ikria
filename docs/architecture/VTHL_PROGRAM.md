@@ -90,7 +90,10 @@ stage E2 of [`CAMPAIGN_SEQUENCE.md`](CAMPAIGN_SEQUENCE.md).
    stage climbing away. kRPC's `vessel.physics_range` raises one vessel's range, but it
    costs performance and accumulates positional error *(read by the admin
    session in the kRPC client's documentation)*. This is the program's main technical risk.
-   Phase 0 tests it before any design work depends on it.
+   Phase 0 tests it before any design work depends on it. *Measured 2026-11-14.* A
+   non-active vessel in Kerbin's atmosphere stayed loaded and off rails out to 12.7 km
+   with the game's default settings. Return distances beyond that, and a raised
+   `physics_range`, are still to be tested.
 2. **Two loops at once.** Both vessels need a loop stepped every tick in lockstep. The
    harness design allows it, and Phase 0 measures its cost.
 3. **The landing itself.** A runway landing under automated control is the hardest
@@ -99,6 +102,9 @@ stage E2 of [`CAMPAIGN_SEQUENCE.md`](CAMPAIGN_SEQUENCE.md).
 4. **Loss of a booster.** A booster lost on return costs its value, but no crew, since
    boosters fly uncrewed. A lost booster in the career is documented, and an incident
    report is written only if R11 requires one.
+5. **Staging after separation.** *Measured 2026-11-14.* kRPC stages only the active
+   vessel. The booster's return is therefore commanded through its parts, which kRPC
+   allows for a vessel that is not active.
 
 ## Control routines
 
@@ -125,7 +131,7 @@ Each step is qualified in the sandbox under R4 before it flies in the career.
 | V1 | The aircraft program's runway aircraft | Takeoff, approach, flare and rollout under Keleusma control |
 | V2 | A booster airframe dropped from a carrier aircraft, or launched short of separation altitude | Glide, energy management and landing of the booster shape |
 | V3 | A full booster with a dummy upper stage, separating low and slow, with a turnaround | Ascent, separation, two vessels at once, the return |
-| V4 | A booster lifting a working upper stage on a flight short of orbit | The first booster that pays for itself in the career |
+| V4 | A booster lifting a working upper stage on a suborbital flight | The first booster that pays for itself in the career |
 | V5 | A booster lifting an upper stage to orbit, with turnaround and once-around variants | The standard launcher of the early game |
 
 Steps V1 to V3 fly in the sandbox only. Steps V4 and V5 fly in the career once

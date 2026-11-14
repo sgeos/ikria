@@ -56,11 +56,12 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
 
 1. Run the remaining Phase 0 experiments of
    [`HARNESS_DESIGN.md`](../architecture/HARNESS_DESIGN.md) in the sandbox save. Still
-   open are 3 for several vessels, 4 for a flag off the pad, and 5, 6, 9 and 10.
-   Experiment 9, the physics range of a separated stage, is the main risk of the booster
-   program in [`VTHL_PROGRAM.md`](../architecture/VTHL_PROGRAM.md). The sandbox holds the
-   test craft `IkriaT0`, a copy of the stock Jumping Flea. The Python client 0.7.0 is
-   in `tmp/krpc-venv` and the probes in `tmp/`, both local scratch.
+   open are 3 and 10 for several vessels in a held tick, 4 for a flag by a kerbal
+   standing clear, 9 beyond 13 km and with a raised range, and 5 and 6 in the career.
+   The sandbox holds the test craft `IkriaT0`, a copy of the stock Jumping Flea. Bill
+   Kerman was left standing near the pad there, and kRPC cannot reach him, so the
+   operator was asked to recover him from the Tracking Station. The Python client 0.7.0
+   is in `tmp/krpc-venv` and the probes in `tmp/`, both local scratch.
 2. Define the first milestone in `docs/roadmap/`, which the plan sets as Phase 0, and
    the record crate that the bridge repository waits on.
 

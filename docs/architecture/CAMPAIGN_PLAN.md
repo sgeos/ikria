@@ -64,7 +64,7 @@ the operator on 2026-11-14.
 | C11 | At least two pilots, two engineers and two scientists at the highest rank | Yes, per kerbal | Save file, crew roster | Decided |
 | C12 | A crewed landing and return on every body with a surface | Yes, as world firsts | Save file, progress tracking | Decided |
 | C13 | Every anomaly visited, including the Green Monolith on each body | Partly | Save file and Ikria ledger | Decided |
-| C14 | A resource survey from orbit of every body | Partly | Save file and Ikria ledger | Decided |
+| C14 | An orbital resource survey of every body | Partly | Save file and Ikria ledger | Decided |
 | C15 | An asteroid captured, and a sample from every comet class that appears | Partly | Save file and Ikria ledger | Decided |
 | C16 | Every launch site flown from in the sandbox, including the Making History sites, and landed at in the career | No | Ikria ledger | Decided, as amended by O9 |
 | C17 | Every strategy in the Administration Building run once | No | Ikria ledger | Decided |
@@ -246,7 +246,7 @@ the operator on 2026-11-14.
      analysis of return on investment in the mission plan.
   4. **Logged, then deleted,** only when none of the above is possible. Before deletion
      the record logs the object's name, the body it orbits, the game time of the log,
-     its orbit elements at that time, which are the semi-major axis, eccentricity,
+     its orbital elements at that time, which are the semi-major axis, eccentricity,
      inclination, longitude of the ascending node, argument of periapsis and mean
      anomaly, its position and velocity in that body's inertial frame, its mass, and the
      reason. That is enough for textbook two-body propagation to give its nominal
@@ -298,7 +298,7 @@ the operator on 2026-11-14.
    normal and lets terrain and atmosphere block the signal fully *(web)*. Under R3 a
    relay network must precede every deep uncrewed mission.
 7. **Launch windows gate departures.** Transfers to other planets open at intervals set
-   by each pair of orbits. The calendar is computed from the orbit elements the game
+   by each pair of orbits. The calendar is computed from the orbital elements the game
    itself reports through kRPC, rather than from published tables. The order of the
    interplanetary phases follows that calendar.
 8. **Science per subject rises with distance.** The bodies far from Kerbin pay more per
@@ -314,7 +314,7 @@ exit condition is what the roadmap's milestones will test.
 | Phase | Work | Exit condition |
 |---|---|---|
 | 0, ground work | Build the bridge, the harness and the records of R7 and R8. Create the career save "Ikria Automated Space Agency" on Hard and the sandbox save "Ikria Simulated Research and Development", and record the Hard preset's full settings from the new career save. Match the sandbox settings to the career's. Enumerate bodies, biomes, situations, experiments, parts, progress nodes and facility gates from the running game, as the baseline of the completion ledger. | The ledger lists every subject, part and progress node, and the harness flies a qualification profile in the sandbox. |
-| 1, Kerbin | Science at the Space Center's biomes and in Kerbin's situations. Flights short of orbit, the first orbit, the first extravehicular activity, the record contracts, the first upgrades. | Crewed orbit and return, and Kerbin's near-space subjects collected. |
+| 1, Kerbin | Science at the Space Center's biomes and in Kerbin's situations. Suborbital flights, the first orbit, the first extravehicular activity, the record contracts, the first upgrades. | Crewed orbit and return, and Kerbin's near-space subjects collected. |
 | 2, Mun and Minmus | Uncrewed flyby, orbit and landing, then crewed landing and return on both. Begin biome-by-biome science. | Crewed returns from both, and the 160 tier of the tree within reach. |
 | 3, infrastructure | A relay network around Kerbin, a station with a science laboratory, docking, a fuel depot and refuelling in orbit, and resource extraction on Minmus. | Refuelling demonstrated, and the laboratory in operation. |
 | 4, inner planets | Duna and Ike, Eve and Gilly, Moho, each with relays, uncrewed precursors, then crewed landings and returns. | Crewed returns from Duna, Ike, Gilly and Moho. The crewed return from Eve may move to Phase 6. |
@@ -462,7 +462,7 @@ so this map takes the strictest reading, a crewed landing and return.
 | 15 flyby trophies, including Kerbin, and the Eeloo flyby trophy | First flyby of the body | C8 |
 | Look Ma, No Tractor Beams! | First docking | C8 |
 | Here Comes the Kerbalry, and The Right Kind of Pilot | Recover the first crew, and reach space and land safely | C8 |
-| Let Me Play Among the Stars | First uncrewed vessel in orbit, by its title | C8 or C5, to be confirmed |
+| Let Me Play Among the Stars | First satellite | C8 or C5, to be confirmed |
 | Failure is Not an Option | First Moho landing | C8 |
 | Ground Control | First landing at the Space Center | C8 |
 | Mun Rover, Mun Rover | First rover drive | C3 |
@@ -538,7 +538,7 @@ From the official wiki pages
 
 | Body | Fixed anomalies |
 |---|---|
-| Kerbin | Five monoliths, the inland second space center, the desert pyramid, the polar crashed vessel, the Island Airfield hangar, the seabed face, a crashed early probe, and an early liquid-fuel rocket |
+| Kerbin | Five monoliths, the inland second space center, the desert pyramid, the polar crashed vessel, the Island Airfield hangar, the seabed face, a crashed satellite, and an early liquid-fuel rocket |
 | Mun | Three monoliths, three rock arches, one of which has changed in 1.12.5, a memorial, and a crashed vessel |
 | Minmus | One monolith |
 | Duna | A face, a camera mast, a pyramid, and a stranded rover |
@@ -561,9 +561,9 @@ From the official wiki page [Contract](https://wiki.kerbalspaceprogram.com/wiki/
 whose list was last checked against version 1.3, with later types from the game's own
 change logs, read on 2026-11-14. The game's contract configuration names 19 groups
 *(files)*. These are asteroid recovery, outpost construction, flag planting, grand tour,
-resource extraction, world firsts, rescue and recovery, probe deployment to set orbits, science,
+resource extraction, world firsts, rescue and recovery, satellite deployment, science,
 sentinel, comet detection, station construction, survey, part testing, tourism, comet
-samples, rover construction, vessel repair, and construction in orbit. Breaking Ground
+samples, rover construction, vessel repair, and orbital construction. Breaking Ground
 adds deployed science and surface feature contracts *(web)*. Making History appears to
 add no career contracts *(web)*.
 
@@ -571,7 +571,7 @@ add no career contracts *(web)*.
 
 **Proposed, 2026-11-14.** This appendix orders the technology tree within the phases.
 The operator raised four points on 2026-11-14. These were simple aircraft for science
-around Kerbin, a rocket plane program short of orbit, the parts for an early rover
+around Kerbin, a suborbital rocket plane program, the parts for an early rover
 program, and priority for science parts and for parts that allow remote control of
 uncrewed craft. Node contents and costs are *(files)*. The minimum cost of a node is
 the science of the cheapest path to it from the start.
@@ -599,8 +599,8 @@ the science of the cheapest path to it from the start.
 | Advanced Science Tech | 550 | 1,165 | The gravity detector, the large scanning arm, the drills. |
 
 **Findings.**
-- **Aircraft are early.** A working aircraft needs Aviation, at 68 science. A rocket
-  plane that flies short of orbit needs the same node and a liquid engine. Both land on
+- **Aircraft are early.** A working aircraft needs Aviation, at 68 science. A suborbital
+  rocket plane needs the same node and a liquid engine. Both land on
   the runway, so most of their cost is recovered, which matters while funds bind.
 - **Rovers are not available at the start.** The first powered wheel comes at 155
   science. Aircraft landing gear has no motor. Until then, ground science at the Space
@@ -647,9 +647,9 @@ purchases, upgrades, science and funds, and governs where the two differ.
 1. **Space Center and sounding rockets, 0 to about 70 science.** Science on foot across
    the Space Center's small biomes, Mystery Goo and crew reports on short hops, then
    Engineering 101, Basic Rocketry, Survivability and Stability for instruments and
-   flights short of orbit. The record contracts pay funds here.
+   suborbital flights. The record contracts pay funds here.
 2. **Aircraft and rocket planes, from 68 science.** Aviation, then an aircraft program
-   that lands in Kerbin's biomes and a rocket plane program short of orbit. Basic
+   that lands in Kerbin's biomes and a suborbital rocket plane program. Basic
    Science follows at once for the first probe core, so that remotely flown aircraft
    carry the instruments.
 3. **First orbit and the Mun and Minmus, from about 150 science.** General Rocketry,
