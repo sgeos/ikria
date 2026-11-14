@@ -229,11 +229,29 @@ the operator on 2026-11-14.
 - **R12, operator attention.** *Decided.* The operator wants the campaign to need as
   little attention as possible. The line therefore works without asking, and reports
   through the record. The operator is needed only for three things. These are confirming
-  a defect before a restore under R10, the outward actions the repository rules reserve,
-  such as merging, and changes to these criteria and rules. The operator granted a
-  standing authority on 2026-11-14 to push routine documentation and record pull
-  requests, which `CLAUDE.md` defines. Requests are batched where the work allows,
-  such as one merge per milestone.
+  a defect before a restore under R10, the outward actions the repository rules still
+  reserve, such as force-pushing, settings and releases, and changes to these criteria
+  and rules. The operator granted on 2026-11-14 a standing authority to push and merge,
+  for code and documentation alike, in this repository and the bridge's, which
+  `CLAUDE.md` defines.
+- **R13, disposal and debris.** *Decided by the operator, 2026-11-14.* Debris in orbit is
+  to be limited. Every stage and vehicle has a disposal plan in its specification sheet
+  and its mission plan, chosen in this order.
+  1. **Recovered,** on the runway, the pad or elsewhere on Kerbin.
+  2. **Deorbited,** into an atmosphere or onto a surface, to the extent possible.
+  3. **Given a second purpose.** A spent stage in orbit that carries solar panels,
+     batteries and relay hardware, and serves as a relay, is infrastructure and not
+     debris. A lander left on a surface may serve the same way, and may stand as a
+     historical base. Leaving a lander or a stage for a second purpose rests on an
+     analysis of return on investment in the mission plan.
+  4. **Logged, then deleted,** only when none of the above is possible. Before deletion
+     the record logs the object's name, the body it orbits, the game time of the log,
+     its orbit elements at that time, which are the semi-major axis, eccentricity,
+     inclination, longitude of the ascending node, argument of periapsis and mean
+     anomaly, its position and velocity in that body's inertial frame, its mass, and the
+     reason. That is enough for textbook two-body propagation to give its nominal
+     position after the game stops tracking it, until it would leave the body's sphere
+     of influence. The entry says so if that would happen.
 
 ## Constraints that order the campaign
 

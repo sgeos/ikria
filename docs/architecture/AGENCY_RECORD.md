@@ -65,7 +65,7 @@ the agency records, why, from what data, and where. It extends rules R7, R8 and 
 | Program status report | Kerbin year of game time | At each year's end | All of the above | Blog article on program and financial management, requested 2026-11-14 | Decided |
 | Financial ledger and statements | Transaction, and per mission and per year | Continuously, and summarized per mission and per year | Funds read through kRPC and the save file | Same program and financial article | Decided |
 | Launch manifest and master schedule | Campaign | Revised at each planning cycle | Plan, sequence, launch windows | Same program and financial article | Decided |
-| Fleet and object registry | Vessel or object | At launch, and at each change of state | Save file, kRPC | Practice of national registries of launched objects *(recall)* | Decided |
+| Fleet and object registry | Vessel or object | At launch, at each change of state, and before any deletion under R13 | Save file, kRPC | Practice of national registries of launched objects *(recall)* | Decided |
 | Crew records | Kerbal | At hire or rescue, after every flight | Save file roster | To be researched | Decided |
 | Science ledger | Subject | After every recovery or transmission | Save file science subjects | C4 | Decided |
 | Configuration and software catalogue | Craft file and Keleusma program version | At each change | Repository, hashes under R7 | Configuration management practice, and the vehicle article | Decided |
@@ -91,7 +91,9 @@ the agency records, why, from what data, and where. It extends rules R7, R8 and 
    stepping rate, the aborts each can command, and how failures are handled.
 7. **Qualification.** Sandbox flights under R4, with their results, and the pad check.
 8. **Flight history.** Every career flight of the design, with its outcome.
-9. **History.** When a comparable vehicle could first have been built in the real world,
+9. **Disposal.** What becomes of each stage under rule R13 of the campaign plan, which
+   may be recovery, deorbit, a second purpose such as a relay, or a logged deletion.
+10. **History.** When a comparable vehicle could first have been built in the real world,
    with its closest historical counterparts. Also the differences between the game's
    parts and real hardware that the comparison depends on, such as the scale of the
    planets, the density of parts and the absence of component failures.

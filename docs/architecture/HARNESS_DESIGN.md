@@ -259,8 +259,8 @@ Each answers a question this design depends on. All run in the sandbox save.
 |---|---|
 | 1. Connection and scene | **Done.** The Python client 0.7.0 connected to server 0.7.0 once the sandbox save was loaded, and read the scene as the Space Center. A plain call took about 0.26 ms there. |
 | 2. Tick hold and rate | **Done in part.** `hold_tick` with `next_tick` stepped exactly 0.02 s of game time per tick, so 50 ticks per second, at about 19.9 ms of wall time per held cycle at the Space Center. Its cost with vessels in flight is still to be measured. |
-| 3. Stepping rate | Open. Needs a vessel in flight. |
-| 4. Extravehicular activity | Open. Needs a vessel in flight. |
+| 3. Stepping rate | **Done for one vessel on the pad.** A held cycle of 15 calls, reading telemetry and writing the controls, took a median of 19.7 ms, 26.9 ms at the 95th percentile and 49.6 ms at most, against the game's 20 ms tick. Several vessels, and vessels in flight, are still to be measured. |
+| 4. Extravehicular activity | **Done in part.** `CrewMember.eva` put a kerbal on the pad. The kerbal's `evaReport` and `surfaceSample` experiments ran through `Experiment.run`, and boarding again with `Control.board` stored both results in the pod's container. kRPC has no call to plant a flag, but the kerbal's own module exposes a `PlantFlag` event. Triggering it on the pad, where it was inactive, planted nothing, so a flag is still to be tried off the pad. Reading `available` on the surface-feature experiment `ROCScience` raised a null reference inside kRPC, which is a defect in kRPC. |
 | 5. Facility gates | Open. Needs the career save, read only, or a career-mode test. |
 | 6. Funds reasons | Open. Needs the career save. |
 | 7. Inventory | **Done in part.** The game reports 17 bodies and 145 biomes between them, without the Space Center's location biomes. The science subjects follow once the experiments' situations are combined with these lists. |
