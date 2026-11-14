@@ -93,7 +93,8 @@ stage E2 of [`CAMPAIGN_SEQUENCE.md`](CAMPAIGN_SEQUENCE.md).
    Phase 0 tests it before any design work depends on it. *Measured 2026-11-14.* A
    non-active vessel in Kerbin's atmosphere stayed loaded and off rails out to 12.7 km
    with the game's default settings. Return distances beyond that, and a raised
-   `physics_range`, are still to be tested.
+   `physics_range`, are tested at development step V3, which is the first vehicle that
+   can hold its own attitude while a separated stage flies far from it.
 2. **Two loops at once.** Both vessels need a loop stepped every tick in lockstep. The
    harness design allows it, and Phase 0 measures its cost.
 3. **The landing itself.** A runway landing under automated control is the hardest

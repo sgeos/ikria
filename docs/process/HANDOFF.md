@@ -54,16 +54,15 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
 
 ## Next step
 
-1. Run the remaining Phase 0 experiments of
-   [`HARNESS_DESIGN.md`](../architecture/HARNESS_DESIGN.md) in the sandbox save. Still
-   open are 3 and 10 for several vessels in a held tick, 4 for a flag by a kerbal
-   standing clear, 9 beyond 13 km and with a raised range, and 5 and 6 in the career.
-   The sandbox holds the test craft `IkriaT0`, a copy of the stock Jumping Flea. Bill
-   Kerman was left standing near the pad there, and kRPC cannot reach him, so the
-   operator was asked to recover him from the Tracking Station. The Python client 0.7.0
-   is in `tmp/krpc-venv` and the probes in `tmp/`, both local scratch.
-2. Define the first milestone in `docs/roadmap/`, which the plan sets as Phase 0, and
-   the record crate that the bridge repository waits on.
+1. Define the first milestone in `docs/roadmap/`, which the plan sets as Phase 0, with
+   the record crate that the bridge repository waits on, the harness skeleton, and the
+   science ledger from the subject count in `tmp/science_subjects.py`.
+2. Phase 0 experiments 5 and 6, on facility gates and funds reasons, need the career
+   save. Ask the operator before touching it, since Hard allows no revert. Experiment 9
+   beyond 13 km moves to the booster's step V3, and experiment 8 needs harness code.
+   The sandbox holds the test craft `IkriaT0` and `IkriaT1`, copies of stock craft, and
+   one planted flag. The Python client 0.7.0 is in `tmp/krpc-venv` and the probes in
+   `tmp/`, both local scratch.
 
 ## Open
 

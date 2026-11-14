@@ -6,32 +6,31 @@ A state file, overwritten whole after each task. It reports what was done, what 
 decided and by whom, what was verified and how, what was not verified, and what the
 operator needs to decide. Facts, inferences and hypotheses are marked as such.
 
-## Plain KSP terms, multi-objective craft, and the physics range, 2026-11-14
+## Phase 0 in the sandbox, 2026-11-14
 
-**Done.**
-- Returned the documents to the plain KSP words, such as "suborbital", "orbital
-  elements", "satellite deployment" and the names of the technology nodes, at the
-  operator's ruling not to talk around normal KSP terms.
-- Recorded the operator's view that craft meeting several objectives are the goal, and
-  that a lander left behind would need fitting to each contract's requirements.
-- Ran Phase 0 experiment 9 in part, and started experiment 10, in the sandbox. Recorded
-  the results in the design and the booster program.
+**Done.** Finished the sandbox side of Phase 0, apart from experiment 9, and recorded
+the results in [`HARNESS_DESIGN.md`](../architecture/HARNESS_DESIGN.md).
+- **Experiment 4, the flag.** A kerbal that releases the ladder, stands clear and
+  carries a flag can plant it through the `PlantFlag` event of its own module.
+- **Experiment 10, two vessels.** A held cycle reading and commanding two vessels fits
+  the 20 ms tick.
+- **Experiment 7, inventory.** It counts about 3,100 science subjects, worth about
+  218,000 science on Hard.
+- **Experiment 9.** It moves to the booster's development step V3, since it needs a
+  vehicle that holds its own attitude far from the active vessel.
 
-**Decided.** By the operator on 2026-11-14, the plain use of KSP terms and the aim of
-craft that meet several objectives.
+**Decided.** Nothing new.
 
-**Verified.**
-- A non-active pod in Kerbin's atmosphere stayed loaded and off rails out to 12.7 km, and
-  was destroyed on impact rather than removed in flight.
-- kRPC stages only the active vessel, but lights an engine on another through the part.
-- kRPC's vessel list leaves out kerbals outside a vessel and asteroids, which the save
-  file lists.
-- `./scripts/check.sh`, with every file staged, and its scan of the full history both
-  exit zero on this branch, on macOS.
+**Verified.** Each result above was observed in the sandbox save on 2026-11-14. The flag
+was confirmed in the save file. `./scripts/check.sh` exits zero on this branch with
+every file staged, on macOS.
 
 **Not verified.**
-- Planting a flag. The trials so far planted nothing, as the save file shows.
-- Distances beyond 13 km, a raised physics range, and a held tick with two vessels.
+- The subject count rests on stated assumptions and differs from the wiki's total by
+  8 percent.
+- Experiments 5 and 6 need the career save.
 
-**For the operator.** Bill Kerman is standing near the sandbox's launch pad, where kRPC
-cannot reach him. Recovering him from the Tracking Station tidies the sandbox.
+**For the operator.**
+- Whether experiments 5 and 6 may run in the career save. They would roll a craft out to
+  the pad and recover it at once, which refunds it in full.
+- The sandbox has one planted flag, which kRPC cannot reach.
