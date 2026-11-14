@@ -16,6 +16,11 @@ completed, moved or abandoned.
   and the text on GitHub on 2026-11-13, and reported to the operator in session. The
   operator's rulings that belong in the record are in the charter, in item 10 and in
   its context paragraph.
+- **Campaign plan proposed.** On 2026-11-14 the operator asked for the game sequence.
+  [`docs/architecture/CAMPAIGN_PLAN.md`](../architecture/CAMPAIGN_PLAN.md) defines the
+  completion criteria, the rules of play, the constraints and seven phases, and ends
+  with eight open questions. Its counts come from a read-only pass over the installed
+  game's data files, and its preset, achievement and anomaly facts from the web.
 - **The operator's aim.** A technology demonstrator for Keleusma, with no physical-world
   impact. Keleusma stream processors fly craft in Kerbal Space Program 1 through the
   kRPC mod, an MCP server exposes the same controls to agents, and the record documents
@@ -44,13 +49,17 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
 
 ## Next step
 
-1. Draft a design document in `docs/architecture/` for the operator to review. It should
+1. Have the operator settle the open questions of `CAMPAIGN_PLAN.md`. Q1 is the most
+   consequential, because the Hard preset disables the quickloads and reverts that
+   charter item 2 allows.
+2. Draft a design document in `docs/architecture/` for the operator to review. It should
    cover the Rust host that embeds Keleusma, the record types for telemetry in and
    commands out, the stepping contract between host and script, and the MCP tools. Keep
    KSP types behind the bridge, so that the harness and the MCP tools can be tested
    against a scripted host without the game running. That rationale is this line's
    recommendation, not an operator ruling.
-2. Define the first milestone in `docs/roadmap/` once the design is approved.
+3. Define the first milestone in `docs/roadmap/` once the design is approved. The
+   plan proposes that it be Phase 0, the ground work.
 
 ## Open
 
@@ -101,6 +110,9 @@ Observed by the admin session on 2026-11-13.
   - `control.board()` boards only through a hatch the kerbal already stands at.
   - The jetpack and helmet lamp switch only for the active vessel.
   - Flags and carried items were not checked.
+- **Observed 2026-11-14.** The game was not running, and the system Python has no kRPC
+  client, so the body and biome lists could not be read. A career save named "Rookie"
+  exists on the Normal preset, beside the sandbox save.
 
 ## Validity
 
