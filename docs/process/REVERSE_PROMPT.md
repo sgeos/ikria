@@ -6,25 +6,35 @@ A state file, overwritten whole after each task. It reports what was done, what 
 decided and by whom, what was verified and how, what was not verified, and what the
 operator needs to decide. Facts, inferences and hypotheses are marked as such.
 
-## Design decisions, 2026-11-14
+## Bridge repository and first Phase 0 results, 2026-11-14
 
 **Done.**
-- Recorded the operator's decisions in
-  [`docs/architecture/HARNESS_DESIGN.md`](../architecture/HARNESS_DESIGN.md). The
-  layout is three processes, and the bridge lives in a separate GPL-3.0 repository
-  using `krpc-client`.
-- Recorded the ruling on O9 in the campaign plan's fifth set of rulings, and amended
-  C16 to match.
+- Created and seeded `sgeos/ikria-bridge` at the operator's instruction. It was made
+  from `sgeos/project-template` v1.0.8 and licensed GPL-3.0-only.
+  - Worked through the template's checklist, recorded the scope decision, and wrote the
+    first handoff.
+  - Applied the repository settings, made it public after the scans, and activated the
+    default-branch ruleset.
+- Ran Phase 0 experiments 1, 2 and 7 in part, in the sandbox save only, and recorded
+  the results in [`HARNESS_DESIGN.md`](../architecture/HARNESS_DESIGN.md).
 
-**Decided.** By the operator on 2026-11-14, D1, D2 and O9.
+**Decided.** By the operator on 2026-11-14, the bridge repository, its visibility and
+its seeding by this line.
 
-**Verified.** `./scripts/check.sh` exits zero on this branch, on macOS. The kRPC server
-was still not reachable when checked, so no experiment has run.
+**Verified.**
+- The bridge's gate passed locally, and its CI passed on the seed commit.
+- The terms scan covered the bridge's whole history, and a pattern search found no
+  credentials in the seed.
+- The kRPC connection, the tick rate of 50 per second, the tick hold, and the list of
+  17 bodies and 145 biomes were read from the running game.
+- `./scripts/check.sh` exits zero on this branch, on macOS.
 
-**Not verified.** Everything the Phase 0 experiments are to measure.
+**Not verified.**
+- No credential scanner such as `gitleaks` was run, since none is installed. The
+  bridge's history holds only the template's commit and the seed.
+- The experiments that need a vessel in flight have not run.
 
 **For the operator.**
-- Who creates the bridge repository, and whether it is public like this one. This line
-  can create it from `sgeos/project-template` on the operator's word, or the admin line
-  can, as it seeded this repository.
-- Loading the sandbox save, so that the experiments can run.
+- Whether the bridge should be GPL-3.0-only, as seeded, or GPL-3.0-or-later.
+- Dependabot's pull request 1 in the bridge, the same update Ikria merged, awaits a
+  merge.
