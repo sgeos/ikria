@@ -125,7 +125,7 @@ Each step is qualified in the sandbox under R4 before it flies in the career.
 | V1 | The aircraft program's runway aircraft | Takeoff, approach, flare and rollout under Keleusma control |
 | V2 | A booster airframe dropped from a carrier aircraft, or launched short of separation altitude | Glide, energy management and landing of the booster shape |
 | V3 | A full booster with a dummy upper stage, separating low and slow, with a turnaround | Ascent, separation, two vessels at once, the return |
-| V4 | A booster lifting a working upper stage on a suborbital flight | The first booster that pays for itself in the career |
+| V4 | A booster lifting a working upper stage on a flight short of orbit | The first booster that pays for itself in the career |
 | V5 | A booster lifting an upper stage to orbit, with turnaround and once-around variants | The standard launcher of the early game |
 
 Steps V1 to V3 fly in the sandbox only. Steps V4 and V5 fly in the career once

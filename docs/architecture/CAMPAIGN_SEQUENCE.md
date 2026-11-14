@@ -69,8 +69,11 @@ together need about 14.2 million funds before any launch is paid for.
 ## Stages of the early game
 
 The science column is the first collection of each subject at its base value, from the
-game's experiment values and the wiki's multipliers. Hard is taken as 60 percent of
-Normal, on the assumption that the reward multiplier scales each subject *(recall)*.
+game's experiment values and the wiki's multipliers. Hard is 60 percent of Normal,
+because the reward multiplier scales each subject's cap. That was measured on
+2026-11-14 in the sandbox, which is on the Hard preset. An extravehicular report from
+the launch pad had a cap of 1.44, which is its base of 8 times Kerbin's landed
+multiplier of 0.3 times 0.6.
 Cumulative research assumes every listed node is taken.
 
 | Stage | Research, cumulative cost | Buy | Upgrade | Science, Hard | Exit |
@@ -151,6 +154,28 @@ rescues, or a mix. The booster lowers the launch costs in the table, which narro
 gap. *Inference.* This is achievable within E1 to E5 if Mission Control is upgraded
 early, the booster flies early, and rescues are available. It is the main uncertainty
 of the early game.
+
+## Design principles for landers and stages
+
+The operator set these out on 2026-11-14.
+
+- **Shed the bulk before the ascent.** On a body with low gravity, a lander can leave its
+  heavy descent stage on the surface and lift only a small science and command module,
+  either to orbit for docking or straight onto a transfer home. Small solid motors can
+  give enough Δv for that there. *(files)* Kerbal Space Program 1 has them. The FM1
+  Mite sits in a 90-science node, inside the first research window, and the Sepratron I
+  and the F3S0 Shrimp sit in 160-science nodes.
+- **Pair the solids with control.** The more realistic design pairs small solid motors
+  with reaction control and small engines that can be throttled. *(files)* The Ant and
+  the Spark, and the RV-105 thruster block, are in 90-science nodes. The Spider, the
+  Twitch and the Puff are in 160-science nodes.
+- **Leave what earns its place.** A lander left on a surface is acceptable when an
+  analysis of return on investment supports it. Fitted with solar panels, batteries and
+  relay hardware, it becomes a surface relay or a historical base under rule R13 of the
+  campaign plan. *Inference.* A left lander with the right equipment may also meet
+  outpost contracts and the world first for a base.
+- **Spent stages can be infrastructure.** A stage left in orbit with relay hardware, and
+  serving as a relay, is not debris.
 
 ## Rules for buying
 
