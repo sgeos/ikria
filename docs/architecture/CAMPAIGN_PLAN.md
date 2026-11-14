@@ -2,9 +2,9 @@
 
 > **Navigation**: [Architecture](./README.md) | [Documentation Root](../README.md)
 
-**Status.** Proposed on 2026-11-14, with the operator's rulings of the same day
-recorded. Nothing has been flown. Each point below is marked **Decided**, **Proposed**
-or **Open**, and each fact names its source.
+**Status.** Final, 2026-11-14. Every criterion and rule is decided by the operator.
+Facts marked *(recall)* remain to be checked in Phase 0. Nothing has been flown. Each
+fact names its source.
 
 This document plans the career campaign of Kerbal Space Program 1 that Ikria's
 Keleusma control loops are to fly. It defines what complete means, the rules the
@@ -221,12 +221,18 @@ the operator on 2026-11-14.
   attempt that loses a kerbal. The report gives the timeline from telemetry, the
   classification under R10, the cause and contributing factors, the corrective action,
   and the criteria affected. Each report is also an entry in the anomaly log of R8.
+  The operator ruled on 2026-11-14 that the report is to follow space agency and
+  aerospace industry standards, researched and published by the blog line. The request
+  was sent that day, and the template follows the article. Until then the contents
+  above stand. Nothing waits on it before the first incident report.
 - **R12, operator attention.** *Decided.* The operator wants the campaign to need as
   little attention as possible. The line therefore works without asking, and reports
   through the record. The operator is needed only for three things. These are confirming
   a defect before a restore under R10, the outward actions the repository rules reserve,
-  such as pushing, and changes to these criteria and rules. Requests are batched where
-  the work allows, such as one pull request per milestone.
+  such as merging, and changes to these criteria and rules. The operator granted a
+  standing authority on 2026-11-14 to push routine documentation and record pull
+  requests, which `CLAUDE.md` defines. Requests are batched where the work allows,
+  such as one merge per milestone.
 
 ## Constraints that order the campaign
 
@@ -336,16 +342,14 @@ The operator answered the first eight questions on 2026-11-14.
 | O5, save names | "Ikria Automated Space Agency" for the career save and "Ikria Simulated Research and Development" for the sandbox save. |
 | O6, training and scenarios | Stand-alone scenarios are in scope, as for Mission mode. The operator has mixed feelings on the training lessons. |
 
-## Open questions
+## Rulings, third set, 2026-11-14
 
-- **O7, training lessons.** The game ships 14 training lessons *(files)*. They teach a
-  player through scripted steps and leave little for the record. This document
-  recommends leaving them out, and revisiting them after Phase 6 if the operator wants.
-- **O8, standing authority to push.** The repository rules ask for the operator's
-  confirmation before every push. A campaign of this length will produce many pull
-  requests. Would the operator grant a standing authority for routine documentation and
-  record pull requests, to serve R12? That would change `CLAUDE.md`, so it waits for
-  the operator's word.
+| Question | Ruling |
+|---|---|
+| O7, training lessons | Omitted. |
+| O8, standing authority to push | Granted, and recorded in `CLAUDE.md`. |
+
+No questions remain open.
 
 ## Appendix, Hard preset
 

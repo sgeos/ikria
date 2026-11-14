@@ -20,9 +20,9 @@ completed, moved or abandoned.
   [`docs/architecture/CAMPAIGN_PLAN.md`](../architecture/CAMPAIGN_PLAN.md) defines the
   completion criteria, the rules of play, the constraints and seven phases. Its counts
   come from a read-only pass over the installed game's data files, and its preset,
-  achievement and anomaly facts from the web. The operator answered its eight questions
-  the same day, adopted every proposed criterion and rule, and amended charter item 2.
-  The plan is held unpushed on `docs/campaign-plan` until it is final.
+  achievement and anomaly facts from the web. The operator answered all its questions
+  in three rounds the same day and called it final. Charter item 2 is amended, and the
+  operator granted the standing authority to push that `CLAUDE.md` now records.
 - **The operator's aim.** A technology demonstrator for Keleusma, with no physical-world
   impact. Keleusma stream processors fly craft in Kerbal Space Program 1 through the
   kRPC mod, an MCP server exposes the same controls to agents, and the record documents
@@ -51,16 +51,16 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
 
 ## Next step
 
-1. Finalize `CAMPAIGN_PLAN.md`. Its remaining questions O7 and O8 need the operator.
-   Push and open the pull request only once the operator calls the plan final.
-2. Draft a design document in `docs/architecture/` for the operator to review. It should
+1. Draft a design document in `docs/architecture/` for the operator to review. It should
    cover the Rust host that embeds Keleusma, the record types for telemetry in and
    commands out, the stepping contract between host and script, and the MCP tools. Keep
    KSP types behind the bridge, so that the harness and the MCP tools can be tested
    against a scripted host without the game running. That rationale is this line's
    recommendation, not an operator ruling.
-3. Define the first milestone in `docs/roadmap/` once the design is approved. The
-   plan proposes that it be Phase 0, the ground work.
+   The design must also carry the campaign plan's rules R2, R3, R9 and R10 into the
+   harness.
+2. Define the first milestone in `docs/roadmap/` once the design is approved. The
+   plan sets it as Phase 0, the ground work.
 
 ## Open
 
@@ -127,4 +127,9 @@ Report any check not run, and any commit after the one that last rewrote this fi
 
 ## Mailbox
 
-None assigned.
+None assigned. On 2026-11-14 this line asked the blog line, through a message to its
+running Claude Code session, to research and publish the incident report standards
+that rule R11 of the campaign plan needs. No answer had arrived when this was written.
+The blog line takes requests through its pilot, so a later session should ask the
+operator whether the article exists before the first incident report. The blog line
+does not use the Keleusma interline mailbox.

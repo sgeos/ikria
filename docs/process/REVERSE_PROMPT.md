@@ -6,28 +6,26 @@ A state file, overwritten whole after each task. It reports what was done, what 
 decided and by whom, what was verified and how, what was not verified, and what the
 operator needs to decide. Facts, inferences and hypotheses are marked as such.
 
-## Campaign plan, second rulings, 2026-11-14
+## Campaign plan final, 2026-11-14
 
 **Done.**
-- Recorded the operator's second set of rulings in
-  [`docs/architecture/CAMPAIGN_PLAN.md`](../architecture/CAMPAIGN_PLAN.md). R9 and R10
-  are decided, everything from Kerbal Space Program 2 is a supplemental best effort,
-  and Mission mode and the stand-alone scenarios repeat one-shot attempts until one
-  completes without an incident.
-- Added R11, which requires an incident report for every career reload and every loss
-  of a kerbal, and R12, which keeps the operator's attention to three kinds of request.
-- Named the saves, and answered the operator's question on mods in R9's enforcement
-  note. The recommendation is to enforce the limits in the harness, adopt no mod that
-  changes play, and write a read-only kRPC service only for state that kRPC lacks.
+- Recorded the operator's last two rulings in
+  [`docs/architecture/CAMPAIGN_PLAN.md`](../architecture/CAMPAIGN_PLAN.md), which
+  omit the training lessons and grant a standing authority to push. Marked the plan
+  final.
+- Recorded the standing authority in `CLAUDE.md` and `AGENTS.md`. It covers pushing
+  routine documentation and record pull requests, and nothing else.
+- Recorded in R11 that incident reports are to follow space agency and aerospace
+  industry standards, and asked the blog line to research and publish them.
 
-**Decided.** By the operator on 2026-11-14, as the plan's second rulings table records.
+**Decided.** By the operator on 2026-11-14, as the plan's third rulings table records.
 
-**Verified.** The game ships 16 stand-alone scenarios and 14 training lessons, counted
-from its saves folder. `./scripts/check.sh` exits zero on this branch, on macOS.
+**Verified.**
+- The message to the blog line's running session was accepted into its inbox. Whether
+  it was read, and whether the pilot confirmed it there, is not known.
+- `./scripts/check.sh` exits zero on this branch, on macOS.
 
-**Not verified.** Which state kRPC does not expose is recalled, not checked. Phase 0
-settles it.
+**Not verified.** Facts the plan marks as recalled remain to be checked in Phase 0.
 
-**For the operator.** O7, whether the training lessons are in scope, and O8, whether
-to grant a standing authority to push routine pull requests. The plan is held unpushed
-until the operator calls it final.
+**For the operator.** Nothing is blocking. The pull request for the plan is to be
+merged by the operator, since the standing authority does not cover merging.
