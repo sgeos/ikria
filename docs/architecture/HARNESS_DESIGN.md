@@ -182,8 +182,9 @@ from the installed server.*
   it. Streams do not update while a tick is held, so a held tick is read by calls. The
   hold times out after one second by default, the installed `tickHoldTimeout`. kRPC's
   authors call it a stopgap that may change in later releases.
-- **Rate.** The game's fixed update is commonly given as 50 per second, but kRPC's
-  documentation says about 60. Phase 0 measures it.
+- **Rate.** *Measured 2026-11-14 in the sandbox save.* The game's fixed update is 0.02 s
+  of game time, which is 50 per second. kRPC's documentation says about 60, which this
+  installation does not bear out.
 - **Rust clients.** `krpc-client` 0.7.0 of 2026-11-01 targets kRPC 0.7.0, supports
   streams, and generates its bindings from kRPC's service definitions. It is GPL-3.0.
   `stayputnik` is MIT or Apache-2.0 but predates kRPC 0.7.0's protocol changes. The
@@ -194,7 +195,9 @@ from the installed server.*
   released, relicense some clients and add a permission for generated client code.
 
 **Decided by the operator, 2026-11-14.** The bridge is its own GPL-3.0 process in a
-small separate repository, and uses `krpc-client`. That is the simplest licensing position and follows charter item
+small separate repository, and uses `krpc-client`. The repository is
+[`sgeos/ikria-bridge`](https://github.com/sgeos/ikria-bridge), public, seeded the same
+day by this line from `sgeos/project-template` v1.0.8 and licensed GPL-3.0-only. That is the simplest licensing position and follows charter item
 6. The alternative is a 0BSD bridge written from the MIT protocol schema, calling
 procedures by name and generating no bindings from the GPL definitions. It would let
 the bridge live in this repository, but whether it fully avoids the GPL is a licensing
@@ -252,21 +255,21 @@ which is 0BSD, and the harness follows its later releases deliberately.
 
 Each answers a question this design depends on. All run in the sandbox save.
 
-1. **Connection and scene.** Confirm the client connects once a save is loaded, and
-   read the game scene.
-2. **Tick hold and rate.** How `HoldTick` and `NextTick` behave from Rust, the cost of
-   one held cycle, and the game's fixed update rate.
-3. **Stepping rate.** How many telemetry and command round trips per second the bridge
-   sustains for one vessel and for several.
-4. **Extravehicular activity.** Whether a kerbal outside the vessel can take a surface
-   sample, file a report and plant a flag through kRPC.
-5. **Facility gates.** Which kRPC calls the facility levels restrict, such as manoeuvre
-   nodes and orbit prediction.
-6. **Funds reasons.** Whether kRPC exposes why funds changed.
-7. **Inventory.** Every body, biome and situation, from which the science ledger's full
-   list of subjects is built.
-8. **Keleusma timing.** The calibrated time per iteration of a representative loop on
-   this machine, which sets the admission budget.
+| Experiment | Result, 2026-11-14 |
+|---|---|
+| 1. Connection and scene | **Done.** The Python client 0.7.0 connected to server 0.7.0 once the sandbox save was loaded, and read the scene as the Space Center. A plain call took about 0.26 ms there. |
+| 2. Tick hold and rate | **Done in part.** `hold_tick` with `next_tick` stepped exactly 0.02 s of game time per tick, so 50 ticks per second, at about 19.9 ms of wall time per held cycle at the Space Center. Its cost with vessels in flight is still to be measured. |
+| 3. Stepping rate | Open. Needs a vessel in flight. |
+| 4. Extravehicular activity | Open. Needs a vessel in flight. |
+| 5. Facility gates | Open. Needs the career save, read only, or a career-mode test. |
+| 6. Funds reasons | Open. Needs the career save. |
+| 7. Inventory | **Done in part.** The game reports 17 bodies and 145 biomes between them, without the Space Center's location biomes. The science subjects follow once the experiments' situations are combined with these lists. |
+| 8. Keleusma timing | Open. Needs the first harness code. |
+
+**How a vessel reaches the sandbox for experiments 3 and 4** depends on open question 6
+of [`OPEN_QUESTIONS.md`](OPEN_QUESTIONS.md), how an agent builds a craft. The simplest
+first step is a small craft file written by hand, such as a command pod alone, launched
+in the sandbox through kRPC.
 
 ## Decisions
 
