@@ -23,9 +23,9 @@ completed, moved or abandoned.
   achievement and anomaly facts from the web. The operator answered all its questions
   in three rounds the same day and called it final, and it was merged as pull request
   4. Charter item 2 is amended, and the operator granted the standing authority to push
-  that `CLAUDE.md` now records. A proposed technology order followed as the plan's last
-  appendix, from the operator's points on aircraft, rocket planes, rovers and
-  priorities.
+  that `CLAUDE.md` now records. A proposed technology order followed as an appendix,
+  from the operator's points on aircraft, rocket planes, rovers and priorities, and
+  then an appendix of community practice on Hard from a short research pass.
 - **The operator's aim.** A technology demonstrator for Keleusma, with no physical-world
   impact. Keleusma stream processors fly craft in Kerbal Space Program 1 through the
   kRPC mod, an MCP server exposes the same controls to agents, and the record documents
@@ -61,7 +61,9 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
    against a scripted host without the game running. That rationale is this line's
    recommendation, not an operator ruling.
    The design must also carry the campaign plan's rules R2, R3, R9 and R10 into the
-   harness.
+   harness. Two kRPC questions decide much of it and come first in Phase 0. Can a
+   kerbal outside the vessel take samples, run reports and plant flags under kRPC, and
+   which kRPC calls do facility levels gate?
 2. Define the first milestone in `docs/roadmap/` once the design is approved. The
    plan sets it as Phase 0, the ground work.
 

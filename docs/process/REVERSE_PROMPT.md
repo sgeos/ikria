@@ -6,27 +6,31 @@ A state file, overwritten whole after each task. It reports what was done, what 
 decided and by whom, what was verified and how, what was not verified, and what the
 operator needs to decide. Facts, inferences and hypotheses are marked as such.
 
-## Technology order, 2026-11-14
+## Community practice, 2026-11-14
 
-**Done.** Added a proposed technology order as the last appendix of
-[`docs/architecture/CAMPAIGN_PLAN.md`](../architecture/CAMPAIGN_PLAN.md), answering the
-operator's question on sequencing. It lists what the early nodes give and their
-minimum cost in science, gives Kerbin's science per biome, estimates whether Hard has
-enough science, and orders the tree in six steps.
+**Done.**
+- Ran a short research pass on how experienced players approach career on Hard, at the
+  operator's request, and added its principles as an appendix of
+  [`docs/architecture/CAMPAIGN_PLAN.md`](../architecture/CAMPAIGN_PLAN.md).
+- Revised the technology order. The question of enough science now rests on the
+  official wiki's total, and the first landing goes to Minmus after a flyby of the Mun.
+- Added two kRPC questions to the front of Phase 0 in the handoff.
 
-**Decided.** Nothing new. The order is proposed.
+**Decided.** Nothing new. Both appendices are proposed.
 
-**Verified.**
-- The node contents, costs and prerequisites were read from the installed game's data
-  files by a read-only script.
-- Kerbin's six situation multipliers were read from the existing Normal career save.
-- `./scripts/check.sh` exits zero on this branch, on macOS.
+**Verified.** `./scripts/check.sh` exits zero on this branch, on macOS. The research
+read the official wiki through its public interface and Steam community pages. It did
+not read Reddit or the official forum, which refused automated reading.
 
 **Not verified.**
-- The multipliers of bodies other than Kerbin are recalled, so the estimate that Hard
-  has enough science is an inference. Phase 0 replaces it with an exact total.
-- Whether the 60 percent reward on Hard scales each subject is recalled.
-- That the first probe core has no stability assist and no reaction wheel is recalled.
+- Much community advice predates 1.12, and the wiki's total of science does not state
+  its version.
+- The wiki's facility costs were not cross-checked.
+- Whether kRPC can take samples, run reports and plant flags with a kerbal outside the
+  vessel is the largest open risk.
 
-**For the operator.** Whether the proposed order matches the operator's intent. It can
-be merged as it stands, since it is marked proposed.
+**For the operator.**
+- Principle 6 of the new appendix reads R2 and R9 as allowing a Keleusma loop to plan
+  its own transfers without the facility upgrades that manoeuvre nodes need. That could
+  defer a large expense. The operator may overrule it.
+- Otherwise nothing is blocking, and pull request 5 can be merged as it stands.

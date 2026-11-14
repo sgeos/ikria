@@ -3,8 +3,9 @@
 > **Navigation**: [Architecture](./README.md) | [Documentation Root](../README.md)
 
 **Status.** Final, 2026-11-14. Every criterion and rule is decided by the operator.
-The technology order in the last appendix is proposed. Facts marked *(recall)* remain
-to be checked in Phase 0. Nothing has been flown. Each fact names its source.
+The appendices on technology order and on community practice are proposed. Facts
+marked *(recall)* remain to be checked in Phase 0. Nothing has been flown. Each fact
+names its source.
 
 This document plans the career campaign of Kerbal Space Program 1 that Ikria's
 Keleusma control loops are to fly. It defines what complete means, the rules the
@@ -563,16 +564,16 @@ best when they land in each biome and fly on, rather than when they only pass ov
 
 ### Is there enough science on Hard
 
-*Inference, to be measured in Phase 0.* The tree needs 18,468 science. Kerbin alone
-cannot supply it, but the Mun and Minmus multiply each subject by several times
-Kerbin's landed value *(recall)*, and they have many biomes each. The landed subjects
-of those two bodies alone are expected to cover a large share of the tree on Hard.
-Space subjects, recoveries, contract rewards and the bodies beyond add more. The
-Mobile Processing Lab also produces science without end. C4 excludes that science
-from completion, but nothing bars spending it on research. The operator's expectation
-that Hard has enough science is therefore probably right, and the binding constraint
-early is funds, not science. Phase 0 replaces this inference with an exact total of the
-subjects.
+Yes, by a wide margin. The official wiki's
+[Tech tree](https://wiki.kerbalspaceprogram.com/wiki/Tech_tree) page gives 392,019
+science from experiments and 6,056 from recovery, before difficulty modifiers and
+without the expansions *(web, version unstated)*. The tree's 18,468 is under 5 percent
+of that, and under 8 percent at Hard's 60 percent. Contract rewards and the Mobile
+Processing Lab add more. C4 excludes the lab's science from completion, but nothing
+bars spending it on research. The operator's expectation is therefore right. The tree
+is not limited by science, the binding constraint is funds, and C4 is the long task of
+the campaign rather than C1. Phase 0 replaces the wiki's figure with an exact total for
+this installation.
 
 ### Proposed order
 
@@ -587,8 +588,10 @@ subjects.
 3. **First orbit and the Mun and Minmus, from about 150 science.** General Rocketry,
    Advanced Rocketry, Flight Control and General Construction for orbit and flags.
    Electrics and Space Exploration for power, solar panels and the first rover. The
-   first uncrewed flybys and landings follow. A relay path for Minmus may need a better
-   antenna or a Tracking Station upgrade, since Hard shortens every range *(web)*.
+   first uncrewed flybys and landings follow, with a flyby of the Mun before the first
+   landing on Minmus, as the next appendix explains. A relay path for Minmus may need a
+   better antenna or a Tracking Station upgrade, since Hard shortens every range
+   *(web)*.
 4. **The science and remote control core, to about 1,800 science.** The rest of the
    core above, taken ahead of engine and structure nodes that no planned mission yet
    needs. Each part is bought only when a mission needs it, because purchases are the
@@ -599,3 +602,128 @@ subjects.
 6. **The rest of the tree,** in whatever order the completion criteria and the
    remaining missions need. The two nodes that hold no listed part come last, since
    they unlock nothing.
+
+## Appendix, community practice
+
+**Proposed, 2026-11-14.** A short research pass on how experienced players approach
+career on Hard, made at the operator's request. The aim is to ground the campaign in how
+the game is actually played well, not to copy a walkthrough. Most community material
+dates from 2015 to 2021 and some of it predates 1.12. Reddit and the official forum
+refused automated reading, so the sources are the official wiki, read through its
+public interface, and Steam community threads and guides. Each point says whether it
+is a wiki mechanic, a consensus of several posters, a single source, or this
+document's inference.
+
+### Principles
+
+1. **Funds bind, not science.** *Inference, consistent with the wiki.* The tree needs a
+   small share of the science available, while every part must be bought and every
+   facility taken to its top level. Players disagree on which binds in an ordinary Hard
+   game
+   ([Steam](https://steamcommunity.com/app/220200/discussions/0/350543841946152166)),
+   but C2 and C10 settle it for this campaign.
+2. **Recover everything that can be recovered.** *Wiki.* Recovery returns 100 percent
+   on the pad or runway and 98 percent near the Space Center, falling with distance
+   ([Recovery](https://wiki.kerbalspaceprogram.com/wiki/Recovery)). Stages that fall
+   outside the physics range are removed. Aircraft, rocket planes and designs that bring
+   their expensive parts home pay for themselves. *Inference.* Ikria's harness can fly
+   several vessels at once, so a spent stage with its own probe core could be flown home
+   while the upper stage continues. That is a natural demonstration for Keleusma, but it
+   depends on keeping both vessels inside the physics range.
+3. **Use the pad as a free integration check.** *Wiki and inference.* Rolling a vessel
+   out and recovering it from the pad refunds it in full. That checks staging, mass and
+   part limits in the career without a flight, alongside R4's qualification in the
+   sandbox.
+4. **Upgrade the launch pad first.** *Consensus.* Its first level caps a vessel at 18
+   tonnes. Mission Control and the Vehicle Assembly Building usually follow, then the
+   Tracking Station and the Astronaut Complex, with Research and Development last
+   because it costs most
+   ([Steam](https://steamcommunity.com/app/220200/discussions/0/618453594750090185)).
+5. **Some upgrades gate science.** *Wiki.* Surface samples need the Research and
+   Development facility and the Astronaut Complex both at level 2. Extravehicular
+   activity and flags away from Kerbin need the Astronaut Complex at level 2
+   ([Research and Development](https://wiki.kerbalspaceprogram.com/wiki/Research_and_Development)).
+   Some of the Space Center's small biomes exist only at higher building levels, and
+   each counts only while the craft touches the structure
+   ([Biome](https://wiki.kerbalspaceprogram.com/wiki/Biome)). *Inference.* The Space
+   Center's own subjects therefore close late, after C10, with a rover that drives to
+   each structure.
+6. **Manoeuvre nodes may not be needed.** *Wiki.* Manoeuvre nodes need the Tracking
+   Station and Mission Control at level 2, and orbit patches need the Tracking Station
+   at level 2 ([Tracking Station](https://wiki.kerbalspaceprogram.com/wiki/Tracking_Station)).
+   *Inference.* R2 bars calling a kRPC function the career has not unlocked, but a
+   Keleusma loop that computes its own transfer from its vessel's state and the known
+   motion of the bodies uses nothing locked, much as a player can plan a transfer by
+   hand. Under R2 and R9 as decided, those upgrades can then wait until contract slots,
+   the ground network or tracking need them. This could defer a large expense. Phase 0
+   is to confirm which kRPC calls the facility levels affect, and the operator may
+   overrule this reading.
+7. **See the Mun, land on Minmus.** *Consensus.* Players commonly fly past the Mun first
+   and make the first landing on Minmus, which is flat, has low gravity and pays
+   slightly more per subject. The Mun has more biomes, 17 to Minmus's 9, and its
+   contracts tend to come first
+   ([Steam](https://steamcommunity.com/app/220200/discussions/0/598198356170023341)).
+8. **Take the world-first contracts before the firsts.** *Single source.* Achieving a
+   first without its contract forfeits the contract
+   ([Steam guide](https://steamcommunity.com/sharedfiles/filedetails/?id=1796321585)).
+   The record and milestone contracts should therefore be accepted before each first
+   is flown.
+9. **Do not fail contracts.** *Wiki.* Cancelling returns the advance with a small loss
+   of reputation, and failing applies the failure penalty, which Hard doubles
+   ([Contracts](https://wiki.kerbalspaceprogram.com/wiki/Contracts)). Advice to take
+   advances and abandon contracts is unsafe on Hard. *Consensus.* Rescues and the
+   deployment of probes to set orbits near Kerbin pay well once a cheap, reliable
+   launcher exists, and part tests are good early money.
+10. **Rescues are the cheap source of crew.** *Wiki.* The cost of each hire grows with
+    the square of the number hired, so the fifth hire costs 65,500 funds, and rescued
+    kerbals join the roster even above its cap
+    ([Astronaut Complex](https://wiki.kerbalspaceprogram.com/wiki/Astronaut_Complex)).
+11. **Train crew with a standard loop.** *Wiki and consensus.* Experience is granted once
+    per body for the best achievement there, and is banked only on recovery or through
+    the lab. A flyby of the Mun, a landing with a flag on Minmus and a short escape into
+    orbit of the Sun bring a kerbal to level 3
+    ([Experience](https://wiki.kerbalspaceprogram.com/wiki/Experience)). The lab works
+    with a scientist of any level, which only raises its rate. Drills and converters
+    work at any level with lower efficiency, and repairs need an engineer of level 1
+    ([Engineer](https://wiki.kerbalspaceprogram.com/wiki/Engineer)).
+12. **The lab is slow but steady.** *Wiki.* Its research rate falls as its stored data
+    falls, with a half-life of about a year of game time for one scientist of level 3,
+    and each lab accepts each experiment once
+    ([Mobile Processing Lab](https://wiki.kerbalspaceprogram.com/wiki/Mobile_Processing_Lab_MPL-LG-2)).
+    Players disagree whether it is overpowered or slow. The usual place is on or above
+    the Mun or Minmus, fed by landers.
+13. **Signal is shorter on Hard, but less than it looks.** *Wiki and inference.* The
+    0.65 range modifier applies to the craft's antennas but not to the ground network,
+    so the range to the ground falls to about 0.81 of Normal, while the range between
+    craft falls to 0.65 ([CommNet](https://wiki.kerbalspaceprogram.com/wiki/CommNet)).
+    Relay layouts must be planned for that.
+14. **Heavy returns are designed around a waiting vehicle.** *Wiki and consensus.* For
+    Eve, land as high as possible, keep the ascent stage minimal, and leave the return
+    vehicle in orbit
+    ([Returning from Eve](https://wiki.kerbalspaceprogram.com/wiki/Tutorial:Returning_From_Eve),
+    written before the aerodynamics of 1.0). For Tylo, players stress a thrust-to-weight
+    ratio of at least 1.5 and a return vehicle left in orbit. Aerobraking and a gravity
+    assist at the Mun save propellant on the way out.
+
+### What the community relies on that this campaign cannot
+
+- **Reloading.** Common guides quicksave before landings and rendezvous. Here R4's
+  qualification in the sandbox and principle 3's pad check carry that load.
+- **Hand flying.** Advice for Eve and Tylo assumes a skilled pilot or an autopilot mod.
+  Here each descent and ascent is a Keleusma program qualified in the sandbox.
+- **Mods, save editing and exploits.** These are out of scope. A known funds exploit
+  with an administration strategy and recovery on the pad is listed by the wiki under
+  exploits and is not used.
+
+### Risks this pass raised
+
+- **Extravehicular activity under automation.** Reports, surface samples, flags and
+  rescues all need a kerbal outside the vessel. kRPC can control a kerbal on
+  extravehicular activity as a vessel, as the handoff records, but whether it can take
+  samples, run reports and plant flags has not been checked. *Inference.* This is the
+  largest automation risk for the early science and for C8, C12 and C13, and Phase 0
+  is to test it first.
+- **Facility costs.** The wiki gives 676,500 funds for the second level of Research and
+  Development and 2,535,000 for the third *(web, not cross-checked)*. If these hold,
+  facility upgrades rival the part purchases of C2, and the funds plan must budget for
+  both.
