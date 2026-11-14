@@ -6,36 +6,33 @@ A state file, overwritten whole after each task. It reports what was done, what 
 decided and by whom, what was verified and how, what was not verified, and what the
 operator needs to decide. Facts, inferences and hypotheses are marked as such.
 
-## Campaign plan, 2026-11-14
+## Campaign plan rulings, 2026-11-14
 
 **Done.**
-- Wrote [`docs/architecture/CAMPAIGN_PLAN.md`](../architecture/CAMPAIGN_PLAN.md) from
-  the operator's brief of 2026-11-14. It holds 18 completion criteria, 8 rules of play,
-  8 constraints, 7 phases and 8 open questions, with appendices on the Hard preset,
-  achievement equivalents, anomalies and contract types.
-- Indexed it in the architecture README, and pointed the milestone question in
-  `OPEN_QUESTIONS.md` at it.
+- Recorded the operator's rulings on the eight questions of
+  [`docs/architecture/CAMPAIGN_PLAN.md`](../architecture/CAMPAIGN_PLAN.md). All 18
+  criteria and rules R1 to R8 are now decided.
+- Added R9 on information parity and R10 on losses and reloading. Each states the
+  operator's ruling and the details this line proposes for it.
+- Amended charter item 2, so that quickloads and reverts apply to the sandbox save
+  only.
+- Mapped the 41 missions of Kerbal Space Program 2 onto Kerbal Space Program 1 tasks,
+  under the operator's rule for C6, and folded the new tasks into the phases.
 
-**Decided.** By the operator, the goal and the six named criteria. Everything else in
-the plan is proposed.
+**Decided.** By the operator on 2026-11-14, as the plan's rulings table records.
 
 **Verified.**
-- The counts were computed by a read-only script over the installed game's data files on
-  2026-11-14. They are 63 technology nodes costing 18,468 science, 461 researchable
-  parts, 56 experiment definitions, 19 contract groups and 11 strategies. The script was
-  not committed, and no game file was copied.
+- The game keeps up to five rolling backups of each save, from `SAVE_BACKUPS = 5` in
+  its settings and the files in an existing save's backup folder. A save can therefore
+  be restored from outside the game.
 - `./scripts/check.sh` exits zero on this branch, on macOS.
 
 **Not verified.**
-- The Hard preset's settings come from the official wiki, which predates some later
-  settings. Several of them are unknown until a fresh Hard save is read.
-- The facility gates and crew skills are recalled, not checked.
-- The finding that Kerbal Space Program 2 has no Steam achievements rests on its Steam
-  pages alone, since other sources refused automated reading.
-- The body and biome lists, and so the full set of science subjects, were not read,
-  because the game was not running.
+- The mission list of Kerbal Space Program 2 comes from its community wiki and its
+  release notes on Steam. Several mappings rest on recalled names and values in Kerbal
+  Space Program 1 and are marked as such.
+- No restore of a save from outside the game has been tried.
 
-**For the operator.** The eight open questions at the end of the plan. Q1 decides
-whether the campaign plays Hard unmodified, which disables the reloading that charter
-item 2 allows. Q2 decides what completing all missions means, and Q6 which achievement
-list was meant.
+**For the operator.** Questions O1 to O6 at the end of the plan. They cover the details
+of R9 and R10, the mission mapping, Mission mode, the save names, and whether training
+and scenarios are in scope. The plan is held unpushed until the operator calls it final.

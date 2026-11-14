@@ -2,8 +2,9 @@
 
 > **Navigation**: [Architecture](./README.md) | [Documentation Root](../README.md)
 
-**Status.** Proposed, 2026-11-14. Nothing has been flown. Each point below is marked
-**Decided**, **Proposed** or **Open**, and each fact names its source.
+**Status.** Proposed on 2026-11-14, with the operator's rulings of the same day
+recorded. Nothing has been flown. Each point below is marked **Decided**, **Proposed**
+or **Open**, and each fact names its source.
 
 This document plans the career campaign of Kerbal Space Program 1 that Ikria's
 Keleusma control loops are to fly. It defines what complete means, the rules the
@@ -43,30 +44,30 @@ should be able to audit every decision from the record alone.
 
 ## Completion criteria
 
-The campaign is complete when every adopted criterion below is met. Criteria C1 to C7
-restate the operator's list. Criteria C8 onward are this document's proposals for what
-ought to be tracked, and each awaits the operator's adoption.
+The campaign is complete when every criterion below is met. Criteria C1 to C7 restate
+the operator's list. Criteria C8 to C18 were proposed by this document and adopted by
+the operator on 2026-11-14.
 
 | ID | Criterion | Game tracks it | Measured from | Standing |
 |---|---|---|---|---|
 | C1 | Research all 63 technology nodes, 18,468 science in total *(files)* | Yes | Save file, research state | Decided |
 | C2 | Purchase all 461 researchable parts *(files)* | Yes | Save file, purchased parts | Decided |
-| C3 | Fly every part in a role it was designed for | No | Ikria part ledger, from telemetry | Proposed definition |
-| C4 | Bring every science subject to its cap | Yes, per subject | Save file, science subjects | Open bound, see Q3 |
-| C5 | Complete all missions | Partly | Depends on Q2 | Open, see Q2 |
-| C6 | Complete every task equivalent to an achievement | No | Achievement map in the appendix | Open, see Q6 |
+| C3 | Fly every part in a role it was designed for | No | Ikria part ledger, from telemetry | Decided |
+| C4 | Bring every science subject to its cap, with one sample per asteroid class and per comet class | Yes, per subject | Save file, science subjects | Decided |
+| C5 | Complete every finite contract, at least one contract of every type at every body that offers it, and every stock mission in Mission mode | Partly | Save file and Mission mode results | Decided |
+| C6 | Achieve everything Kerbal Space Program 2 tracks that Kerbal Space Program 1 could have tracked, and every Enhanced Edition trophy | No | Achievement map in the appendix | Decided rule, list pending |
 | C7 | No kerbal dies or goes missing, including tourists and rescued kerbals | Yes | Save file, crew roster | Decided |
-| C8 | Every world first on every body where it can exist | Yes | Save file, progress tracking | Proposed |
-| C9 | Every progress record, such as altitude, depth, speed and distance | Yes | Save file, progress tracking | Proposed |
-| C10 | Every facility at its highest level | Yes | Save file, facility levels | Proposed |
-| C11 | At least two pilots, two engineers and two scientists at the highest rank | Yes, per kerbal | Save file, crew roster | Proposed |
-| C12 | A crewed landing and return on every body with a surface | Yes, as world firsts | Save file, progress tracking | Proposed |
-| C13 | Every anomaly visited, including the Green Monolith on each body | Partly | Save file and Ikria ledger | Proposed |
-| C14 | A resource survey from orbit of every body | Partly | Save file and Ikria ledger | Proposed |
-| C15 | An asteroid captured, and a sample from every comet class that appears | Partly | Save file and Ikria ledger | Proposed |
-| C16 | Every launch site flown from, including the Making History sites | No | Ikria ledger | Proposed |
-| C17 | Every strategy in the Administration Building run once | No | Ikria ledger | Proposed, optional |
-| C18 | Every stock Making History mission completed in Mission mode | Not in career | Mission mode results | Depends on Q2 |
+| C8 | Every world first on every body where it can exist | Yes | Save file, progress tracking | Decided |
+| C9 | Every progress record, such as altitude, depth, speed and distance | Yes | Save file, progress tracking | Decided |
+| C10 | Every facility at its highest level | Yes | Save file, facility levels | Decided |
+| C11 | At least two pilots, two engineers and two scientists at the highest rank | Yes, per kerbal | Save file, crew roster | Decided |
+| C12 | A crewed landing and return on every body with a surface | Yes, as world firsts | Save file, progress tracking | Decided |
+| C13 | Every anomaly visited, including the Green Monolith on each body | Partly | Save file and Ikria ledger | Decided |
+| C14 | A resource survey from orbit of every body | Partly | Save file and Ikria ledger | Decided |
+| C15 | An asteroid captured, and a sample from every comet class that appears | Partly | Save file and Ikria ledger | Decided |
+| C16 | Every launch site flown from, including the Making History sites | No | Ikria ledger | Decided |
+| C17 | Every strategy in the Administration Building run once | No | Ikria ledger | Decided |
+| C18 | Every stock Making History mission, tutorial and European Space Agency mission completed in Mission mode | Not in career | Mission mode results | Decided, as part of C5 |
 
 **Notes on the criteria.**
 - **C1 and C2.** The game defines 489 part blocks *(files)*. Of these, 2 cannot be
@@ -87,9 +88,30 @@ ought to be tracked, and each awaits the operator's adoption.
   their names place on 15 bodies. A science subject is one experiment in one situation
   at one body, and for most experiments in one biome. The full list of subjects cannot
   be read from the files, because the body multipliers and the biome maps are not in
-  them. Phase 0 enumerates the subjects from the running game.
+  them. Phase 0 enumerates the subjects from the running game. If asteroid and comet
+  samples are separate subjects per object, the operator's bound of one sample per
+  class keeps C4 finite. Science generated by the laboratory has no end, so it is
+  excluded from C4.
+- **C5.** The finite contracts are the story-line and world-first contracts *(web)*.
+  The contract types are listed in the appendix. Mission mode is separate from career,
+  and the installed game holds 9 Making History missions, 3 tutorials and the European
+  Space Agency missions *(files)*. Each runs on its own settings, so R1 does not apply
+  to it.
+- **C6.** The rule is the operator's, given on 2026-11-14. Kerbal Space Program 2
+  tracked 41 fixed missions, 41 points of interest that it called discoverables, its own
+  science and its own technology tree *(web)*. Its kerbals had no ranks and it kept no
+  record of firsts *(web, recalled by the source)*. The science, the tree and the
+  discoverables fall under C1, C4 and C13. The missions are mapped one by one in the
+  appendix. Where a mission names a place that exists only in Kerbal Space Program 2,
+  Kerbal Space Program 1 could not have tracked it, so the place is dropped and the rest
+  of the objective is still flown. Several missions add tasks that no other criterion
+  requires. These are a landing of more than 200 tonnes on Minmus and of more than 300
+  tonnes on Duna, a landing on Ike with three crew, a landing of ten kerbals on Eve with
+  their return, a jet engine run on Laythe, and a fuel depot in orbit of Kerbin. The
+  Enhanced Edition trophies are also mapped in the appendix, and each falls under
+  another criterion.
 - **C7.** Rescued kerbals and tourists count, because their deaths are deaths in the
-  game's roster.
+  game's roster. A loss is handled under R10.
 - **C8.** The save's progress tracking holds firsts such as first launch, reaching
   space and the first crew to survive. For each body it holds flyby, orbit, landing,
   splashdown, escape, return from flyby, return from orbit, return from the surface,
@@ -108,47 +130,77 @@ ought to be tracked, and each awaits the operator's adoption.
 
 ## Rules of play
 
-- **R1, difficulty.** *Open, see Q1.* The campaign plays the Hard preset unmodified.
+- **R1, difficulty.** *Decided.* The campaign plays the Hard preset unmodified.
   The game marks a save as Custom once any setting differs from a preset, so the highest
   standard difficulty means Hard exactly as shipped. Hard disables reverting flights
-  and quickloading *(web)*, so every loss is final. The preset's settings are in the
-  appendix.
-- **R2, capability parity.** *Proposed.* Keleusma control loops send only the inputs a
+  and quickloading *(web)*, so the game offers no way back. R10 sets when a save is
+  restored from outside the game. The preset's settings are in the appendix.
+- **R2, capability parity.** *Decided.* Keleusma control loops send only the inputs a
   player could send at the career's current state. Ikria does not call any kRPC
   function that does something the career has not yet unlocked. Examples are placing
   manoeuvre nodes before the facilities allow them, and using a stability assist mode
   that the crew or the probe core cannot hold. Guidance and attitude control are written
   in Keleusma, so kRPC's built-in autopilot is not used. kRPC may not enforce these
   gates itself *(recall)*, which is why the harness must.
-- **R3, signal.** *Proposed.* Hard does not require a signal to control a probe *(web)*.
-  This document proposes that the harness require one anyway, as an agency rule, and
-  refuse to command a probe that has no connection. The record should not depend on
-  control that the game's own signal model says is unavailable.
-- **R4, qualification in the sandbox.** *Proposed.* Every vehicle flies its full
+- **R3, signal.** *Decided.* Hard does not require a signal to control a probe *(web)*.
+  The harness requires one anyway, as an agency rule, and refuses to command a probe
+  that has no connection. The record should not depend on control that the game's own
+  signal model says is unavailable.
+- **R4, qualification in the sandbox.** *Decided.* Every vehicle flies its full
   mission profile in the sandbox save first, with the same craft file and the same
   Keleusma programs. This includes at least one abort case per flight phase. The
   sandbox's settings are matched to the career's where the game allows, such as
   reentry heating, the part and kerbal acceleration limits, pressure limits and the
   signal settings. The vehicle uses only parts the career holds, as the charter
   requires.
-- **R5, crew safety.** *Proposed.* No kerbal flies on a vehicle's first flight. Every
+- **R5, crew safety.** *Decided.* No kerbal flies on a vehicle's first flight. Every
   crewed vehicle has an abort mode for every flight phase. Every first crewed landing on
   a body follows an uncrewed landing there that used the same descent and ascent
   profile. A crewed mission beyond Kerbin's sphere of influence flies only when a
   recovery option exists for its likeliest failure.
-- **R6, margins.** *Proposed.* Every mission states its budget for the change in
+- **R6, margins.** *Decided.* Every mission states its budget for the change in
   velocity, written Δv, with a margin of at least 10 percent. It also budgets electric
   charge, monopropellant and the propellant for extravehicular activity, each with a
   stated margin. The 10 percent figure is a starting proposal, to be tuned by
   measurement.
-- **R7, configuration record.** *Proposed.* Every flight records the game version and
+- **R7, configuration record.** *Decided.* Every flight records the game version and
   settings, and the hash of every craft file and every Keleusma program it flew. It
   also records the Ikria commit and the save state before launch.
-- **R8, mission record.** *Proposed.* Every mission has a design report before
+- **R8, mission record.** *Decided.* Every mission has a design report before
   flight, a telemetry log during flight, and a post-flight report after it. The design
   report covers objectives, trajectory, budgets, abort modes and failure modes. The
   post-flight report covers results and anomalies, and each anomaly gets an entry in a
   campaign anomaly log.
+- **R9, information parity.** *Decided in principle, details proposed.* The operator
+  ruled that a control loop may know what a craft could reasonably know. This document
+  proposes the following details. Knowledge sits in two places, and each is limited
+  differently.
+  - **On board.** A Keleusma program flying a vessel sees that vessel's full state,
+    which stands in for its own sensors and navigation. This covers position, velocity,
+    attitude, resources and the state of its parts.
+  - **On the ground.** The mission controller sees an uncrewed vessel's state only
+    while the vessel has a link. It sees other vessels only once the agency tracks them,
+    and asteroids and comets only once they are discovered.
+  - **Bodies.** The motion and physical constants of every body are known from the
+    start.
+  - **Terrain, biomes and anomalies.** Terrain height and biome at an arbitrary point
+    are known for a body only after a survey of it from orbit. Before that, a vessel
+    knows only what its own position and altitude above the ground give. Anomalies are
+    known only once a scan reveals them.
+- **R10, losses and reloading.** *Decided in principle, details proposed.* Hard leaves
+  no reload inside the game. A save can still be restored from outside it, since the
+  game keeps up to five rolling backups in each save's folder *(files)*, and the
+  harness can keep its own copies. The operator ruled that a loss caused by a defect in
+  the game is a reload scenario where reloading is possible, and that otherwise a loss
+  is documented and the campaign continues. This document proposes the following
+  details.
+  - **Loss from a game defect.** The save is restored from the harness's copy taken
+    before the affected flight. The event goes into the anomaly log, with the evidence
+    that it was a defect.
+  - **Loss from a design or control fault.** The loss stands. It is documented, and
+    the campaign continues.
+  - **Classification.** The operator confirms whether a loss was a defect before any
+    restore, so that the record cannot quietly undo its own mistakes.
 
 ## Constraints that order the campaign
 
@@ -210,13 +262,13 @@ exit condition is what the roadmap's milestones will test.
 
 | Phase | Work | Exit condition |
 |---|---|---|
-| 0, ground work | Build the bridge, the harness and the records of R7 and R8. Match the sandbox settings to the career's. Read the Hard preset's full settings from a fresh save. Enumerate bodies, biomes, situations, experiments, parts, progress nodes and facility gates from the running game, as the baseline of the completion ledger. | The ledger lists every subject, part and progress node, and the harness flies a qualification profile in the sandbox. |
+| 0, ground work | Build the bridge, the harness and the records of R7 and R8. Create the new career save on Hard and its companion sandbox save, and record the Hard preset's full settings from the new career save. Match the sandbox settings to the career's. Enumerate bodies, biomes, situations, experiments, parts, progress nodes and facility gates from the running game, as the baseline of the completion ledger. | The ledger lists every subject, part and progress node, and the harness flies a qualification profile in the sandbox. |
 | 1, Kerbin | Science at the Space Center's biomes and in Kerbin's situations. Flights short of orbit, the first orbit, the first extravehicular activity, the record contracts, the first upgrades. | Crewed orbit and return, and Kerbin's near-space subjects collected. |
 | 2, Mun and Minmus | Uncrewed flyby, orbit and landing, then crewed landing and return on both. Begin biome-by-biome science. | Crewed returns from both, and the 160 tier of the tree within reach. |
-| 3, infrastructure | A relay network around Kerbin, a station with a science laboratory, docking, refuelling in orbit, and resource extraction on Minmus. | Refuelling demonstrated, and the laboratory in operation. |
+| 3, infrastructure | A relay network around Kerbin, a station with a science laboratory, docking, a fuel depot and refuelling in orbit, and resource extraction on Minmus. | Refuelling demonstrated, and the laboratory in operation. |
 | 4, inner planets | Duna and Ike, Eve and Gilly, Moho, each with relays, uncrewed precursors, then crewed landings and returns. | Crewed returns from Duna, Ike, Gilly and Moho. The crewed return from Eve may move to Phase 6. |
 | 5, outer planets | Dres, Jool and its five moons, and Eeloo, on the same pattern. | Crewed returns from every outer body with a surface. The return from Tylo may move to Phase 6. |
-| 6, completion | Remaining biomes by rover, hopper and aircraft. Anomalies, asteroids and comets, remaining contract types, unflown parts, crew ranks, records and the achievement map. | Every adopted criterion met. |
+| 6, completion | Remaining biomes by rover, hopper and aircraft. The heavy landings of C6, including ten kerbals on Eve and back. Anomalies, asteroids and comets, remaining contract types, unflown parts, crew ranks, records and the achievement map. | Every adopted criterion met. |
 
 ## What the record produces
 
@@ -232,45 +284,39 @@ document.
 - **Program catalogue.** The vehicle-control routine pairs of charter item 10, with the
   sequencing that makes them work, each tied to the missions that flew it.
 
+## Rulings, 2026-11-14
+
+The operator answered the first eight questions on 2026-11-14.
+
+| Question | Ruling |
+|---|---|
+| Q1, difficulty and reloading | Hard unmodified. Charter item 2 is amended so that quickloads and reverts apply to the sandbox. The operator asked whether saves can still be reloaded, which R10 answers. |
+| Q2, missions | Both readings, the finite and typed contracts of career and every stock mission in Mission mode. See C5 and C18. |
+| Q3, the bound on science | One sample per asteroid class and per comet class. See C4. |
+| Q4, information parity | Yes, to the extent that it would be possible and reasonable for a craft. See R9. |
+| Q5, defects in the game | A reload scenario if reloading is possible, and otherwise documented and continued. See R10. |
+| Q6, achievements | If Kerbal Space Program 2 tracks something that Kerbal Space Program 1 could have tracked, it is to be achieved. See C6. |
+| Q7, the proposals | All additional criteria and rules accepted. |
+| Q8, saves | A new career save on Hard, with a new companion sandbox save. The existing saves are left untouched. |
+
 ## Open questions
 
-- **Q1, difficulty and reloading.** Charter item 2 allows quickloads and reverts. Hard
-  unmodified disables both *(web)*, so the two conflict. Either the campaign plays Hard
-  unmodified and every loss is final, or it enables reloading and the save is marked
-  Custom. This document recommends Hard unmodified, with charter item 2 amended to
-  apply to the sandbox only. The sandbox already absorbs testing, and an irreversible
-  record is what makes C7 meaningful.
-- **Q2, missions.** Career mode generates contracts without end, so all of them cannot
-  be completed *(web)*. One reading is every finite contract, which means the story-line
-  and world-first contracts, together with at least one contract of every type at every
-  body where that type is offered. The types are listed in the appendix. Another reading
-  is the stock missions of Making History, which run in a separate Mission mode and not
-  in career. The installed game holds 9 such missions, 3 tutorials and the European
-  Space Agency missions *(files)*. Which reading applies, or both?
-- **Q3, the bound on science.** It is not yet established whether asteroid and comet
-  samples are separate subjects per object. If they are, the subjects are unbounded and
-  C4 needs a rule, such as one sample per class. Science from the laboratory is also
-  generated without end, so it is excluded from C4. A comet class that never appears
-  cannot be sampled, which C15 already allows for.
-- **Q4, information parity.** R2 limits actions. The question is whether information is
-  limited too. kRPC reports exact state that a player reads only through the
-  instruments and the map. This document recommends allowing full state for vessels in
-  flight. It also recommends hiding objects that the career has not yet discovered or
-  tracked, such as unseen asteroids and comets.
-- **Q5, defects in the game.** If a kerbal dies because of a defect in the game rather
-  than a fault of design or control, is the campaign restarted, or is the loss recorded
-  and the campaign continued? Under Hard unmodified, restoring an outside backup of the
-  save would amount to a reload.
-- **Q6, achievements.** Kerbal Space Program 2 appears to have shipped no Steam
-  achievements *(web)*. Its Steam pages list none, and no other source could be read to
-  confirm it. The nearest list is the 45 trophies of Kerbal Space Program 1 Enhanced
-  Edition on consoles *(web)*, which the appendix maps onto the criteria. Is that the
-  list the operator meant, or something else from Kerbal Space Program 2, such as its
-  in-game missions?
-- **Q7, which proposals to adopt.** C8 to C18, and R2 to R8.
-- **Q8, the existing career save.** The game holds a career save named "Rookie" on the
-  Normal preset *(files)*. This document assumes the campaign starts a new save and
-  leaves that one untouched.
+- **O1, information details.** Are the details proposed under R9 the right reading of
+  the ruling on Q4?
+- **O2, reload details.** Are the details proposed under R10 the right reading of the
+  ruling on Q5, in particular that the operator confirms each defect before a restore?
+- **O3, the Kerbal Space Program 2 map.** Is the mapping in the appendix the right
+  reading of the ruling on Q6? In particular, the places that exist only in Kerbal Space
+  Program 2 are dropped, and its monuments are matched to the anomaly on the same body.
+- **O6, training and scenarios.** Kerbal Space Program 1 also ships training lessons
+  and stand-alone scenarios *(files)*, outside career and Mission mode. Neither game
+  appears to track their completion *(web, for Kerbal Space Program 2 only)*. Are they
+  in scope?
+- **O4, Mission mode.** Mission mode runs on each mission's own settings. This document
+  proposes that C7 and R2 to R9 apply there too, and that reloading there follows the
+  mission's own settings.
+- **O5, save names.** This document proposes "Ikria" for the career save and "Ikria
+  Sandbox" for the companion sandbox save.
 
 ## Appendix, Hard preset
 
@@ -327,6 +373,63 @@ so this map takes the strictest reading, a crewed landing and return.
 | No Left Turns, and Space, Space, SPAAAAACE! | First runway launch, and first launch pad launch | C16 |
 | Open for business! | First contract | C5 |
 | Master Astrophysicist | All others | All of the above |
+
+### Kerbal Space Program 2 missions
+
+From the community wiki page [Missions](https://kerbal.wiki/Missions) and the game's
+0.2.0.0 release notes on Steam, read on 2026-11-14 *(web)*. The game's last version was
+0.2.2.0, of 2024-06-11. It had 11 primary and 30 secondary missions, each with a name
+and a reward in science, which the wiki page gives. This table lists them by objective.
+Version 0.2.2.0 added a landing or splashdown to the first two primary missions. Values
+marked *(recall)* in the mapping column are still to be checked in Kerbal Space Program
+1.
+
+| ID | Objective in Kerbal Space Program 2 | Task in Kerbal Space Program 1 |
+|---|---|---|
+| P1 | Reach 10 km, then land or splash down | The same, under C8 and C9 |
+| P2 | Rise above 70 km, then land or splash down | The same, under C8 |
+| P3 | Orbit Kerbin with periapsis above 70 km and apoapsis below 300 km | The same |
+| P4 | Orbit the Mun with periapsis above 60 km and apoapsis below 2,400 km | The same |
+| P5 | Land on the Mun | C12 |
+| P6 | Find a signal source on the Mun | Visit a Mun monolith, under C13 |
+| P7 | Put a probe with an antenna in orbit of Minmus | The same |
+| P8 | Reach the monument on Minmus | Visit the Minmus monolith, under C13 |
+| P9 | Reach the monument on Duna | Visit the Duna pyramid, which emits a signal, under C13 |
+| P10 | Put a probe in orbit of Jool with an antenna of at least 86 Gm range | The same, with a relay antenna of at least that rating |
+| P11 | Reach the monument on Tylo | Visit the Tylo cave, under C13 |
+| S1 | Land in water on Kerbin | C8 |
+| S2 | Walk in space in orbit of Kerbin | C8 |
+| S3 | Run an environment survey with the small materials experiment | Run the materials bay in flight over Kerbin, under C4 |
+| S4 | Orbit Kerbin with periapsis and apoapsis both between 99 and 101 km | The same |
+| S5 | Orbit Kerbin with periapsis 70 to 150 km and apoapsis 300 to 8,400 km | The same |
+| S6 | Put a probe with an antenna and a solar panel in orbit of Kerbin | The same |
+| S7 | Launch a vessel with at least four wheels | The same, under C3 |
+| S8 | Crew observation with a lander can at Kapy Rock on Kerbin | A crew report from a landed lander can on Kerbin, since the place is absent |
+| S9 | Crew observation with a lander can at Stargazer Point on Kerbin | As S8 |
+| S10 | Keostationary orbit, 2,863 km at 1,010 m/s | The same, which is also Kerbin's synchronous orbit *(recall)* |
+| S11 | Put the largest standard fuel tank and a docking port in orbit | The same, with the Rockomax Jumbo-64 *(recall)* |
+| S12 | Plant a flag in a mare on the Mun | Plant a flag in a lowland biome of the Mun *(recall)* |
+| S13 | Land more than 200 t on Minmus | The same |
+| S14 | Leave Kerbin's sphere of influence | C8 |
+| S15 | Land on Ike with three crew | The same |
+| S16 | Land more than 300 t on Duna | The same |
+| S17 | Enter Eve's sphere of influence | C8 |
+| S18 | Land ten kerbals on Eve and return them | The same, the largest single crewed task found |
+| S19 | Environment survey at the Oblique Impact site on Gilly | A materials bay landed on Gilly, since the place is absent |
+| S20 | Land in the Mohole on Moho | The same, under C13 |
+| S21 | Return a surface sample from the Croissant on Moho | A surface sample returned from Moho, since the place is absent |
+| S22 | Atmosphere survey at Jool | Atmosphere analysis in Jool's atmosphere, under C4 |
+| S23 | Plant a flag on Pol | C8 |
+| S24 | Radiation observation in Pol's lowlands | No counterpart, since Kerbal Space Program 1 has no radiation experiment *(recall)* |
+| S25 | Sample the creature on Laythe | Visit the Laythe skeleton and take a surface sample there |
+| S26 | Sample the fossil on Bop | Visit the dead kraken on Bop and take a surface sample there |
+| S27 | Run a jet engine on Laythe | The same |
+| S28 | Plant a flag in the Eye of Dres | Plant a flag on Dres, since the place is absent |
+| S29 | Enter Eeloo's sphere of influence | C8 |
+| S30 | Drive a rover onto the Frozen Tsunami on Eeloo | Drive a rover on Eeloo, since the place is absent |
+
+The 41 discoverables of Kerbal Space Program 2 are its own places, so C13 is met with
+Kerbal Space Program 1's anomalies instead.
 
 ## Appendix, anomalies
 

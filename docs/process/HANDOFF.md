@@ -18,9 +18,11 @@ completed, moved or abandoned.
   its context paragraph.
 - **Campaign plan proposed.** On 2026-11-14 the operator asked for the game sequence.
   [`docs/architecture/CAMPAIGN_PLAN.md`](../architecture/CAMPAIGN_PLAN.md) defines the
-  completion criteria, the rules of play, the constraints and seven phases, and ends
-  with eight open questions. Its counts come from a read-only pass over the installed
-  game's data files, and its preset, achievement and anomaly facts from the web.
+  completion criteria, the rules of play, the constraints and seven phases. Its counts
+  come from a read-only pass over the installed game's data files, and its preset,
+  achievement and anomaly facts from the web. The operator answered its eight questions
+  the same day, adopted every proposed criterion and rule, and amended charter item 2.
+  The plan is held unpushed on `docs/campaign-plan` until it is final.
 - **The operator's aim.** A technology demonstrator for Keleusma, with no physical-world
   impact. Keleusma stream processors fly craft in Kerbal Space Program 1 through the
   kRPC mod, an MCP server exposes the same controls to agents, and the record documents
@@ -49,9 +51,9 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
 
 ## Next step
 
-1. Have the operator settle the open questions of `CAMPAIGN_PLAN.md`. Q1 is the most
-   consequential, because the Hard preset disables the quickloads and reverts that
-   charter item 2 allows.
+1. Finalize `CAMPAIGN_PLAN.md`. Its remaining questions O1 to O5 need the operator,
+   and O3 needs the list of what Kerbal Space Program 2 tracked. Push and open the pull
+   request only once the operator calls the plan final.
 2. Draft a design document in `docs/architecture/` for the operator to review. It should
    cover the Rust host that embeds Keleusma, the record types for telemetry in and
    commands out, the stepping contract between host and script, and the MCP tools. Keep
