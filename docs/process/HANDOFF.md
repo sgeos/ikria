@@ -54,10 +54,11 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
 
 ## Next step
 
-1. Have the operator review
-   [`HARNESS_DESIGN.md`](../architecture/HARNESS_DESIGN.md), drafted 2026-11-14, and
-   decide D1 on the process layout, D2 on the bridge's repository, and the campaign
-   plan's O9 on launch sites. A separate GPL bridge repository needs the operator.
+1. The operator accepted on 2026-11-14 three processes, a separate GPL-3.0 bridge
+   repository, and the plan's O9 on launch sites, all recorded in
+   [`HARNESS_DESIGN.md`](../architecture/HARNESS_DESIGN.md) and the campaign plan.
+   Creating the bridge repository is outward-facing, so it waits for the operator to
+   say who creates it and with what visibility.
 2. Run the design's Phase 0 experiments in the sandbox save once a save is loaded. The
    kRPC server starts only then. A Python client 0.7.0 is installed in
    `tmp/krpc-venv`, which is local scratch.

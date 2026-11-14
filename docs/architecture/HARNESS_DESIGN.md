@@ -2,7 +2,8 @@
 
 > **Navigation**: [Architecture](./README.md) | [Documentation Root](../README.md)
 
-**Status.** Proposed, 2026-11-14, for the operator's review. Nothing is implemented.
+**Status.** Proposed, 2026-11-14, for the operator's review, with the process layout and
+the bridge's repository decided by the operator the same day. Nothing is implemented.
 Each point is marked **Decided**, **Proposed** or **Open**. Facts about Keleusma come
 from a read-only reading of its repository at version 0.2.2 and the unreleased 0.2.3
 work, with file references kept in this line's notes. Facts about kRPC come from the
@@ -30,7 +31,7 @@ stepping contract, and how the rules of play are enforced.
 | Harness | One process | 0BSD | No | Keleusma VMs, the tick scheduler, rule enforcement, telemetry logs, save snapshots |
 | Mission controller | A second process | 0BSD | No | Agency state, mission sequencing, program-level loops, the MCP server, the record generators |
 
-**Proposed.** Three processes. The bridge is separate because the kRPC client and
+**Decided by the operator, 2026-11-14.** Three processes. The bridge is separate because the kRPC client and
 service definitions it needs are GPL-3.0, as the bridge section explains, and charter
 item 6 keeps GPL code apart. A process boundary keeps the harness and the controller
 0BSD as built programs, not only as source. The harness and the controller are separate
@@ -192,8 +193,8 @@ from the installed server.*
   and the protocol schema is MIT. Later changes on kRPC's main branch, not yet
   released, relicense some clients and add a permission for generated client code.
 
-**Proposed.** The bridge is its own GPL-3.0 process in a small separate repository, and
-uses `krpc-client`. That is the simplest licensing position and follows charter item
+**Decided by the operator, 2026-11-14.** The bridge is its own GPL-3.0 process in a
+small separate repository, and uses `krpc-client`. That is the simplest licensing position and follows charter item
 6. The alternative is a 0BSD bridge written from the MIT protocol schema, calling
 procedures by name and generating no bindings from the GPL definitions. It would let
 the bridge live in this repository, but whether it fully avoids the GPL is a licensing
@@ -267,10 +268,9 @@ Each answers a question this design depends on. All run in the sandbox save.
 8. **Keleusma timing.** The calibrated time per iteration of a representative loop on
    this machine, which sets the admission budget.
 
-## Open questions for the operator
+## Decisions
 
-- **D1, process layout.** Three processes, as proposed, the bridge, the harness and
-  the controller, or fewer?
-- **D2, the bridge's home.** A separate GPL-3.0 repository with `krpc-client`, as
-  proposed, or a 0BSD bridge here written from the MIT protocol schema. Creating a new
-  repository is the operator's decision.
+| Question | Ruling, 2026-11-14 |
+|---|---|
+| D1, process layout | Three processes, the bridge, the harness and the controller. |
+| D2, the bridge's home | A separate GPL-3.0 repository, using `krpc-client`. |

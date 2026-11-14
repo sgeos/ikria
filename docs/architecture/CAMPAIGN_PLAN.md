@@ -66,7 +66,7 @@ the operator on 2026-11-14.
 | C13 | Every anomaly visited, including the Green Monolith on each body | Partly | Save file and Ikria ledger | Decided |
 | C14 | A resource survey from orbit of every body | Partly | Save file and Ikria ledger | Decided |
 | C15 | An asteroid captured, and a sample from every comet class that appears | Partly | Save file and Ikria ledger | Decided |
-| C16 | Every launch site flown from, including the Making History sites | No | Ikria ledger | Decided |
+| C16 | Every launch site flown from in the sandbox, including the Making History sites, and landed at in the career | No | Ikria ledger | Decided, as amended by O9 |
 | C17 | Every strategy in the Administration Building run once | No | Ikria ledger | Decided |
 | C18 | Every stock mission in Mission mode and every stand-alone scenario completed once without an incident | Not in career | Results and incident reports | Decided |
 
@@ -361,14 +361,13 @@ world, and for the program and its financials to be tracked as a serious space a
 would. Vehicle sheets and mission documents each rest on their own blog article. This
 extends R8. [`AGENCY_RECORD.md`](AGENCY_RECORD.md) defines the record that follows.
 
-## Open questions
+## Rulings, fifth set, 2026-11-14
 
-- **O9, launch sites.** C16 requires a flight from every launch site, including the
-  Making History sites. The Hard preset disables other launch sites in the career
-  *(files)*, so C16 cannot be met there under R1. The sandbox allows them. This
-  document recommends meeting C16 by launching from each site in the sandbox, and by
-  landing at each site during the career. Landing there also collects the sites'
-  location biomes for C4.
+| Question | Ruling |
+|---|---|
+| O9, launch sites | Accepted. The Hard preset disables other launch sites in the career *(files)*, so C16 is met by launching from each site in the sandbox, and by landing at each site during the career, which also collects the sites' location biomes for C4. |
+
+No questions remain open.
 
 ## Appendix, Hard preset
 
