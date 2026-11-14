@@ -51,9 +51,8 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
 
 ## Next step
 
-1. Finalize `CAMPAIGN_PLAN.md`. Its remaining questions O1 to O5 need the operator,
-   and O3 needs the list of what Kerbal Space Program 2 tracked. Push and open the pull
-   request only once the operator calls the plan final.
+1. Finalize `CAMPAIGN_PLAN.md`. Its remaining questions O7 and O8 need the operator.
+   Push and open the pull request only once the operator calls the plan final.
 2. Draft a design document in `docs/architecture/` for the operator to review. It should
    cover the Rust host that embeds Keleusma, the record types for telemetry in and
    commands out, the stepping contract between host and script, and the MCP tools. Keep

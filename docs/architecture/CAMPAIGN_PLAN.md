@@ -55,7 +55,7 @@ the operator on 2026-11-14.
 | C3 | Fly every part in a role it was designed for | No | Ikria part ledger, from telemetry | Decided |
 | C4 | Bring every science subject to its cap, with one sample per asteroid class and per comet class | Yes, per subject | Save file, science subjects | Decided |
 | C5 | Complete every finite contract, at least one contract of every type at every body that offers it, and every stock mission in Mission mode | Partly | Save file and Mission mode results | Decided |
-| C6 | Achieve everything Kerbal Space Program 2 tracks that Kerbal Space Program 1 could have tracked, and every Enhanced Edition trophy | No | Achievement map in the appendix | Decided rule, list pending |
+| C6 | Every Enhanced Edition trophy, and as a supplemental best effort, everything Kerbal Space Program 2 tracks that Kerbal Space Program 1 could have tracked | No | Achievement map in the appendix | Decided |
 | C7 | No kerbal dies or goes missing, including tourists and rescued kerbals | Yes | Save file, crew roster | Decided |
 | C8 | Every world first on every body where it can exist | Yes | Save file, progress tracking | Decided |
 | C9 | Every progress record, such as altitude, depth, speed and distance | Yes | Save file, progress tracking | Decided |
@@ -67,7 +67,7 @@ the operator on 2026-11-14.
 | C15 | An asteroid captured, and a sample from every comet class that appears | Partly | Save file and Ikria ledger | Decided |
 | C16 | Every launch site flown from, including the Making History sites | No | Ikria ledger | Decided |
 | C17 | Every strategy in the Administration Building run once | No | Ikria ledger | Decided |
-| C18 | Every stock Making History mission, tutorial and European Space Agency mission completed in Mission mode | Not in career | Mission mode results | Decided, as part of C5 |
+| C18 | Every stock mission in Mission mode and every stand-alone scenario completed once without an incident | Not in career | Results and incident reports | Decided |
 
 **Notes on the criteria.**
 - **C1 and C2.** The game defines 489 part blocks *(files)*. Of these, 2 cannot be
@@ -108,8 +108,17 @@ the operator on 2026-11-14.
   requires. These are a landing of more than 200 tonnes on Minmus and of more than 300
   tonnes on Duna, a landing on Ike with three crew, a landing of ten kerbals on Eve with
   their return, a jet engine run on Laythe, and a fuel depot in orbit of Kerbin. The
-  Enhanced Edition trophies are also mapped in the appendix, and each falls under
-  another criterion.
+  operator ruled on 2026-11-14 that everything taken from Kerbal Space Program 2 is a
+  supplemental best effort, so these tasks do not hold back completion. The Enhanced
+  Edition trophies are also mapped in the appendix, and each falls under another
+  criterion.
+- **C18.** Mission mode holds 9 Making History missions, 3 tutorials and the European
+  Space Agency missions, and the game also ships 16 stand-alone scenarios *(files)*.
+  Each attempt is played as one shot, with no reload inside it even where the mission
+  allows one. An attempt that loses a kerbal, or that needs anything else R11 reports,
+  still counts as a completion with incidents. The attempts continue until one completes
+  with no incident report, and only that attempt meets C18. A scenario that states no
+  objective of its own is complete when the aim its description gives is met.
 - **C7.** Rescued kerbals and tourists count, because their deaths are deaths in the
   game's roster. A loss is handled under R10.
 - **C8.** The save's progress tracking holds firsts such as first launch, reaching
@@ -171,10 +180,9 @@ the operator on 2026-11-14.
   report covers objectives, trajectory, budgets, abort modes and failure modes. The
   post-flight report covers results and anomalies, and each anomaly gets an entry in a
   campaign anomaly log.
-- **R9, information parity.** *Decided in principle, details proposed.* The operator
-  ruled that a control loop may know what a craft could reasonably know. This document
-  proposes the following details. Knowledge sits in two places, and each is limited
-  differently.
+- **R9, information parity.** *Decided.* The operator ruled that a control loop may
+  know what a craft could reasonably know, and accepted the following details. Knowledge
+  sits in two places, and each is limited differently.
   - **On board.** A Keleusma program flying a vessel sees that vessel's full state,
     which stands in for its own sensors and navigation. This covers position, velocity,
     attitude, resources and the state of its parts.
@@ -187,13 +195,20 @@ the operator on 2026-11-14.
     are known for a body only after a survey of it from orbit. Before that, a vessel
     knows only what its own position and altitude above the ground give. Anomalies are
     known only once a scan reveals them.
-- **R10, losses and reloading.** *Decided in principle, details proposed.* Hard leaves
-  no reload inside the game. A save can still be restored from outside it, since the
-  game keeps up to five rolling backups in each save's folder *(files)*, and the
-  harness can keep its own copies. The operator ruled that a loss caused by a defect in
-  the game is a reload scenario where reloading is possible, and that otherwise a loss
-  is documented and the campaign continues. This document proposes the following
-  details.
+  - **Enforcement.** The harness enforces these limits, and R2 and R3, outside the game.
+    No mod that changes play is adopted, because the career is to stay Hard unmodified.
+    kRPC already reports more than the limits allow, so the gap is closed by filtering
+    what it reports, not by changing the game. A small read-only kRPC service is written
+    only if Phase 0 finds state that kRPC does not expose and the save file cannot give
+    in time. Candidates are facility levels, the tracking state of asteroids and comets,
+    survey coverage, and anomalies revealed by a scan *(recall)*. Such a service would
+    belong in the separate bridge repository of charter item 6, since kRPC is GPL-3.0.
+- **R10, losses and reloading.** *Decided.* Hard leaves no reload inside the game. A
+  save can still be restored from outside it, since the game keeps up to five rolling
+  backups in each save's folder *(files)*, and the harness can keep its own copies. The
+  operator ruled that a loss caused by a defect in the game is a reload scenario where
+  reloading is possible, and that otherwise a loss is documented and the campaign
+  continues. The operator accepted the following details.
   - **Loss from a game defect.** The save is restored from the harness's copy taken
     before the affected flight. The event goes into the anomaly log, with the evidence
     that it was a defect.
@@ -201,6 +216,17 @@ the operator on 2026-11-14.
     the campaign continues.
   - **Classification.** The operator confirms whether a loss was a defect before any
     restore, so that the record cannot quietly undo its own mistakes.
+- **R11, incident reports.** *Decided.* Every reload of the career save and every loss
+  of a kerbal requires an incident report, as does every Mission mode or scenario
+  attempt that loses a kerbal. The report gives the timeline from telemetry, the
+  classification under R10, the cause and contributing factors, the corrective action,
+  and the criteria affected. Each report is also an entry in the anomaly log of R8.
+- **R12, operator attention.** *Decided.* The operator wants the campaign to need as
+  little attention as possible. The line therefore works without asking, and reports
+  through the record. The operator is needed only for three things. These are confirming
+  a defect before a restore under R10, the outward actions the repository rules reserve,
+  such as pushing, and changes to these criteria and rules. Requests are batched where
+  the work allows, such as one pull request per milestone.
 
 ## Constraints that order the campaign
 
@@ -262,7 +288,7 @@ exit condition is what the roadmap's milestones will test.
 
 | Phase | Work | Exit condition |
 |---|---|---|
-| 0, ground work | Build the bridge, the harness and the records of R7 and R8. Create the new career save on Hard and its companion sandbox save, and record the Hard preset's full settings from the new career save. Match the sandbox settings to the career's. Enumerate bodies, biomes, situations, experiments, parts, progress nodes and facility gates from the running game, as the baseline of the completion ledger. | The ledger lists every subject, part and progress node, and the harness flies a qualification profile in the sandbox. |
+| 0, ground work | Build the bridge, the harness and the records of R7 and R8. Create the career save "Ikria Automated Space Agency" on Hard and the sandbox save "Ikria Simulated Research and Development", and record the Hard preset's full settings from the new career save. Match the sandbox settings to the career's. Enumerate bodies, biomes, situations, experiments, parts, progress nodes and facility gates from the running game, as the baseline of the completion ledger. | The ledger lists every subject, part and progress node, and the harness flies a qualification profile in the sandbox. |
 | 1, Kerbin | Science at the Space Center's biomes and in Kerbin's situations. Flights short of orbit, the first orbit, the first extravehicular activity, the record contracts, the first upgrades. | Crewed orbit and return, and Kerbin's near-space subjects collected. |
 | 2, Mun and Minmus | Uncrewed flyby, orbit and landing, then crewed landing and return on both. Begin biome-by-biome science. | Crewed returns from both, and the 160 tier of the tree within reach. |
 | 3, infrastructure | A relay network around Kerbin, a station with a science laboratory, docking, a fuel depot and refuelling in orbit, and resource extraction on Minmus. | Refuelling demonstrated, and the laboratory in operation. |
@@ -299,24 +325,27 @@ The operator answered the first eight questions on 2026-11-14.
 | Q7, the proposals | All additional criteria and rules accepted. |
 | Q8, saves | A new career save on Hard, with a new companion sandbox save. The existing saves are left untouched. |
 
+## Rulings, second set, 2026-11-14
+
+| Question | Ruling |
+|---|---|
+| O1, information details | Accepted. The operator asked whether a mod should do some of it, which R9's enforcement note answers. |
+| O2, reload details | Accepted. Every reload or loss of a kerbal in career needs an incident report, now R11. The campaign should need as little of the operator's attention as possible, now R12. |
+| O3, the Kerbal Space Program 2 map | Understood. Everything taken from Kerbal Space Program 2 is a supplemental best effort. |
+| O4, Mission mode | No-death completions, with one-shot attempts repeated until one completes without an incident report. See C18. |
+| O5, save names | "Ikria Automated Space Agency" for the career save and "Ikria Simulated Research and Development" for the sandbox save. |
+| O6, training and scenarios | Stand-alone scenarios are in scope, as for Mission mode. The operator has mixed feelings on the training lessons. |
+
 ## Open questions
 
-- **O1, information details.** Are the details proposed under R9 the right reading of
-  the ruling on Q4?
-- **O2, reload details.** Are the details proposed under R10 the right reading of the
-  ruling on Q5, in particular that the operator confirms each defect before a restore?
-- **O3, the Kerbal Space Program 2 map.** Is the mapping in the appendix the right
-  reading of the ruling on Q6? In particular, the places that exist only in Kerbal Space
-  Program 2 are dropped, and its monuments are matched to the anomaly on the same body.
-- **O6, training and scenarios.** Kerbal Space Program 1 also ships training lessons
-  and stand-alone scenarios *(files)*, outside career and Mission mode. Neither game
-  appears to track their completion *(web, for Kerbal Space Program 2 only)*. Are they
-  in scope?
-- **O4, Mission mode.** Mission mode runs on each mission's own settings. This document
-  proposes that C7 and R2 to R9 apply there too, and that reloading there follows the
-  mission's own settings.
-- **O5, save names.** This document proposes "Ikria" for the career save and "Ikria
-  Sandbox" for the companion sandbox save.
+- **O7, training lessons.** The game ships 14 training lessons *(files)*. They teach a
+  player through scripted steps and leave little for the record. This document
+  recommends leaving them out, and revisiting them after Phase 6 if the operator wants.
+- **O8, standing authority to push.** The repository rules ask for the operator's
+  confirmation before every push. A campaign of this length will produce many pull
+  requests. Would the operator grant a standing authority for routine documentation and
+  record pull requests, to serve R12? That would change `CLAUDE.md`, so it waits for
+  the operator's word.
 
 ## Appendix, Hard preset
 
