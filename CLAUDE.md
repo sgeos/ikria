@@ -15,14 +15,6 @@ first milestone is in [`docs/roadmap/`](docs/roadmap/README.md).
 
 ## Development Process
 
-**HARD CONSTRAINT, before any of the below.** This project belongs to the Keleusma family.
-Before writing anything tracked, read `~/projects/rust/keleusma/secret/notes/APPENDIX_B.md`.
-It holds operator-stated context held outside the repository deliberately. **Do not copy
-any of it into tracked files, commit messages, or public documentation; reference it
-only as "Appendix B".** The failure mode is disclosure, which cannot be undone. The
-seeding session could not read it, as recorded in `docs/process/HANDOFF.md`, so the
-first task of the receiving line includes checking the seed against it.
-
 **Do not edit Keleusma.** It is a separate repository. Report a needed change to the
 operator instead.
 
@@ -111,6 +103,8 @@ progress stays with the project and survives a restart.
 `secret/` holds local material that is never committed, such as credentials, API keys and
 environment-specific notes. It is ignored whole and does not exist in a fresh clone.
 Never copy its contents into tracked files, commit messages, issues or pull requests.
+If `secret/README.md` exists, read it at session start and before writing anything
+tracked. A new worktree has no `secret/`, so copy it from the main checkout first.
 
 `scripts/check.sh` fails if anything under `secret/`, or anything under `tmp/` other than
 its marker, is tracked. If `secret/disclosure-terms.txt` exists, one term per line, the

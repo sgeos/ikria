@@ -11,7 +11,9 @@ by the admin session.
 
 Ikria is a Keleusma technology demonstrator. It demonstrates stream-processing control in
 a textbook sandbox simulator, Kerbal Space Program 1, where mistakes can be undone and
-crashes have no physical-world impact. The operator describes it as a reverse form of the
+crashes have no physical-world impact. The operator notes that this cuts both ways, and
+that the only real-world costs are the opportunity cost of running the simulation and the
+outlay to procure it. The operator describes it as a reverse form of the
 research in the blog article A386 on multi-agent space simulation, which asks what a
 simulation that does not cheat its physics would need. Ikria instead takes an existing
 simulator, states its limits, and uses it to exercise control software.
@@ -44,6 +46,10 @@ simulator, states its limits, and uses it to exercise control software.
    project concern.
 9. **Milestones** follow career mode's established flow and cadence, and are still to be
    worked out.
+10. **The goal** is, in effect, a complete solution to KSP, written as vehicle-control
+    routine pairs along with the sequencing required to make the solution work. The
+    operator stated this on 2026-11-13, in answer to the receiving line's review of the
+    seed. Normal KSP terminology is acceptable when the record talks about KSP.
 
 ## Consequences
 
@@ -55,8 +61,8 @@ simulator, states its limits, and uses it to exercise control software.
   rate or an in-game component, which would belong in the GPL bridge repository.
 - Agentic AI building craft needs a path to create craft. kRPC 0.7.0 exposes an editor
   vessel, and craft files are text, but neither path has been checked.
-- Going public needs the Appendix B check first, which the seeding session could not do,
-  and template checklist step 16, the history and credential scan.
+- Going public needed template checklist step 16, the history and credential scan, which
+  the operator ran on 2026-11-13 before the repository was made public.
 - Publishing game footage and craft files rests on the game's terms and the publisher's
   content policy. The operator notes that many people publish KSP videos. The policy has
   not been read.

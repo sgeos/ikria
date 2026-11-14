@@ -6,27 +6,29 @@ A state file, overwritten whole after each task. It reports what was done, what 
 decided and by whom, what was verified and how, what was not verified, and what the
 operator needs to decide. Facts, inferences and hypotheses are marked as such.
 
-## Seeding report, 2026-11-13
+## Seed review, 2026-11-13
 
-From the admin session, which seeded the repository. This line has not yet run.
+From the receiving line, its first session.
 
 **Done.**
-- Seeded from `sgeos/project-template` v1.0.8 at `3954eba`, the template's latest commit
-  on that day, with the placeholders filled and the Keleusma family constraint added.
-- Recorded the operator brief and the kRPC findings in `docs/process/HANDOFF.md`, the
-  operator's rulings in `docs/decisions/PROJECT_CHARTER.md`, and the remaining questions
-  in `docs/architecture/OPEN_QUESTIONS.md`.
-- Created `sgeos/ikria`, applied template step 10 in full, and made it public after the
-  operator's disclosure scan of the history came back clean. The default-branch ruleset
-  is active, so changes reach `main` only by pull request with green CI.
+- Ran the handoff's validity checks. The handoff was valid.
+- Reviewed every tracked file, every commit message and diff, and the repository text on
+  GitHub, and reported to the operator in session.
+- Recorded the operator's rulings that belong in the record. Charter item 10 states the
+  goal and allows normal KSP terminology. The charter's context records the operator's
+  note on the costs of a simulation.
+- Restated the rationale for keeping KSP types behind the bridge in the handoff's next
+  step, as this line's recommendation.
+- Brought `CLAUDE.md` and `AGENTS.md` closer to the template's wording.
 
-**Verified.** The gate passes, CI passes on `main`, and the disclosure scan found no
-listed term in the tracked files or the history. A read-only kRPC client connected to the
-running game on 2026-11-13.
+**Decided.** By the operator, in session on 2026-11-13, as recorded above.
 
-**Not verified.** No line has compared the repository with Appendix B beyond the terms
-scan, because the seeding session may not read it. Nothing is implemented, and no Rust
-kRPC client has been chosen.
+**Verified.** `./scripts/check.sh` and `./scripts/check.sh --history --hygiene-only` both
+exit zero on this branch, on macOS. Continuous integration had not run when this was
+written. Its result is on the pull request.
 
-**For the operator.** The seven open questions, and the design document that follows
-them.
+**Not verified.** The charter's item 10 keeps the operator's words "vehicle-control
+routine pairs". This line reads them as pairs of a craft and its control routine, which
+is an inference and not confirmed.
+
+**For the operator.** Confirm or correct the reading of item 10.

@@ -10,13 +10,12 @@ completed, moved or abandoned.
 ## State on 2026-11-13
 
 - **Seeded** by the admin session from `sgeos/project-template` at `3954eba`, tag
-  `v1.0.8`, which was still the template's latest commit on 2026-11-13. Nothing is
-  implemented. The public repository is `https://github.com/sgeos/ikria`.
-- **Disclosure scan.** On 2026-11-13 the operator ran `scripts/check.sh --history
-  --hygiene-only` with the Keleusma terms list in `secret/disclosure-terms.txt`. It found
-  no listed term in the tracked files or in the history of the first four commits. The
-  seeding session could not read Appendix B, so no line has yet compared the seed with
-  it beyond that scan.
+  `v1.0.8`. Nothing is implemented. The public repository is
+  `https://github.com/sgeos/ikria`.
+- **Seed review done.** The receiving line reviewed the tracked files, the full history
+  and the text on GitHub on 2026-11-13, and reported to the operator in session. The
+  operator's rulings that belong in the record are in the charter, in item 10 and in
+  its context paragraph.
 - **The operator's aim.** A technology demonstrator for Keleusma, with no physical-world
   impact. Keleusma stream processors fly craft in Kerbal Space Program 1 through the
   kRPC mod, an MCP server exposes the same controls to agents, and the record documents
@@ -45,13 +44,13 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
 
 ## Next step
 
-1. Read Appendix B and check every tracked file and commit message against it, beyond
-   what the terms scan covers. Report the result to the operator before any other work.
-2. Draft a design document in `docs/architecture/` for the operator to review. It should
+1. Draft a design document in `docs/architecture/` for the operator to review. It should
    cover the Rust host that embeds Keleusma, the record types for telemetry in and
    commands out, the stepping contract between host and script, and the MCP tools. Keep
-   the agent interface free of KSP, so a stronger physics host could replace the game.
-3. Define the first milestone in `docs/roadmap/` once the design is approved.
+   KSP types behind the bridge, so that the harness and the MCP tools can be tested
+   against a scripted host without the game running. That rationale is this line's
+   recommendation, not an operator ruling.
+2. Define the first milestone in `docs/roadmap/` once the design is approved.
 
 ## Open
 

@@ -18,10 +18,6 @@ making any non-trivial change.
 
 ## Flagged up front
 
-- **HARD CONSTRAINT: before writing anything tracked, read
-  `~/projects/rust/keleusma/secret/notes/APPENDIX_B.md`.** Do not copy any of it into
-  tracked files, commit messages, or public documentation. Reference it only as
-  "Appendix B".
 - **Do not edit Keleusma.** It is a separate repository.
 - **Commit once per prompt,** with no `Co-Authored-By` trailer.
 - **Ask before outward-facing actions,** such as pushing, changing visibility or
