@@ -56,7 +56,10 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
 
 1. Run the remaining Phase 0 experiments of
    [`HARNESS_DESIGN.md`](../architecture/HARNESS_DESIGN.md) in the sandbox save. They
-   need a vessel in flight, so a small hand-written craft file comes first. The Python
+   need a vessel in flight, so a small hand-written craft file comes first. Experiment
+   9, on the physics range of a separated stage, is the main risk of the booster program
+   in [`VTHL_PROGRAM.md`](../architecture/VTHL_PROGRAM.md), a top priority since
+   2026-11-14. The Python
    client 0.7.0 is in `tmp/krpc-venv`, and the probes are in `tmp/`, both local scratch.
 2. Define the first milestone in `docs/roadmap/`, which the plan sets as Phase 0, and
    the record crate that the bridge repository waits on.
