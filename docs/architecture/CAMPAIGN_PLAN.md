@@ -399,6 +399,12 @@ No questions remain open.
 | The booster | A first-stage booster that takes off vertically and lands on the runway is one of the top priorities. It may turn around, or go once around Kerbin, as the mission requires. [`VTHL_PROGRAM.md`](VTHL_PROGRAM.md) sets it out. |
 | After the tree | The operator expects that once every node is researched, the rest is a matter of carrying out the work rather than of lining up prerequisites. [`CAMPAIGN_SEQUENCE.md`](CAMPAIGN_SEQUENCE.md) gives this document's assessment. |
 
+## Rulings, seventh set, 2026-11-14
+
+| Subject | Ruling |
+|---|---|
+| Green Monoliths | Used to unlock the final nodes of the tree and the nodes with no parts, Nanolathing and Experimental Motors. The operator understands the granted node to be random. [`CAMPAIGN_SEQUENCE.md`](CAMPAIGN_SEQUENCE.md) sets out the reserved set, the deferred discovery and the keep-out zones. |
+
 ## Appendix, Hard preset
 
 From the official wiki pages
@@ -671,8 +677,10 @@ purchases, upgrades, science and funds, and governs where the two differ.
    calendar of the inner and outer phases requires, with Automation and Advanced
    Science Tech among the first of them.
 6. **The rest of the tree,** in whatever order the completion criteria and the
-   remaining missions need. The two nodes that hold no listed part come last, since
-   they unlock nothing.
+   remaining missions need, except a reserved set of up to 15 nodes. The reserved set
+   holds the two nodes with no listed part and the last expensive nodes, and Green
+   Monoliths unlock it at the end, as the operator ruled on 2026-11-14 and
+   [`CAMPAIGN_SEQUENCE.md`](CAMPAIGN_SEQUENCE.md) sets out.
 
 ## Appendix, community practice
 
