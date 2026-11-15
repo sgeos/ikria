@@ -6,35 +6,31 @@ A state file, overwritten whole after each task. It reports what was done, what 
 decided and by whom, what was verified and how, what was not verified, and what the
 operator needs to decide. Facts, inferences and hypotheses are marked as such.
 
-## Training, special sites and monolith preparation, 2026-11-14
+## Hazards, disposal, landing sites, vehicle codes and relays, 2026-11-14
 
 **Done.**
-- Wrote the astronaut training program,
-  [`CREW_TRAINING.md`](../architecture/CREW_TRAINING.md), at the operator's request.
-  It sets out recruitment, basic, lunar and interplanetary stages to level 5,
-  procedures, and assignment. It also adds a proposed rule that no kerbal other than a
-  pilot flies beyond the atmosphere at level 0, since such a kerbal cannot use the
-  personal parachute.
-- Widened C13 to every special site on the official wiki's list, and catalogued the
-  sites with coordinates in `record/sites/`.
-- Prepared the Green Monolith test on the operator's method, as test procedure
-  `record/verification/TP-0001.md`. The guard, setup and research scripts are in
-  `tools/phase0/`.
+- Computed every moon's orbital hazard band from the running game, read-only, and wrote
+  [`HAZARDS.md`](../architecture/HAZARDS.md) with the surface and environment hazards.
+  Tylo is the second pitfall body of Ike's kind, and the Jool system is the densest.
+  Verification report VR-0008 documents the computation.
+- Amended R13 so that spent stages burn off their remaining Δv and deorbit, with a
+  transfer stage able to bleed a lander's velocity before separating.
+- Added R14 on chosen landing sites and R15 on orbital hazards.
+- Set vehicle codes of the form IKR-[type]-[number], with eleven type codes.
+- Added the relay registry to the agency record. The campaign plan records all of these
+  as its ninth set of rulings.
 
-**Decided.** By the operator on 2026-11-14, the training program, the widened C13 and the
-monolith method. The campaign plan records them as its eighth set of rulings.
+**Decided.** By the operator on 2026-11-14, the five rulings above. The type codes and
+the hazard rules are proposed.
 
-**Verified.**
-- The guard identified the loaded save correctly.
-- Saving through kRPC worked in the verification save.
-- `RUSTC_WRAPPER= ./scripts/check.sh` exits zero on this branch with every file staged,
-  on macOS.
+**Verified.** The bands come from the game's own orbits and spheres of influence.
+`RUSTC_WRAPPER= ./scripts/check.sh` exits zero on this branch with every file staged, on
+macOS.
 
 **Not verified.**
-- The monolith test stopped at step 2. Launch, load and quickload through kRPC hung, and
-  the game ended in its persistent state. A dialog left open by the first launch attempt
-  is the likely cause, which is an inference.
+- The surface hazards marked as recalled.
+- Whether an inclined orbit inside a band meets its moon, which each mission checks.
 
 **For the operator.**
-- Look at the game window and close any open dialog, so that step 2 can be retried.
-- Whether the toilet site, which needs a destroyed facility, stays out of C13.
+- Whether the proposed vehicle type codes suit.
+- The monolith test still waits on any open dialog in the game window being closed.

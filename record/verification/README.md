@@ -19,4 +19,5 @@ Test procedures are designated TP- and reports VR-.
 | [VR-0005](VR-0005.md) | The science subject inventory | 7 |
 | [VR-0006](VR-0006.md) | Keleusma step time | 8 |
 | [VR-0007](VR-0007.md) | The kRPC client interface | 5 and 6 |
+| [VR-0008](VR-0008.md) | Orbital hazard bands of the moons | None |
 | [TP-0001](TP-0001.md) | Green Monolith test procedure, stopped at step 2 | T14 |

@@ -258,6 +258,23 @@ the operator on 2026-11-14.
      position after the game stops tracking it, until it would leave the body's sphere
      of influence. The entry says so if that would happen.
 
+  *Amended 2026-11-14 by the operator.* A stage with Δv left burns it off meaningfully
+  before it is discarded, where it can, and deorbiting it takes priority. The two
+  exceptions are first stages that return to the runway and spent stages that become
+  relays. A transfer stage, for example, stays attached through the start of a landing
+  and bleeds the lander's velocity before it separates, so that its remaining propellant
+  does useful work and the stage then falls to the surface rather than staying in orbit.
+- **R14, landing sites.** *Decided by the operator, 2026-11-14.* Every landing targets a
+  site chosen in the mission plan, with its coordinates, the reason for the choice and a
+  tolerance. A landing is never left to wherever the trajectory happens to come down.
+  Rehearsals and live runs fly at different times, so a site reached by chance in a
+  rehearsal would differ in the live run. The plan therefore fixes the site, and the
+  descent program steers to it whatever the launch time. A landing outside the tolerance
+  is an anomaly in the mission report.
+- **R15, orbital hazards.** *Decided as a requirement by the operator, 2026-11-14.* Every
+  trajectory is checked against the moons' hazard bands of [`HAZARDS.md`](HAZARDS.md),
+  and an encounter is either shown impossible or planned.
+
 ## Constraints that order the campaign
 
 1. **Science gates parts.** *(files)* The tree's node costs rise in tiers. The table
@@ -415,6 +432,16 @@ No questions remain open.
 | Special sites | Visiting every special site on the official wiki's list is an objective. C13 is widened to the list, which `record/sites/` holds with coordinates. |
 | Training | Given how much there is to do, a kerbal astronaut training program is in place. [`CREW_TRAINING.md`](CREW_TRAINING.md) sets it out. |
 | Monolith test | The operator described the method: scan from orbit for anomalies, and the one whose coordinates the wiki lacks is the Green Monolith. `record/verification/TP-0001.md` prepares it. |
+
+## Rulings, ninth set, 2026-11-14
+
+| Subject | Ruling |
+|---|---|
+| Pitfall bodies | Ike can throw vessels around in orbit. No other body is to be a similar pitfall unchecked. [`HAZARDS.md`](HAZARDS.md) finds Tylo the second, and gives every moon's band. R15 applies it. |
+| Spent stages | Remaining Δv is burned off meaningfully before discard, deorbiting takes priority, and a transfer stage can bleed a lander's velocity before separation. R13 is amended. |
+| Landing sites | Landings target chosen sites, since rehearsals and live runs have different timings. R14. |
+| Vehicle codes | Ikria's vehicles carry codes of the form IKR-[type]-[number]. [`AGENCY_RECORD.md`](AGENCY_RECORD.md) sets out the types. |
+| Relay tracking | A system tracks the communication relays, as part of the program-level tracking software. [`AGENCY_RECORD.md`](AGENCY_RECORD.md) adds the relay registry. |
 
 ## Appendix, Hard preset
 

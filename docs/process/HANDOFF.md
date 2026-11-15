@@ -59,7 +59,8 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
 2. The Green Monolith test, T14, follows `record/verification/TP-0001.md`, and stopped at
    step 2. Launch, load and quickload through kRPC hung in the verification save, which
    fits a dialog left open in the game. Resume once the operator has closed it. The
-   training program is `CREW_TRAINING.md`, and the C13 sites are in `record/sites/`. The sandbox holds the test craft `IkriaT0` and `IkriaT1` and
+   training program is `CREW_TRAINING.md`, the C13 sites are in `record/sites/`, and the
+   hazards by body are in `HAZARDS.md`. The sandbox holds the test craft `IkriaT0` and `IkriaT1` and
    one planted flag. The Python client 0.7.0 is in `tmp/krpc-venv` and the probes in
    `tmp/`, both local scratch.
 
