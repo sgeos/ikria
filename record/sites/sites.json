@@ -1,0 +1,220 @@
+{
+ "source": "Official wiki, List of easter eggs and Monolith pages, read 2026-11-14",
+ "with_coordinates": [
+  [
+   "Kerbin",
+   "Monolith near the Space Center",
+   0.1023,
+   -74.5684
+  ],
+  [
+   "Kerbin",
+   "Monolith by the Inland Space Center's tracking station",
+   20.6709,
+   -146.4968
+  ],
+  [
+   "Kerbin",
+   "Monolith",
+   35.5705,
+   -74.9773
+  ],
+  [
+   "Kerbin",
+   "Monolith",
+   -0.6403,
+   -80.7669
+  ],
+  [
+   "Kerbin",
+   "Monolith",
+   -28.8084,
+   -13.4401
+  ],
+  [
+   "Kerbin",
+   "Inland Kerbal Space Center",
+   20.6667,
+   -146.4667
+  ],
+  [
+   "Kerbin",
+   "Desert temple",
+   -6.4966,
+   -141.6676
+  ],
+  [
+   "Kerbin",
+   "Crashed flying saucer, northern tundra",
+   81.9552,
+   -128.5139
+  ],
+  [
+   "Kerbin",
+   "Island Airfield hangar",
+   -1.5288,
+   -71.9023
+  ],
+  [
+   "Kerbin",
+   "Seabed smiley face, approximate",
+   -30.0,
+   -80.0
+  ],
+  [
+   "Kerbin",
+   "Crashed satellite, since 1.12.0",
+   -17.5344444444,
+   61.0602777778
+  ],
+  [
+   "Kerbin",
+   "Goddard's first liquid rocket, since 1.12.5",
+   -6.5179,
+   -144.016
+  ],
+  [
+   "Mun",
+   "Monolith",
+   -9.8314,
+   25.9177
+  ],
+  [
+   "Mun",
+   "Monolith",
+   57.6602,
+   9.1423
+  ],
+  [
+   "Mun",
+   "Monolith",
+   -82.2062,
+   102.9287
+  ],
+  [
+   "Mun",
+   "Rock arch, shattered with a glowing artifact since 1.12.5",
+   12.4508,
+   39.1959
+  ],
+  [
+   "Mun",
+   "Rock arch",
+   -12.4717,
+   -140.9612
+  ],
+  [
+   "Mun",
+   "Rock arch",
+   2.4633,
+   81.531
+  ],
+  [
+   "Mun",
+   "Armstrong memorial",
+   0.7017,
+   22.746
+  ],
+  [
+   "Mun",
+   "Crashed flying saucer",
+   -70.9572,
+   -68.1388
+  ],
+  [
+   "Minmus",
+   "Monolith",
+   23.777,
+   60.046
+  ],
+  [
+   "Duna",
+   "Face",
+   17.05,
+   -85.4667
+  ],
+  [
+   "Duna",
+   "Camera mast or southern pyramid, the wiki's pairing unclear",
+   -30.3419,
+   -28.8103
+  ],
+  [
+   "Duna",
+   "Southern pyramid or camera mast, the wiki's pairing unclear",
+   -66.05,
+   -160.8834
+  ],
+  [
+   "Duna",
+   "Stranded rover",
+   -2.245,
+   -5.1922
+  ],
+  [
+   "Ike",
+   "Magic Boulder",
+   -11.38334,
+   27.31667
+  ],
+  [
+   "Dres",
+   "Crashed red sports car",
+   1.955,
+   64.1427
+  ],
+  [
+   "Laythe",
+   "Whale skeleton and petunias",
+   0.07223,
+   -162.525
+  ],
+  [
+   "Vall",
+   "Vallhenge, reported underground in some saves",
+   -60.0862,
+   83.7801
+  ],
+  [
+   "Tylo",
+   "Cave",
+   40.1996,
+   174.0016
+  ],
+  [
+   "Bop",
+   "Dead kraken",
+   68.43,
+   117.03
+  ],
+  [
+   "Eeloo",
+   "Snowkerbal",
+   25.9968,
+   110.5917
+  ]
+ ],
+ "without_coordinates": [
+  [
+   "Moho",
+   "The Mohole, near the north pole, with its own biome"
+  ],
+  [
+   "Kerbin",
+   "Mk1 pod memorial outside the level 3 Vehicle Assembly Building"
+  ],
+  [
+   "Kerbin",
+   "Climbable flagpole at the level 3 Space Center"
+  ],
+  [
+   "Kerbin",
+   "Toilet in the rubble of a destroyed level 3 Astronaut Complex"
+  ],
+  [
+   "Every body but Jool and the Sun",
+   "Green Monolith, placed at random in each save"
+  ]
+ ],
+ "note": "CommNet ground stations also show in KerbNet as anomalies, and their coordinates are not listed here."
+}

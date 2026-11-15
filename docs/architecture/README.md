@@ -20,3 +20,5 @@ as **Decided**, **Proposed** or **Open**, and say whether it is implemented.
   layout and the bridge's repository decided.
 - [`VTHL_PROGRAM.md`](VTHL_PROGRAM.md): the first-stage booster that takes off
   vertically and lands on the runway. A top priority.
+- [`CREW_TRAINING.md`](CREW_TRAINING.md): the kerbal astronaut training program.
+  Proposed.
