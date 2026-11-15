@@ -1,0 +1,367 @@
+{
+ "craft": "IkriaT1",
+ "range_set": 0.0,
+ "crew": [
+  "Bob Kerman"
+ ],
+ "walked_m": 21.7,
+ "kerbal_situation": "VesselSituation.landed",
+ "kerbal_biome": "Shores",
+ "flag_event": {
+  "gui": "Plant Flag [1]",
+  "active": true
+ },
+ "flag_trigger": "triggered",
+ "flag_event_after": "Plant Flag [0]",
+ "two_vessel_cycle_ms": {
+  "median": 18.81,
+  "p95": 31.28,
+  "max": 43.28,
+  "calls_per_cycle": 16
+ },
+ "range_read": 350.0,
+ "throttle_set": true,
+ "lit": [
+  "RT-10 \"Hammer\" Solid Fuel Booster",
+  "RT-10 \"Hammer\" Solid Fuel Booster",
+  "LV-T45 \"Swivel\" Liquid Fuel Engine"
+ ],
+ "log": [
+  {
+   "t": 0.0,
+   "dist_m": 18,
+   "alt_m": 76,
+   "speed": 0.1,
+   "loaded": true,
+   "packed": false,
+   "sit": "pre_launch"
+  },
+  {
+   "t": 0.7,
+   "dist_m": 18,
+   "alt_m": 77,
+   "speed": 0.4,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 1.3,
+   "dist_m": 18,
+   "alt_m": 77,
+   "speed": 1.0,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 2.1,
+   "dist_m": 19,
+   "alt_m": 78,
+   "speed": 1.8,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 2.8,
+   "dist_m": 20,
+   "alt_m": 80,
+   "speed": 2.5,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 3.4,
+   "dist_m": 21,
+   "alt_m": 81,
+   "speed": 3.2,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 3.9,
+   "dist_m": 22,
+   "alt_m": 83,
+   "speed": 3.8,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 4.5,
+   "dist_m": 24,
+   "alt_m": 85,
+   "speed": 4.4,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 5.0,
+   "dist_m": 26,
+   "alt_m": 88,
+   "speed": 5.1,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 5.5,
+   "dist_m": 28,
+   "alt_m": 91,
+   "speed": 5.8,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 6.0,
+   "dist_m": 31,
+   "alt_m": 94,
+   "speed": 6.5,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 6.5,
+   "dist_m": 34,
+   "alt_m": 97,
+   "speed": 7.2,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 7.1,
+   "dist_m": 38,
+   "alt_m": 101,
+   "speed": 7.9,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 7.6,
+   "dist_m": 42,
+   "alt_m": 105,
+   "speed": 8.7,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 8.1,
+   "dist_m": 46,
+   "alt_m": 110,
+   "speed": 9.5,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 8.6,
+   "dist_m": 51,
+   "alt_m": 115,
+   "speed": 10.4,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 9.1,
+   "dist_m": 56,
+   "alt_m": 120,
+   "speed": 11.3,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 9.6,
+   "dist_m": 62,
+   "alt_m": 126,
+   "speed": 12.2,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 10.2,
+   "dist_m": 69,
+   "alt_m": 132,
+   "speed": 13.3,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 10.7,
+   "dist_m": 75,
+   "alt_m": 138,
+   "speed": 14.4,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 11.2,
+   "dist_m": 83,
+   "alt_m": 145,
+   "speed": 15.5,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 11.7,
+   "dist_m": 91,
+   "alt_m": 152,
+   "speed": 16.8,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 12.3,
+   "dist_m": 100,
+   "alt_m": 161,
+   "speed": 18.4,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 12.8,
+   "dist_m": 110,
+   "alt_m": 169,
+   "speed": 20.1,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 13.3,
+   "dist_m": 121,
+   "alt_m": 177,
+   "speed": 22.0,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 13.8,
+   "dist_m": 132,
+   "alt_m": 186,
+   "speed": 24.2,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 14.4,
+   "dist_m": 145,
+   "alt_m": 195,
+   "speed": 26.9,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 15.0,
+   "dist_m": 161,
+   "alt_m": 205,
+   "speed": 30.6,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 15.7,
+   "dist_m": 181,
+   "alt_m": 216,
+   "speed": 36.1,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 16.5,
+   "dist_m": 206,
+   "alt_m": 225,
+   "speed": 43.2,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 17.6,
+   "dist_m": 245,
+   "alt_m": 230,
+   "speed": 55.4,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 18.5,
+   "dist_m": 287,
+   "alt_m": 224,
+   "speed": 66.8,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 20.0,
+   "dist_m": 365,
+   "alt_m": 188,
+   "speed": 89.4,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 21.2,
+   "dist_m": 442,
+   "alt_m": 136,
+   "speed": 108.9,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  },
+  {
+   "t": 22.2,
+   "dist_m": 551,
+   "alt_m": 81,
+   "speed": 123.5,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  }
+ ],
+ "gone_after_s": 23.2,
+ "transitions": [
+  {
+   "t": 0.0,
+   "dist_m": 18,
+   "alt_m": 76,
+   "speed": 0.1,
+   "loaded": true,
+   "packed": false,
+   "sit": "pre_launch"
+  },
+  {
+   "t": 0.7,
+   "dist_m": 18,
+   "alt_m": 77,
+   "speed": 0.4,
+   "loaded": true,
+   "packed": false,
+   "sit": "flying"
+  }
+ ]
+}

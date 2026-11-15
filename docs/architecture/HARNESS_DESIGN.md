@@ -254,7 +254,9 @@ which is 0BSD, and the harness follows its later releases deliberately.
 
 ## Phase 0 experiments
 
-Each answers a question this design depends on. All run in the sandbox save.
+Each answers a question this design depends on. All run in the sandbox save. The
+reports VR-0001 to VR-0007 in [`record/verification/`](../../record/verification/README.md)
+document them in full, with their scripts and raw data.
 
 | Experiment | Result, 2026-11-14 |
 |---|---|

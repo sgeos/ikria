@@ -1,0 +1,704 @@
+{
+ "eva_vessel": "Bill Kerman",
+ "eva_parts": [
+  {
+   "name": "kerbalEVA",
+   "title": "Bill Kerman",
+   "modules": [
+    {
+     "name": "KerbalEVA",
+     "events": [
+      {
+       "active": "True",
+       "gui_name": "Pickup <<1>>",
+       "name": "PickUpROC"
+      },
+      {
+       "active": "True",
+       "gui_name": "Lower Visor",
+       "name": "LowerVisor"
+      },
+      {
+       "active": "True",
+       "gui_name": "Raise Visor",
+       "name": "RaiseVisor"
+      },
+      {
+       "active": "False",
+       "gui_name": "Plant Flag [1]",
+       "name": "PlantFlag"
+      },
+      {
+       "active": "False",
+       "gui_name": "Control From Here",
+       "name": "MakeReference"
+      },
+      {
+       "active": "False",
+       "gui_name": "Leave Seat",
+       "name": "OnDeboardSeat"
+      },
+      {
+       "active": "False",
+       "gui_name": "Rename Vessel",
+       "name": "RenameVessel"
+      },
+      {
+       "active": "True",
+       "gui_name": "Remove Helmet",
+       "name": "ChangeHelmet"
+      },
+      {
+       "active": "True",
+       "gui_name": "Remove Neck Ring",
+       "name": "ChangeNeckRing"
+      },
+      {
+       "active": "True",
+       "gui_name": "Disable Staging",
+       "name": "ToggleStaging"
+      }
+     ],
+     "actions": [],
+     "event_attrs": [
+      "active",
+      "gui_name",
+      "module",
+      "name",
+      "trigger",
+      "visible"
+     ]
+    },
+    {
+     "name": "ModuleScienceExperiment",
+     "events": [
+      {
+       "active": "True",
+       "gui_name": "Take Surface Sample",
+       "name": "DeployExperiment"
+      },
+      {
+       "active": "False",
+       "gui_name": "Take Data",
+       "name": "CollectDataExternalEvent"
+      },
+      {
+       "active": "False",
+       "gui_name": "Review Sample",
+       "name": "ReviewDataEvent"
+      },
+      {
+       "active": "False",
+       "gui_name": "Discard Sample",
+       "name": "ResetExperiment"
+      },
+      {
+       "active": "False",
+       "gui_name": "Take Surface Sample",
+       "name": "DeployExperimentExternal"
+      },
+      {
+       "active": "False",
+       "gui_name": "Discard Sample",
+       "name": "ResetExperimentExternal"
+      },
+      {
+       "active": "False",
+       "gui_name": "Restore",
+       "name": "CleanUpExperimentExternal"
+      },
+      {
+       "active": "False",
+       "gui_name": "Transfer Data",
+       "name": "TransferDataEvent"
+      },
+      {
+       "active": "True",
+       "gui_name": "Experiment: Disable Staging",
+       "name": "ToggleStaging"
+      }
+     ],
+     "actions": [
+      "<krpc.services.spacecenter.PartAction object at 0x10633f770>",
+      "<krpc.services.spacecenter.PartAction object at 0x1067b07d0>"
+     ],
+     "event_attrs": [
+      "active",
+      "gui_name",
+      "module",
+      "name",
+      "trigger",
+      "visible"
+     ]
+    },
+    {
+     "name": "ModuleScienceExperiment",
+     "events": [
+      {
+       "active": "True",
+       "gui_name": "EVA Report",
+       "name": "DeployExperiment"
+      },
+      {
+       "active": "False",
+       "gui_name": "Take Data",
+       "name": "CollectDataExternalEvent"
+      },
+      {
+       "active": "False",
+       "gui_name": "Review Report",
+       "name": "ReviewDataEvent"
+      },
+      {
+       "active": "False",
+       "gui_name": "Discard Report",
+       "name": "ResetExperiment"
+      },
+      {
+       "active": "False",
+       "gui_name": "EVA Report",
+       "name": "DeployExperimentExternal"
+      },
+      {
+       "active": "False",
+       "gui_name": "Discard Report",
+       "name": "ResetExperimentExternal"
+      },
+      {
+       "active": "False",
+       "gui_name": "Restore",
+       "name": "CleanUpExperimentExternal"
+      },
+      {
+       "active": "False",
+       "gui_name": "Transfer Data",
+       "name": "TransferDataEvent"
+      },
+      {
+       "active": "True",
+       "gui_name": "Experiment: Disable Staging",
+       "name": "ToggleStaging"
+      }
+     ],
+     "actions": [
+      "<krpc.services.spacecenter.PartAction object at 0x1067b07d0>",
+      "<krpc.services.spacecenter.PartAction object at 0x1067b4640>"
+     ],
+     "event_attrs": [
+      "active",
+      "gui_name",
+      "module",
+      "name",
+      "trigger",
+      "visible"
+     ]
+    },
+    {
+     "name": "ModuleScienceExperiment",
+     "events": [
+      {
+       "active": "False",
+       "gui_name": "Deploy",
+       "name": "DeployExperiment"
+      },
+      {
+       "active": "False",
+       "gui_name": "Take Data",
+       "name": "CollectDataExternalEvent"
+      },
+      {
+       "active": "False",
+       "gui_name": "Review EVA Science Report",
+       "name": "ReviewDataEvent"
+      },
+      {
+       "active": "False",
+       "gui_name": "Discard EVA Science Report",
+       "name": "ResetExperiment"
+      },
+      {
+       "active": "False",
+       "gui_name": "Deploy",
+       "name": "DeployExperimentExternal"
+      },
+      {
+       "active": "False",
+       "gui_name": "Discard EVA Science Report",
+       "name": "ResetExperimentExternal"
+      },
+      {
+       "active": "False",
+       "gui_name": "Restore",
+       "name": "CleanUpExperimentExternal"
+      },
+      {
+       "active": "False",
+       "gui_name": "Transfer Data",
+       "name": "TransferDataEvent"
+      },
+      {
+       "active": "True",
+       "gui_name": "Experiment: Disable Staging",
+       "name": "ToggleStaging"
+      }
+     ],
+     "actions": [
+      "<krpc.services.spacecenter.PartAction object at 0x1067b4640>",
+      "<krpc.services.spacecenter.PartAction object at 0x106543890>"
+     ],
+     "event_attrs": [
+      "active",
+      "gui_name",
+      "module",
+      "name",
+      "trigger",
+      "visible"
+     ]
+    },
+    {
+     "name": "ModuleScienceContainer",
+     "events": [
+      {
+       "active": "False",
+       "gui_name": "Store Data (0)",
+       "name": "StoreDataExternalEvent"
+      },
+      {
+       "active": "False",
+       "gui_name": "Take Data (0)",
+       "name": "CollectDataExternalEvent"
+      },
+      {
+       "active": "False",
+       "gui_name": "Container: Transfer Data",
+       "name": "TransferDataEvent"
+      },
+      {
+       "active": "False",
+       "gui_name": "Container: Collect All",
+       "name": "CollectAllEvent"
+      },
+      {
+       "active": "False",
+       "gui_name": "Review Stored Data (0)",
+       "name": "ReviewDataEvent"
+      },
+      {
+       "active": "True",
+       "gui_name": "Disable Staging",
+       "name": "ToggleStaging"
+      }
+     ],
+     "actions": [
+      "<krpc.services.spacecenter.PartAction object at 0x10661de10>"
+     ],
+     "event_attrs": [
+      "active",
+      "gui_name",
+      "module",
+      "name",
+      "trigger",
+      "visible"
+     ]
+    },
+    {
+     "name": "FlagDecal",
+     "events": [
+      {
+       "active": "True",
+       "gui_name": "Toggle Flag",
+       "name": "ToggleFlag"
+      },
+      {
+       "active": "True",
+       "gui_name": "Mirror Flag",
+       "name": "MirrorFlag"
+      },
+      {
+       "active": "True",
+       "gui_name": "Disable Staging",
+       "name": "ToggleStaging"
+      }
+     ],
+     "actions": [],
+     "event_attrs": [
+      "active",
+      "gui_name",
+      "module",
+      "name",
+      "trigger",
+      "visible"
+     ]
+    },
+    {
+     "name": "FlagDecal",
+     "events": [
+      {
+       "active": "True",
+       "gui_name": "Toggle Flag",
+       "name": "ToggleFlag"
+      },
+      {
+       "active": "True",
+       "gui_name": "Mirror Flag",
+       "name": "MirrorFlag"
+      },
+      {
+       "active": "True",
+       "gui_name": "Disable Staging",
+       "name": "ToggleStaging"
+      }
+     ],
+     "actions": [],
+     "event_attrs": [
+      "active",
+      "gui_name",
+      "module",
+      "name",
+      "trigger",
+      "visible"
+     ]
+    },
+    {
+     "name": "FlagDecal",
+     "events": [
+      {
+       "active": "True",
+       "gui_name": "Toggle Flag",
+       "name": "ToggleFlag"
+      },
+      {
+       "active": "True",
+       "gui_name": "Mirror Flag",
+       "name": "MirrorFlag"
+      },
+      {
+       "active": "True",
+       "gui_name": "Disable Staging",
+       "name": "ToggleStaging"
+      }
+     ],
+     "actions": [],
+     "event_attrs": [
+      "active",
+      "gui_name",
+      "module",
+      "name",
+      "trigger",
+      "visible"
+     ]
+    },
+    {
+     "name": "ModuleTripLogger",
+     "events": [
+      {
+       "active": "True",
+       "gui_name": "Disable Staging",
+       "name": "ToggleStaging"
+      }
+     ],
+     "actions": [],
+     "event_attrs": [
+      "active",
+      "gui_name",
+      "module",
+      "name",
+      "trigger",
+      "visible"
+     ]
+    },
+    {
+     "name": "ModuleEvaChute",
+     "events": [
+      {
+       "active": "True",
+       "gui_name": "ToggleEVAChuteParams",
+       "name": "ShowEVAChuteParamsChanged"
+      },
+      {
+       "active": "False",
+       "gui_name": "Cut Parachute",
+       "name": "CutParachute"
+      },
+      {
+       "active": "True",
+       "gui_name": "Deploy Chute",
+       "name": "Deploy"
+      },
+      {
+       "active": "False",
+       "gui_name": "Repack Chute",
+       "name": "Repack"
+      },
+      {
+       "active": "False",
+       "gui_name": "Disarm",
+       "name": "Disarm"
+      },
+      {
+       "active": "True",
+       "gui_name": "Enable Staging",
+       "name": "ToggleStaging"
+      }
+     ],
+     "actions": [
+      "<krpc.services.spacecenter.PartAction object at 0x10661de10>",
+      "<krpc.services.spacecenter.PartAction object at 0x106666450>"
+     ],
+     "event_attrs": [
+      "active",
+      "gui_name",
+      "module",
+      "name",
+      "trigger",
+      "visible"
+     ]
+    },
+    {
+     "name": "ModuleLiftingSurface",
+     "events": [
+      {
+       "active": "True",
+       "gui_name": "Disable Staging",
+       "name": "ToggleStaging"
+      }
+     ],
+     "actions": [],
+     "event_attrs": [
+      "active",
+      "gui_name",
+      "module",
+      "name",
+      "trigger",
+      "visible"
+     ]
+    },
+    {
+     "name": "ModuleLiftingSurface",
+     "events": [
+      {
+       "active": "True",
+       "gui_name": "Disable Staging",
+       "name": "ToggleStaging"
+      }
+     ],
+     "actions": [],
+     "event_attrs": [
+      "active",
+      "gui_name",
+      "module",
+      "name",
+      "trigger",
+      "visible"
+     ]
+    },
+    {
+     "name": "FlagDecal",
+     "events": [
+      {
+       "active": "True",
+       "gui_name": "Toggle Flag",
+       "name": "ToggleFlag"
+      },
+      {
+       "active": "True",
+       "gui_name": "Mirror Flag",
+       "name": "MirrorFlag"
+      },
+      {
+       "active": "True",
+       "gui_name": "Disable Staging",
+       "name": "ToggleStaging"
+      }
+     ],
+     "actions": [],
+     "event_attrs": [
+      "active",
+      "gui_name",
+      "module",
+      "name",
+      "trigger",
+      "visible"
+     ]
+    },
+    {
+     "name": "FlagDecal",
+     "events": [
+      {
+       "active": "True",
+       "gui_name": "Toggle Flag",
+       "name": "ToggleFlag"
+      },
+      {
+       "active": "True",
+       "gui_name": "Mirror Flag",
+       "name": "MirrorFlag"
+      },
+      {
+       "active": "True",
+       "gui_name": "Disable Staging",
+       "name": "ToggleStaging"
+      }
+     ],
+     "actions": [],
+     "event_attrs": [
+      "active",
+      "gui_name",
+      "module",
+      "name",
+      "trigger",
+      "visible"
+     ]
+    },
+    {
+     "name": "FlagDecal",
+     "events": [
+      {
+       "active": "True",
+       "gui_name": "Toggle Flag",
+       "name": "ToggleFlag"
+      },
+      {
+       "active": "True",
+       "gui_name": "Mirror Flag",
+       "name": "MirrorFlag"
+      },
+      {
+       "active": "True",
+       "gui_name": "Disable Staging",
+       "name": "ToggleStaging"
+      }
+     ],
+     "actions": [],
+     "event_attrs": [
+      "active",
+      "gui_name",
+      "module",
+      "name",
+      "trigger",
+      "visible"
+     ]
+    },
+    {
+     "name": "ModuleInventoryPart",
+     "events": [
+      {
+       "active": "True",
+       "gui_name": "Disable Staging",
+       "name": "ToggleStaging"
+      }
+     ],
+     "actions": [],
+     "event_attrs": [
+      "active",
+      "gui_name",
+      "module",
+      "name",
+      "trigger",
+      "visible"
+     ]
+    },
+    {
+     "name": "ModuleScienceExperiment",
+     "events": [
+      {
+       "active": "False",
+       "gui_name": "Deploy",
+       "name": "DeployExperiment"
+      },
+      {
+       "active": "False",
+       "gui_name": "Take Data",
+       "name": "CollectDataExternalEvent"
+      },
+      {
+       "active": "False",
+       "gui_name": "Review Report",
+       "name": "ReviewDataEvent"
+      },
+      {
+       "active": "False",
+       "gui_name": "Discard Report",
+       "name": "ResetExperiment"
+      },
+      {
+       "active": "False",
+       "gui_name": "Deploy",
+       "name": "DeployExperimentExternal"
+      },
+      {
+       "active": "False",
+       "gui_name": "Discard Report",
+       "name": "ResetExperimentExternal"
+      },
+      {
+       "active": "False",
+       "gui_name": "Restore",
+       "name": "CleanUpExperimentExternal"
+      },
+      {
+       "active": "False",
+       "gui_name": "Transfer Data",
+       "name": "TransferDataEvent"
+      },
+      {
+       "active": "True",
+       "gui_name": "Experiment: Disable Staging",
+       "name": "ToggleStaging"
+      }
+     ],
+     "actions": [
+      "<krpc.services.spacecenter.PartAction object at 0x106666450>",
+      "<krpc.services.spacecenter.PartAction object at 0x10666dd60>"
+     ],
+     "event_attrs": [
+      "active",
+      "gui_name",
+      "module",
+      "name",
+      "trigger",
+      "visible"
+     ]
+    }
+   ],
+   "experiments": [
+    {
+     "name": "surfaceSample",
+     "title": "Surface Sample",
+     "available": true,
+     "has_data": false,
+     "rerunnable": true,
+     "inoperable": false,
+     "deployed": false
+    },
+    {
+     "name": "evaReport",
+     "title": "EVA Report",
+     "available": true,
+     "has_data": false,
+     "rerunnable": true,
+     "inoperable": false,
+     "deployed": false
+    },
+    {
+     "name": "evaScience",
+     "title": "EVA Science Experiment",
+     "available": true,
+     "has_data": false,
+     "rerunnable": true,
+     "inoperable": false,
+     "deployed": false
+    },
+    {
+     "name": "ROCScience",
+     "title": "",
+     "available": "ERROR TypeError: Object reference not set to an instance of an object",
+     "has_data": false,
+     "rerunnable": true,
+     "inoperable": false,
+     "deployed": false
+    }
+   ]
+  }
+ ]
+}

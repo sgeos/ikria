@@ -1,0 +1,4261 @@
+{
+ "pod_physics_range_set": 0.0,
+ "walked_m": 0.4256635741867447,
+ "kerbal_biome_after_walk": "Shores",
+ "kerbal_situation_after_walk": "VesselSituation.pre_launch",
+ "flag_active_off_pad": false,
+ "flag_trigger": "triggered",
+ "new_vessels_after_flag": [],
+ "pod_physics_range_read": 350.0,
+ "pod_engines": [
+  "RT-5 \"Flea\" Solid Fuel Booster"
+ ],
+ "ignited_by_part": [
+  true
+ ],
+ "pod_log": [
+  {
+   "t": 0.05,
+   "ut": 31827.52,
+   "dist_m": 1.2,
+   "alt_m": 73.9,
+   "speed": 0.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.pre_launch"
+  },
+  {
+   "t": 0.33,
+   "ut": 31827.82,
+   "dist_m": 1.2,
+   "alt_m": 75.7,
+   "speed": 12.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 0.59,
+   "ut": 31828.08,
+   "dist_m": 1.2,
+   "alt_m": 81.1,
+   "speed": 27.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 0.85,
+   "ut": 31828.34,
+   "dist_m": 1.2,
+   "alt_m": 90.4,
+   "speed": 42.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 1.11,
+   "ut": 31828.6,
+   "dist_m": 1.2,
+   "alt_m": 103.7,
+   "speed": 58.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 1.38,
+   "ut": 31828.88,
+   "dist_m": 1.1,
+   "alt_m": 122.4,
+   "speed": 74.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 1.64,
+   "ut": 31829.14,
+   "dist_m": 1.1,
+   "alt_m": 144.1,
+   "speed": 90.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 1.91,
+   "ut": 31829.4,
+   "dist_m": 1.0,
+   "alt_m": 169.8,
+   "speed": 106.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 2.16,
+   "ut": 31829.66,
+   "dist_m": 0.8,
+   "alt_m": 199.7,
+   "speed": 122.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 2.43,
+   "ut": 31829.92,
+   "dist_m": 1.1,
+   "alt_m": 233.7,
+   "speed": 138.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 2.7,
+   "ut": 31830.18,
+   "dist_m": 7.9,
+   "alt_m": 272.0,
+   "speed": 154.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 2.96,
+   "ut": 31830.42,
+   "dist_m": 21.8,
+   "alt_m": 311.1,
+   "speed": 170.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 3.23,
+   "ut": 31830.7,
+   "dist_m": 46.4,
+   "alt_m": 361.4,
+   "speed": 188.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 3.49,
+   "ut": 31830.92,
+   "dist_m": 71.5,
+   "alt_m": 404.5,
+   "speed": 202.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 3.79,
+   "ut": 31831.22,
+   "dist_m": 112.9,
+   "alt_m": 468.3,
+   "speed": 221.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 4.05,
+   "ut": 31831.48,
+   "dist_m": 155.7,
+   "alt_m": 528.4,
+   "speed": 238.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 4.31,
+   "ut": 31831.74,
+   "dist_m": 204.8,
+   "alt_m": 592.9,
+   "speed": 256.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 4.57,
+   "ut": 31832.0,
+   "dist_m": 260.0,
+   "alt_m": 662.0,
+   "speed": 273.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 4.85,
+   "ut": 31832.26,
+   "dist_m": 320.9,
+   "alt_m": 735.5,
+   "speed": 291.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 5.11,
+   "ut": 31832.54,
+   "dist_m": 392.8,
+   "alt_m": 819.9,
+   "speed": 310.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 5.37,
+   "ut": 31832.8,
+   "dist_m": 465.6,
+   "alt_m": 902.9,
+   "speed": 329.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 5.65,
+   "ut": 31833.08,
+   "dist_m": 550.2,
+   "alt_m": 997.5,
+   "speed": 346.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 5.9,
+   "ut": 31833.32,
+   "dist_m": 628.0,
+   "alt_m": 1082.9,
+   "speed": 363.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 6.18,
+   "ut": 31833.6,
+   "dist_m": 724.6,
+   "alt_m": 1187.5,
+   "speed": 382.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 6.43,
+   "ut": 31833.86,
+   "dist_m": 820.2,
+   "alt_m": 1289.7,
+   "speed": 401.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 6.72,
+   "ut": 31834.14,
+   "dist_m": 929.5,
+   "alt_m": 1405.1,
+   "speed": 421.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 6.99,
+   "ut": 31834.42,
+   "dist_m": 1045.3,
+   "alt_m": 1526.1,
+   "speed": 441.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 7.25,
+   "ut": 31834.68,
+   "dist_m": 1158.7,
+   "alt_m": 1643.7,
+   "speed": 461.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 7.53,
+   "ut": 31834.96,
+   "dist_m": 1287.4,
+   "alt_m": 1775.9,
+   "speed": 483.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 7.81,
+   "ut": 31835.24,
+   "dist_m": 1422.8,
+   "alt_m": 1914.1,
+   "speed": 503.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 8.08,
+   "ut": 31835.5,
+   "dist_m": 1554.7,
+   "alt_m": 2048.0,
+   "speed": 524.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 8.35,
+   "ut": 31835.78,
+   "dist_m": 1703.6,
+   "alt_m": 2198.2,
+   "speed": 546.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 8.61,
+   "ut": 31836.04,
+   "dist_m": 1848.3,
+   "alt_m": 2354.8,
+   "speed": 570.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 8.93,
+   "ut": 31836.36,
+   "dist_m": 2035.1,
+   "alt_m": 2530.0,
+   "speed": 596.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 9.21,
+   "ut": 31836.64,
+   "dist_m": 2203.8,
+   "alt_m": 2697.7,
+   "speed": 595.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 9.47,
+   "ut": 31836.9,
+   "dist_m": 2359.1,
+   "alt_m": 2851.4,
+   "speed": 587.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 9.73,
+   "ut": 31837.16,
+   "dist_m": 2513.0,
+   "alt_m": 3003.0,
+   "speed": 579.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 10.01,
+   "ut": 31837.46,
+   "dist_m": 2666.2,
+   "alt_m": 3186.8,
+   "speed": 569.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 10.31,
+   "ut": 31837.74,
+   "dist_m": 2851.3,
+   "alt_m": 3333.9,
+   "speed": 562.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 10.59,
+   "ut": 31838.02,
+   "dist_m": 3012.1,
+   "alt_m": 3490.1,
+   "speed": 554.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 10.85,
+   "ut": 31838.28,
+   "dist_m": 3160.1,
+   "alt_m": 3633.2,
+   "speed": 547.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 11.12,
+   "ut": 31838.54,
+   "dist_m": 3306.8,
+   "alt_m": 3774.4,
+   "speed": 539.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 11.4,
+   "ut": 31838.82,
+   "dist_m": 3463.3,
+   "alt_m": 3924.5,
+   "speed": 532.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 11.67,
+   "ut": 31839.1,
+   "dist_m": 3618.4,
+   "alt_m": 4082.9,
+   "speed": 524.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 11.99,
+   "ut": 31839.42,
+   "dist_m": 3793.8,
+   "alt_m": 4239.0,
+   "speed": 516.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 12.25,
+   "ut": 31839.68,
+   "dist_m": 3934.8,
+   "alt_m": 4372.5,
+   "speed": 510.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 12.52,
+   "ut": 31839.94,
+   "dist_m": 4074.6,
+   "alt_m": 4504.2,
+   "speed": 503.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 12.79,
+   "ut": 31840.22,
+   "dist_m": 4223.8,
+   "alt_m": 4644.2,
+   "speed": 497.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 13.07,
+   "ut": 31840.5,
+   "dist_m": 4371.6,
+   "alt_m": 4782.4,
+   "speed": 490.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 13.34,
+   "ut": 31840.76,
+   "dist_m": 4507.5,
+   "alt_m": 4909.0,
+   "speed": 484.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 13.62,
+   "ut": 31841.04,
+   "dist_m": 4652.4,
+   "alt_m": 5043.6,
+   "speed": 477.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 13.93,
+   "ut": 31841.36,
+   "dist_m": 4806.8,
+   "alt_m": 5204.6,
+   "speed": 470.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 14.23,
+   "ut": 31841.66,
+   "dist_m": 4968.2,
+   "alt_m": 5335.3,
+   "speed": 463.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 14.49,
+   "ut": 31841.94,
+   "dist_m": 5099.4,
+   "alt_m": 5464.3,
+   "speed": 457.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 14.79,
+   "ut": 31842.22,
+   "dist_m": 5247.5,
+   "alt_m": 5591.5,
+   "speed": 451.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 15.05,
+   "ut": 31842.48,
+   "dist_m": 5375.2,
+   "alt_m": 5708.2,
+   "speed": 446.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 15.33,
+   "ut": 31842.76,
+   "dist_m": 5502.5,
+   "alt_m": 5832.3,
+   "speed": 440.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 15.59,
+   "ut": 31843.02,
+   "dist_m": 5636.5,
+   "alt_m": 5946.1,
+   "speed": 435.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 15.85,
+   "ut": 31843.28,
+   "dist_m": 5760.6,
+   "alt_m": 6058.6,
+   "speed": 430.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 16.11,
+   "ut": 31843.54,
+   "dist_m": 5883.5,
+   "alt_m": 6169.7,
+   "speed": 425.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 16.37,
+   "ut": 31843.8,
+   "dist_m": 6005.2,
+   "alt_m": 6279.5,
+   "speed": 419.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 16.63,
+   "ut": 31844.06,
+   "dist_m": 6125.6,
+   "alt_m": 6387.9,
+   "speed": 415.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 16.89,
+   "ut": 31844.32,
+   "dist_m": 6244.7,
+   "alt_m": 6495.1,
+   "speed": 410.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 17.19,
+   "ut": 31844.62,
+   "dist_m": 6380.9,
+   "alt_m": 6617.2,
+   "speed": 404.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 17.45,
+   "ut": 31844.88,
+   "dist_m": 6497.8,
+   "alt_m": 6721.7,
+   "speed": 399.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 17.71,
+   "ut": 31845.14,
+   "dist_m": 6613.5,
+   "alt_m": 6825.0,
+   "speed": 395.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 17.97,
+   "ut": 31845.4,
+   "dist_m": 6728.0,
+   "alt_m": 6927.0,
+   "speed": 390.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 18.25,
+   "ut": 31845.68,
+   "dist_m": 6849.9,
+   "alt_m": 7035.6,
+   "speed": 385.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 18.51,
+   "ut": 31845.94,
+   "dist_m": 6961.8,
+   "alt_m": 7135.1,
+   "speed": 380.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 18.77,
+   "ut": 31846.2,
+   "dist_m": 7072.7,
+   "alt_m": 7233.5,
+   "speed": 376.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 19.05,
+   "ut": 31846.48,
+   "dist_m": 7191.1,
+   "alt_m": 7338.1,
+   "speed": 371.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 19.31,
+   "ut": 31846.74,
+   "dist_m": 7299.9,
+   "alt_m": 7434.0,
+   "speed": 367.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 19.57,
+   "ut": 31847.0,
+   "dist_m": 7407.5,
+   "alt_m": 7528.8,
+   "speed": 362.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 19.83,
+   "ut": 31847.26,
+   "dist_m": 7514.0,
+   "alt_m": 7622.5,
+   "speed": 358.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 20.09,
+   "ut": 31847.52,
+   "dist_m": 7619.2,
+   "alt_m": 7715.0,
+   "speed": 353.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 20.36,
+   "ut": 31847.78,
+   "dist_m": 7723.3,
+   "alt_m": 7806.4,
+   "speed": 349.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 20.63,
+   "ut": 31848.06,
+   "dist_m": 7831.8,
+   "alt_m": 7903.6,
+   "speed": 345.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 21.07,
+   "ut": 31848.22,
+   "dist_m": 7879.3,
+   "alt_m": 7965.5,
+   "speed": 341.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 21.37,
+   "ut": 31848.52,
+   "dist_m": 7987.8,
+   "alt_m": 8060.6,
+   "speed": 337.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 21.64,
+   "ut": 31848.78,
+   "dist_m": 8075.3,
+   "alt_m": 8147.8,
+   "speed": 333.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 21.92,
+   "ut": 31849.06,
+   "dist_m": 8168.1,
+   "alt_m": 8240.5,
+   "speed": 329.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 22.2,
+   "ut": 31849.34,
+   "dist_m": 8259.6,
+   "alt_m": 8332.1,
+   "speed": 324.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 22.48,
+   "ut": 31849.62,
+   "dist_m": 8349.9,
+   "alt_m": 8422.4,
+   "speed": 320.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 22.74,
+   "ut": 31849.88,
+   "dist_m": 8432.8,
+   "alt_m": 8505.2,
+   "speed": 316.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 22.99,
+   "ut": 31850.14,
+   "dist_m": 8514.6,
+   "alt_m": 8587.0,
+   "speed": 312.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 23.27,
+   "ut": 31850.42,
+   "dist_m": 8601.5,
+   "alt_m": 8673.9,
+   "speed": 308.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 23.55,
+   "ut": 31850.7,
+   "dist_m": 8687.3,
+   "alt_m": 8759.7,
+   "speed": 304.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 23.81,
+   "ut": 31850.96,
+   "dist_m": 8766.0,
+   "alt_m": 8838.3,
+   "speed": 300.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 24.07,
+   "ut": 31851.22,
+   "dist_m": 8843.6,
+   "alt_m": 8915.9,
+   "speed": 296.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 24.37,
+   "ut": 31851.52,
+   "dist_m": 8931.9,
+   "alt_m": 9004.3,
+   "speed": 292.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 24.63,
+   "ut": 31851.78,
+   "dist_m": 9007.4,
+   "alt_m": 9079.8,
+   "speed": 288.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 24.89,
+   "ut": 31852.04,
+   "dist_m": 9082.0,
+   "alt_m": 9154.3,
+   "speed": 285.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 25.15,
+   "ut": 31852.3,
+   "dist_m": 9155.6,
+   "alt_m": 9227.9,
+   "speed": 281.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 25.41,
+   "ut": 31852.56,
+   "dist_m": 9228.2,
+   "alt_m": 9300.5,
+   "speed": 277.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 25.68,
+   "ut": 31852.82,
+   "dist_m": 9299.9,
+   "alt_m": 9372.2,
+   "speed": 274.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 26.01,
+   "ut": 31853.16,
+   "dist_m": 9386.9,
+   "alt_m": 9464.6,
+   "speed": 269.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 26.3,
+   "ut": 31853.44,
+   "dist_m": 9467.2,
+   "alt_m": 9539.5,
+   "speed": 265.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 26.57,
+   "ut": 31853.72,
+   "dist_m": 9541.1,
+   "alt_m": 9618.6,
+   "speed": 261.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 26.85,
+   "ut": 31854.0,
+   "dist_m": 9613.9,
+   "alt_m": 9686.2,
+   "speed": 258.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 27.11,
+   "ut": 31854.26,
+   "dist_m": 9680.7,
+   "alt_m": 9752.9,
+   "speed": 255.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 27.39,
+   "ut": 31854.54,
+   "dist_m": 9751.6,
+   "alt_m": 9823.9,
+   "speed": 251.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 27.65,
+   "ut": 31854.8,
+   "dist_m": 9816.6,
+   "alt_m": 9888.8,
+   "speed": 248.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 27.94,
+   "ut": 31855.08,
+   "dist_m": 9885.7,
+   "alt_m": 9957.9,
+   "speed": 245.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 28.21,
+   "ut": 31855.36,
+   "dist_m": 9953.8,
+   "alt_m": 10030.8,
+   "speed": 241.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 28.49,
+   "ut": 31855.64,
+   "dist_m": 10020.9,
+   "alt_m": 10093.1,
+   "speed": 238.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 28.77,
+   "ut": 31855.92,
+   "dist_m": 10087.1,
+   "alt_m": 10159.2,
+   "speed": 234.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 29.03,
+   "ut": 31856.18,
+   "dist_m": 10147.7,
+   "alt_m": 10219.8,
+   "speed": 231.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 29.3,
+   "ut": 31856.44,
+   "dist_m": 10207.5,
+   "alt_m": 10279.6,
+   "speed": 228.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 29.57,
+   "ut": 31856.72,
+   "dist_m": 10271.0,
+   "alt_m": 10343.1,
+   "speed": 225.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 29.83,
+   "ut": 31856.98,
+   "dist_m": 10329.1,
+   "alt_m": 10401.2,
+   "speed": 222.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 30.09,
+   "ut": 31857.24,
+   "dist_m": 10386.5,
+   "alt_m": 10458.6,
+   "speed": 219.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 30.35,
+   "ut": 31857.5,
+   "dist_m": 10443.0,
+   "alt_m": 10515.1,
+   "speed": 216.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 30.61,
+   "ut": 31857.76,
+   "dist_m": 10498.8,
+   "alt_m": 10570.9,
+   "speed": 213.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 30.87,
+   "ut": 31858.02,
+   "dist_m": 10553.9,
+   "alt_m": 10625.9,
+   "speed": 210.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 31.17,
+   "ut": 31858.32,
+   "dist_m": 10616.4,
+   "alt_m": 10688.4,
+   "speed": 206.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 31.45,
+   "ut": 31858.6,
+   "dist_m": 10673.8,
+   "alt_m": 10745.9,
+   "speed": 203.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 31.71,
+   "ut": 31858.86,
+   "dist_m": 10726.4,
+   "alt_m": 10798.4,
+   "speed": 200.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 31.99,
+   "ut": 31859.14,
+   "dist_m": 10782.2,
+   "alt_m": 10854.2,
+   "speed": 197.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 32.27,
+   "ut": 31859.42,
+   "dist_m": 10837.1,
+   "alt_m": 10909.0,
+   "speed": 194.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 32.53,
+   "ut": 31859.68,
+   "dist_m": 10887.3,
+   "alt_m": 10959.2,
+   "speed": 191.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 32.79,
+   "ut": 31859.94,
+   "dist_m": 10936.7,
+   "alt_m": 11008.7,
+   "speed": 189.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 33.05,
+   "ut": 31860.2,
+   "dist_m": 10985.5,
+   "alt_m": 11057.4,
+   "speed": 186.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 33.31,
+   "ut": 31860.46,
+   "dist_m": 11033.5,
+   "alt_m": 11105.4,
+   "speed": 183.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 33.57,
+   "ut": 31860.72,
+   "dist_m": 11080.7,
+   "alt_m": 11152.6,
+   "speed": 180.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 33.83,
+   "ut": 31860.98,
+   "dist_m": 11127.3,
+   "alt_m": 11199.1,
+   "speed": 177.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 34.09,
+   "ut": 31861.24,
+   "dist_m": 11173.1,
+   "alt_m": 11245.0,
+   "speed": 175.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 34.35,
+   "ut": 31861.5,
+   "dist_m": 11218.2,
+   "alt_m": 11290.0,
+   "speed": 172.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 34.64,
+   "ut": 31861.78,
+   "dist_m": 11266.0,
+   "alt_m": 11337.8,
+   "speed": 169.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 34.89,
+   "ut": 31862.04,
+   "dist_m": 11309.6,
+   "alt_m": 11381.4,
+   "speed": 166.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 35.15,
+   "ut": 31862.3,
+   "dist_m": 11352.5,
+   "alt_m": 11424.3,
+   "speed": 163.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 35.43,
+   "ut": 31862.58,
+   "dist_m": 11397.9,
+   "alt_m": 11469.7,
+   "speed": 160.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 35.69,
+   "ut": 31862.84,
+   "dist_m": 11439.4,
+   "alt_m": 11511.1,
+   "speed": 158.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 35.97,
+   "ut": 31863.12,
+   "dist_m": 11483.2,
+   "alt_m": 11555.0,
+   "speed": 155.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 36.24,
+   "ut": 31863.38,
+   "dist_m": 11523.2,
+   "alt_m": 11595.0,
+   "speed": 152.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 36.49,
+   "ut": 31863.64,
+   "dist_m": 11562.5,
+   "alt_m": 11634.3,
+   "speed": 150.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 36.77,
+   "ut": 31863.92,
+   "dist_m": 11604.1,
+   "alt_m": 11675.8,
+   "speed": 147.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 37.03,
+   "ut": 31864.18,
+   "dist_m": 11642.0,
+   "alt_m": 11713.7,
+   "speed": 144.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 37.33,
+   "ut": 31864.48,
+   "dist_m": 11684.8,
+   "alt_m": 11756.5,
+   "speed": 141.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 37.59,
+   "ut": 31864.74,
+   "dist_m": 11721.2,
+   "alt_m": 11792.9,
+   "speed": 138.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 37.85,
+   "ut": 31865.0,
+   "dist_m": 11756.9,
+   "alt_m": 11828.6,
+   "speed": 136.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 38.11,
+   "ut": 31865.26,
+   "dist_m": 11792.0,
+   "alt_m": 11863.6,
+   "speed": 133.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 38.37,
+   "ut": 31865.52,
+   "dist_m": 11826.3,
+   "alt_m": 11897.9,
+   "speed": 131.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 38.63,
+   "ut": 31865.78,
+   "dist_m": 11860.0,
+   "alt_m": 11931.6,
+   "speed": 128.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 38.89,
+   "ut": 31866.04,
+   "dist_m": 11893.0,
+   "alt_m": 11967.1,
+   "speed": 125.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 39.17,
+   "ut": 31866.32,
+   "dist_m": 11927.8,
+   "alt_m": 11999.3,
+   "speed": 123.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 39.43,
+   "ut": 31866.58,
+   "dist_m": 11959.4,
+   "alt_m": 12030.9,
+   "speed": 120.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 39.69,
+   "ut": 31866.84,
+   "dist_m": 11990.4,
+   "alt_m": 12061.9,
+   "speed": 117.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 39.95,
+   "ut": 31867.1,
+   "dist_m": 12020.7,
+   "alt_m": 12092.1,
+   "speed": 115.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 40.23,
+   "ut": 31867.38,
+   "dist_m": 12052.5,
+   "alt_m": 12124.0,
+   "speed": 112.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 40.49,
+   "ut": 31867.64,
+   "dist_m": 12081.4,
+   "alt_m": 12152.8,
+   "speed": 110.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 40.75,
+   "ut": 31867.9,
+   "dist_m": 12109.7,
+   "alt_m": 12181.1,
+   "speed": 107.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 41.03,
+   "ut": 31868.18,
+   "dist_m": 12137.2,
+   "alt_m": 12210.7,
+   "speed": 104.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 41.29,
+   "ut": 31868.44,
+   "dist_m": 12166.2,
+   "alt_m": 12237.5,
+   "speed": 102.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 41.55,
+   "ut": 31868.7,
+   "dist_m": 12192.4,
+   "alt_m": 12263.7,
+   "speed": 99.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 41.84,
+   "ut": 31868.98,
+   "dist_m": 12219.9,
+   "alt_m": 12291.2,
+   "speed": 97.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 42.1,
+   "ut": 31869.24,
+   "dist_m": 12244.8,
+   "alt_m": 12316.0,
+   "speed": 94.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 42.38,
+   "ut": 31869.52,
+   "dist_m": 12270.8,
+   "alt_m": 12342.0,
+   "speed": 91.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 42.63,
+   "ut": 31869.78,
+   "dist_m": 12294.3,
+   "alt_m": 12365.5,
+   "speed": 89.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 42.89,
+   "ut": 31870.04,
+   "dist_m": 12317.1,
+   "alt_m": 12388.3,
+   "speed": 86.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 43.17,
+   "ut": 31870.32,
+   "dist_m": 12339.3,
+   "alt_m": 12412.2,
+   "speed": 84.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 43.43,
+   "ut": 31870.58,
+   "dist_m": 12362.5,
+   "alt_m": 12433.6,
+   "speed": 81.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 43.71,
+   "ut": 31870.86,
+   "dist_m": 12384.9,
+   "alt_m": 12456.0,
+   "speed": 79.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 43.97,
+   "ut": 31871.12,
+   "dist_m": 12405.1,
+   "alt_m": 12476.2,
+   "speed": 76.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 44.24,
+   "ut": 31871.38,
+   "dist_m": 12424.6,
+   "alt_m": 12495.6,
+   "speed": 74.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 44.5,
+   "ut": 31871.64,
+   "dist_m": 12443.4,
+   "alt_m": 12514.5,
+   "speed": 71.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 44.77,
+   "ut": 31871.92,
+   "dist_m": 12463.0,
+   "alt_m": 12534.0,
+   "speed": 68.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 45.08,
+   "ut": 31872.22,
+   "dist_m": 12483.2,
+   "alt_m": 12554.2,
+   "speed": 66.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 45.35,
+   "ut": 31872.5,
+   "dist_m": 12500.0,
+   "alt_m": 12572.2,
+   "speed": 63.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 45.61,
+   "ut": 31872.76,
+   "dist_m": 12517.3,
+   "alt_m": 12588.2,
+   "speed": 61.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 45.87,
+   "ut": 31873.02,
+   "dist_m": 12532.8,
+   "alt_m": 12603.7,
+   "speed": 58.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 46.13,
+   "ut": 31873.28,
+   "dist_m": 12547.6,
+   "alt_m": 12618.5,
+   "speed": 56.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 46.39,
+   "ut": 31873.54,
+   "dist_m": 12561.7,
+   "alt_m": 12632.6,
+   "speed": 53.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 46.66,
+   "ut": 31873.8,
+   "dist_m": 12575.3,
+   "alt_m": 12646.1,
+   "speed": 51.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 46.91,
+   "ut": 31874.06,
+   "dist_m": 12588.2,
+   "alt_m": 12659.0,
+   "speed": 48.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 47.17,
+   "ut": 31874.32,
+   "dist_m": 12600.4,
+   "alt_m": 12671.2,
+   "speed": 46.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 47.45,
+   "ut": 31874.6,
+   "dist_m": 12612.9,
+   "alt_m": 12683.6,
+   "speed": 43.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 47.71,
+   "ut": 31874.86,
+   "dist_m": 12623.8,
+   "alt_m": 12694.5,
+   "speed": 41.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 47.97,
+   "ut": 31875.12,
+   "dist_m": 12634.1,
+   "alt_m": 12704.8,
+   "speed": 38.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 48.23,
+   "ut": 31875.38,
+   "dist_m": 12643.8,
+   "alt_m": 12714.4,
+   "speed": 36.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 48.51,
+   "ut": 31875.66,
+   "dist_m": 12653.5,
+   "alt_m": 12724.1,
+   "speed": 33.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 48.77,
+   "ut": 31875.92,
+   "dist_m": 12661.8,
+   "alt_m": 12732.4,
+   "speed": 31.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 49.05,
+   "ut": 31876.2,
+   "dist_m": 12670.1,
+   "alt_m": 12740.7,
+   "speed": 29.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 49.33,
+   "ut": 31876.48,
+   "dist_m": 12677.6,
+   "alt_m": 12748.2,
+   "speed": 26.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 49.59,
+   "ut": 31876.74,
+   "dist_m": 12684.0,
+   "alt_m": 12754.5,
+   "speed": 24.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 49.87,
+   "ut": 31877.02,
+   "dist_m": 12690.1,
+   "alt_m": 12760.6,
+   "speed": 21.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 50.15,
+   "ut": 31877.3,
+   "dist_m": 12695.5,
+   "alt_m": 12765.9,
+   "speed": 19.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 50.42,
+   "ut": 31877.56,
+   "dist_m": 12699.8,
+   "alt_m": 12770.2,
+   "speed": 16.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 50.7,
+   "ut": 31877.84,
+   "dist_m": 12703.8,
+   "alt_m": 12774.2,
+   "speed": 14.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 50.96,
+   "ut": 31878.1,
+   "dist_m": 12706.9,
+   "alt_m": 12777.2,
+   "speed": 12.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 51.21,
+   "ut": 31878.36,
+   "dist_m": 12709.3,
+   "alt_m": 12779.6,
+   "speed": 10.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 51.47,
+   "ut": 31878.62,
+   "dist_m": 12711.0,
+   "alt_m": 12781.3,
+   "speed": 8.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 51.73,
+   "ut": 31878.88,
+   "dist_m": 12712.2,
+   "alt_m": 12782.4,
+   "speed": 7.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 52.0,
+   "ut": 31879.14,
+   "dist_m": 12712.7,
+   "alt_m": 12782.9,
+   "speed": 6.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 52.32,
+   "ut": 31879.46,
+   "dist_m": 12712.4,
+   "alt_m": 12782.6,
+   "speed": 7.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 52.59,
+   "ut": 31879.74,
+   "dist_m": 12711.4,
+   "alt_m": 12781.5,
+   "speed": 8.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 52.87,
+   "ut": 31880.02,
+   "dist_m": 12709.7,
+   "alt_m": 12779.8,
+   "speed": 10.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 53.14,
+   "ut": 31880.28,
+   "dist_m": 12707.4,
+   "alt_m": 12777.5,
+   "speed": 11.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 53.41,
+   "ut": 31880.56,
+   "dist_m": 12704.3,
+   "alt_m": 12774.3,
+   "speed": 14.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 53.69,
+   "ut": 31880.84,
+   "dist_m": 12700.4,
+   "alt_m": 12770.4,
+   "speed": 16.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 53.95,
+   "ut": 31881.1,
+   "dist_m": 12696.2,
+   "alt_m": 12766.1,
+   "speed": 18.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 54.21,
+   "ut": 31881.36,
+   "dist_m": 12691.3,
+   "alt_m": 12761.2,
+   "speed": 21.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 54.49,
+   "ut": 31881.64,
+   "dist_m": 12685.4,
+   "alt_m": 12755.2,
+   "speed": 23.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 54.75,
+   "ut": 31881.9,
+   "dist_m": 12679.2,
+   "alt_m": 12749.0,
+   "speed": 25.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 55.03,
+   "ut": 31882.18,
+   "dist_m": 12671.9,
+   "alt_m": 12741.7,
+   "speed": 28.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 55.31,
+   "ut": 31882.46,
+   "dist_m": 12663.8,
+   "alt_m": 12733.6,
+   "speed": 30.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 55.61,
+   "ut": 31882.76,
+   "dist_m": 12654.4,
+   "alt_m": 12724.1,
+   "speed": 33.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 55.9,
+   "ut": 31883.04,
+   "dist_m": 12644.9,
+   "alt_m": 12714.6,
+   "speed": 35.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 56.15,
+   "ut": 31883.3,
+   "dist_m": 12635.4,
+   "alt_m": 12705.1,
+   "speed": 38.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 56.45,
+   "ut": 31883.6,
+   "dist_m": 12623.8,
+   "alt_m": 12693.4,
+   "speed": 40.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 56.71,
+   "ut": 31883.86,
+   "dist_m": 12613.0,
+   "alt_m": 12682.6,
+   "speed": 43.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 56.98,
+   "ut": 31884.12,
+   "dist_m": 12601.7,
+   "alt_m": 12671.2,
+   "speed": 45.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 57.23,
+   "ut": 31884.38,
+   "dist_m": 12589.7,
+   "alt_m": 12659.2,
+   "speed": 47.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 57.53,
+   "ut": 31884.68,
+   "dist_m": 12575.2,
+   "alt_m": 12644.6,
+   "speed": 50.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 57.79,
+   "ut": 31884.94,
+   "dist_m": 12562.0,
+   "alt_m": 12631.3,
+   "speed": 52.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 58.05,
+   "ut": 31885.2,
+   "dist_m": 12548.1,
+   "alt_m": 12617.4,
+   "speed": 54.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 58.31,
+   "ut": 31885.46,
+   "dist_m": 12533.6,
+   "alt_m": 12602.9,
+   "speed": 57.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 58.64,
+   "ut": 31885.78,
+   "dist_m": 12516.2,
+   "alt_m": 12584.3,
+   "speed": 59.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 58.89,
+   "ut": 31886.04,
+   "dist_m": 12499.3,
+   "alt_m": 12568.5,
+   "speed": 61.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 59.16,
+   "ut": 31886.3,
+   "dist_m": 12483.0,
+   "alt_m": 12552.2,
+   "speed": 64.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 59.43,
+   "ut": 31886.58,
+   "dist_m": 12464.8,
+   "alt_m": 12534.0,
+   "speed": 66.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 59.7,
+   "ut": 31886.84,
+   "dist_m": 12447.4,
+   "alt_m": 12516.5,
+   "speed": 68.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 59.95,
+   "ut": 31887.1,
+   "dist_m": 12429.3,
+   "alt_m": 12498.4,
+   "speed": 70.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 60.22,
+   "ut": 31887.36,
+   "dist_m": 12410.6,
+   "alt_m": 12478.2,
+   "speed": 73.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 60.51,
+   "ut": 31887.66,
+   "dist_m": 12388.4,
+   "alt_m": 12457.3,
+   "speed": 75.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 60.77,
+   "ut": 31887.92,
+   "dist_m": 12368.5,
+   "alt_m": 12437.4,
+   "speed": 77.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 61.05,
+   "ut": 31888.2,
+   "dist_m": 12346.5,
+   "alt_m": 12415.4,
+   "speed": 79.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 61.31,
+   "ut": 31888.46,
+   "dist_m": 12325.5,
+   "alt_m": 12394.4,
+   "speed": 82.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 61.57,
+   "ut": 31888.72,
+   "dist_m": 12304.0,
+   "alt_m": 12372.8,
+   "speed": 84.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 61.83,
+   "ut": 31888.98,
+   "dist_m": 12281.8,
+   "alt_m": 12350.6,
+   "speed": 86.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 62.09,
+   "ut": 31889.24,
+   "dist_m": 12259.1,
+   "alt_m": 12327.9,
+   "speed": 88.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 62.35,
+   "ut": 31889.5,
+   "dist_m": 12235.9,
+   "alt_m": 12302.7,
+   "speed": 90.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 62.63,
+   "ut": 31889.78,
+   "dist_m": 12210.2,
+   "alt_m": 12278.9,
+   "speed": 92.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 62.89,
+   "ut": 31890.04,
+   "dist_m": 12185.8,
+   "alt_m": 12254.5,
+   "speed": 94.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 63.16,
+   "ut": 31890.3,
+   "dist_m": 12160.9,
+   "alt_m": 12227.6,
+   "speed": 97.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 63.43,
+   "ut": 31890.58,
+   "dist_m": 12133.4,
+   "alt_m": 12202.0,
+   "speed": 99.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 63.69,
+   "ut": 31890.84,
+   "dist_m": 12107.3,
+   "alt_m": 12175.8,
+   "speed": 101.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 63.97,
+   "ut": 31891.12,
+   "dist_m": 12078.6,
+   "alt_m": 12147.0,
+   "speed": 103.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 64.23,
+   "ut": 31891.38,
+   "dist_m": 12051.4,
+   "alt_m": 12117.7,
+   "speed": 105.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 64.53,
+   "ut": 31891.68,
+   "dist_m": 12021.5,
+   "alt_m": 12087.7,
+   "speed": 108.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 64.84,
+   "ut": 31891.98,
+   "dist_m": 11986.6,
+   "alt_m": 12054.9,
+   "speed": 110.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 65.1,
+   "ut": 31892.24,
+   "dist_m": 11957.6,
+   "alt_m": 12025.8,
+   "speed": 112.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 65.39,
+   "ut": 31892.54,
+   "dist_m": 11923.5,
+   "alt_m": 11991.7,
+   "speed": 115.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 65.66,
+   "ut": 31892.8,
+   "dist_m": 11893.3,
+   "alt_m": 11961.5,
+   "speed": 117.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 65.93,
+   "ut": 31893.08,
+   "dist_m": 11860.2,
+   "alt_m": 11928.4,
+   "speed": 119.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 66.19,
+   "ut": 31893.36,
+   "dist_m": 11828.9,
+   "alt_m": 11894.6,
+   "speed": 121.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 66.47,
+   "ut": 31893.62,
+   "dist_m": 11794.6,
+   "alt_m": 11862.7,
+   "speed": 123.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 66.74,
+   "ut": 31893.88,
+   "dist_m": 11762.3,
+   "alt_m": 11830.3,
+   "speed": 125.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 67.02,
+   "ut": 31894.16,
+   "dist_m": 11726.8,
+   "alt_m": 11794.8,
+   "speed": 128.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 67.31,
+   "ut": 31894.46,
+   "dist_m": 11688.1,
+   "alt_m": 11756.0,
+   "speed": 130.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 67.59,
+   "ut": 31894.76,
+   "dist_m": 11651.4,
+   "alt_m": 11713.9,
+   "speed": 132.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 67.89,
+   "ut": 31895.04,
+   "dist_m": 11611.3,
+   "alt_m": 11679.1,
+   "speed": 134.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 68.15,
+   "ut": 31895.3,
+   "dist_m": 11576.0,
+   "alt_m": 11643.8,
+   "speed": 137.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 68.41,
+   "ut": 31895.56,
+   "dist_m": 11540.2,
+   "alt_m": 11607.9,
+   "speed": 138.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 68.71,
+   "ut": 31895.86,
+   "dist_m": 11498.2,
+   "alt_m": 11565.9,
+   "speed": 141.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 69.02,
+   "ut": 31896.18,
+   "dist_m": 11455.5,
+   "alt_m": 11520.3,
+   "speed": 143.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 69.3,
+   "ut": 31896.44,
+   "dist_m": 11415.1,
+   "alt_m": 11479.7,
+   "speed": 146.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 69.61,
+   "ut": 31896.76,
+   "dist_m": 11368.1,
+   "alt_m": 11435.6,
+   "speed": 148.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 69.92,
+   "ut": 31897.08,
+   "dist_m": 11326.3,
+   "alt_m": 11387.7,
+   "speed": 150.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 70.24,
+   "ut": 31897.38,
+   "dist_m": 11274.7,
+   "alt_m": 11342.1,
+   "speed": 153.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 70.49,
+   "ut": 31897.64,
+   "dist_m": 11234.7,
+   "alt_m": 11302.1,
+   "speed": 155.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 70.75,
+   "ut": 31897.9,
+   "dist_m": 11194.2,
+   "alt_m": 11261.5,
+   "speed": 157.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 71.01,
+   "ut": 31898.16,
+   "dist_m": 11153.1,
+   "alt_m": 11220.4,
+   "speed": 159.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 71.29,
+   "ut": 31898.44,
+   "dist_m": 11108.4,
+   "alt_m": 11175.6,
+   "speed": 161.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 71.55,
+   "ut": 31898.7,
+   "dist_m": 11066.2,
+   "alt_m": 11133.4,
+   "speed": 163.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 71.81,
+   "ut": 31898.96,
+   "dist_m": 11023.6,
+   "alt_m": 11090.7,
+   "speed": 165.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 72.15,
+   "ut": 31899.32,
+   "dist_m": 10970.4,
+   "alt_m": 11027.4,
+   "speed": 168.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 72.45,
+   "ut": 31899.6,
+   "dist_m": 10916.5,
+   "alt_m": 10983.4,
+   "speed": 169.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 72.71,
+   "ut": 31899.86,
+   "dist_m": 10872.1,
+   "alt_m": 10939.0,
+   "speed": 171.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 72.97,
+   "ut": 31900.12,
+   "dist_m": 10827.2,
+   "alt_m": 10894.0,
+   "speed": 173.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 73.25,
+   "ut": 31900.4,
+   "dist_m": 10778.2,
+   "alt_m": 10845.0,
+   "speed": 175.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 73.52,
+   "ut": 31900.66,
+   "dist_m": 10732.3,
+   "alt_m": 10799.0,
+   "speed": 177.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 73.8,
+   "ut": 31900.92,
+   "dist_m": 10689.4,
+   "alt_m": 10748.9,
+   "speed": 180.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 74.08,
+   "ut": 31901.16,
+   "dist_m": 10642.5,
+   "alt_m": 10709.1,
+   "speed": 181.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 74.37,
+   "ut": 31901.4,
+   "dist_m": 10598.7,
+   "alt_m": 10665.3,
+   "speed": 183.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 74.64,
+   "ut": 31901.66,
+   "dist_m": 10550.9,
+   "alt_m": 10617.4,
+   "speed": 185.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 74.9,
+   "ut": 31901.92,
+   "dist_m": 10502.5,
+   "alt_m": 10569.0,
+   "speed": 187.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 75.16,
+   "ut": 31902.12,
+   "dist_m": 10465.0,
+   "alt_m": 10531.4,
+   "speed": 188.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 75.42,
+   "ut": 31902.38,
+   "dist_m": 10415.7,
+   "alt_m": 10482.1,
+   "speed": 190.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 75.68,
+   "ut": 31902.64,
+   "dist_m": 10366.0,
+   "alt_m": 10432.3,
+   "speed": 192.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 75.99,
+   "ut": 31902.94,
+   "dist_m": 10311.9,
+   "alt_m": 10374.3,
+   "speed": 194.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 76.38,
+   "ut": 31903.2,
+   "dist_m": 10257.3,
+   "alt_m": 10323.5,
+   "speed": 196.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 76.66,
+   "ut": 31903.42,
+   "dist_m": 10214.0,
+   "alt_m": 10280.1,
+   "speed": 197.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 76.94,
+   "ut": 31903.66,
+   "dist_m": 10166.3,
+   "alt_m": 10232.4,
+   "speed": 199.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 77.19,
+   "ut": 31903.92,
+   "dist_m": 10114.2,
+   "alt_m": 10180.3,
+   "speed": 201.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 77.46,
+   "ut": 31904.12,
+   "dist_m": 10073.8,
+   "alt_m": 10139.8,
+   "speed": 202.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 77.74,
+   "ut": 31904.4,
+   "dist_m": 10016.8,
+   "alt_m": 10082.8,
+   "speed": 204.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 77.99,
+   "ut": 31904.64,
+   "dist_m": 9967.5,
+   "alt_m": 10033.4,
+   "speed": 206.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 78.26,
+   "ut": 31904.9,
+   "dist_m": 9913.7,
+   "alt_m": 9979.5,
+   "speed": 208.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 78.53,
+   "ut": 31905.16,
+   "dist_m": 9859.4,
+   "alt_m": 9925.1,
+   "speed": 210.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 78.8,
+   "ut": 31905.46,
+   "dist_m": 9800.4,
+   "alt_m": 9861.8,
+   "speed": 212.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 79.11,
+   "ut": 31905.66,
+   "dist_m": 9753.7,
+   "alt_m": 9819.3,
+   "speed": 213.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 79.38,
+   "ut": 31905.9,
+   "dist_m": 9702.3,
+   "alt_m": 9767.9,
+   "speed": 214.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 79.7,
+   "ut": 31906.16,
+   "dist_m": 9646.3,
+   "alt_m": 9711.8,
+   "speed": 216.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 79.97,
+   "ut": 31906.36,
+   "dist_m": 9602.8,
+   "alt_m": 9668.3,
+   "speed": 218.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 80.27,
+   "ut": 31906.64,
+   "dist_m": 9541.6,
+   "alt_m": 9607.0,
+   "speed": 219.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 80.59,
+   "ut": 31906.88,
+   "dist_m": 9488.7,
+   "alt_m": 9554.0,
+   "speed": 221.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 80.85,
+   "ut": 31907.1,
+   "dist_m": 9439.9,
+   "alt_m": 9505.2,
+   "speed": 222.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 81.13,
+   "ut": 31907.28,
+   "dist_m": 9399.8,
+   "alt_m": 9460.5,
+   "speed": 224.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 81.39,
+   "ut": 31907.54,
+   "dist_m": 9341.4,
+   "alt_m": 9406.5,
+   "speed": 225.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 81.68,
+   "ut": 31907.8,
+   "dist_m": 9282.6,
+   "alt_m": 9347.6,
+   "speed": 227.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 81.94,
+   "ut": 31908.08,
+   "dist_m": 9218.8,
+   "alt_m": 9283.8,
+   "speed": 229.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 82.2,
+   "ut": 31908.26,
+   "dist_m": 9177.5,
+   "alt_m": 9242.4,
+   "speed": 230.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 82.5,
+   "ut": 31908.5,
+   "dist_m": 9122.2,
+   "alt_m": 9187.0,
+   "speed": 231.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 82.77,
+   "ut": 31908.78,
+   "dist_m": 9057.2,
+   "alt_m": 9121.9,
+   "speed": 233.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 83.03,
+   "ut": 31909.04,
+   "dist_m": 8996.4,
+   "alt_m": 9061.1,
+   "speed": 234.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 83.3,
+   "ut": 31909.3,
+   "dist_m": 8935.2,
+   "alt_m": 8999.8,
+   "speed": 236.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 83.59,
+   "ut": 31909.54,
+   "dist_m": 8878.4,
+   "alt_m": 8942.9,
+   "speed": 237.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 83.87,
+   "ut": 31909.78,
+   "dist_m": 8821.2,
+   "alt_m": 8885.7,
+   "speed": 239.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 84.17,
+   "ut": 31910.02,
+   "dist_m": 8763.7,
+   "alt_m": 8828.1,
+   "speed": 240.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 84.44,
+   "ut": 31910.28,
+   "dist_m": 8701.0,
+   "alt_m": 8765.4,
+   "speed": 242.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 84.73,
+   "ut": 31910.52,
+   "dist_m": 8642.8,
+   "alt_m": 8707.1,
+   "speed": 243.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 85.03,
+   "ut": 31910.8,
+   "dist_m": 8579.4,
+   "alt_m": 8638.7,
+   "speed": 244.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 85.31,
+   "ut": 31911.02,
+   "dist_m": 8520.6,
+   "alt_m": 8584.7,
+   "speed": 246.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 85.58,
+   "ut": 31911.3,
+   "dist_m": 8451.5,
+   "alt_m": 8515.5,
+   "speed": 247.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 85.84,
+   "ut": 31911.56,
+   "dist_m": 8387.0,
+   "alt_m": 8450.9,
+   "speed": 249.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 86.1,
+   "ut": 31911.82,
+   "dist_m": 8322.2,
+   "alt_m": 8386.0,
+   "speed": 250.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 86.36,
+   "ut": 31912.08,
+   "dist_m": 8256.9,
+   "alt_m": 8320.7,
+   "speed": 251.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 86.63,
+   "ut": 31912.34,
+   "dist_m": 8191.4,
+   "alt_m": 8255.0,
+   "speed": 253.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 86.91,
+   "ut": 31912.62,
+   "dist_m": 8120.4,
+   "alt_m": 8183.9,
+   "speed": 254.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 87.17,
+   "ut": 31912.88,
+   "dist_m": 8054.1,
+   "alt_m": 8112.4,
+   "speed": 256.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 87.5,
+   "ut": 31913.2,
+   "dist_m": 7972.1,
+   "alt_m": 8035.4,
+   "speed": 257.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 87.81,
+   "ut": 31913.52,
+   "dist_m": 7889.5,
+   "alt_m": 7952.7,
+   "speed": 259.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 88.08,
+   "ut": 31913.78,
+   "dist_m": 7822.1,
+   "alt_m": 7885.2,
+   "speed": 260.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 88.35,
+   "ut": 31914.06,
+   "dist_m": 7749.1,
+   "alt_m": 7812.1,
+   "speed": 261.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 88.61,
+   "ut": 31914.32,
+   "dist_m": 7681.0,
+   "alt_m": 7744.0,
+   "speed": 262.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 88.87,
+   "ut": 31914.58,
+   "dist_m": 7612.6,
+   "alt_m": 7675.5,
+   "speed": 264.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 89.15,
+   "ut": 31914.88,
+   "dist_m": 7544.0,
+   "alt_m": 7596.1,
+   "speed": 265.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 89.43,
+   "ut": 31915.14,
+   "dist_m": 7464.3,
+   "alt_m": 7526.9,
+   "speed": 266.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 89.69,
+   "ut": 31915.4,
+   "dist_m": 7395.0,
+   "alt_m": 7457.5,
+   "speed": 267.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 89.96,
+   "ut": 31915.66,
+   "dist_m": 7325.4,
+   "alt_m": 7387.8,
+   "speed": 268.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 90.23,
+   "ut": 31915.94,
+   "dist_m": 7250.1,
+   "alt_m": 7312.4,
+   "speed": 269.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 90.5,
+   "ut": 31916.2,
+   "dist_m": 7179.9,
+   "alt_m": 7242.1,
+   "speed": 270.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 90.77,
+   "ut": 31916.48,
+   "dist_m": 7104.0,
+   "alt_m": 7166.0,
+   "speed": 272.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 91.04,
+   "ut": 31916.74,
+   "dist_m": 7033.2,
+   "alt_m": 7095.2,
+   "speed": 273.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 91.31,
+   "ut": 31917.02,
+   "dist_m": 6956.8,
+   "alt_m": 7018.6,
+   "speed": 274.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 91.57,
+   "ut": 31917.28,
+   "dist_m": 6885.5,
+   "alt_m": 6947.2,
+   "speed": 275.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 91.84,
+   "ut": 31917.54,
+   "dist_m": 6814.0,
+   "alt_m": 6875.5,
+   "speed": 276.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 92.11,
+   "ut": 31917.82,
+   "dist_m": 6736.7,
+   "alt_m": 6798.1,
+   "speed": 277.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 92.37,
+   "ut": 31918.08,
+   "dist_m": 6664.6,
+   "alt_m": 6725.9,
+   "speed": 277.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 92.63,
+   "ut": 31918.34,
+   "dist_m": 6592.4,
+   "alt_m": 6653.5,
+   "speed": 278.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 92.91,
+   "ut": 31918.62,
+   "dist_m": 6514.3,
+   "alt_m": 6575.3,
+   "speed": 279.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 93.17,
+   "ut": 31918.88,
+   "dist_m": 6441.6,
+   "alt_m": 6502.5,
+   "speed": 280.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 93.43,
+   "ut": 31919.14,
+   "dist_m": 6368.6,
+   "alt_m": 6429.4,
+   "speed": 281.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 93.69,
+   "ut": 31919.4,
+   "dist_m": 6295.5,
+   "alt_m": 6356.1,
+   "speed": 282.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 93.97,
+   "ut": 31919.7,
+   "dist_m": 6216.5,
+   "alt_m": 6271.3,
+   "speed": 283.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 94.29,
+   "ut": 31920.0,
+   "dist_m": 6125.9,
+   "alt_m": 6186.2,
+   "speed": 284.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 94.55,
+   "ut": 31920.26,
+   "dist_m": 6052.1,
+   "alt_m": 6112.2,
+   "speed": 284.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 94.84,
+   "ut": 31920.54,
+   "dist_m": 5972.4,
+   "alt_m": 6032.3,
+   "speed": 285.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 95.09,
+   "ut": 31920.8,
+   "dist_m": 5898.2,
+   "alt_m": 5958.0,
+   "speed": 286.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 95.39,
+   "ut": 31921.1,
+   "dist_m": 5812.4,
+   "alt_m": 5871.9,
+   "speed": 287.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 95.65,
+   "ut": 31921.36,
+   "dist_m": 5737.8,
+   "alt_m": 5797.2,
+   "speed": 287.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 95.93,
+   "ut": 31921.64,
+   "dist_m": 5657.3,
+   "alt_m": 5716.5,
+   "speed": 288.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 96.24,
+   "ut": 31921.94,
+   "dist_m": 5570.8,
+   "alt_m": 5629.8,
+   "speed": 289.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 96.53,
+   "ut": 31922.24,
+   "dist_m": 5484.1,
+   "alt_m": 5542.9,
+   "speed": 290.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 96.83,
+   "ut": 31922.54,
+   "dist_m": 5403.0,
+   "alt_m": 5455.8,
+   "speed": 290.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 97.1,
+   "ut": 31922.8,
+   "dist_m": 5321.7,
+   "alt_m": 5380.1,
+   "speed": 291.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 97.37,
+   "ut": 31923.08,
+   "dist_m": 5240.3,
+   "alt_m": 5298.4,
+   "speed": 291.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 97.7,
+   "ut": 31923.4,
+   "dist_m": 5152.8,
+   "alt_m": 5204.9,
+   "speed": 292.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 97.95,
+   "ut": 31923.66,
+   "dist_m": 5071.0,
+   "alt_m": 5128.8,
+   "speed": 293.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 98.21,
+   "ut": 31923.92,
+   "dist_m": 4995.0,
+   "alt_m": 5052.5,
+   "speed": 293.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 98.48,
+   "ut": 31924.18,
+   "dist_m": 4918.8,
+   "alt_m": 4976.1,
+   "speed": 294.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 98.74,
+   "ut": 31924.44,
+   "dist_m": 4842.5,
+   "alt_m": 4899.5,
+   "speed": 294.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 98.99,
+   "ut": 31924.7,
+   "dist_m": 4766.0,
+   "alt_m": 4822.8,
+   "speed": 295.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 99.27,
+   "ut": 31924.98,
+   "dist_m": 4683.6,
+   "alt_m": 4740.1,
+   "speed": 295.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 99.53,
+   "ut": 31925.24,
+   "dist_m": 4606.9,
+   "alt_m": 4663.2,
+   "speed": 296.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 99.79,
+   "ut": 31925.5,
+   "dist_m": 4530.2,
+   "alt_m": 4586.2,
+   "speed": 296.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 100.05,
+   "ut": 31925.76,
+   "dist_m": 4453.4,
+   "alt_m": 4509.1,
+   "speed": 296.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 100.31,
+   "ut": 31926.02,
+   "dist_m": 4376.4,
+   "alt_m": 4431.9,
+   "speed": 297.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 100.6,
+   "ut": 31926.3,
+   "dist_m": 4293.5,
+   "alt_m": 4348.7,
+   "speed": 297.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 100.85,
+   "ut": 31926.56,
+   "dist_m": 4216.4,
+   "alt_m": 4271.3,
+   "speed": 297.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 101.15,
+   "ut": 31926.86,
+   "dist_m": 4127.4,
+   "alt_m": 4181.9,
+   "speed": 298.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 101.43,
+   "ut": 31927.14,
+   "dist_m": 4044.2,
+   "alt_m": 4098.4,
+   "speed": 298.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 101.71,
+   "ut": 31927.42,
+   "dist_m": 3961.0,
+   "alt_m": 4014.8,
+   "speed": 298.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 101.97,
+   "ut": 31927.68,
+   "dist_m": 3883.7,
+   "alt_m": 3937.1,
+   "speed": 298.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 102.24,
+   "ut": 31927.94,
+   "dist_m": 3806.3,
+   "alt_m": 3859.4,
+   "speed": 299.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 102.52,
+   "ut": 31928.22,
+   "dist_m": 3723.0,
+   "alt_m": 3775.7,
+   "speed": 299.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 102.77,
+   "ut": 31928.48,
+   "dist_m": 3645.6,
+   "alt_m": 3697.9,
+   "speed": 299.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 103.05,
+   "ut": 31928.76,
+   "dist_m": 3562.2,
+   "alt_m": 3614.1,
+   "speed": 299.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 103.33,
+   "ut": 31929.04,
+   "dist_m": 3478.8,
+   "alt_m": 3530.2,
+   "speed": 299.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 103.6,
+   "ut": 31929.3,
+   "dist_m": 3401.4,
+   "alt_m": 3452.4,
+   "speed": 299.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 103.9,
+   "ut": 31929.62,
+   "dist_m": 3312.1,
+   "alt_m": 3356.5,
+   "speed": 299.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 104.17,
+   "ut": 31929.88,
+   "dist_m": 3228.8,
+   "alt_m": 3278.6,
+   "speed": 299.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 104.43,
+   "ut": 31930.14,
+   "dist_m": 3151.4,
+   "alt_m": 3200.7,
+   "speed": 299.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 104.74,
+   "ut": 31930.44,
+   "dist_m": 3062.2,
+   "alt_m": 3110.9,
+   "speed": 299.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 105.03,
+   "ut": 31930.74,
+   "dist_m": 2973.0,
+   "alt_m": 3021.0,
+   "speed": 299.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 105.29,
+   "ut": 31931.0,
+   "dist_m": 2895.8,
+   "alt_m": 2943.2,
+   "speed": 299.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 105.55,
+   "ut": 31931.26,
+   "dist_m": 2818.6,
+   "alt_m": 2865.4,
+   "speed": 299.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 105.84,
+   "ut": 31931.54,
+   "dist_m": 2741.5,
+   "alt_m": 2781.6,
+   "speed": 299.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 106.09,
+   "ut": 31931.8,
+   "dist_m": 2658.6,
+   "alt_m": 2703.9,
+   "speed": 298.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 106.37,
+   "ut": 31932.08,
+   "dist_m": 2581.6,
+   "alt_m": 2620.2,
+   "speed": 298.7,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 106.71,
+   "ut": 31932.38,
+   "dist_m": 2487.1,
+   "alt_m": 2530.7,
+   "speed": 298.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 106.99,
+   "ut": 31932.68,
+   "dist_m": 2398.6,
+   "alt_m": 2441.1,
+   "speed": 298.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 107.25,
+   "ut": 31932.94,
+   "dist_m": 2322.0,
+   "alt_m": 2363.6,
+   "speed": 298.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 107.54,
+   "ut": 31933.22,
+   "dist_m": 2239.6,
+   "alt_m": 2280.2,
+   "speed": 297.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 107.8,
+   "ut": 31933.48,
+   "dist_m": 2163.3,
+   "alt_m": 2202.8,
+   "speed": 297.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 108.08,
+   "ut": 31933.76,
+   "dist_m": 2081.3,
+   "alt_m": 2119.6,
+   "speed": 297.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 108.33,
+   "ut": 31934.02,
+   "dist_m": 2005.3,
+   "alt_m": 2042.4,
+   "speed": 296.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 108.6,
+   "ut": 31934.28,
+   "dist_m": 1929.5,
+   "alt_m": 1965.3,
+   "speed": 296.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 108.85,
+   "ut": 31934.54,
+   "dist_m": 1853.9,
+   "alt_m": 1888.2,
+   "speed": 296.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 109.11,
+   "ut": 31934.8,
+   "dist_m": 1778.5,
+   "alt_m": 1811.3,
+   "speed": 295.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 109.37,
+   "ut": 31935.06,
+   "dist_m": 1703.4,
+   "alt_m": 1734.4,
+   "speed": 295.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 109.63,
+   "ut": 31935.32,
+   "dist_m": 1628.5,
+   "alt_m": 1657.7,
+   "speed": 295.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 109.9,
+   "ut": 31935.58,
+   "dist_m": 1553.9,
+   "alt_m": 1581.0,
+   "speed": 294.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 110.15,
+   "ut": 31935.84,
+   "dist_m": 1479.6,
+   "alt_m": 1504.5,
+   "speed": 294.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 110.44,
+   "ut": 31936.12,
+   "dist_m": 1399.9,
+   "alt_m": 1422.3,
+   "speed": 293.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 110.71,
+   "ut": 31936.4,
+   "dist_m": 1320.8,
+   "alt_m": 1340.1,
+   "speed": 293.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 110.97,
+   "ut": 31936.66,
+   "dist_m": 1247.8,
+   "alt_m": 1264.0,
+   "speed": 292.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 111.24,
+   "ut": 31936.92,
+   "dist_m": 1175.2,
+   "alt_m": 1188.0,
+   "speed": 292.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 111.5,
+   "ut": 31937.18,
+   "dist_m": 1103.3,
+   "alt_m": 1112.2,
+   "speed": 291.5,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 111.8,
+   "ut": 31937.48,
+   "dist_m": 1021.2,
+   "alt_m": 1024.8,
+   "speed": 290.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 112.08,
+   "ut": 31937.76,
+   "dist_m": 945.6,
+   "alt_m": 943.5,
+   "speed": 290.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 112.34,
+   "ut": 31938.02,
+   "dist_m": 876.5,
+   "alt_m": 868.2,
+   "speed": 289.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 112.61,
+   "ut": 31938.3,
+   "dist_m": 803.4,
+   "alt_m": 787.2,
+   "speed": 288.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 112.87,
+   "ut": 31938.56,
+   "dist_m": 737.2,
+   "alt_m": 712.2,
+   "speed": 288.2,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 113.18,
+   "ut": 31938.86,
+   "dist_m": 663.3,
+   "alt_m": 625.8,
+   "speed": 287.4,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 113.44,
+   "ut": 31939.12,
+   "dist_m": 602.1,
+   "alt_m": 551.2,
+   "speed": 286.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 113.7,
+   "ut": 31939.38,
+   "dist_m": 544.4,
+   "alt_m": 476.7,
+   "speed": 286.1,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 113.95,
+   "ut": 31939.64,
+   "dist_m": 491.3,
+   "alt_m": 402.5,
+   "speed": 285.3,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 114.22,
+   "ut": 31939.9,
+   "dist_m": 444.5,
+   "alt_m": 328.4,
+   "speed": 284.6,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 114.48,
+   "ut": 31940.16,
+   "dist_m": 406.0,
+   "alt_m": 254.5,
+   "speed": 283.8,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 114.76,
+   "ut": 31940.46,
+   "dist_m": 376.5,
+   "alt_m": 169.5,
+   "speed": 283.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  },
+  {
+   "t": 115.06,
+   "ut": 31940.74,
+   "dist_m": 362.0,
+   "alt_m": 84.7,
+   "speed": 282.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  }
+ ],
+ "pod_gone_after_s": 115.36669301986694,
+ "transitions": [
+  {
+   "t": 0.05,
+   "ut": 31827.52,
+   "dist_m": 1.2,
+   "alt_m": 73.9,
+   "speed": 0.0,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.pre_launch"
+  },
+  {
+   "t": 0.33,
+   "ut": 31827.82,
+   "dist_m": 1.2,
+   "alt_m": 75.7,
+   "speed": 12.9,
+   "loaded": true,
+   "packed": false,
+   "situation": "VesselSituation.flying"
+  }
+ ]
+}

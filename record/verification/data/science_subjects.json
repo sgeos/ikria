@@ -1,0 +1,100 @@
+{
+ "bodies": {
+  "Sun": {
+   "subjects": 35,
+   "normal": 2508.0,
+   "hard": 1504.8
+  },
+  "Moho": {
+   "subjects": 161,
+   "normal": 26728.0,
+   "hard": 16036.8
+  },
+  "Eve": {
+   "subjects": 419,
+   "normal": 53470.0,
+   "hard": 32082.0
+  },
+  "Gilly": {
+   "subjects": 53,
+   "normal": 7855.0,
+   "hard": 4713.0
+  },
+  "Kerbin": {
+   "subjects": 315,
+   "normal": 3069.5,
+   "hard": 1841.7
+  },
+  "Mun": {
+   "subjects": 221,
+   "normal": 14154.0,
+   "hard": 8492.4
+  },
+  "Minmus": {
+   "subjects": 125,
+   "normal": 9975.0,
+   "hard": 5985.0
+  },
+  "Duna": {
+   "subjects": 280,
+   "normal": 33097.0,
+   "hard": 19858.2
+  },
+  "Ike": {
+   "subjects": 113,
+   "normal": 14958.0,
+   "hard": 8974.8
+  },
+  "Dres": {
+   "subjects": 113,
+   "normal": 15304.0,
+   "hard": 9182.4
+  },
+  "Jool": {
+   "subjects": 35,
+   "normal": 5009.0,
+   "hard": 3005.4
+  },
+  "Laythe": {
+   "subjects": 289,
+   "normal": 59852.0,
+   "hard": 35911.2
+  },
+  "Vall": {
+   "subjects": 125,
+   "normal": 24430.0,
+   "hard": 14658.0
+  },
+  "Tylo": {
+   "subjects": 125,
+   "normal": 24840.0,
+   "hard": 14904.0
+  },
+  "Bop": {
+   "subjects": 77,
+   "normal": 14870.0,
+   "hard": 8922.0
+  },
+  "Pol": {
+   "subjects": 65,
+   "normal": 12480.0,
+   "hard": 7488.0
+  },
+  "Eeloo": {
+   "subjects": 149,
+   "normal": 36865.0,
+   "hard": 22119.0
+  }
+ },
+ "body_subjects": 2700,
+ "body_normal": 359464,
+ "body_hard": 215679,
+ "ksc_location_subjects": 370,
+ "ksc_normal": 2065,
+ "ksc_hard": 1239,
+ "surface_feature_subjects": 34,
+ "surface_feature_hard_if_unscaled": 900,
+ "total_subjects": 3104,
+ "total_hard": 217818,
+ "total_normal_without_features": 361529
+}
