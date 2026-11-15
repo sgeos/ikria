@@ -222,8 +222,9 @@ the operator on 2026-11-14.
     restore, so that the record cannot quietly undo its own mistakes.
 - **R11, incident reports.** *Decided.* Every reload of the career save and every loss
   of a kerbal requires an incident report, as does every Mission mode or scenario
-  attempt that loses a kerbal. So does every Green Monolith discovered before the
-  endgame, as the operator ruled on 2026-11-14, and that report also adjusts the reserved
+  attempt that loses a kerbal. So does every loss or failed mission of an uncrewed
+  vehicle, and every separation accident, as the operator ruled on 2026-11-14. So does
+  every Green Monolith discovered before the endgame, as the operator ruled on 2026-11-14, and that report also adjusts the reserved
   set of [`CAMPAIGN_SEQUENCE.md`](CAMPAIGN_SEQUENCE.md). The report gives the timeline from telemetry, the
   classification under R10, the cause and contributing factors, the corrective action,
   and the criteria affected. Each report is also an entry in the anomaly log of R8.
@@ -271,6 +272,26 @@ the operator on 2026-11-14.
   rehearsal would differ in the live run. The plan therefore fixes the site, and the
   descent program steers to it whatever the launch time. A landing outside the tolerance
   is an anomaly in the mission report.
+- **R16, separation.** *Decided by the operator, 2026-11-14.* Every separation of
+  hardware clears the main craft. Separation accidents often end missions, so each
+  separation event is designed and qualified in the sandbox under R4. Its design states
+  the separating force, from decouplers or small solid motors, the attitude and rates at
+  release, the relative velocity, and the clearance distance and time before either
+  vessel manoeuvres. Its qualification shows no recontact. A spent stage burning off its
+  Δv under R13 does so only after it is clear.
+- **R17, priorities.** *Decided by the operator, 2026-11-14.* When goals conflict, the
+  order is as follows.
+  1. **Personnel survive.** In an accident, the first goal is that the crew survive in a
+     state from which they can be rescued.
+  2. **The mission succeeds,** which includes a clean separation at every staging event.
+  3. **Debris is limited** under R13.
+  4. **Propellant and cost are optimized.** Failing to optimize is not a mission failure.
+
+  Hardware can be bought again and personnel cannot be replaced, so a design gives up
+  hardware before it risks crew. The operator understands money to be unlimited. On
+  Hard it is finite early, as the funds plan of
+  [`CAMPAIGN_SEQUENCE.md`](CAMPAIGN_SEQUENCE.md) shows, and probably plentiful later
+  *(inference)*. The order holds either way.
 - **R15, orbital hazards.** *Decided as a requirement by the operator, 2026-11-14.* Every
   trajectory is checked against the moons' hazard bands of [`HAZARDS.md`](HAZARDS.md),
   and an encounter is either shown impossible or planned.
@@ -442,6 +463,15 @@ No questions remain open.
 | Landing sites | Landings target chosen sites, since rehearsals and live runs have different timings. R14. |
 | Vehicle codes | Ikria's vehicles carry codes of the form IKR-[type]-[number]. [`AGENCY_RECORD.md`](AGENCY_RECORD.md) sets out the types. |
 | Relay tracking | A system tracks the communication relays, as part of the program-level tracking software. [`AGENCY_RECORD.md`](AGENCY_RECORD.md) adds the relay registry. |
+
+## Rulings, tenth set, 2026-11-14
+
+| Subject | Ruling |
+|---|---|
+| Relays near hazard moons | Infrastructure can orbit a moon such as Ike itself, or sit very high or very close around the parent, depending on geometry. [`HAZARDS.md`](HAZARDS.md) rule 2. |
+| Separation | Separated hardware clears the main craft, since separation accidents fail missions. R16. |
+| Priorities | Personnel survival first, so that crew can be rescued, then mission success, then debris, then optimization, which is never a mission failure. R17. |
+| Uncrewed losses | A failure of a purely telerobotic vehicle ends in an incident report. R11. |
 
 ## Appendix, Hard preset
 
