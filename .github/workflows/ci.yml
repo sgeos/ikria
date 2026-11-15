@@ -65,8 +65,11 @@ jobs:
       #     python-version: "3.12"
       #
       # or, for Rust, which this project uses. Pinned by hash, rust-toolchain cannot read
-      # the toolchain from the ref name, so it needs the toolchain input:
-      - uses: dtolnay/rust-toolchain@b725eda525362e7cf34af9a7243cac1e3f01a7ec # stable, 2026-10-16
+      # the toolchain from the ref name, so it needs the toolchain input. The pin is a
+      # commit on the action's master branch, whose history is kept. Its stable branch is
+      # rebuilt, which on 2026-11-15 left the earlier pin on no branch, and zizmor's
+      # impostor-commit audit then failed.
+      - uses: dtolnay/rust-toolchain@683b588c487a69d01f6c6ddf40f036ff682cc2c8 # master, 2026-10-16, "Add 1.99.1 patch release"
         with:
           toolchain: stable
           components: clippy, rustfmt
