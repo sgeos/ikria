@@ -135,8 +135,10 @@ through the controller, which keeps them inside the rules.
 
 ## Record types
 
-**Proposed, version 1.** These are sketches. The final fields follow the first
-qualification flights.
+**Implemented, version 1, 2026-11-14,** in `crates/ikria-records`. The sketches below
+match it. The fields will grow with the first qualification flights, under a new
+protocol version. Every value that crosses a process boundary is checked when it is
+decoded, and each message is one line of JSON, which also serves as the telemetry log.
 
 **Telemetry in, per vessel, per tick.** Game time. Vessel identifier and situation.
 Body and position and velocity in that body's inertial frame. Attitude as a quaternion

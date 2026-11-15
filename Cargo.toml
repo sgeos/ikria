@@ -3,7 +3,7 @@
 # design require.
 [workspace]
 resolver = "3"
-members = ["crates/ikria-harness"]
+members = ["crates/ikria-harness", "crates/ikria-records"]
 
 [workspace.package]
 edition = "2024"
@@ -15,6 +15,9 @@ publish = false
 [workspace.dependencies]
 # Keleusma at its released version, which the harness follows deliberately.
 keleusma = "0.2.2"
+# Serialization of the records and the messages between processes.
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
 
 [workspace.lints.rust]
 unsafe_code = "forbid"

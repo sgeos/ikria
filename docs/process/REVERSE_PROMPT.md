@@ -6,23 +6,26 @@ A state file, overwritten whole after each task. It reports what was done, what 
 decided and by whom, what was verified and how, what was not verified, and what the
 operator needs to decide. Facts, inferences and hypotheses are marked as such.
 
-## Separation and priorities, 2026-11-14
+## Record types, version 1, 2026-11-14
 
-**Done.** Recorded the operator's rulings in the campaign plan's tenth set.
-- `HAZARDS.md` gives three placements for relays near hazard moons.
-- R16 requires every separation to be designed and qualified to clear the main craft.
-- R17 orders the priorities: personnel survival, mission success, debris, and
-  optimization.
-- R11 adds incident reports for losses of uncrewed vehicles and for separation
-  accidents.
+**Done.** Task T7 of [`V0_1_0.md`](../roadmap/V0_1_0.md). The `ikria-records` crate holds
+the record types and the messages between the bridge and the harness.
+- **Validated types.** Game time, vessel and part identifiers, vectors, rotations, bounded
+  controls, situations and resources. Each refuses a value that is not finite or is out of
+  range, both when built and when decoded.
+- **Telemetry and commands.** Telemetry per vessel, and commands per vessel with action
+  group, abort, engine, decoupler and experiment requests. Staging is left out, since
+  kRPC stages only the active vessel.
+- **Messages.** A handshake that checks the protocol version, and the per-tick messages.
+  Each is encoded as one line of JSON.
 
-**Decided.** By the operator on 2026-11-14.
+**Decided.** Nothing new.
 
 **Verified.** `RUSTC_WRAPPER= ./scripts/check.sh` exits zero on this branch with every
-file staged, on macOS.
+file staged, on macOS. The tests ran 16, 10 in the new crate and 6 in the harness, and all
+passed, with none skipped.
 
-**Not verified.** Nothing new.
+**Not verified.** The cost of JSON encoding at 50 ticks a second, which the bridge's
+first run measures.
 
-**For the operator.** The operator understands money to be unlimited. On Hard it is
-finite early, about 1.2 million funds short before Research and Development level 2, as
-the funds plan shows. The priority order holds either way.
+**For the operator.** Nothing.

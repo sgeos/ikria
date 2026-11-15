@@ -54,8 +54,9 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
 
 ## Next step
 
-1. Work the open tasks of [`V0_1_0.md`](../roadmap/V0_1_0.md). T4 and T6 are done. Next
-   is T7, the record types the bridge waits on, then T8 and T10.
+1. Work the open tasks of [`V0_1_0.md`](../roadmap/V0_1_0.md). T4, T6 and T7 are done.
+   Next are T8, the save-file reader, and T10, the harness skeleton. The bridge can now
+   start T11 against `ikria-records`, as a git dependency on this repository.
 2. The Green Monolith test, T14, follows `record/verification/TP-0001.md`, and stopped at
    step 2. Launch, load and quickload through kRPC hung in the verification save, which
    fits a dialog left open in the game. Resume once the operator has closed it. The
