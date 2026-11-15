@@ -22,3 +22,5 @@ as **Decided**, **Proposed** or **Open**, and say whether it is implemented.
   vertically and lands on the runway. A top priority.
 - [`CREW_TRAINING.md`](CREW_TRAINING.md): the kerbal astronaut training program.
   Proposed.
+- [`HAZARDS.md`](HAZARDS.md): the moons' orbital hazard bands, and the surface and
+  environment hazards of each body.

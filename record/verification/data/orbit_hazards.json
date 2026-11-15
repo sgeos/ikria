@@ -1,0 +1,274 @@
+[
+ {
+  "moon": "Ike",
+  "parent": "Duna",
+  "parent_radius_km": 320.0,
+  "parent_atmosphere_km": 50.0,
+  "parent_soi_km": 47921.94936973804,
+  "a_km": 3200.0,
+  "e": 0.0299999993294477,
+  "inclination_deg": 0.200000002980232,
+  "soi_km": 1049.598939311619,
+  "band_altitude_km": [
+   1734.4010628341482,
+   4025.5989371658516
+  ],
+  "mass_kg": 2.7821615223587383e+20,
+  "surface_gravity": 1.0990953620956023
+ },
+ {
+  "moon": "Gilly",
+  "parent": "Eve",
+  "parent_radius_km": 700.0,
+  "parent_atmosphere_km": 90.0,
+  "parent_soi_km": 85109.36473824407,
+  "a_km": 31500.0,
+  "e": 0.550000011920929,
+  "inclination_deg": 12.000000000000002,
+  "soi_km": 126.12327170456759,
+  "band_altitude_km": [
+   13348.87635278617,
+   48251.12364721383
+  ],
+  "mass_kg": 1.2420363278109269e+17,
+  "surface_gravity": 0.04906675462515513
+ },
+ {
+  "moon": "Laythe",
+  "parent": "Jool",
+  "parent_radius_km": 6000.0,
+  "parent_atmosphere_km": 200.0,
+  "parent_soi_km": 2455985.185423469,
+  "a_km": 27184.0,
+  "e": 0.0,
+  "inclination_deg": 0.0,
+  "soi_km": 3723.6458111330217,
+  "band_altitude_km": [
+   17460.35418886698,
+   24907.64581113302
+  ],
+  "mass_kg": 2.9397310629121586e+22,
+  "surface_gravity": 7.850681032485479
+ },
+ {
+  "moon": "Vall",
+  "parent": "Jool",
+  "parent_radius_km": 6000.0,
+  "parent_atmosphere_km": 200.0,
+  "parent_soi_km": 2455985.185423469,
+  "a_km": 43152.0,
+  "e": 0.0,
+  "inclination_deg": 0.0,
+  "soi_km": 2406.4014447940403,
+  "band_altitude_km": [
+   34745.59855520596,
+   39558.40144479404
+  ],
+  "mass_kg": 3.1087655448204243e+21,
+  "surface_gravity": 2.3061375130792734
+ },
+ {
+  "moon": "Tylo",
+  "parent": "Jool",
+  "parent_radius_km": 6000.0,
+  "parent_atmosphere_km": 200.0,
+  "parent_soi_km": 2455985.185423469,
+  "a_km": 68500.0,
+  "e": 0.0,
+  "inclination_deg": 0.025000000372529,
+  "soi_km": 10856.518368358627,
+  "band_altitude_km": [
+   51643.48163164137,
+   73356.51836835862
+  ],
+  "mass_kg": 4.2332127305935085e+22,
+  "surface_gravity": 7.850681032485479
+ },
+ {
+  "moon": "Bop",
+  "parent": "Jool",
+  "parent_radius_km": 6000.0,
+  "parent_atmosphere_km": 200.0,
+  "parent_soi_km": 2455985.185423469,
+  "a_km": 128500.0,
+  "e": 0.234999999403954,
+  "inclination_deg": 14.999999999999998,
+  "soi_km": 1221.0608628425282,
+  "band_altitude_km": [
+   91081.43921374939,
+   153918.56078625063
+  ],
+  "mass_kg": 3.726108983432783e+19,
+  "surface_gravity": 0.5888010555018619
+ },
+ {
+  "moon": "Pol",
+  "parent": "Jool",
+  "parent_radius_km": 6000.0,
+  "parent_atmosphere_km": 200.0,
+  "parent_soi_km": 2455985.185423469,
+  "a_km": 179890.0,
+  "e": 0.17085,
+  "inclination_deg": 4.25,
+  "soi_km": 1042.1388923017805,
+  "band_altitude_km": [
+   142113.65460769823,
+   205666.34539230177
+  ],
+  "mass_kg": 1.081350658068228e+19,
+  "surface_gravity": 0.37290734348630783
+ },
+ {
+  "moon": "Mun",
+  "parent": "Kerbin",
+  "parent_radius_km": 600.0,
+  "parent_atmosphere_km": 70.0,
+  "parent_soi_km": 84159.28647963048,
+  "a_km": 12000.0,
+  "e": 0.0,
+  "inclination_deg": 0.0,
+  "soi_km": 2429.5591165647475,
+  "band_altitude_km": [
+   8970.440883435253,
+   13829.559116564747
+  ],
+  "mass_kg": 9.759906611964599e+20,
+  "surface_gravity": 1.629016227964847
+ },
+ {
+  "moon": "Minmus",
+  "parent": "Kerbin",
+  "parent_radius_km": 600.0,
+  "parent_atmosphere_km": 70.0,
+  "parent_soi_km": 84159.28647963048,
+  "a_km": 47000.0,
+  "e": 0.0,
+  "inclination_deg": 6.000000000000001,
+  "soi_km": 2247.4283879023046,
+  "band_altitude_km": [
+   44152.571612097694,
+   48647.428387902306
+  ],
+  "mass_kg": 2.645757956620945e+19,
+  "surface_gravity": 0.49066756453034277
+ },
+ {
+  "moon": "Moho",
+  "parent": "Sun",
+  "parent_radius_km": 261600.0,
+  "parent_atmosphere_km": 600.0,
+  "parent_soi_km": null,
+  "a_km": 5263138.304,
+  "e": 0.200000002980232,
+  "inclination_deg": 7.0,
+  "soi_km": 9646.663023328105,
+  "band_altitude_km": [
+   3939263.9644912984,
+   6063812.643508702
+  ],
+  "mass_kg": 2.526331399301619e+21,
+  "surface_gravity": 2.6986716231956693
+ },
+ {
+  "moon": "Eve",
+  "parent": "Sun",
+  "parent_radius_km": 261600.0,
+  "parent_atmosphere_km": 600.0,
+  "parent_soi_km": null,
+  "a_km": 9832684.544,
+  "e": 0.00999999977648258,
+  "inclination_deg": 2.09999990463257,
+  "soi_km": 85109.36473824407,
+  "band_altitude_km": [
+   9387648.33601953,
+   9754520.751980469
+  ],
+  "mass_kg": 1.2243980038014036e+23,
+  "surface_gravity": 16.682697413377173
+ },
+ {
+  "moon": "Kerbin",
+  "parent": "Sun",
+  "parent_radius_km": 261600.0,
+  "parent_atmosphere_km": 600.0,
+  "parent_soi_km": null,
+  "a_km": 13599840.256,
+  "e": 0.0,
+  "inclination_deg": 0.0,
+  "soi_km": 84159.28647963048,
+  "band_altitude_km": [
+   13254080.969520368,
+   13422399.54247963
+  ],
+  "mass_kg": 5.2915158343921546e+22,
+  "surface_gravity": 9.81335114437652
+ },
+ {
+  "moon": "Duna",
+  "parent": "Sun",
+  "parent_radius_km": 261600.0,
+  "parent_atmosphere_km": 600.0,
+  "parent_soi_km": null,
+  "a_km": 20726155.264,
+  "e": 0.0509999990463257,
+  "inclination_deg": 0.05999999865889549,
+  "soi_km": 47921.94936973804,
+  "band_altitude_km": [
+   19359599.415932264,
+   21569511.112067737
+  ],
+  "mass_kg": 4.5154270247749157e+21,
+  "surface_gravity": 2.9440054602972183
+ },
+ {
+  "moon": "Dres",
+  "parent": "Sun",
+  "parent_radius_km": 261600.0,
+  "parent_atmosphere_km": 600.0,
+  "parent_soi_km": null,
+  "a_km": 40839348.203,
+  "e": 0.145,
+  "inclination_deg": 5.0,
+  "soi_km": 32832.839576776205,
+  "band_altitude_km": [
+   34623209.873988226,
+   46532286.53201177
+  ],
+  "mass_kg": 3.2190936578524676e+20,
+  "surface_gravity": 1.1285353816033
+ },
+ {
+  "moon": "Jool",
+  "parent": "Sun",
+  "parent_radius_km": 261600.0,
+  "parent_atmosphere_km": 600.0,
+  "parent_soi_km": null,
+  "a_km": 68773560.32,
+  "e": 0.0500000007450581,
+  "inclination_deg": 1.30400002002716,
+  "soi_km": 2455985.185423469,
+  "band_altitude_km": [
+   62617297.06733623,
+   74406623.57266375
+  ],
+  "mass_kg": 4.2332127305935086e+24,
+  "surface_gravity": 7.850681032485479
+ },
+ {
+  "moon": "Eeloo",
+  "parent": "Sun",
+  "parent_radius_km": 261600.0,
+  "parent_atmosphere_km": 600.0,
+  "parent_soi_km": null,
+  "a_km": 90118820.0,
+  "e": 0.26,
+  "inclination_deg": 6.15,
+  "soi_km": 119082.9416478119,
+  "band_altitude_km": [
+   66307243.85835219,
+   113407196.14164782
+  ],
+  "mass_kg": 1.1149224241700665e+21,
+  "surface_gravity": 1.687896454155048
+ }
+]

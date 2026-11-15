@@ -181,6 +181,13 @@ The operator set these out on 2026-11-14.
   against the contract.
 - **Spent stages can be infrastructure.** A stage left in orbit with relay hardware, and
   serving as a relay, is not debris.
+- **Use a stage up before dropping it.** A stage with Δv left burns it off meaningfully
+  before it is discarded, as R13's amendment requires. A transfer stage stays attached
+  through the start of a landing and bleeds the lander's velocity, then separates and
+  falls to the surface. That spends its propellant usefully and leaves no debris in
+  orbit, and the lander carries less propellant for the rest of the descent.
+- **Choose the landing site.** Every landing targets a site the plan chose, under R14,
+  since a rehearsal and the live run start at different times.
 
 ## Green Monoliths
 

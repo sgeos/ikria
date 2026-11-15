@@ -75,6 +75,7 @@ the agency records, why, from what data, and where. It extends rules R7, R8 and 
 | Fleet and object registry | Vessel or object | At launch, at each change of state, and before any deletion under R13 | Save file, kRPC | Practice of national registries of launched objects *(recall)* | Decided |
 | Crew records | Kerbal | At hire or rescue, after every flight | Save file roster | To be researched | Decided |
 | Science ledger | Subject | After every recovery or transmission | Save file science subjects | C4 | Decided |
+| Relay registry | Relay, antenna and ground station | At launch, at each change of orbit or state, and before any deletion | Save file, kRPC, the vehicle sheets | To be researched | Decided |
 | Configuration and software catalogue | Craft file and Keleusma program version | At each change | Repository, hashes under R7 | Configuration management practice, and the vehicle article | Decided |
 | Risk register and lessons learned | Risk or lesson | At each review | Plans, reports, incidents | Same program and financial article | Decided |
 | Reviews | Design review, flight readiness review, post-flight review | At each gate | The documents above | Mission article | Decided |
@@ -161,13 +162,30 @@ simplified. Each mission plan names which of these affect its comparison.
 
 | Kind | Form | Example |
 |---|---|---|
-| Vehicle design | V-, three digits, then a version letter | V-001A |
-| Vehicle built for a flight | Design, then a serial | V-001A-03 |
+| Vehicle design | IKR-, a type code, a three-digit number, then a revision letter | IKR-BV-001A |
+| Vehicle built for a flight | Design, then a serial | IKR-BV-001A-03 |
 | Mission | M-, four digits | M-0001 |
 | Incident | I-, four digits | I-0001 |
 | Verification or R&D report | VR-, four digits | VR-0001 |
 | Test procedure | TP-, four digits | TP-0001 |
 | Review | The mission, then the review type | M-0001-FRR |
+
+**Vehicle type codes.** *Decided form, proposed codes.* The operator set the form
+IKR-[type]-[number] on 2026-11-14.
+
+| Code | Type |
+|---|---|
+| LV | Launch vehicle, as a whole stack |
+| BV | Booster that takes off vertically and lands on the runway |
+| US | Upper or transfer stage |
+| CM | Crew module or capsule |
+| LD | Lander |
+| PR | Probe |
+| RL | Relay |
+| RV | Rover |
+| AC | Aircraft or rocket plane |
+| ST | Station or base |
+| TS | Test article for the sandbox or the verification save |
 
 ## Where the record lives, proposed
 
@@ -178,6 +196,18 @@ A top-level `record/` directory holds the documents. It was created on 2026-11-1
 holds the documents: `vehicles/`, `missions/`, `incidents/`, `program/`, `finance/`,
 `fleet/`, `crew/`, `science/`, `software/` and `verification/`. The scripts behind
 verification reports are kept in `tools/`.
+
+## The relay registry
+
+*Decided as a requirement by the operator, 2026-11-14.* The program-level tracking
+software keeps a registry of the communication network. For each relay it records the
+vehicle, its antennas and their power, its orbit, its power supply, and its role in the
+network. For the ground network it records the stations and the Tracking Station's level.
+From those it computes the link between each pair of nodes with the game's own formula,
+the coverage of each body, and the gaps. It warns when a planned mission would fly
+without a link, which R3 forbids for uncrewed vessels, and when a relay's orbit crosses a
+hazard band of [`HAZARDS.md`](HAZARDS.md). Stages and landers that become relays under
+R13 enter the registry when their second purpose begins.
 
 ## Open technical questions for Phase 0
 
