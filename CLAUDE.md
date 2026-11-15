@@ -86,7 +86,13 @@ scripts/worktree.sh new feat/some-thing  # an isolated worktree for a parallel l
 scripts/worktree.sh rm  feat/some-thing  # remove it once merged
 ```
 
-Add the project's build, test and run commands here as they come to exist.
+```sh
+cargo test --workspace                   # the Rust tests, which the gate also runs
+cargo run --release -p ikria-harness --example keleusma_timing   # Phase 0 experiment 8
+```
+
+Inside an agent sandbox whose `RUSTC_WRAPPER` is `sccache`, prefix cargo and the gate with
+`RUSTC_WRAPPER=`, since `sccache` cannot run there.
 
 ## Before Trusting a Green Run
 

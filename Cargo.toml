@@ -1,0 +1,24 @@
+# Ikria's Rust workspace. The crates here are 0BSD. The bridge to kRPC is GPL-3.0 and
+# lives in its own repository, sgeos/ikria-bridge, as charter item 6 and the harness
+# design require.
+[workspace]
+resolver = "3"
+members = ["crates/ikria-harness"]
+
+[workspace.package]
+edition = "2024"
+rust-version = "1.88"
+license = "0BSD"
+repository = "https://github.com/sgeos/ikria"
+publish = false
+
+[workspace.dependencies]
+# Keleusma at its released version, which the harness follows deliberately.
+keleusma = "0.2.2"
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }

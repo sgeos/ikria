@@ -340,11 +340,13 @@ fi
 #
 #   uv run pytest "${project_args[@]+"${project_args[@]}"}" || fail "tests failed"
 #   pass "tests pass"
-#
-# Once a command uses project_args, delete the note below about unused arguments.
 
-printf 'check.sh: note: no project checks are configured yet, so only hygiene was checked\n'
-if ((${#project_args[@]} > 0)); then
-    printf 'check.sh: note: %d arguments after -- were given, and no project check used them\n' \
-        "${#project_args[@]}"
-fi
+# The Rust workspace. --locked keeps the gate on the committed Cargo.lock. Inside an
+# agent sandbox whose RUSTC_WRAPPER is sccache, run the gate as RUSTC_WRAPPER= ./scripts/check.sh,
+# as the template's checklist notes.
+cargo fmt --all -- --check || fail "cargo fmt found unformatted code"
+pass "cargo fmt is clean"
+cargo clippy --workspace --all-targets --locked -- -D warnings || fail "cargo clippy reported warnings"
+pass "cargo clippy is clean"
+cargo test --workspace --locked "${project_args[@]+"${project_args[@]}"}" || fail "cargo test failed"
+pass "cargo test passes"
