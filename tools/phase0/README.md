@@ -22,7 +22,8 @@ and refuse any other game mode.
 | `orbit_hazards.py` | Computes each moon's hazard band, read-only | VR-0008 |
 | `guard.py` | Identifies the loaded save, since kRPC does not report it | TP-0001 |
 | `monolith_setup.py` | Sets up the Green Monolith test in the verification save | TP-0001 |
-| `monolith_research_edit.py` | Researches the test rover's nodes by editing and loading a copy of the save | TP-0001 |
+| `monolith_research_edit.py` | Researches the test rover's nodes by editing a copy of the save, which the operator loads | TP-0001 |
+| `monolith_runway.py` | Puts a fresh test rover on the runway for the KerbNet scan | TP-0001 |
 
 **Save names.** A save a script writes is prefixed with the acronym of the save game it
 belongs to, so that the game's Load menu shows where it came from. The prefixes are `iasa-`
