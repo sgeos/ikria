@@ -271,6 +271,52 @@ operator's attention is to be kept for what needs it. The answers are needed onl
 the endgame, so task T14 of the first milestone waits until the test can run without the
 operator, or until the endgame.
 
+**The first attempt, 2026-11-15.** TP-0001 reached step 4 and paused there. KerbNet could
+not survey Kerbin without many sessions at the window, the save does not record the
+monolith's position, and no published method derives it from the seed. Players report
+that a monolith can move once a vessel leaves the body's sphere of influence *(web)*.
+The operator concluded that the information on Green Monolith behaviour is poor.
+
+**Hypotheses.** *The operator's conjectures, 2026-11-15.*
+- **G1, placement.** A Green Monolith is placed at random when a vessel enters its
+  body's sphere of influence, not once for the save.
+- **G2, a random reward at discovery.** The node is drawn at random when the monolith is
+  discovered. The operator argues that a reward must be chosen late, since the game
+  cannot know what a player will hold on arrival.
+- **G3, an algorithmic reward.** The node follows a rule rather than chance. The
+  operator expects that such a rule would not grant an obsolete node.
+- **G4, a reward drawn with the monolith.** The node is drawn when the monolith is
+  placed. A node researched between placement and discovery might then be sniped, a
+  possible defect whose outcome is unknown.
+
+**What each means for the plan.** *Inference.*
+- **The reserved set holds under G2 and G4,** provided two conditions hold at each
+  endgame discovery. Every node outside the set is already researched, and no node is
+  researched between entering the body's sphere of influence and the discovery. The
+  second condition is a new rule of the endgame, and it removes the snipe of G4.
+- **G3 is the risk.** A rule that ranks nodes, for example by tier, could draw outside
+  the set if the set is not the top of that ranking. The set already holds the last
+  and most expensive nodes, which fits the likeliest rules.
+- **Under G1, a KerbNet reveal holds for one visit only.** A keep-out zone lapses when
+  the vessel leaves, and a later visit scans again. For the same reason C13's visit to
+  each monolith needs a scan on the visit itself.
+- **Accidental discovery is unlikely.** For a random position and a discovery distance of
+  2 km, which is an assumption, one landing at a random spot meets a monolith with a
+  chance of about one in 360,000 on Kerbin, whose radius is 600 km, and about one in
+  170 on Gilly, whose radius is 13 km. Long rover
+  traverses raise it.
+
+**A test that separates them.** *Proposed,* for the first Green Monolith a verification or
+sandbox vessel meets. TP-0001 sets it out.
+1. Quicksave inside the sphere of influence, before the discovery.
+2. Discover, record the node, and reload, five times. The same node each time points to
+   G3 or G4. Different nodes point to G2.
+3. Reload, research the node first granted, and discover again. What happens tests the
+   snipe of G4.
+4. Leave the sphere of influence, return, and scan again. A different position supports
+   G1.
+5. Record the distance at which the discovery happens.
+
 ## The EVA jetpack as a margin
 
 The operator noted on 2026-11-14 that the EVA jetpack has significant Δv, and asked for

@@ -58,9 +58,9 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
    Next are T8, the save-file reader, and T10, the harness skeleton. The bridge can now
    start T11 against `ikria-records`, as a git dependency on this repository, and
    measure there the cost of JSON encoding at 50 ticks a second.
-2. The Green Monolith test, T14, follows `record/verification/TP-0001.md`, and stopped at
-   step 2. Launch, load and quickload through kRPC hung in the verification save, which
-   fits a dialog left open in the game. Resume once the operator has closed it. The
+2. The Green Monolith test, T14, is paused after step 4 of
+   `record/verification/TP-0001.md`, until a vessel meets a Green Monolith. kRPC's `load`
+   hangs, so the operator loads saves by hand. The
    training program is `CREW_TRAINING.md`, the C13 sites are in `record/sites/`, and the
    hazards by body are in `HAZARDS.md`. The sandbox holds the test craft `IkriaT0` and
    `IkriaT1` and one flag. The Python client 0.7.0 and the probes are local scratch in
