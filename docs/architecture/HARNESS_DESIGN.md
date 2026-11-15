@@ -162,6 +162,7 @@ save file or kRPC.
 | R3, signal | Before forwarding a command to an uncrewed vessel, the harness checks the bridge's link status, and refuses the command without a link. |
 | R9, information parity | Telemetry passes a filter before any loop sees it. A loop on board sees its own vessel's full state. The controller sees an uncrewed vessel only while it has a link. Bodies' motion is known from the start. Terrain, biomes, anomalies, asteroids and comets are revealed only by the events that reveal them in the game. |
 | R10 and R11, losses | The harness quicksaves into the sandbox and snapshots the career save outside the game before each career flight. It restores a career snapshot only after the operator confirms a defect, and every restore and loss writes an incident report. |
+| No cheats | kRPC's `KRPC.Debug` service sets funds and science, upgrades facilities, unlocks the tree, and moves vessels into orbits or onto the ground at will. The harness never calls it against the campaign's career or its sandbox qualification runs, and refuses any request that would. It may be used only in the test career save, for setting up a test, and each use is logged. |
 | R7, configuration record | Each flight logs the game version, the settings, and the hash of every craft file and Keleusma module flown. |
 
 ## The bridge to kRPC
