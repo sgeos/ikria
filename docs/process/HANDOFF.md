@@ -113,8 +113,9 @@ Observed by the admin session on 2026-11-13.
   `~/projects/keleusma/ikria-bridge`, outside this line's sandbox, so writing there
   needs escalation.
 - **Saves, 2026-11-14.** The operator created "Ikria Automated Space Agency", a career on
-  Hard, and "Ikria Simulated Research and Dev", a sandbox on Hard whose name the game
-  shortened. The older "Rookie" and "Sandbox" saves are left untouched.
+  Hard, "Ikria Simulated Research and Dev", a sandbox on Hard whose name the game
+  shortened, and "Ikria Physical Verification", a test career on Hard with reloading
+  enabled. The older "Rookie" and "Sandbox" saves are left untouched.
 
 ## Validity
 
