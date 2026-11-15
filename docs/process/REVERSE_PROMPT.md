@@ -6,24 +6,23 @@ A state file, overwritten whole after each task. It reports what was done, what 
 decided and by whom, what was verified and how, what was not verified, and what the
 operator needs to decide. Facts, inferences and hypotheses are marked as such.
 
-## Green Monolith test, steps 2 and 3, 2026-11-15
+## Green Monolith test, step 4 from the ground, 2026-11-15
 
 **Done.**
-- **Step 2.** The operator loaded the edited save from the game's menu. A fresh save held
-  the start node and the rover's nine nodes.
-- **Step 3.** The rover `IkriaKN` is in a 250 km polar orbit of Kerbin, saved as
-  "ipv-monolith-scan". The two debug uses are logged in
-  [`TP-0001`](../../record/verification/TP-0001.md).
-- **Save names.** Saves a script writes now carry the acronym of their save game, such
-  as `ipv-`, at the operator's request. The files already in the verification save were
-  renamed. The research edit script no longer calls kRPC's `load`, which hangs.
+- **Orbit too narrow.** The operator found KerbNet limited to 10 degrees in orbit, which
+  matches the core's part file.
+- **Rover on the runway.** A second rover is now on the runway, where the part file
+  allows up to 179.5 degrees. It is saved as "ipv-monolith-runway".
+- **Step 4 corrected.** It no longer names an anomaly mode, which does not exist.
+- **No discovery yet.** No node has been granted.
 
-**Decided.** By the operator on 2026-11-15, that save names carry the save game's
-acronym rather than `ikria-`. The acronyms themselves are the line's reading.
+**Decided.** Nothing new.
 
-**Verified.** Read from the running game and the save files. The gate exits zero on this
-branch with every file staged, on macOS.
+**Verified.** Read from the running game, the save files and the game's part file. The
+gate exits zero on this branch with every file staged, on macOS.
 
-**Not verified.** The edited scripts have not been rerun since the rename.
+**Not verified.** That the runway rover's KerbNet zooms out to about 180 degrees. That
+markers show coordinates or can become waypoints.
 
-**For the operator.** Step 4, the KerbNet scan of Kerbin from the rover.
+**For the operator.** The KerbNet scan from the runway. The previous report's step 4 is
+under way.
