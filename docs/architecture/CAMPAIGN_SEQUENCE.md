@@ -182,6 +182,91 @@ The operator set these out on 2026-11-14.
 - **Spent stages can be infrastructure.** A stage left in orbit with relay hardware, and
   serving as a relay, is not debris.
 
+## Green Monoliths
+
+The operator asked on 2026-11-14 for an investigation of the report that monoliths can
+unlock technology nodes without the facility upgrades those nodes otherwise need.
+
+**What is established.**
+- *(web, the official wiki's Green Monolith page)* Since version 1.2, each save places one
+  Green Monolith at a random spot on every body except Jool and the Sun, 15 in all.
+  Bringing a vessel or a kerbal close enough to one counts as its discovery. In career
+  and science mode the discovery is announced among the world firsts and unlocks a
+  research node, and the wiki's example names Experimental Motors, a 1,000-science
+  node.
+- *(web)* A Green Monolith is located through KerbNet, where it shows as an anomaly.
+- *(files)* KerbNet's anomaly detection comes with these parts.
+  - **First window.** The OKTO probe core, at 90 science, has a detection value of 0.06.
+    The Stayputnik has KerbNet but no anomaly detection.
+  - **160 science.** The HECS core has 0.12, and the avionics nose cone 0.24.
+  - **300 science.** The RoveMate rover core has 1.0.
+
+**What is not established.** How the unlocked node is chosen, and whether the unlock
+ignores the Research and Development cap, the node's cost and its prerequisites. The
+wiki's example suggests that the cap does not apply, but one example proves nothing.
+Neither question can be settled from the game's configuration files. Reading its code
+would be reverse engineering, which the charter excludes, so they are settled by test.
+
+**Why it matters.** If a monolith unlocks a node above the first window's cap of 100
+science, Kerbin's monolith alone could open a node of the 160 tier or above long before
+Research and Development level 2, which costs 676,500 funds. Kerbin's, the Mun's and
+Minmus's monoliths are all within reach of the early game. Even if the cap applies, the
+15 monoliths are 15 free nodes, and each is an anomaly for C13.
+
+**Test plan.** *Proposed.* The question needs career mechanics, which the sandbox lacks.
+It must not be learned in the campaign's own career, because a monolith's random place
+and its node belong to that save. A third save, a test career on Hard used only for
+mechanics, would carry it.
+1. Research the OKTO, then put an OKTO probe in a low polar orbit of Kerbin and scan for
+   anomalies through KerbNet until the Green Monolith appears.
+2. Reach the monolith by aircraft or by rover, and record which node unlocks, the
+   Research and Development level at the time, and the node's cost and prerequisites.
+
+In the campaign itself, R9 allows the monolith's position to be known only once a
+KerbNet scan reveals it, so the search is part of the plan.
+
+## The EVA jetpack as a margin
+
+The operator noted on 2026-11-14 that the EVA jetpack has significant Δv, and asked for
+an analysis, perhaps keeping it in reserve as a safety margin.
+
+**What is established.**
+- *(files)* The EVA Jetpack is a start-tech cargo part of 0.02 t. It holds 5 units of EVA
+  Propellant, at 0.005 t per unit.
+- *(web, the official wiki's EVA propellant and EVA Jetpack pages)* That is about 600 m/s
+  of Δv for a kerbal. A modder's comparison gives 674 m/s. Since 1.11 a kerbal can
+  carry up to 8 units with an extra tank, for which no Δv figure was found.
+- *Computed from the running game's radii and gravity.* The table gives each airless
+  body's ideal speed for an orbit at the surface and for escape, with no gravity losses,
+  terrain or rotation.
+
+| Body | Orbit, m/s | Escape, m/s | 600 m/s reaches |
+|---|---|---|---|
+| Gilly | 25 | 36 | Escape |
+| Pol | 128 | 181 | Escape |
+| Minmus | 172 | 243 | Escape |
+| Bop | 196 | 277 | Escape |
+| Ike | 378 | 535 | Escape |
+| Dres | 395 | 558 | Escape |
+| Mun | 571 | 807 | Orbit on paper only, since real losses exceed the margin |
+| Eeloo | 595 | 842 | Orbit on paper only, as for the Mun |
+
+**What follows.** *Inference.*
+- **An abort mode on six bodies.** On Gilly, Pol, Minmus, Bop, Ike and Dres, a crew
+  stranded on the surface could reach orbit on their jetpacks for a pickup. That gives
+  R5 an abort mode that costs no extra hardware.
+- **Biome hopping.** On the smallest bodies a kerbal could move between biomes by
+  jetpack. That would save landers, if the jetpack refills from the lander's
+  monopropellant on boarding *(recall, to test)*.
+- **Crew transfer in orbit,** between vessels close enough together.
+
+**Recommendation.** *Proposed.* The jetpack's Δv is held in reserve, and R6's budgets do
+not count it. A mission plan may draw on it nominally only where its analysis of return
+on investment shows the gain, such as biome hopping on a small body, and then keeps a
+stated reserve for the abort. Phase 1 measures the jetpack's real Δv and thrust, and
+whether it refills, before any plan relies on it.
+
+## Rules for buying
 ## Rules for buying
 
 1. **Research freely, buy late.** Research costs only science, which is plentiful.

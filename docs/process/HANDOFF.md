@@ -54,13 +54,11 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
 
 ## Next step
 
-1. Define the first milestone in `docs/roadmap/`, which the plan sets as Phase 0, with
-   the record crate that the bridge repository waits on, the harness skeleton, and the
-   science ledger from the subject count in `tmp/science_subjects.py`.
-2. Phase 0 experiments 5 and 6, on facility gates and funds reasons, need the career
-   save. Ask the operator before touching it, since Hard allows no revert. Experiment 9
-   beyond 13 km moves to the booster's step V3, and experiment 8 needs harness code.
-   The sandbox holds the test craft `IkriaT0` and `IkriaT1`, copies of stock craft, and
+1. Work the open tasks of [`V0_1_0.md`](../roadmap/V0_1_0.md), starting with T6 and T4,
+   the workspace and the Keleusma timing experiment, then T7, the record types the
+   bridge waits on.
+2. The Green Monolith test of `CAMPAIGN_SEQUENCE.md` waits on T13, a test career save
+   the operator creates. The sandbox holds the test craft `IkriaT0` and `IkriaT1` and
    one planted flag. The Python client 0.7.0 is in `tmp/krpc-venv` and the probes in
    `tmp/`, both local scratch.
 
@@ -68,8 +66,8 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
 
 - **The default branch is protected** by the template ruleset, so changes reach `main`
   only by pull request with a green `CI result` check.
-- **Gate.** `scripts/check.sh` holds only the template's checks. Add Rust lint, format
-  and test commands when code arrives.
+- **Gate.** `scripts/check.sh` holds only the template's checks until task T6 adds the
+  Rust commands.
 - **Prior art to cite and perhaps reuse.** MIT Lincoln Laboratory's KSPDG drives KSP
   headlessly through kRPC for multi-agent pursuit-evasion games, and handles distant
   craft with PhysicsRangeExtender.
