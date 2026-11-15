@@ -6,20 +6,19 @@ A state file, overwritten whole after each task. It reports what was done, what 
 decided and by whom, what was verified and how, what was not verified, and what the
 operator needs to decide. Facts, inferences and hypotheses are marked as such.
 
-## The monolith ruling, 2026-11-14
+## Monolith incidents, 2026-11-14
 
-**Done.** Recorded the operator's ruling that Green Monoliths unlock the final nodes and
-the nodes with no parts. Set out how it is carried out in
-[`CAMPAIGN_SEQUENCE.md`](../architecture/CAMPAIGN_SEQUENCE.md), with a reserved set of
-up to 15 nodes, discovery deferred to the endgame, and keep-out zones around revealed
-monoliths. The technology order, the campaign plan's rulings and task T13 follow.
+**Done.** Recorded the operator's ruling that an accidental monolith discovery needs an
+incident report and an adjusted endgame strategy. R11 gains the trigger. The reserved
+set in [`CAMPAIGN_SEQUENCE.md`](../architecture/CAMPAIGN_SEQUENCE.md) shrinks to 13
+nodes, which leaves two monoliths of slack, and the section says how an accident adjusts
+the set. Mission plans near a revealed monolith state their closest approach.
 
-**Decided.** By the operator on 2026-11-14, the use of the monoliths.
+**Decided.** By the operator on 2026-11-14.
 
 **Verified.** `./scripts/check.sh` exits zero on this branch with every file staged, on
 macOS.
 
-**Not verified.** That the grant is random, which is the operator's understanding, what
-pool it draws on, and the discovery distance. Task T13's test settles them.
+**Not verified.** The discovery distance, which task T13's test measures.
 
-**For the operator.** Nothing new. The test career save of task T13 remains open.
+**For the operator.** Nothing new.

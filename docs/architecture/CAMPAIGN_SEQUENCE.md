@@ -231,18 +231,26 @@ Motors. The operator understands the granted node to be random, which the test a
 to confirm.
 
 **How the ruling is carried out.** *Proposed.*
-- **A reserved set.** The tree is researched in full except for a reserved set of nodes,
-  which are Nanolathing, Experimental Motors, and the last and most expensive nodes the
-  campaign needs least. There are 15 monoliths, so the set holds up to 15 nodes.
+- **A reserved set with slack.** The tree is researched in full except for a reserved set
+  of 13 nodes, which are Nanolathing, Experimental Motors, and the last and most
+  expensive nodes the campaign needs least. There are 15 monoliths, so two are slack for
+  accidents, as the operator ruled on 2026-11-14.
 - **Discovery waits.** No monolith is discovered until every node outside the reserved
   set is researched. If the grant is random among the locked nodes, every grant then
   lands in the reserved set.
 - **Keep-out zones.** A discovery happens by proximity, so once a KerbNet scan reveals a
   monolith, missions keep away from it until the endgame. The keep-out distance is to be
-  set from the test.
+  set from the test. Each mission plan near a revealed monolith states its closest
+  approach.
+- **Accidental discovery.** A monolith discovered before the endgame is an incident
+  under R11. The report records the node granted, and adjusts the reserved set. If the
+  granted node was in the set, the set shrinks by one. If it was not, the set shrinks by
+  one more node, the cheapest in it, since one fewer monolith remains for the endgame. A
+  third accident would leave the set short, and the shortfall is then researched with
+  science.
 - **What it saves.** Nanolathing costs 550 science and Experimental Motors 1,000. If the
-  set holds the five 1,000-science nodes and ten 550-science nodes, it saves up to 10,500
-  science that would otherwise be spent rather than converted to funds.
+  set holds the five 1,000-science nodes and eight 550-science nodes, it saves up to
+  9,400 science that would otherwise be spent rather than converted to funds.
 - **What the test must settle.** Whether the grant is random, whether it draws only on
   nodes whose prerequisites are met, and the discovery distance. If grants draw only on
   nodes whose prerequisites are met, the reserved set holds only nodes whose
