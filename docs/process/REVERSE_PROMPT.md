@@ -6,31 +6,23 @@ A state file, overwritten whole after each task. It reports what was done, what 
 decided and by whom, what was verified and how, what was not verified, and what the
 operator needs to decide. Facts, inferences and hypotheses are marked as such.
 
-## Deferred rescue and solvency, 2026-11-14
+## Green Monolith test, step 2 repeated, 2026-11-15
 
-**Done.** Recorded the operator's notes as the campaign plan's eleventh set of rulings.
-- R5 now allows a deferred rescue, since kerbals need no life support, provided the
-  stranded crew are left in a stable state.
-- R18 adds a solvency rule. A reserve covers the failure penalties of the contracts in
-  progress and a rescue, and purchases, launches and contracts respect it.
-- The campaign sequence describes the reserve, and a duplicated heading there is
-  removed.
+**Done.** Repeated step 2 of [`TP-0001`](../../record/verification/TP-0001.md) in the
+verification save, after the operator reported that no dialog was open.
+- The save identified itself as "Ikria Physical Verification", in career mode.
+- The edited copy "ikria-edited" holds the start node and the rover's nine nodes, and
+  the rover's thirteen part types all fall within them.
+- kRPC's `load` hung again and was not applied, which refutes the open-dialog
+  hypothesis.
 
-**Decided.** By the operator on 2026-11-14, that a rescue may wait and that insolvency is
-a realistic failure mode. The reserve's details are proposed.
+**Decided.** Nothing new.
 
-**A process defect.** The first commit of this branch carried only the campaign plan's
-changes, because the editing script stopped at the duplicated heading while the gate and
-the commit still ran. Its message claimed the sequence change as well. A second commit
-completes the change. *Inference.* The editing step and the commit need the same
-exit-status chaining as the gate.
+**Verified.** The facts above were read from the running game and the save files.
 
-**Verified.** Hard's negative funds and doubled penalties come from the career save's
-settings. The gate exits zero on this branch with every file staged, on macOS, and
-continuous integration passed on the first commit.
+**Not verified.** Why `load` fails. *Inference.* A defect or limit of kRPC 0.7.0 at the
+Space Center.
 
-**Not verified.** That kerbals live indefinitely without life support, and can cross a
-body on foot. Both are recalled, and the verification save can confirm them.
-
-**For the operator.** Nothing new. The verification save still waits on a dialog being
-closed, as `HANDOFF.md` records.
+**For the operator.** Load "ikria-edited" from the game's Load menu. The line then
+continues from step 3. The earlier report on deferred rescue and solvency is completed
+and merged.
