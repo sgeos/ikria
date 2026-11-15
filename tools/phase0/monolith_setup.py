@@ -3,7 +3,7 @@
 Refuses to run unless the loaded save is "Ikria Physical Verification". Every use of the
 debug service is logged. Launches the rover `IkriaKN`, a copy of the stock Bug-E Buggy,
 whose RoveMate core has full KerbNet anomaly detection, and places it in a polar orbit
-of Kerbin for the KerbNet scan. Saves the result as "ikria-monolith-scan".
+of Kerbin for the KerbNet scan. Saves the result as "ipv-monolith-scan".
 
 Arguments: the game's `saves` directory. Writes tmp/monolith_setup.json."""
 import json
@@ -70,8 +70,8 @@ try:
     LOG["can_communicate"] = sc.active_vessel.comms.can_communicate
 except Exception as ex:
     LOG["can_communicate"] = f"ERROR {str(ex).splitlines()[0]}"
-sc.save("ikria-monolith-scan")
-LOG["saved_as"] = "ikria-monolith-scan"
+sc.save("ipv-monolith-scan")
+LOG["saved_as"] = "ipv-monolith-scan"
 print(json.dumps(LOG, indent=1))
 json.dump(LOG, open("tmp/monolith_setup.json", "w"), indent=1)
 conn.close()
