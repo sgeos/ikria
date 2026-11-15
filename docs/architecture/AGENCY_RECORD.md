@@ -34,6 +34,12 @@ the agency records, why, from what data, and where. It extends rules R7, R8 and 
    financial records also rest on their own blog article, requested that day.
 6. **A methodology that holds up to scrutiny.** The initiative is to be serious enough
    that professionals who engage with it seriously can take its methodology seriously.
+7. **R&D and verification, documented.** The operator ruled on 2026-11-14 that R&D and
+   verification are not cheating, since rehearsal in the game is ordinary practice, and
+   that reports document them for later review. Debug features may be used in the
+   verification save. Operations are to need as little of the operator's attention as
+   possible. The record's policies, procedures and deliverables are meant to be
+   reusable.
 
 ## Principles
 
@@ -61,6 +67,7 @@ the agency records, why, from what data, and where. It extends rules R7, R8 and 
 | Mission plan | Mission | Before the flight readiness review | Plan, trajectory tools, sheets of the vehicles flown | Blog article requested 2026-11-14 | Decided, provisional sections below |
 | Mission report | Mission | After recovery or end of mission | Telemetry, save file, harness logs | Same article as the plan | Decided, provisional sections below |
 | Incident report | Event under R11 | Within the mission's close-out | Telemetry, save file | A391 on the blog, drafted | Per R11 |
+| Verification and R&D report | Experiment, test or rehearsal, in the sandbox or the verification save | After the activity | Probe scripts in `tools/`, their raw outputs, the save files | The vehicle article's qualification records, pending, with test-report sections until then | Decided, begun in `record/verification/` |
 | Campaign ledger | Campaign | After every mission | Save file | Campaign plan criteria | Defined by C1 to C18 |
 | Program status report | Kerbin year of game time | At each year's end | All of the above | Blog article on program and financial management, requested 2026-11-14 | Decided |
 | Financial ledger and statements | Transaction, and per mission and per year | Continuously, and summarized per mission and per year | Funds read through kRPC and the save file | Same program and financial article | Decided |
@@ -158,15 +165,18 @@ simplified. Each mission plan names which of these affect its comparison.
 | Vehicle built for a flight | Design, then a serial | V-001A-03 |
 | Mission | M-, four digits | M-0001 |
 | Incident | I-, four digits | I-0001 |
+| Verification or R&D report | VR-, four digits | VR-0001 |
 | Review | The mission, then the review type | M-0001-FRR |
 
 ## Where the record lives, proposed
 
-A top-level `record/` directory, created in Phase 0, holds the generated documents. Its
+A top-level `record/` directory holds the documents. It was created on 2026-11-14 with
+`verification/`, and the other directories are added as each kind of record begins. Its
 `data/` directory holds the machine-readable sources from which they are built.
 `templates/` holds the templates once the blog articles exist. One directory per kind
 holds the documents: `vehicles/`, `missions/`, `incidents/`, `program/`, `finance/`,
-`fleet/`, `crew/`, `science/` and `software/`.
+`fleet/`, `crew/`, `science/`, `software/` and `verification/`. The scripts behind
+verification reports are kept in `tools/`.
 
 ## Open technical questions for Phase 0
 

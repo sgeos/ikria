@@ -56,8 +56,8 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
 
 1. Work the open tasks of [`V0_1_0.md`](../roadmap/V0_1_0.md). T4 and T6 are done. Next
    is T7, the record types the bridge waits on, then T8 and T10.
-2. The Green Monolith test of `CAMPAIGN_SEQUENCE.md` waits on T13, a test career save
-   the operator creates. The sandbox holds the test craft `IkriaT0` and `IkriaT1` and
+2. The Green Monolith test, T14, is deferred, since it needs KerbNet's in-game window.
+   Verification reports go in `record/verification/`, with their scripts in `tools/`. The sandbox holds the test craft `IkriaT0` and `IkriaT1` and
    one planted flag. The Python client 0.7.0 is in `tmp/krpc-venv` and the probes in
    `tmp/`, both local scratch.
 

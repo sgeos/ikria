@@ -1,0 +1,49 @@
+{
+ "situation": "VesselSituation.pre_launch",
+ "biome": "Shores",
+ "evaReport": {
+  "has_data": true,
+  "data": [
+   {
+    "science_value": 0.0,
+    "transmit_value": 0.0,
+    "data_amount": 8.0
+   }
+  ],
+  "subject": {
+   "title": "EVA Report from LaunchPad",
+   "science": 0.0,
+   "cap": 1.440000057220459,
+   "value": 1.0
+  }
+ },
+ "surfaceSample": {
+  "has_data": true,
+  "data": [
+   {
+    "science_value": 0.0,
+    "transmit_value": 0.0,
+    "data_amount": 30.0
+   }
+  ],
+  "subject": {
+   "title": "Surface Sample from LaunchPad",
+   "science": 0.0,
+   "cap": 7.200000286102295,
+   "value": 1.0
+  }
+ },
+ "flag_events": [
+  {
+   "name": "PlantFlag",
+   "gui": "Plant Flag [1]",
+   "active": false,
+   "visible": true
+  }
+ ],
+ "flag_trigger": "triggered",
+ "new_vessels_after_flag": {},
+ "boarded": true,
+ "after_board_active": "#autoLOC_501224 VesselType.ship",
+ "pod_experiments_with_data": []
+}

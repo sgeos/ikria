@@ -258,6 +258,12 @@ to confirm.
 
 C13's visits to the monoliths fall in the same endgame.
 
+**The test is deferred.** *2026-11-14.* Finding a monolith needs KerbNet's in-game
+window, which kRPC cannot drive, so the test needs the operator's hands, and the
+operator's attention is to be kept for what needs it. The answers are needed only by
+the endgame, so task T14 of the first milestone waits until the test can run without the
+operator, or until the endgame.
+
 ## The EVA jetpack as a margin
 
 The operator noted on 2026-11-14 that the EVA jetpack has significant Δv, and asked for
