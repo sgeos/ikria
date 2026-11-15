@@ -171,6 +171,15 @@ the operator on 2026-11-14.
   a body follows an uncrewed landing there that used the same descent and ascent
   profile. A crewed mission beyond Kerbin's sphere of influence flies only when a
   recovery option exists for its likeliest failure.
+
+  *Amended 2026-11-14 at the operator's note.* Stock KSP has no life support, so a kerbal
+  can live indefinitely in space, aboard a vessel or outside it, and can cross a whole
+  body on foot *(recall, to be confirmed in the verification save)*. A recovery option
+  may therefore be a deferred rescue, flown later when funds allow, provided the
+  stranded crew are left in a stable state. Stable means landed, or in an orbit that
+  neither decays nor crosses a hazard band of [`HAZARDS.md`](HAZARDS.md), and never
+  falling or in an atmosphere. A crew left waiting is logged in the incident report and
+  the crew records until recovered, and C7 counts them as alive.
 - **R6, margins.** *Decided.* Every mission states its budget for the change in
   velocity, written Δv, with a margin of at least 10 percent. It also budgets electric
   charge, monopropellant and the propellant for extravehicular activity, each with a
@@ -292,6 +301,20 @@ the operator on 2026-11-14.
   Hard it is finite early, as the funds plan of
   [`CAMPAIGN_SEQUENCE.md`](CAMPAIGN_SEQUENCE.md) shows, and probably plentiful later
   *(inference)*. The order holds either way.
+- **R18, solvency.** *Decided as a requirement at the operator's note, 2026-11-14.* Running
+  out of money can fail the whole program, which on Hard is a realistic failure mode.
+  Hard allows funds to go negative *(files)*, failure penalties are doubled *(files)*, and
+  a program that cannot pay for launches cannot earn its way out. The details are
+  proposed.
+  1. **A reserve.** Funds never fall below a reserve, set at the sum of the failure
+     penalties of every contract in progress, plus the cost of the cheapest rescue the
+     current fleet could fly, plus a stated margin.
+  2. **Purchases respect it.** No part purchase, facility upgrade or launch is made that
+     would take funds below the reserve.
+  3. **Contracts respect it.** A contract is accepted only if its failure penalty fits
+     within funds above the reserve.
+  4. **A forecast.** The program-level tracking software forecasts funds to the next
+     funds gate of the sequence, and warns when the reserve would be breached.
 - **R15, orbital hazards.** *Decided as a requirement by the operator, 2026-11-14.* Every
   trajectory is checked against the moons' hazard bands of [`HAZARDS.md`](HAZARDS.md),
   and an encounter is either shown impossible or planned.
@@ -472,6 +495,13 @@ No questions remain open.
 | Separation | Separated hardware clears the main craft, since separation accidents fail missions. R16. |
 | Priorities | Personnel survival first, so that crew can be rescued, then mission success, then debris, then optimization, which is never a mission failure. R17. |
 | Uncrewed losses | A failure of a purely telerobotic vehicle ends in an incident report. R11. |
+
+## Rulings, eleventh set, 2026-11-14
+
+| Subject | Ruling |
+|---|---|
+| Deferred rescue | Kerbals can live indefinitely in space and cross whole bodies on foot, so a rescue can wait for funds. R5 is amended to allow it, with the crew left in a stable state. |
+| Solvency | Running out of money can fail the whole program, and is a realistic failure mode on Hard. R18. |
 
 ## Appendix, Hard preset
 

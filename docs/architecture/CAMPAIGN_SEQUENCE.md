@@ -312,7 +312,19 @@ on investment shows the gain, such as biome hopping on a small body, and then ke
 stated reserve for the abort. Phase 1 measures the jetpack's real Δv and thrust, and
 whether it refills, before any plan relies on it.
 
-## Rules for buying
+## The reserve
+
+Under R18 of the campaign plan, funds never fall below a reserve. The reserve is the sum
+of the failure penalties of every contract in progress, plus the cost of the cheapest
+rescue the fleet could fly, plus a margin. Early in the campaign the reserve is small,
+since few contracts run at once and a rescue near Kerbin is cheap. It grows with every
+contract taken and every crew sent far away. The funds plan above is a plan for growth.
+The reserve is the floor under it, and the forecast warns before the floor is reached.
+
+Under the amended R5, a rescue may wait until the funds for it are earned, provided the
+stranded crew are left in a stable state. A deferred rescue therefore leaves the reserve
+covering the rescue's cost, but the program need not fly it at once.
+
 ## Rules for buying
 
 1. **Research freely, buy late.** Research costs only science, which is plentiful.

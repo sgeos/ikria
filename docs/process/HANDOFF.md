@@ -10,14 +10,14 @@ completed, moved or abandoned.
 ## State on 2026-11-14
 
 - **Seeded** by the admin session from `sgeos/project-template` at `3954eba`, tag
-  `v1.0.8`. Nothing is implemented. The public repository is
+  `v1.0.8`. The public repository is
   `https://github.com/sgeos/ikria`.
 - **Seed review done** on 2026-11-13. The public rulings are in charter item 10.
 - **Campaign plan final.** [`CAMPAIGN_PLAN.md`](../architecture/CAMPAIGN_PLAN.md) holds
-  the criteria, rules, constraints and phases, settled by the operator on 2026-11-14
-  and merged in pull requests 4 and 5, with proposed appendices on technology order and
+  the criteria, rules, constraints and phases, settled by the operator on 2026-11-14,
+  with proposed appendices on technology order and
   community practice. Charter item 2 is amended, and `CLAUDE.md` records the standing
-  authority to push.
+  authority to push. R5 now allows deferred rescues, and R18 adds a solvency reserve.
 - **Sequence proposed.** [`CAMPAIGN_SEQUENCE.md`](../architecture/CAMPAIGN_SEQUENCE.md)
   gives the early game as stages E0 to E6, with research, purchases, upgrades, science
   and a funds plan, and checkpoints for recalibration. Its end-of-E0 measurements join
@@ -56,14 +56,15 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
 
 1. Work the open tasks of [`V0_1_0.md`](../roadmap/V0_1_0.md). T4, T6 and T7 are done.
    Next are T8, the save-file reader, and T10, the harness skeleton. The bridge can now
-   start T11 against `ikria-records`, as a git dependency on this repository.
+   start T11 against `ikria-records`, as a git dependency on this repository, and
+   measure there the cost of JSON encoding at 50 ticks a second.
 2. The Green Monolith test, T14, follows `record/verification/TP-0001.md`, and stopped at
    step 2. Launch, load and quickload through kRPC hung in the verification save, which
    fits a dialog left open in the game. Resume once the operator has closed it. The
    training program is `CREW_TRAINING.md`, the C13 sites are in `record/sites/`, and the
-   hazards by body are in `HAZARDS.md`. The sandbox holds the test craft `IkriaT0` and `IkriaT1` and
-   one planted flag. The Python client 0.7.0 is in `tmp/krpc-venv` and the probes in
-   `tmp/`, both local scratch.
+   hazards by body are in `HAZARDS.md`. The sandbox holds the test craft `IkriaT0` and
+   `IkriaT1` and one flag. The Python client 0.7.0 and the probes are local scratch in
+   `tmp/`.
 
 ## Open
 
