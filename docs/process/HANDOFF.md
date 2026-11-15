@@ -54,9 +54,8 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
 
 ## Next step
 
-1. Work the open tasks of [`V0_1_0.md`](../roadmap/V0_1_0.md), starting with T6 and T4,
-   the workspace and the Keleusma timing experiment, then T7, the record types the
-   bridge waits on.
+1. Work the open tasks of [`V0_1_0.md`](../roadmap/V0_1_0.md). T4 and T6 are done. Next
+   is T7, the record types the bridge waits on, then T8 and T10.
 2. The Green Monolith test of `CAMPAIGN_SEQUENCE.md` waits on T13, a test career save
    the operator creates. The sandbox holds the test craft `IkriaT0` and `IkriaT1` and
    one planted flag. The Python client 0.7.0 is in `tmp/krpc-venv` and the probes in
@@ -66,8 +65,9 @@ still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_Q
 
 - **The default branch is protected** by the template ruleset, so changes reach `main`
   only by pull request with a green `CI result` check.
-- **Gate.** `scripts/check.sh` holds only the template's checks until task T6 adds the
-  Rust commands.
+- **Gate.** `scripts/check.sh` runs `cargo fmt`, `cargo clippy` and `cargo test` over the
+  workspace. Inside the sandbox it needs `RUSTC_WRAPPER=`, because `sccache` cannot run
+  there.
 - **Prior art to cite and perhaps reuse.** MIT Lincoln Laboratory's KSPDG drives KSP
   headlessly through kRPC for multi-agent pursuit-evasion games, and handles distant
   craft with PhysicsRangeExtender.

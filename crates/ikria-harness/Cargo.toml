@@ -1,0 +1,15 @@
+[package]
+name = "ikria-harness"
+version = "0.1.0"
+description = "The Ikria harness, which runs Keleusma control loops for Kerbal Space Program craft."
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+publish.workspace = true
+
+[dependencies]
+keleusma.workspace = true
+
+[lints]
+workspace = true
