@@ -6,23 +6,22 @@ A state file, overwritten whole after each task. It reports what was done, what 
 decided and by whom, what was verified and how, what was not verified, and what the
 operator needs to decide. Facts, inferences and hypotheses are marked as such.
 
-## Green Monolith test, step 4 from the ground, 2026-11-15
+## Green Monolith test, KerbNet limits, 2026-11-15
 
-**Done.**
-- **Orbit too narrow.** The operator found KerbNet limited to 10 degrees in orbit, which
-  matches the core's part file.
-- **Rover on the runway.** A second rover is now on the runway, where the part file
-  allows up to 179.5 degrees. It is saved as "ipv-monolith-runway".
-- **Step 4 corrected.** It no longer names an anomaly mode, which does not exist.
-- **No discovery yet.** No node has been granted.
+**Done.** Step 4 of [`TP-0001`](../../record/verification/TP-0001.md) from the ground.
+- **Mostly static.** KerbNet at 179.5 degrees shows real data only near the rover, by
+  night and by day alike. The one marker is the known monolith near the Space Center.
+- **No better part.** No stock part combines a wide view from orbit with reliable
+  anomaly detection.
+- **Nothing in the save.** The save does not record the Green Monolith's position.
 
 **Decided.** Nothing new.
 
-**Verified.** Read from the running game, the save files and the game's part file. The
-gate exits zero on this branch with every file staged, on macOS.
+**Verified.** From two screenshots the operator took, the running game, the save files
+and the game's part files. The gate exits zero on this branch with every file staged,
+on macOS.
 
-**Not verified.** That the runway rover's KerbNet zooms out to about 180 degrees. That
-markers show coordinates or can become waypoints.
+**Not verified.** The cause of the static, and what the detection figure means exactly.
 
-**For the operator.** The KerbNet scan from the runway. The previous report's step 4 is
-under way.
+**For the operator.** How to continue T14. The line recommends deferring the location
+survey, and running the test when a campaign or sandbox probe meets a Green Monolith.
