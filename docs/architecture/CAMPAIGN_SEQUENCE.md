@@ -225,6 +225,31 @@ mechanics, would carry it.
 In the campaign itself, R9 allows the monolith's position to be known only once a
 KerbNet scan reveals it, so the search is part of the plan.
 
+**Ruling, 2026-11-14.** The operator ruled that monoliths are used to unlock the final
+nodes of the tree, and the nodes that hold no parts, Nanolathing and Experimental
+Motors. The operator understands the granted node to be random, which the test above is
+to confirm.
+
+**How the ruling is carried out.** *Proposed.*
+- **A reserved set.** The tree is researched in full except for a reserved set of nodes,
+  which are Nanolathing, Experimental Motors, and the last and most expensive nodes the
+  campaign needs least. There are 15 monoliths, so the set holds up to 15 nodes.
+- **Discovery waits.** No monolith is discovered until every node outside the reserved
+  set is researched. If the grant is random among the locked nodes, every grant then
+  lands in the reserved set.
+- **Keep-out zones.** A discovery happens by proximity, so once a KerbNet scan reveals a
+  monolith, missions keep away from it until the endgame. The keep-out distance is to be
+  set from the test.
+- **What it saves.** Nanolathing costs 550 science and Experimental Motors 1,000. If the
+  set holds the five 1,000-science nodes and ten 550-science nodes, it saves up to 10,500
+  science that would otherwise be spent rather than converted to funds.
+- **What the test must settle.** Whether the grant is random, whether it draws only on
+  nodes whose prerequisites are met, and the discovery distance. If grants draw only on
+  nodes whose prerequisites are met, the reserved set holds only nodes whose
+  prerequisites are researched by then.
+
+C13's visits to the monoliths fall in the same endgame.
+
 ## The EVA jetpack as a margin
 
 The operator noted on 2026-11-14 that the EVA jetpack has significant Δv, and asked for
