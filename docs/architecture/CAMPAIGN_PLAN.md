@@ -222,7 +222,9 @@ the operator on 2026-11-14.
     restore, so that the record cannot quietly undo its own mistakes.
 - **R11, incident reports.** *Decided.* Every reload of the career save and every loss
   of a kerbal requires an incident report, as does every Mission mode or scenario
-  attempt that loses a kerbal. The report gives the timeline from telemetry, the
+  attempt that loses a kerbal. So does every Green Monolith discovered before the
+  endgame, as the operator ruled on 2026-11-14, and that report also adjusts the reserved
+  set of [`CAMPAIGN_SEQUENCE.md`](CAMPAIGN_SEQUENCE.md). The report gives the timeline from telemetry, the
   classification under R10, the cause and contributing factors, the corrective action,
   and the criteria affected. Each report is also an entry in the anomaly log of R8.
   The operator ruled on 2026-11-14 that the report is to follow space agency and
@@ -404,6 +406,7 @@ No questions remain open.
 | Subject | Ruling |
 |---|---|
 | Green Monoliths | Used to unlock the final nodes of the tree and the nodes with no parts, Nanolathing and Experimental Motors. The operator understands the granted node to be random. [`CAMPAIGN_SEQUENCE.md`](CAMPAIGN_SEQUENCE.md) sets out the reserved set, the deferred discovery and the keep-out zones. |
+| Monolith incidents | A monolith discovered by accident before the endgame requires an incident report under R11, and the endgame strategy is adjusted to match. The plan leaves slack for a couple of such incidents, which are still to be avoided. |
 
 ## Appendix, Hard preset
 
@@ -677,7 +680,7 @@ purchases, upgrades, science and funds, and governs where the two differ.
    calendar of the inner and outer phases requires, with Automation and Advanced
    Science Tech among the first of them.
 6. **The rest of the tree,** in whatever order the completion criteria and the
-   remaining missions need, except a reserved set of up to 15 nodes. The reserved set
+   remaining missions need, except a reserved set of 13 nodes. The reserved set
    holds the two nodes with no listed part and the last expensive nodes, and Green
    Monoliths unlock it at the end, as the operator ruled on 2026-11-14 and
    [`CAMPAIGN_SEQUENCE.md`](CAMPAIGN_SEQUENCE.md) sets out.
