@@ -6,26 +6,31 @@ A state file, overwritten whole after each task. It reports what was done, what 
 decided and by whom, what was verified and how, what was not verified, and what the
 operator needs to decide. Facts, inferences and hypotheses are marked as such.
 
-## Record types, version 1, 2026-11-14
+## Deferred rescue and solvency, 2026-11-14
 
-**Done.** Task T7 of [`V0_1_0.md`](../roadmap/V0_1_0.md). The `ikria-records` crate holds
-the record types and the messages between the bridge and the harness.
-- **Validated types.** Game time, vessel and part identifiers, vectors, rotations, bounded
-  controls, situations and resources. Each refuses a value that is not finite or is out of
-  range, both when built and when decoded.
-- **Telemetry and commands.** Telemetry per vessel, and commands per vessel with action
-  group, abort, engine, decoupler and experiment requests. Staging is left out, since
-  kRPC stages only the active vessel.
-- **Messages.** A handshake that checks the protocol version, and the per-tick messages.
-  Each is encoded as one line of JSON.
+**Done.** Recorded the operator's notes as the campaign plan's eleventh set of rulings.
+- R5 now allows a deferred rescue, since kerbals need no life support, provided the
+  stranded crew are left in a stable state.
+- R18 adds a solvency rule. A reserve covers the failure penalties of the contracts in
+  progress and a rescue, and purchases, launches and contracts respect it.
+- The campaign sequence describes the reserve, and a duplicated heading there is
+  removed.
 
-**Decided.** Nothing new.
+**Decided.** By the operator on 2026-11-14, that a rescue may wait and that insolvency is
+a realistic failure mode. The reserve's details are proposed.
 
-**Verified.** `RUSTC_WRAPPER= ./scripts/check.sh` exits zero on this branch with every
-file staged, on macOS. The tests ran 16, 10 in the new crate and 6 in the harness, and all
-passed, with none skipped.
+**A process defect.** The first commit of this branch carried only the campaign plan's
+changes, because the editing script stopped at the duplicated heading while the gate and
+the commit still ran. Its message claimed the sequence change as well. A second commit
+completes the change. *Inference.* The editing step and the commit need the same
+exit-status chaining as the gate.
 
-**Not verified.** The cost of JSON encoding at 50 ticks a second, which the bridge's
-first run measures.
+**Verified.** Hard's negative funds and doubled penalties come from the career save's
+settings. The gate exits zero on this branch with every file staged, on macOS, and
+continuous integration passed on the first commit.
 
-**For the operator.** Nothing.
+**Not verified.** That kerbals live indefinitely without life support, and can cross a
+body on foot. Both are recalled, and the verification save can confirm them.
+
+**For the operator.** Nothing new. The verification save still waits on a dialog being
+closed, as `HANDOFF.md` records.
