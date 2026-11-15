@@ -166,6 +166,7 @@ simplified. Each mission plan names which of these affect its comparison.
 | Mission | M-, four digits | M-0001 |
 | Incident | I-, four digits | I-0001 |
 | Verification or R&D report | VR-, four digits | VR-0001 |
+| Test procedure | TP-, four digits | TP-0001 |
 | Review | The mission, then the review type | M-0001-FRR |
 
 ## Where the record lives, proposed

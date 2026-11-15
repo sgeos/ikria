@@ -19,6 +19,9 @@ and refuse any other game mode.
 | `science_subjects.py` | Counts the science subjects and their value | VR-0005 |
 | `inv_game.py`, `inv_early.py`, `inv_costs.py` | Read the game's data files for nodes, parts and costs | Planning documents |
 | `stage_science.py` | Computes the early stages' science | `CAMPAIGN_SEQUENCE.md` |
+| `guard.py` | Identifies the loaded save, since kRPC does not report it | TP-0001 |
+| `monolith_setup.py` | Sets up the Green Monolith test in the verification save | TP-0001 |
+| `monolith_research_edit.py` | Researches the test rover's nodes by editing and loading a copy of the save | TP-0001 |
 
 **Running them.** The probes need the kRPC Python client 0.7.0, for example in a virtual
 environment, and the game with the sandbox save loaded. Run them from the repository

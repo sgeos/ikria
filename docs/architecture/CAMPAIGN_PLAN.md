@@ -63,7 +63,7 @@ the operator on 2026-11-14.
 | C10 | Every facility at its highest level | Yes | Save file, facility levels | Decided |
 | C11 | At least two pilots, two engineers and two scientists at the highest rank | Yes, per kerbal | Save file, crew roster | Decided |
 | C12 | A crewed landing and return on every body with a surface | Yes, as world firsts | Save file, progress tracking | Decided |
-| C13 | Every anomaly visited, including the Green Monolith on each body | Partly | Save file and Ikria ledger | Decided |
+| C13 | Every special site on the official wiki's list visited, including the Green Monolith on each body | Partly | Save file and the site list in `record/sites/` | Decided, widened 2026-11-14 |
 | C14 | An orbital resource survey of every body | Partly | Save file and Ikria ledger | Decided |
 | C15 | An asteroid captured, and a sample from every comet class that appears | Partly | Save file and Ikria ledger | Decided |
 | C16 | Every launch site flown from in the sandbox, including the Making History sites, and landed at in the career | No | Ikria ledger | Decided, as amended by O9 |
@@ -407,6 +407,14 @@ No questions remain open.
 |---|---|
 | Green Monoliths | Used to unlock the final nodes of the tree and the nodes with no parts, Nanolathing and Experimental Motors. The operator understands the granted node to be random. [`CAMPAIGN_SEQUENCE.md`](CAMPAIGN_SEQUENCE.md) sets out the reserved set, the deferred discovery and the keep-out zones. |
 | Monolith incidents | A monolith discovered by accident before the endgame requires an incident report under R11, and the endgame strategy is adjusted to match. The plan leaves slack for a couple of such incidents, which are still to be avoided. |
+
+## Rulings, eighth set, 2026-11-14
+
+| Subject | Ruling |
+|---|---|
+| Special sites | Visiting every special site on the official wiki's list is an objective. C13 is widened to the list, which `record/sites/` holds with coordinates. |
+| Training | Given how much there is to do, a kerbal astronaut training program is in place. [`CREW_TRAINING.md`](CREW_TRAINING.md) sets it out. |
+| Monolith test | The operator described the method: scan from orbit for anomalies, and the one whose coordinates the wiki lacks is the Green Monolith. `record/verification/TP-0001.md` prepares it. |
 
 ## Appendix, Hard preset
 

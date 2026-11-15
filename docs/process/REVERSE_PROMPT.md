@@ -6,31 +6,35 @@ A state file, overwritten whole after each task. It reports what was done, what 
 decided and by whom, what was verified and how, what was not verified, and what the
 operator needs to decide. Facts, inferences and hypotheses are marked as such.
 
-## Verification reports, 2026-11-14
+## Training, special sites and monolith preparation, 2026-11-14
 
 **Done.**
-- Began the record with [`record/verification/`](../../record/verification/README.md).
-  Reports VR-0001 to VR-0007 document the Phase 0 experiments, each with its purpose,
-  configuration, procedure, results, deviations and conclusions. The probe scripts are
-  tracked in `tools/phase0/` and their raw outputs in `record/verification/data/`.
-- Recorded the operator's rulings in
-  [`AGENCY_RECORD.md`](../architecture/AGENCY_RECORD.md). R&D and verification are
-  documented rehearsal, not cheating. Debug features are allowed in the verification
-  save. Operations need as little of the operator's attention as possible, and the
-  record is meant to be reusable.
-- Deferred the Green Monolith test, task T14, because finding a monolith needs KerbNet's
-  in-game window, and recorded why.
+- Wrote the astronaut training program,
+  [`CREW_TRAINING.md`](../architecture/CREW_TRAINING.md), at the operator's request.
+  It sets out recruitment, basic, lunar and interplanetary stages to level 5,
+  procedures, and assignment. It also adds a proposed rule that no kerbal other than a
+  pilot flies beyond the atmosphere at level 0, since such a kerbal cannot use the
+  personal parachute.
+- Widened C13 to every special site on the official wiki's list, and catalogued the
+  sites with coordinates in `record/sites/`.
+- Prepared the Green Monolith test on the operator's method, as test procedure
+  `record/verification/TP-0001.md`. The guard, setup and research scripts are in
+  `tools/phase0/`.
 
-**Decided.** By the operator on 2026-11-14, as recorded above.
+**Decided.** By the operator on 2026-11-14, the training program, the widened C13 and the
+monolith method. The campaign plan records them as its eighth set of rulings.
 
 **Verified.**
-- The reports restate results recorded at the time of each run.
-- The tracked scripts and data hold no private paths.
+- The guard identified the loaded save correctly.
+- Saving through kRPC worked in the verification save.
 - `RUSTC_WRAPPER= ./scripts/check.sh` exits zero on this branch with every file staged,
   on macOS.
 
 **Not verified.**
-- The one-vessel lockstep figures have no data file, as VR-0002 says.
-- The scripts are their final versions, and the early runs that failed used drafts.
+- The monolith test stopped at step 2. Launch, load and quickload through kRPC hung, and
+  the game ended in its persistent state. A dialog left open by the first launch attempt
+  is the likely cause, which is an inference.
 
-**For the operator.** Nothing.
+**For the operator.**
+- Look at the game window and close any open dialog, so that step 2 can be retried.
+- Whether the toilet site, which needs a destroyed facility, stays out of C13.
