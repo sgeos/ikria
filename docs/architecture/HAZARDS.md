@@ -45,8 +45,15 @@ unless a mission plan shows the encounter is impossible or intended.
 **Rules.** *Proposed.*
 1. Every mission plan lists the bands its trajectory crosses, and either shows no
    encounter can occur or plans the encounter.
-2. Relays and stations are placed outside every band, with a stated margin, unless their
-   plan shows otherwise.
+2. Relays and stations are placed where a moon cannot perturb them unexpectedly, with a
+   stated margin. The operator set out three options on 2026-11-14, and which one is
+   feasible depends on the geometry of each network.
+   - **Around the moon itself.** A relay orbiting Ike, for example, is inside Ike's
+     sphere of influence by design, so Ike cannot perturb it by surprise.
+   - **Very high around the parent,** above the outermost band and inside the parent's
+     sphere of influence.
+   - **Close around the parent,** below the innermost band, as low Duna orbits sit below
+     Ike's.
 3. The program-level tracking software checks each tracked vessel's predicted orbit
    against the bands, and warns before an unplanned encounter.
 
