@@ -24,6 +24,14 @@ and refuse any other game mode.
 | `monolith_setup.py` | Sets up the Green Monolith test in the verification save | TP-0001 |
 | `monolith_research_edit.py` | Researches the test rover's nodes by editing and loading a copy of the save | TP-0001 |
 
+**Save names.** A save a script writes is prefixed with the acronym of the save game it
+belongs to, so that the game's Load menu shows where it came from. The prefixes are `iasa-`
+for "Ikria Automated Space Agency", `isrd-` for "Ikria Simulated Research and Dev" and
+`ipv-` for "Ikria Physical Verification". The operator asked for this on 2026-11-15, since
+an `ikria-` prefix does not say which save is meant. The one exception is the guard's
+temporary save, which is written before the guard knows which save is loaded and is
+deleted at once.
+
 **Running them.** The probes need the kRPC Python client 0.7.0, for example in a virtual
 environment, and the game with the sandbox save loaded. Run them from the repository
 root, where they write their output to `tmp/`. The game-file readers take the path of the
