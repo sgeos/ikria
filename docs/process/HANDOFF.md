@@ -134,9 +134,9 @@ Report any check not run, and any commit after the one that last rewrote this fi
 
 ## Mailbox
 
-None assigned. The blog line does not use the Keleusma interline mailbox, so this line
-messages its running Claude Code session. On 2026-11-14 it asked for articles on
-incident reports, drafted as A391 and unpublished, and on vehicle specification sheets
-and mission documents, and on program and financial management. The
-templates follow the published articles. Before writing the first of each document,
-ask the operator whether its article exists.
+None assigned. The blog line does not use the Keleusma interline mailbox. A Claude Code
+line messages its running session, and a Codex or Grok Build line asks the operator. On
+2026-11-14 this line asked for articles on incident reports, drafted as A391 and
+unpublished, on vehicle sheets and mission documents, and on program and financial
+management. Templates follow the published articles, so before writing the first of
+each document, ask the operator whether its article exists.

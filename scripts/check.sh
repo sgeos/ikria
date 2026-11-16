@@ -269,6 +269,24 @@ pass "shellcheck is clean on ${#shell_files[@]} shell $noun"
 # starts with `:!` is not a term but a git pathspec to exclude, such as `:!uv.lock`
 # for a generated lockfile whose dependency names would otherwise match.
 terms_file="secret/disclosure-terms.txt"
+# Messages name the list by this relative label, never by an absolute path, which would
+# carry the account's home directory into output that a line might paste into a pull
+# request.
+terms_label="$terms_file"
+# A linked worktree has no secret/ unless one was copied in, and a scan that silently
+# lapsed there would be a disclosure risk for every line that works in one. Fall back to
+# the main checkout's list, found through the common git directory. In the main
+# checkout and in a clone the fallback resolves to the same missing path and changes
+# nothing.
+if [[ ! -f "$terms_file" ]]; then
+    common_dir="$(git rev-parse --path-format=absolute --git-common-dir)"
+    main_terms="$(dirname "$common_dir")/$terms_file"
+    if [[ -f "$main_terms" ]]; then
+        terms_file="$main_terms"
+        terms_label="the main checkout's $terms_label"
+        printf 'check.sh: note: using %s\n' "$terms_label"
+    fi
+fi
 if [[ -f "$terms_file" ]]; then
     patterns=()
     exclusions=()
@@ -311,17 +329,17 @@ if [[ -f "$terms_file" ]]; then
         esac
         if [[ -n "$hits" ]]; then
             printf '%s\n' "$hits" >&2
-            fail "terms from $terms_file appear in $scope, at the lines listed above"
+            fail "terms from $terms_label appear in $scope, at the lines listed above"
         fi
         excluded="${#exclusions[@]} excluded paths"
         ((${#exclusions[@]} == 1)) && excluded="1 excluded path"
         pass "disclosure scan found no listed term in $scope, with $excluded"
     else
-        printf 'check.sh: note: %s lists no terms, so the disclosure scan did nothing\n' "$terms_file"
+        printf 'check.sh: note: %s lists no terms, so the disclosure scan did nothing\n' "$terms_label"
     fi
 else
-    printf 'check.sh: note: no %s, so the disclosure scan was skipped\n' "$terms_file"
-    [[ "$history" == false ]] || fail "--history was given, but there is no $terms_file to scan with"
+    printf 'check.sh: note: no %s, so the disclosure scan was skipped\n' "$terms_label"
+    [[ "$history" == false ]] || fail "--history was given, but there is no $terms_label to scan with"
 fi
 
 if [[ "$hygiene_only" == true ]]; then
