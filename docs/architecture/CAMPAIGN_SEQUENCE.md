@@ -307,15 +307,11 @@ The operator concluded that the information on Green Monolith behaviour is poor.
   traverses raise it.
 
 **A test that separates them.** *Proposed,* for the first Green Monolith a verification or
-sandbox vessel meets. TP-0001 sets it out.
-1. Quicksave inside the sphere of influence, before the discovery.
-2. Discover, record the node, and reload, five times. The same node each time points to
-   G3 or G4. Different nodes point to G2.
-3. Reload, research the node first granted, and discover again. What happens tests the
-   snipe of G4.
-4. Leave the sphere of influence, return, and scan again. A different position supports
-   G1.
-5. Record the distance at which the discovery happens.
+sandbox vessel meets. [`TP-0001`](../../record/verification/TP-0001.md) sets it out. The
+operator noted on 2026-11-15 that if the state of the game's pseudorandom number
+generator persists in the save, reloading one quicksave replays the same draw, so a
+random reward can look fixed. The test therefore varies the generator's likely inputs
+between discoveries rather than only reloading.
 
 ## The EVA jetpack as a margin
 
