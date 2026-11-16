@@ -29,7 +29,9 @@ operator instead.
 1. Mark the task in the roadmap table.
 2. Overwrite `docs/process/HANDOFF.md` and `docs/process/REVERSE_PROMPT.md`. Both are state
    files. A rewrite that drops an open item names it in the commit message as completed,
-   moved or abandoned.
+   moved or abandoned. When several lines work at once, each rewrites them on top of the
+   latest `main`, keeps the other lines' open items, and names the assistant that wrote
+   the report.
 3. Commit once per prompt with a conventional commit.
 4. If blocked or uncertain, say so in `REVERSE_PROMPT.md` and **stop**.
 
@@ -54,7 +56,9 @@ inside agent sandboxes.
 **One writer per checkout.** When more than one line works on the repository at once,
 each works in its own worktree on its own branch, created with `scripts/worktree.sh`.
 Two lines in one checkout share an index and a dirty tree, so one line's `git add`,
-stash or reset can take in or discard the other's work.
+stash or reset can take in or discard the other's work. Lines may run in different
+assistants, such as Claude Code, Codex and Grok Build, and the rules here apply to each
+alike, with one exception below.
 
 **Rulings that arrive through a sync.** A rule in this file that came from
 `sgeos/project-template` carries the authority of the operator who maintains the
@@ -76,7 +80,9 @@ may push its feature branch, open a pull request, and merge it into `main` by a 
 commit without asking, for code and documentation alike, once the gate passes, the
 required checks pass and the branch history has been reviewed. The authority does not
 cover force-pushing, settings, visibility, releases or any other repository, which
-still need confirmation in session.
+still need confirmation in session. It was granted to a Claude Code line. Until the
+operator confirms that it extends to lines in other assistants, a Codex or Grok Build
+line asks before pushing or merging.
 
 ## Common Commands
 
@@ -100,6 +106,10 @@ Inside an agent sandbox whose `RUSTC_WRAPPER` is `sccache`, prefix cargo and the
   old code.
 - **Count what was reached.** A suite that collected zero tests, or skipped them all,
   passes. Check the count in the summary line.
+- **Stage before the gate.** The gate's disclosure scan reads tracked files only, so a
+  new file passes unseen until it is staged. Run `git add` first, and make the commit
+  conditional on the gate's exit status, as in `./scripts/check.sh && git commit`, so
+  that neither a failing gate nor a failing edit before it lets a commit through.
 - **Opt-in tests are counted as skipped, not as passed.** Tests that need a capability
   agent sandboxes usually deny, such as sockets, the network or the system keychain, or
   that spend a paid credential or subscription, are marked and off by default. They run
@@ -121,6 +131,8 @@ environment-specific notes. It is ignored whole and does not exist in a fresh cl
 Never copy its contents into tracked files, commit messages, issues or pull requests.
 If `secret/README.md` exists, read it at session start and before writing anything
 tracked. A new worktree has no `secret/`, so copy it from the main checkout first.
+`scripts/worktree.sh new` copies it, and the gate falls back to the main checkout's
+terms list in a worktree that lacks one.
 
 `scripts/check.sh` fails if anything under `secret/`, or anything under `tmp/` other than
 its marker, is tracked. If `secret/disclosure-terms.txt` exists, one term per line, the
