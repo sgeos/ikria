@@ -20,5 +20,6 @@ Test procedures are designated TP- and reports VR-.
 | [VR-0006](VR-0006.md) | Keleusma step time | 8 |
 | [VR-0007](VR-0007.md) | The kRPC client interface | 5 and 6 |
 | [VR-0008](VR-0008.md) | Orbital hazard bands of the moons | None |
+| [VR-0010](VR-0010.md) | Live Keleusma normal and abort flights, with retained development failures | T11 and flight-runtime development |
 | [VR-0009](VR-0009.md) | Starting-parts hop development, two uncrewed revisions | Early E0 mechanics |
 | [TP-0001](TP-0001.md) | Green Monolith test procedure, stopped at step 2 | T14 |

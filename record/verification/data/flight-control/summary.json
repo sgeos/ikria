@@ -1,0 +1,757 @@
+{
+  "live-abort-4.jsonl.gz": {
+    "journal_sha256": "93914c840ae853a43f29c9b38efcc09941d1ee5fc84a98354ee0bc7d1658246d",
+    "uncompressed_bytes": 5606320,
+    "session": {
+      "abort_nominal_cycles": 325,
+      "abort_sha256": "12e1eb4eb2f52558365ad3eb25103aabae4541f388cb076ce79bc843c67cafcb",
+      "event": "session",
+      "hello": {
+        "armed": true,
+        "chute": 2,
+        "engine": 1,
+        "save": "Ikria Physical Verification",
+        "type": "hello",
+        "version": 2,
+        "vessel": "IKR-TS-001B"
+      },
+      "mode": "Hop",
+      "nominal_cycles": 325,
+      "program_sha256": "12e1eb4eb2f52558365ad3eb25103aabae4541f388cb076ce79bc843c67cafcb"
+    },
+    "samples": 6798,
+    "acknowledged_commands": 6798,
+    "first_ut": 188595.84294713452,
+    "last_ut": 188731.7829470633,
+    "duration_game_s": 135.93999992878526,
+    "tick_delta_min_s": 0.01999999998952262,
+    "tick_delta_max_s": 0.01999999998952262,
+    "maximum_altitude_m": 1239.1850605588406,
+    "max_abs_vertical_speed_m_s": 115.96730181301366,
+    "last_telemetry": {
+      "id": 1,
+      "situation": "landed",
+      "altitude_m": 1.7990660046925768,
+      "vertical_speed_m_s": -0.0001463001904702701,
+      "solid_fuel": 0.0,
+      "mass_kg": 1426.0,
+      "crew": 0,
+      "controllable": false,
+      "has_link": false,
+      "physics_active": true,
+      "parts": 8,
+      "engine_active": true,
+      "chute_deployed": true,
+      "chute_safe": false,
+      "up_body": [
+        -0.0006305506310648468,
+        0.9999997557469394,
+        -0.0003015161071446004
+      ],
+      "rates_body": [
+        0.00015607936954821247,
+        -4.495027631688976e-05,
+        -0.0002431100855262284
+      ]
+    },
+    "discrete_commands": [
+      {
+        "aborting": false,
+        "compute_ns": 340125,
+        "event": "command_intent",
+        "phase": 1,
+        "request": {
+          "command": {
+            "forward": 0.0,
+            "id": 1,
+            "pitch": 0.0,
+            "requests": [
+              {
+                "kind": "activate_engine",
+                "part": 1
+              }
+            ],
+            "right": 0.0,
+            "roll": 0.0,
+            "throttle": 0.0,
+            "up": 0.0,
+            "wheel_steering": 0.0,
+            "wheel_throttle": 0.0,
+            "yaw": 0.0
+          },
+          "seq": 0,
+          "type": "command",
+          "ut": 188595.84294713452
+        }
+      },
+      {
+        "aborting": true,
+        "compute_ns": 349083,
+        "event": "command_intent",
+        "phase": 5,
+        "request": {
+          "command": {
+            "forward": 0.0,
+            "id": 1,
+            "pitch": 0.0,
+            "requests": [
+              {
+                "kind": "deploy_parachute",
+                "part": 2
+              }
+            ],
+            "right": 0.0,
+            "roll": 0.0,
+            "throttle": 0.0,
+            "up": 0.0,
+            "wheel_steering": 0.0,
+            "wheel_throttle": 0.0,
+            "yaw": 0.0
+          },
+          "seq": 1114,
+          "type": "command",
+          "ut": 188618.12294712284
+        }
+      }
+    ],
+    "max_compute_ns": 5882750,
+    "completion": {
+      "aborted": true,
+      "event": "complete",
+      "ut": 188731.7829470633
+    },
+    "terminal": {
+      "close_sent": true,
+      "error": null,
+      "event": "session_end",
+      "success": true
+    },
+    "successful_session": true,
+    "flight_completed": true
+  },
+  "live-hop-1.jsonl.gz": {
+    "journal_sha256": "b1219df13e5a320bdb5a5b0660ebf180d7786ff37c1256ee00eb2c9910e74880",
+    "uncompressed_bytes": 1502805,
+    "session": {
+      "abort_nominal_cycles": 313,
+      "abort_sha256": "6d6631fa4db82d05cb610e29cbe567b430bec70b1ef75e844240d7f825ad22ae",
+      "event": "session",
+      "hello": {
+        "armed": true,
+        "chute": 2,
+        "engine": 1,
+        "save": "Ikria Physical Verification",
+        "type": "hello",
+        "version": 2,
+        "vessel": "IKR-TS-001B"
+      },
+      "mode": "Hop",
+      "nominal_cycles": 313,
+      "program_sha256": "6d6631fa4db82d05cb610e29cbe567b430bec70b1ef75e844240d7f825ad22ae"
+    },
+    "samples": 1982,
+    "acknowledged_commands": 1982,
+    "first_ut": 187802.32294755022,
+    "last_ut": 187841.94294752946,
+    "duration_game_s": 39.61999997924431,
+    "tick_delta_min_s": 0.01999999998952262,
+    "tick_delta_max_s": 0.01999999998952262,
+    "maximum_altitude_m": 1238.7821046294412,
+    "max_abs_vertical_speed_m_s": 0.0,
+    "last_telemetry": {
+      "id": 1,
+      "situation": "flying",
+      "altitude_m": 3.0490871124202386,
+      "vertical_speed_m_s": 0.0,
+      "solid_fuel": 0.0,
+      "mass_kg": 1426.0,
+      "crew": 0,
+      "controllable": false,
+      "has_link": false,
+      "physics_active": true,
+      "parts": 8,
+      "engine_active": true,
+      "chute_deployed": false,
+      "chute_safe": true,
+      "up_body": [
+        -0.005681869735569056,
+        -0.9999834553365115,
+        -0.0008974461317012988
+      ],
+      "rates_body": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "discrete_commands": [
+      {
+        "aborting": false,
+        "compute_ns": 651291,
+        "event": "command_intent",
+        "phase": 1,
+        "request": {
+          "command": {
+            "forward": 0.0,
+            "id": 1,
+            "pitch": 0.0,
+            "requests": [
+              {
+                "kind": "activate_engine",
+                "part": 1
+              }
+            ],
+            "right": 0.0,
+            "roll": 0.0,
+            "throttle": 0.0,
+            "up": 0.0,
+            "wheel_steering": 0.0,
+            "wheel_throttle": 0.0,
+            "yaw": 0.0
+          },
+          "seq": 0,
+          "type": "command",
+          "ut": 187802.32294755022
+        }
+      }
+    ],
+    "max_compute_ns": 3456500,
+    "completion": null,
+    "terminal": {
+      "close_sent": true,
+      "error": "message codec: truncated or oversized frame",
+      "event": "session_end",
+      "success": false
+    },
+    "successful_session": false,
+    "flight_completed": false
+  },
+  "live-hop-2.jsonl.gz": {
+    "journal_sha256": "750767e7164ce0d3a474a35ff7c412d7aa2d51ecf0d929f8f700b043c650fbcc",
+    "uncompressed_bytes": 5555018,
+    "session": {
+      "abort_nominal_cycles": 313,
+      "abort_sha256": "6d6631fa4db82d05cb610e29cbe567b430bec70b1ef75e844240d7f825ad22ae",
+      "event": "session",
+      "hello": {
+        "armed": true,
+        "chute": 2,
+        "engine": 1,
+        "save": "Ikria Physical Verification",
+        "type": "hello",
+        "version": 2,
+        "vessel": "IKR-TS-001B"
+      },
+      "mode": "Hop",
+      "nominal_cycles": 313,
+      "program_sha256": "6d6631fa4db82d05cb610e29cbe567b430bec70b1ef75e844240d7f825ad22ae"
+    },
+    "samples": 6737,
+    "acknowledged_commands": 6736,
+    "first_ut": 188023.16294743452,
+    "last_ut": 188157.88294736395,
+    "duration_game_s": 134.71999992942438,
+    "tick_delta_min_s": 0.01999999998952262,
+    "tick_delta_max_s": 0.01999999998952262,
+    "maximum_altitude_m": 1240.0740820337087,
+    "max_abs_vertical_speed_m_s": 116.00607118683983,
+    "last_telemetry": {
+      "id": 1,
+      "situation": "flying",
+      "altitude_m": 1.867263084393926,
+      "vertical_speed_m_s": 2.0347278017245127,
+      "solid_fuel": 0.0,
+      "mass_kg": 1426.0,
+      "crew": 0,
+      "controllable": false,
+      "has_link": false,
+      "physics_active": true,
+      "parts": 8,
+      "engine_active": true,
+      "chute_deployed": true,
+      "chute_safe": false,
+      "up_body": [
+        0.0002203502989843245,
+        0.999999408096152,
+        0.001065482562825737
+      ],
+      "rates_body": [
+        -0.014967450004921685,
+        -0.008046018700667143,
+        0.002137436625645182
+      ]
+    },
+    "discrete_commands": [
+      {
+        "aborting": false,
+        "compute_ns": 337208,
+        "event": "command_intent",
+        "phase": 1,
+        "request": {
+          "command": {
+            "forward": 0.0,
+            "id": 1,
+            "pitch": 0.0,
+            "requests": [
+              {
+                "kind": "activate_engine",
+                "part": 1
+              }
+            ],
+            "right": 0.0,
+            "roll": 0.0,
+            "throttle": 0.0,
+            "up": 0.0,
+            "wheel_steering": 0.0,
+            "wheel_throttle": 0.0,
+            "yaw": 0.0
+          },
+          "seq": 0,
+          "type": "command",
+          "ut": 188023.16294743452
+        }
+      },
+      {
+        "aborting": false,
+        "compute_ns": 334042,
+        "event": "command_intent",
+        "phase": 3,
+        "request": {
+          "command": {
+            "forward": 0.0,
+            "id": 1,
+            "pitch": 0.0,
+            "requests": [
+              {
+                "kind": "deploy_parachute",
+                "part": 2
+              }
+            ],
+            "right": 0.0,
+            "roll": 0.0,
+            "throttle": 0.0,
+            "up": 0.0,
+            "wheel_steering": 0.0,
+            "wheel_throttle": 0.0,
+            "yaw": 0.0
+          },
+          "seq": 1114,
+          "type": "command",
+          "ut": 188045.44294742285
+        }
+      }
+    ],
+    "max_compute_ns": 34335417,
+    "completion": null,
+    "terminal": {
+      "close_sent": true,
+      "error": "completion requires touchdown or a pad abort",
+      "event": "session_end",
+      "success": false
+    },
+    "successful_session": false,
+    "flight_completed": false
+  },
+  "live-hop-3.jsonl.gz": {
+    "journal_sha256": "c674bfa8921d4672999c2dbd63ea514a64059b20b87a259e3e5bfcd5c3586d41",
+    "uncompressed_bytes": 5625801,
+    "session": {
+      "abort_nominal_cycles": 325,
+      "abort_sha256": "12e1eb4eb2f52558365ad3eb25103aabae4541f388cb076ce79bc843c67cafcb",
+      "event": "session",
+      "hello": {
+        "armed": true,
+        "chute": 2,
+        "engine": 1,
+        "save": "Ikria Physical Verification",
+        "type": "hello",
+        "version": 2,
+        "vessel": "IKR-TS-001B"
+      },
+      "mode": "Hop",
+      "nominal_cycles": 325,
+      "program_sha256": "12e1eb4eb2f52558365ad3eb25103aabae4541f388cb076ce79bc843c67cafcb"
+    },
+    "samples": 6824,
+    "acknowledged_commands": 6824,
+    "first_ut": 188330.1429472737,
+    "last_ut": 188466.60294720222,
+    "duration_game_s": 136.45999992851284,
+    "tick_delta_min_s": 0.01999999998952262,
+    "tick_delta_max_s": 0.01999999998952262,
+    "maximum_altitude_m": 1239.0432050903328,
+    "max_abs_vertical_speed_m_s": 115.96040261354511,
+    "last_telemetry": {
+      "id": 1,
+      "situation": "landed",
+      "altitude_m": 1.7990647116675973,
+      "vertical_speed_m_s": -3.2672997487944824e-05,
+      "solid_fuel": 0.0,
+      "mass_kg": 1426.0,
+      "crew": 0,
+      "controllable": false,
+      "has_link": false,
+      "physics_active": true,
+      "parts": 8,
+      "engine_active": true,
+      "chute_deployed": true,
+      "chute_safe": false,
+      "up_body": [
+        0.00027844527553551324,
+        0.9999997670976432,
+        0.0006231154690125029
+      ],
+      "rates_body": [
+        -0.00026909151411093075,
+        -4.938441595505171e-07,
+        0.00011226369470537242
+      ]
+    },
+    "discrete_commands": [
+      {
+        "aborting": false,
+        "compute_ns": 355834,
+        "event": "command_intent",
+        "phase": 1,
+        "request": {
+          "command": {
+            "forward": 0.0,
+            "id": 1,
+            "pitch": 0.0,
+            "requests": [
+              {
+                "kind": "activate_engine",
+                "part": 1
+              }
+            ],
+            "right": 0.0,
+            "roll": 0.0,
+            "throttle": 0.0,
+            "up": 0.0,
+            "wheel_steering": 0.0,
+            "wheel_throttle": 0.0,
+            "yaw": 0.0
+          },
+          "seq": 0,
+          "type": "command",
+          "ut": 188330.1429472737
+        }
+      },
+      {
+        "aborting": false,
+        "compute_ns": 123167,
+        "event": "command_intent",
+        "phase": 3,
+        "request": {
+          "command": {
+            "forward": 0.0,
+            "id": 1,
+            "pitch": 0.0,
+            "requests": [
+              {
+                "kind": "deploy_parachute",
+                "part": 2
+              }
+            ],
+            "right": 0.0,
+            "roll": 0.0,
+            "throttle": 0.0,
+            "up": 0.0,
+            "wheel_steering": 0.0,
+            "wheel_throttle": 0.0,
+            "yaw": 0.0
+          },
+          "seq": 1114,
+          "type": "command",
+          "ut": 188352.42294726204
+        }
+      }
+    ],
+    "max_compute_ns": 4823333,
+    "completion": {
+      "aborted": false,
+      "event": "complete",
+      "ut": 188466.60294720222
+    },
+    "terminal": {
+      "close_sent": true,
+      "error": null,
+      "event": "session_end",
+      "success": true
+    },
+    "successful_session": true,
+    "flight_completed": true
+  },
+  "live-monitor-1.jsonl.gz": {
+    "journal_sha256": "68f85a65d10a0b52f53d03df5023e15965d0743b966bcb1859478341e468050e",
+    "uncompressed_bytes": 1259,
+    "session": {
+      "abort_nominal_cycles": 313,
+      "abort_sha256": "6d6631fa4db82d05cb610e29cbe567b430bec70b1ef75e844240d7f825ad22ae",
+      "event": "session",
+      "hello": {
+        "armed": false,
+        "chute": 2,
+        "engine": 1,
+        "save": "Ikria Physical Verification",
+        "type": "hello",
+        "version": 2,
+        "vessel": "IKR-TS-001B"
+      },
+      "mode": "Monitor",
+      "nominal_cycles": 313,
+      "program_sha256": "6d6631fa4db82d05cb610e29cbe567b430bec70b1ef75e844240d7f825ad22ae"
+    },
+    "samples": 1,
+    "acknowledged_commands": 0,
+    "first_ut": 187634.1029476383,
+    "last_ut": 187634.1029476383,
+    "duration_game_s": 0.0,
+    "tick_delta_min_s": null,
+    "tick_delta_max_s": null,
+    "maximum_altitude_m": 1.6691237967461348,
+    "max_abs_vertical_speed_m_s": 0.0,
+    "last_telemetry": {
+      "id": 1,
+      "situation": "pre_launch",
+      "altitude_m": 1.6691237967461348,
+      "vertical_speed_m_s": 0.0,
+      "solid_fuel": 35.0,
+      "mass_kg": 1688.5,
+      "crew": 0,
+      "controllable": false,
+      "has_link": false,
+      "physics_active": true,
+      "parts": 8,
+      "engine_active": false,
+      "chute_deployed": false,
+      "chute_safe": true,
+      "up_body": [
+        0.0007514882702698011,
+        0.9999997176311216,
+        1.7482667344971038e-06
+      ],
+      "rates_body": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "discrete_commands": [],
+    "max_compute_ns": 5750,
+    "completion": null,
+    "terminal": {
+      "close_sent": true,
+      "error": "command outcome uncertain: Failed { reason: \"unexpected sequence, time or message\" }",
+      "event": "session_end",
+      "success": false
+    },
+    "successful_session": false,
+    "flight_completed": false
+  },
+  "live-monitor-2.jsonl.gz": {
+    "journal_sha256": "36bbe4fd5fbf3987e0a5821471ab2a71234ac64429aac369aea39dea262cfc2c",
+    "uncompressed_bytes": 4257,
+    "session": {
+      "abort_nominal_cycles": 313,
+      "abort_sha256": "6d6631fa4db82d05cb610e29cbe567b430bec70b1ef75e844240d7f825ad22ae",
+      "event": "session",
+      "hello": {
+        "armed": false,
+        "chute": 2,
+        "engine": 1,
+        "save": "Ikria Physical Verification",
+        "type": "hello",
+        "version": 2,
+        "vessel": "IKR-TS-001B"
+      },
+      "mode": "Monitor",
+      "nominal_cycles": 313,
+      "program_sha256": "6d6631fa4db82d05cb610e29cbe567b430bec70b1ef75e844240d7f825ad22ae"
+    },
+    "samples": 5,
+    "acknowledged_commands": 4,
+    "first_ut": 187682.2829476131,
+    "last_ut": 187682.36294761306,
+    "duration_game_s": 0.07999999995809048,
+    "tick_delta_min_s": 0.01999999998952262,
+    "tick_delta_max_s": 0.01999999998952262,
+    "maximum_altitude_m": 1.6691241201478988,
+    "max_abs_vertical_speed_m_s": 0.0,
+    "last_telemetry": {
+      "id": 1,
+      "situation": "pre_launch",
+      "altitude_m": 1.6691241201478988,
+      "vertical_speed_m_s": 0.0,
+      "solid_fuel": 35.0,
+      "mass_kg": 1688.5,
+      "crew": 0,
+      "controllable": false,
+      "has_link": false,
+      "physics_active": true,
+      "parts": 8,
+      "engine_active": false,
+      "chute_deployed": false,
+      "chute_safe": true,
+      "up_body": [
+        0.0007514882705759174,
+        0.9999997176311215,
+        1.748266961417149e-06
+      ],
+      "rates_body": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "discrete_commands": [],
+    "max_compute_ns": 73791,
+    "completion": null,
+    "terminal": {
+      "close_sent": true,
+      "error": "command outcome uncertain: Failed { reason: \"unexpected sequence, time or message\" }",
+      "event": "session_end",
+      "success": false
+    },
+    "successful_session": false,
+    "flight_completed": false
+  },
+  "live-monitor-3.jsonl.gz": {
+    "journal_sha256": "57f009fb5828511708ff035e85308a77bd673a258fee57cb5bb83732879ac7c0",
+    "uncompressed_bytes": 38050,
+    "session": {
+      "abort_nominal_cycles": 313,
+      "abort_sha256": "6d6631fa4db82d05cb610e29cbe567b430bec70b1ef75e844240d7f825ad22ae",
+      "event": "session",
+      "hello": {
+        "armed": false,
+        "chute": 2,
+        "engine": 1,
+        "save": "Ikria Physical Verification",
+        "type": "hello",
+        "version": 2,
+        "vessel": "IKR-TS-001B"
+      },
+      "mode": "Monitor",
+      "nominal_cycles": 313,
+      "program_sha256": "6d6631fa4db82d05cb610e29cbe567b430bec70b1ef75e844240d7f825ad22ae"
+    },
+    "samples": 50,
+    "acknowledged_commands": 50,
+    "first_ut": 187764.68294756993,
+    "last_ut": 187765.66294756942,
+    "duration_game_s": 0.9799999994866084,
+    "tick_delta_min_s": 0.01999999998952262,
+    "tick_delta_max_s": 0.01999999998952262,
+    "maximum_altitude_m": 1.6691241201478988,
+    "max_abs_vertical_speed_m_s": 0.0,
+    "last_telemetry": {
+      "id": 1,
+      "situation": "pre_launch",
+      "altitude_m": 1.6691240655491129,
+      "vertical_speed_m_s": 0.0,
+      "solid_fuel": 35.0,
+      "mass_kg": 1688.5,
+      "crew": 0,
+      "controllable": false,
+      "has_link": false,
+      "physics_active": true,
+      "parts": 8,
+      "engine_active": false,
+      "chute_deployed": false,
+      "chute_safe": true,
+      "up_body": [
+        0.0007514882705284831,
+        0.9999997176311215,
+        1.7482669841036459e-06
+      ],
+      "rates_body": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "discrete_commands": [],
+    "max_compute_ns": 29709,
+    "completion": null,
+    "terminal": {
+      "close_sent": true,
+      "error": null,
+      "event": "session_end",
+      "success": true
+    },
+    "successful_session": true,
+    "flight_completed": false
+  },
+  "live-pad-abort.jsonl.gz": {
+    "journal_sha256": "e9c0eab2c57abed271eb247b9b110b7164d640527c2c78eb881eb23c59a700f7",
+    "uncompressed_bytes": 1261,
+    "session": {
+      "abort_nominal_cycles": 313,
+      "abort_sha256": "6d6631fa4db82d05cb610e29cbe567b430bec70b1ef75e844240d7f825ad22ae",
+      "event": "session",
+      "hello": {
+        "armed": true,
+        "chute": 2,
+        "engine": 1,
+        "save": "Ikria Physical Verification",
+        "type": "hello",
+        "version": 2,
+        "vessel": "IKR-TS-001B"
+      },
+      "mode": "PadAbort",
+      "nominal_cycles": 313,
+      "program_sha256": "6d6631fa4db82d05cb610e29cbe567b430bec70b1ef75e844240d7f825ad22ae"
+    },
+    "samples": 1,
+    "acknowledged_commands": 1,
+    "first_ut": 187784.2029475597,
+    "last_ut": 187784.2029475597,
+    "duration_game_s": 0.0,
+    "tick_delta_min_s": null,
+    "tick_delta_max_s": null,
+    "maximum_altitude_m": 1.6691241201478988,
+    "max_abs_vertical_speed_m_s": 0.0,
+    "last_telemetry": {
+      "id": 1,
+      "situation": "pre_launch",
+      "altitude_m": 1.6691241201478988,
+      "vertical_speed_m_s": 0.0,
+      "solid_fuel": 35.0,
+      "mass_kg": 1688.5,
+      "crew": 0,
+      "controllable": false,
+      "has_link": false,
+      "physics_active": true,
+      "parts": 8,
+      "engine_active": false,
+      "chute_deployed": false,
+      "chute_safe": true,
+      "up_body": [
+        0.0007514882705759174,
+        0.9999997176311215,
+        1.748266961417149e-06
+      ],
+      "rates_body": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "discrete_commands": [],
+    "max_compute_ns": 3690250,
+    "completion": {
+      "aborted": true,
+      "event": "complete",
+      "ut": 187784.2029475597
+    },
+    "terminal": {
+      "close_sent": true,
+      "error": null,
+      "event": "session_end",
+      "success": true
+    },
+    "successful_session": true,
+    "flight_completed": true
+  }
+}

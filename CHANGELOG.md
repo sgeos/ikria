@@ -8,6 +8,9 @@ All notable changes are recorded here. The format follows
 
 ### Added
 
+- A guarded live flight protocol, verified Keleusma hop and abort programs, bounded
+  transport, command journalling, deterministic replay and live verification evidence.
+
 - Two starting-parts hop development runs in the verification save, with guarded
   probes, offline tests, telemetry and a provisional vehicle specification.
 

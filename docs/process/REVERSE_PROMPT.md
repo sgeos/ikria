@@ -1,57 +1,62 @@
 # Reverse Prompt
 
-> **Navigation**: [Process](./README.md)
+> **Navigation**: [Process](README.md)
 
-Written by Codex on 2026-11-17. This state file replaces the prior report.
+Written by Codex on 2026-11-17. This state file replaces the earlier rehearsal report.
 
-## Early verification rehearsals
+## Requested work and result
 
-**Operator authority.** The operator authorized rehearsals and game-mechanics
-investigation in the verification save, including debug features, and emphasized
-that the real career had only just started. The operator confirmed that the vehicle
-and mission articles remain unpublished and authorized provisional sections.
+The operator requested the software needed for Keleusma flight-control loops. This
+branch builds the live single-vessel verification path on local T10 and rehearsal
+work. The paired separate bridge branch is `feat/codex-live-bridge`. Neither repository
+was pushed. Main was refreshed and remains `1ce12bb` here and `551bb7b` in the bridge.
 
-**Facts.** Local T10 commit `614794e` remains unpushed. The new branch
-`feat/codex-first-rehearsal` starts there. Remote `main` was refreshed and remains
-`1ce12bb`. The startup protocol was completed earlier in this session. No mailbox is
-assigned. Both branches still require approval before pushing.
+The implementation adds the bounded version 2 flight protocol, a guarded Rust kRPC
+bridge, checked Keleusma program loading and nominal resource admission, hop phases,
+an independent precompiled abort program, a latched external abort request, strict
+command policy, timeouts, write-ahead intent journals and deterministic replay.
+The bridge uses explicit rotating-body velocity and transforms rates and local up
+into vessel coordinates. Career writes are disabled.
 
-**Completed.** Two eight-part hop revisions were derived from the local `IkriaT0`
-using only career-purchased starting parts. Each flew empty and landed with eight
-parts intact, then was recovered. A reached 4,332.4 m above terrain with a sampled
-peak load of 8.93 g. B reached 1,239.4 m with 3.46 g. Jebediah only occupied the pad
-craft and was removed and recovered before ignition. He remains available.
+## Observed verification
 
-The career file remained unchanged, with only the start node, zero science and
-10,000 funds. The game was left at the Space Center in the verification save. A
-checkpoint preserves the state before this work. No debug-service setter was used.
+A normal flight and a coast-abort flight completed with all eight parts and were
+recovered. Their 6,824 and 6,798 samples replay to identical commands. A telemetry-only
+session and pad abort also completed and replayed. VR-0010 retains compressed journals,
+program hashes, command events, setup, recovery and outcome metadata. M-0001 supplies
+the provisional mission report and the vehicle sheet is updated.
 
-**Implementation and record.** The branch adds guarded craft preparation, setup,
-flight and summarization tools, 13 offline tests, raw telemetry, VR-0009 and a
-provisional IKR-TS-001 vehicle sheet. T16 records these mechanics tests. T12 stays open.
-The gate now includes the Python tests. The report records the exact limitations,
-including changes between the initial probes and the final scripts.
+The development series also exposed two substantive faults. I-0001 records an empty
+article lost because moving-frame velocity prevented descent detection. The recovery
+probe repeated the same frame mistake. I-0002 records an intact landing whose bounce
+stopped the harness. Both were corrected, regression-tested and followed by completed
+flights. Earlier monitoring also exposed JSON time round-trip precision, now tested
+over 10,000 timestamps. Failed evidence was retained and is not certified by replay.
 
-**Verified locally.** The staged gate passes formatting, Clippy with warnings denied,
-repository checks, the disclosure scan, 29 Rust tests and 13 Python tests. None were
-ignored. Both live flight runs succeeded. The tests cover deployment boundaries,
-non-finite inputs, unexpected craft inputs, absent purchases, and refusal to operate
-on the wrong save, wrong vessel or a crewed flight article. No remote continuous
-integration result was observed.
+The staged local gates cover 60 Rust and 13 Python tests in Ikria and three bridge
+tests, with no ignored cases, plus format, lint and repository checks. The local
+platform was macOS with Rust 1.100.0. No remote continuous integration was observed.
 
-**Findings and uncertainty.** Empty-capsule placement timed out from two scenes.
-Crewed placement succeeded, which supports a missing-control-source explanation but
-does not prove it. The empty capsule reports no control authority or link, yet
-part-level engine and parachute commands work. Those are verification instrumentation
-and cannot silently become the career command policy. The reported dialog was the
-crew recovery summary. A scene switch through kRPC worked without manual intervention.
+## Final state and limits
 
-**Not cleared.** These were Python mechanics tests, without a Keleusma flight program,
-phase-specific abort testing, repeated trials, a crewed mass model or full mission
-science collection. Debug flags read false only after the flights, so their state
-throughout was not proved. Career qualification needs the live control path and those
-checks. No early mission is declared cleared. E1 and E2 designs remain future work.
+The game is at the verification Space Center. Jebediah is available. The career and
+craft hashes match their initial values. Five debug flags read false before and after
+the series, and no debug setter was used. No career flight occurred.
 
-**Preserved open work.** T8, T11, T12 and the paused Green Monolith test remain open.
-The template upstream decision, standing authority for other assistants, program and
-financial articles, and T10 publication remain pending. No push or merge occurred.
+The live capsule had no control source or link. Its continuous controls were zero.
+The record establishes discrete ignition, deployment and phase decisions under
+Keleusma, not qualified attitude actuation. One live abort was in coast, not boost.
+Broader abort envelopes, statistical repeatability, career authorization, calibrated
+timing, the original sandbox profile, multiple vessels and the mission controller
+remain open. The operating guide names these limits explicitly.
+
+## Preserved open work and next action
+
+T8, T9, the remaining T12 qualification, the paused Green Monolith procedure, E1 and
+E2 vehicle designs, program and financial article checks, the template upstream
+decision, and broader assistant push authority remain open. T11 and the new scoped
+T17 are complete locally. Prior T10 and T16 remain in this branch's history.
+
+Ask before pushing. If approved, publish the Ikria branch before the bridge branch,
+whose continuous integration pins the corresponding records revision. Review both
+repositories and the two earlier local commits included by this branch.

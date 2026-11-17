@@ -57,14 +57,19 @@ burnout and descent, and deploys the parachute when descending safely below 1,50
 above terrain. It records the returned game safety state and each command. A solid
 motor cannot provide a commanded shutdown in this profile.
 
-A flight-qualified Keleusma program is not implemented. Phase-specific aborts,
+A Keleusma development program now flies this profile through the Rust bridge, as
+[VR-0010](../verification/VR-0010.md) records. A qualified career program is not
+established. Broader phase-specific abort qualification,
 repeatability, crewed mass and loading, a chosen landing footprint with measured
 error, and a campaign-valid command path remain required. These tests do not complete
 T12. The operator authorized rehearsal in the verification save on 2026-11-17.
 
 ## Flight history and disposal
 
-Two uncrewed mechanics flights are documented in VR-0009. There are no career flights.
+Two uncrewed mechanics flights are documented in VR-0009. VR-0010 adds one lost
+article, an intact landing with a software fault, and completed normal and coast-abort
+flights. The latter three articles were recovered with all eight parts. There are no
+career flights.
 The intended disposal is recovery of all eight parts together, with no separated
 stage or planned debris. Jebediah was used only to place each article on the pad and
 was recovered before ignition.

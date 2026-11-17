@@ -10,7 +10,7 @@ Ikria is a technology demonstrator for Keleusma. Keleusma stream processors fly 
 It does not reverse engineer the game, ship any of its files, or claim fidelity beyond
 KSP's own physics, which are patched conics with rails outside the physics range.
 
-**Status.** Seeded from `sgeos/project-template`. Nothing is implemented yet. The
+**Status.** The scripted harness and the single-vessel verification flight path are implemented. The
 first milestone is in [`docs/roadmap/`](docs/roadmap/README.md).
 
 ## Development Process

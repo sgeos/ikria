@@ -12,3 +12,7 @@ pub mod attitude;
 pub mod control;
 pub mod harness;
 pub mod host;
+
+pub mod flight;
+
+pub mod session;

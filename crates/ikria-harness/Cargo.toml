@@ -14,3 +14,9 @@ keleusma.workspace = true
 
 [lints]
 workspace = true
+
+[dependencies.serde_json]
+workspace = true
+
+[dependencies.sha2]
+version = "0.10"

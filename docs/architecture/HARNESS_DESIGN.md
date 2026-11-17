@@ -4,7 +4,7 @@
 
 **Status.** Proposed, 2026-11-14, for the operator's review, with the process layout and
 the bridge's repository decided by the operator the same day. The version 1 records and
-the T10 scripted skeleton are implemented. The remaining design is proposed.
+the T10 scripted skeleton are implemented. The [live verification path](FLIGHT_CONTROL.md) is also implemented. Other portions of the design remain proposed.
 Each point is marked **Decided**, **Proposed** or **Open**. Facts about Keleusma come
 from a read-only reading of its repository at version 0.2.2 and the unreleased 0.2.3
 work, with file references kept in this line's notes. Facts about kRPC come from the

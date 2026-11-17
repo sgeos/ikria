@@ -24,3 +24,5 @@ as **Decided**, **Proposed** or **Open**, and say whether it is implemented.
   Proposed.
 - [`HAZARDS.md`](HAZARDS.md): the moons' orbital hazard bands, and the surface and
   environment hazards of each body.
+
+- [Flight control](FLIGHT_CONTROL.md), the live verification runtime and operating procedure.

@@ -1,0 +1,11 @@
+// Flight dialogue 1. Distances and rates use thousandths of SI units.
+struct FlightInput {
+    phase: Word, altitude: Word, vertical_speed: Word, fuel: Word,
+    safe: Word, deployed: Word, landed: Word, abort: Word,
+    pitch_error: Word, yaw_error: Word,
+    pitch_rate: Word, yaw_rate: Word, roll_rate: Word
+}
+struct FlightOutput {
+    phase: Word, ignite: Word, deploy: Word,
+    throttle: Word, pitch: Word, yaw: Word, roll: Word
+}
