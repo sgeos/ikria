@@ -37,3 +37,41 @@ deleted at once.
 environment, and the game with the sandbox save loaded. Run them from the repository
 root, where they write their output to `tmp/`. The game-file readers take the path of the
 game's `GameData` directory as their first argument.
+
+## Early hop development
+
+The operator authorized verification-save rehearsals on 2026-11-17. These tools
+refuse other saves and do not clear career flights. Their starting-parts test articles
+have no uncrewed control authority, so the flight probe's part-level commands are
+verification instrumentation. No debug-service setter is used. See
+[VR-0009](../../record/verification/VR-0009.md) for results and limits.
+
+| Script | Purpose |
+|---|---|
+| `prepare_early_hop.py` | Generate local revision A or B from `IkriaT0`, checking the purchased part inventory |
+| `setup_early_hop.py` | Place a crewed article on the pad, remove and recover its crew, or recover the landed empty article |
+| `early_hop.py` | Fly the empty article with a bounded Python probe and log telemetry |
+| `summarize_early_hops.py` | Generate the comparison table from completed flight logs |
+
+Use the existing Python environment with kRPC for live operations. The scripts take
+the game's saves directory explicitly. Placement does not ignite the motor. Crew
+removal must complete before invoking the flight probe. A timeout has an uncertain
+outcome and requires inspecting the game before another operation. Save names use the
+`ipv-` prefix. Output paths must be new, so previous evidence is preserved.
+
+```sh
+python -I -B prepare_early_hop.py "$SAVES_DIR" B
+python -I -B setup_early_hop.py "$SAVES_DIR" place pad.json --craft IKR-TS-001B
+python -I -B setup_early_hop.py "$SAVES_DIR" empty empty.json --craft IKR-TS-001B
+python -I -B early_hop.py "$SAVES_DIR" flight.json --craft IKR-TS-001B
+python -I -B setup_early_hop.py "$SAVES_DIR" recover recovery.json --craft IKR-TS-001B
+```
+
+The commands above name the script files from this directory. Supply output paths
+under the repository's `tmp/` when running them locally. Each step must succeed and its
+output be checked before the next step. The following offline tests run from the
+repository root and are included in the local gate. They never connect to the game.
+
+```sh
+python3 -I -B -m unittest discover -s tools/phase0/tests
+```

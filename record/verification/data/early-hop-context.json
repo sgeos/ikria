@@ -1,0 +1,303 @@
+{
+  "inspection": {
+    "save": "Ikria Physical Verification",
+    "version": "0.7.0",
+    "scene": "GameScene.flight",
+    "mode": "GameMode.career",
+    "ut": 183840.26294962582,
+    "funds": 2062730.0,
+    "science": 9.0,
+    "vessels": [
+      {
+        "name": "#autoLOC_501180",
+        "situation": "VesselSituation.orbiting",
+        "crew": 0
+      },
+      {
+        "name": "#autoLOC_501180",
+        "situation": "VesselSituation.pre_launch",
+        "crew": 0
+      }
+    ]
+  },
+  "inventory": {
+    "career_sha256": "bb4fed57674a796ad9c2b2fcce3db3c65646b494df60d03caf6cb9703632017a",
+    "career_funds": 10000.0,
+    "career_science": 0.0,
+    "career_nodes": [
+      "start"
+    ],
+    "parts": {
+      "parachuteSingle": {
+        "quantity": 1,
+        "dry_mass_t": 0.1,
+        "unit_cost_full": 422.0,
+        "tech": "start",
+        "purchased": true
+      },
+      "solidBooster.sm.v2": {
+        "quantity": 1,
+        "dry_mass_t": 0.45,
+        "unit_cost_full": 200.0,
+        "tech": "start",
+        "purchased": true
+      },
+      "mk1pod.v2": {
+        "quantity": 1,
+        "dry_mass_t": 0.8,
+        "unit_cost_full": 600.0,
+        "tech": "start",
+        "purchased": true
+      },
+      "basicFin": {
+        "quantity": 3,
+        "dry_mass_t": 0.01,
+        "unit_cost_full": 25.0,
+        "tech": "start",
+        "purchased": true
+      },
+      "GooExperiment": {
+        "quantity": 2,
+        "dry_mass_t": 0.05,
+        "unit_cost_full": 800.0,
+        "tech": "start",
+        "purchased": true
+      }
+    },
+    "craft_sha256": "8870006d233971f64cf001eda2d3b6d9810db784c4a7bb2f415e9d86374b06da"
+  },
+  "craft_a": {
+    "name": "IKR-TS-001A",
+    "sha256": "8870006d233971f64cf001eda2d3b6d9810db784c4a7bb2f415e9d86374b06da",
+    "source_sha256": "9fe06b35c83d751a84f42735c22c7d70565797b311d71cd229e6d1b992ab4599",
+    "solid_fuel": 70,
+    "thrust_percent": 35,
+    "parts": [
+      "mk1pod.v2",
+      "parachuteSingle",
+      "GooExperiment",
+      "GooExperiment",
+      "solidBooster.sm.v2",
+      "basicFin",
+      "basicFin",
+      "basicFin"
+    ]
+  },
+  "craft_b": {
+    "name": "IKR-TS-001B",
+    "sha256": "627e2b8d0384c455c4f50fa4793fcde99bb66a7e2b11daf517f8d36a9819b529",
+    "source_sha256": "9fe06b35c83d751a84f42735c22c7d70565797b311d71cd229e6d1b992ab4599",
+    "career_sha256": "bb4fed57674a796ad9c2b2fcce3db3c65646b494df60d03caf6cb9703632017a",
+    "solid_fuel": 35,
+    "thrust_percent": 20,
+    "parts": {
+      "mk1pod.v2": 1,
+      "parachuteSingle": 1,
+      "GooExperiment": 2,
+      "solidBooster.sm.v2": 1,
+      "basicFin": 3
+    }
+  },
+  "pad_a_crewed": {
+    "name": "IKR-TS-001A",
+    "crew": 1,
+    "control": "ControlState.full",
+    "link": true,
+    "situation": "VesselSituation.pre_launch",
+    "ut": 184214.86294942957,
+    "mass_kg": 2045.0,
+    "dry_mass_kg": 1480.0,
+    "parts": 8,
+    "available_thrust_n": 0.0,
+    "resources": {
+      "ElectricCharge": 50.0,
+      "MonoPropellant": 10.0,
+      "SolidFuel": 70.0
+    },
+    "engines": [
+      {
+        "name": "solidBooster.sm.v2",
+        "active": false,
+        "thrust_limit": 0.3499999940395355
+      }
+    ],
+    "parachutes": [
+      {
+        "state": "ParachuteState.stowed",
+        "safe": "ParachuteSafeState.safe"
+      }
+    ]
+  },
+  "pad_a_empty": {
+    "name": "IKR-TS-001A",
+    "crew": 0,
+    "control": "ControlState.none",
+    "link": false,
+    "situation": "VesselSituation.pre_launch",
+    "ut": 184269.382949401,
+    "mass_kg": 1951.0,
+    "dry_mass_kg": 1386.0,
+    "parts": 8,
+    "crew_status": "RosterStatus.available"
+  },
+  "pad_b_crewed": {
+    "name": "IKR-TS-001B",
+    "crew": 1,
+    "control": "ControlState.full",
+    "link": true,
+    "situation": "VesselSituation.pre_launch",
+    "ut": 184541.08294925868,
+    "mass_kg": 1782.5001220703125,
+    "dry_mass_kg": 1480.0,
+    "parts": 8,
+    "available_thrust_n": 0.0,
+    "resources": {
+      "ElectricCharge": 50.0,
+      "MonoPropellant": 10.0,
+      "SolidFuel": 35.0
+    },
+    "engines": [
+      {
+        "name": "solidBooster.sm.v2",
+        "active": false,
+        "thrust_limit": 0.20000000298023224
+      }
+    ],
+    "parachutes": [
+      {
+        "state": "ParachuteState.stowed",
+        "safe": "ParachuteSafeState.safe"
+      }
+    ]
+  },
+  "pad_b_empty": {
+    "date_utc": "2026-11-17T05:29:43.131840+00:00",
+    "operation": "empty",
+    "craft": "IKR-TS-001B",
+    "debug_service_uses": [],
+    "save": "Ikria Physical Verification",
+    "start_ut": 184578.60294923902,
+    "name": "IKR-TS-001B",
+    "crew": 0,
+    "control": "ControlState.none",
+    "link": false,
+    "situation": "VesselSituation.pre_launch",
+    "ut": 184589.5029492333,
+    "mass_kg": 1688.5,
+    "dry_mass_kg": 1386.0,
+    "parts": 8,
+    "crew_status": "RosterStatus.available"
+  },
+  "post_flight": {
+    "ut": 184826.52294910914,
+    "scene": "GameScene.flight",
+    "vessel": "IKR-TS-001B",
+    "parts": 8,
+    "situation": "VesselSituation.landed",
+    "crew_status": "RosterStatus.available",
+    "debug_flags_after": {
+      "infinite_electricity": false,
+      "infinite_propellant": false,
+      "no_crash_damage": false,
+      "unbreakable_joints": false,
+      "ignore_max_temperature": false
+    }
+  },
+  "recovery_a": {
+    "name": "IKR-TS-001A",
+    "parts": 8,
+    "ut": 184476.08294929273,
+    "funds_before": 2062755.0,
+    "science_before": 9.0,
+    "funds_after": 2062755.0,
+    "science_after": 9.0,
+    "scene": "GameScene.space_center"
+  },
+  "career_sha256_after": "bb4fed57674a796ad9c2b2fcce3db3c65646b494df60d03caf6cb9703632017a",
+  "matched_settings_groups": {
+    "DIFFICULTY": {
+      "AutoHireCrews": "False",
+      "MissingCrewsRespawn": "False",
+      "RespawnTimer": "7200",
+      "BypassEntryPurchaseAfterResearch": "False",
+      "AllowStockVessels": "False",
+      "IndestructibleFacilities": "False",
+      "ResourceAbundance": "0.5",
+      "ReentryHeatScale": "1",
+      "EnableCommNet": "True",
+      "AllowOtherLaunchSites": "False",
+      "persistKerbalInventories": "False"
+    },
+    "CAREER": {
+      "TechTreeUrl": "GameData/ModuleManager.TechTree",
+      "StartingFunds": "10000",
+      "StartingScience": "0",
+      "StartingReputation": "0",
+      "FundsGainMultiplier": "0.6",
+      "RepGainMultiplier": "0.6",
+      "ScienceGainMultiplier": "0.6",
+      "FundsLossMultiplier": "2",
+      "RepLossMultiplier": "2",
+      "RepLossDeclined": "3"
+    },
+    "CommNetParams": {
+      "requireSignalForControl": "False",
+      "plasmaBlackout": "False",
+      "rangeModifier": "0.65",
+      "DSNModifier": "1",
+      "occlusionMultiplierVac": "1",
+      "occlusionMultiplierAtm": "1",
+      "enableGroundStations": "True"
+    },
+    "AdvancedParams": {
+      "EnableKerbalExperience": "True",
+      "ImmediateLevelUp": "False",
+      "AllowNegativeCurrency": "True",
+      "PressurePartLimits": "False",
+      "GPartLimits": "False",
+      "GKerbalLimits": "False",
+      "KerbalGToleranceMult": "1",
+      "ResourceTransferObeyCrossfeed": "True",
+      "ActionGroupsAlways": "False",
+      "BuildingImpactDamageMult": "0.2",
+      "PartUpgradesInSandbox": "False",
+      "PartUpgradesInCareer": "True",
+      "PartUpgradesInMission": "False",
+      "EnableFullSASInSandbox": "False",
+      "EnableFullSASInMissions": "False"
+    }
+  },
+  "launch_attempts": [
+    {
+      "scene": "flight",
+      "crew": [],
+      "outcome": "60 second timeout, no craft placed"
+    },
+    {
+      "scene": "space_center",
+      "crew": [],
+      "outcome": "60 second timeout, no craft placed"
+    },
+    {
+      "scene": "space_center",
+      "crew": [
+        "Jebediah Kerman"
+      ],
+      "outcome": "craft placed, no ignition"
+    }
+  ],
+  "recovery_b": {
+    "date_utc": "2026-11-17T05:34:11.540353+00:00",
+    "operation": "recover",
+    "craft": "IKR-TS-001B",
+    "debug_service_uses": [],
+    "save": "Ikria Physical Verification",
+    "start_ut": 184835.5829491044,
+    "parts": 8,
+    "funds_before": 2062734.0,
+    "science_before": 12.0,
+    "funds_after": 2062734.0,
+    "science_after": 12.0,
+    "scene": "GameScene.space_center"
+  }
+}

@@ -368,3 +368,7 @@ cargo clippy --workspace --all-targets --locked -- -D warnings || fail "cargo cl
 pass "cargo clippy is clean"
 cargo test --workspace --locked "${project_args[@]+"${project_args[@]}"}" || fail "cargo test failed"
 pass "cargo test passes"
+
+# The early rehearsal decisions are tested without a game or kRPC connection.
+python3 -I -B -m unittest discover -s tools/phase0/tests || fail "offline rehearsal tests failed"
+pass "offline rehearsal tests pass"
