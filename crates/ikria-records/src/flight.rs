@@ -231,3 +231,67 @@ pub fn authorize(
     }
     Ok(())
 }
+
+/// One-shot discrete actions already commanded in this session.
+///
+/// Telemetry flags such as `chute_deployed` can lag the command that changes them by
+/// several ticks. A command whose intent has been journalled is treated as done from
+/// then on, whether or not it was acknowledged, because a missing acknowledgement
+/// leaves its outcome uncertain and an uncertain command is never repeated. The latch
+/// only ever adds refusals. It never permits a command that [`authorize`] refuses.
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
+pub struct Commanded {
+    /// An engine ignition has been commanded.
+    pub ignition: bool,
+    /// A parachute deployment has been commanded.
+    pub deployment: bool,
+}
+
+impl Commanded {
+    /// Record the discrete requests of a command about to be sent. Call this before
+    /// the command is written, so that a failed write still latches the action.
+    pub fn record(&mut self, c: &VesselCommand) {
+        for r in &c.requests {
+            match r {
+                crate::Request::ActivateEngine { .. } => self.ignition = true,
+                crate::Request::DeployParachute { .. } => self.deployment = true,
+                _ => {}
+            }
+        }
+    }
+
+    /// The sample as programs and policy see it. A commanded action counts as done
+    /// even while the telemetry flag still lags. The journal keeps the raw sample.
+    pub fn latch(&self, t: &Telemetry) -> Telemetry {
+        let mut view = t.clone();
+        view.engine_active |= self.ignition;
+        view.chute_deployed |= self.deployment;
+        view
+    }
+}
+
+/// [`authorize`] with the session's one-shot latch. A repeated ignition or deployment
+/// is refused even when the telemetry flag that would refuse it has not yet changed.
+/// The bridge may keep calling [`authorize`], whose signature and behaviour are unchanged.
+pub fn authorize_latched(
+    t: &Telemetry,
+    c: &VesselCommand,
+    engine: PartId,
+    chute: PartId,
+    armed: bool,
+    commanded: Commanded,
+) -> Result<(), RecordError> {
+    for r in &c.requests {
+        let repeated = match r {
+            crate::Request::ActivateEngine { .. } => commanded.ignition,
+            crate::Request::DeployParachute { .. } => commanded.deployment,
+            _ => false,
+        };
+        if repeated {
+            return Err(RecordError::Codec(
+                "one-shot discrete request already commanded".into(),
+            ));
+        }
+    }
+    authorize(&commanded.latch(t), c, engine, chute, armed)
+}

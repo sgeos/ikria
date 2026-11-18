@@ -1,0 +1,17 @@
+// Abort program for the hop profile. Phases 0 pad, 1 boost, 2 coast, 3 parachute,
+// 4 complete, 5 abort. It shares the dialogue with hop.kl and nothing else.
+// It never ignites and never commands a continuous control, so it reads no attitude
+// input and does no attitude arithmetic. On the pad it completes the pad abort. In
+// flight it waits for burnout and deploys only inside the verified deployment
+// envelope. It reports completion only when the vessel is down.
+loop main(a: FlightInput) -> FlightOutput {
+    let deploy = if a.deployed == 0 and a.safe == 1 and a.fuel < 10 and
+        a.vertical_speed < 0 - 1000 and a.altitude > 5000 and a.altitude < 1500000 { 1 } else { 0 };
+    let phase = if a.phase == 0 or a.landed == 1 { 4 } else { 5 };
+    let c = FlightOutput {
+        phase: phase, ignite: 0, deploy: deploy,
+        throttle: 0, pitch: 0, yaw: 0, roll: 0
+    };
+    let _next = yield c;
+    c
+}

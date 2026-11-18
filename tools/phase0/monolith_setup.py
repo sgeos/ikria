@@ -16,6 +16,7 @@ import krpc
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from guard import loaded_save  # noqa: E402
+from launch_site import clear_crewed_launch_site  # noqa: E402
 
 SAVE = "Ikria Physical Verification"
 LOG = {"debug_uses": []}
@@ -45,6 +46,8 @@ dbg.funds = 2_000_000.0
 LOG["debug_uses"].append({"call": "Debug.funds", "value": 2_000_000.0, "ut": sc.ut})
 
 try:
+    # Rule R20. Recover crewed vessels at the launch site explicitly before any launch.
+    clear_crewed_launch_site(sc, lambda crew: print("recovered before launch:", crew, flush=True))
     sc.launch_vessel(craft_directory="SPH", name="IkriaKN", launch_site="Runway", recover=True)
     LOG["launch"] = "ok"
 except Exception as ex:

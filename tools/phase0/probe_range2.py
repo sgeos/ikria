@@ -5,10 +5,14 @@ Arguments: craft name, physics range in metres for the rocket (0 for the default
 Writes tmp/probe_range2_<range>.json."""
 import json
 import math
+import pathlib
 import sys
 import time
 
 import krpc
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from launch_site import clear_crewed_launch_site  # noqa: E402
 
 CRAFT = sys.argv[1]
 RANGE = float(sys.argv[2])
@@ -38,6 +42,8 @@ def err(ex):
 conn = krpc.connect(name="ikria-probe-range2", address="127.0.0.1")
 k, sc = conn.krpc, conn.space_center
 assert sc.game_mode == sc.GameMode.sandbox, "refusing to run outside the sandbox"
+# Rule R20. Recover crewed vessels at the launch site explicitly before any launch.
+clear_crewed_launch_site(sc, lambda crew: print("recovered before launch:", crew, flush=True))
 sc.launch_vessel(craft_directory="VAB", name=CRAFT, launch_site="LaunchPad", recover=True)
 assert wait_for(lambda: k.game_scene == k.GameScene.flight and sc.active_vessel is not None, 120)
 time.sleep(5)

@@ -1,6 +1,8 @@
 """Checkpoint, place, empty or recover a hop article in the verification save.
 
-Placement carries Jebediah to the pad with the engine off. Empty-capsule placement
+Placement first recovers every crewed vessel at the launch sites explicitly, as rule R20
+requires, and refuses to launch if it cannot. It then carries Jebediah to the pad with
+the engine off. Empty-capsule placement
 hung in the observed setup. The empty operation sends him outside, recovers him,
 and returns to the empty article. None of these operations ignites an engine.
 Every invocation identifies the loaded save before changing vessel state. A deadline
@@ -29,6 +31,7 @@ def main():
     import krpc
     sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
     from guard import loaded_save
+    from launch_site import clear_crewed_launch_site
 
     log = {'date_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
            'operation': args.operation, 'craft': args.craft, 'debug_service_uses': []}
@@ -52,7 +55,12 @@ def main():
         log['start_ut'] = sc.ut
         write_log()
         if args.operation == 'place':
-            # Never automatically recover an unrelated craft occupying the pad.
+            # Rule R20. Crewed vessels at a launch site are recovered explicitly first,
+            # and any doubt refuses the launch. An uncrewed craft on the pad still
+            # makes the launch fail, because recover=False never clears it.
+            log['crew_recovered_before_launch'] = []
+            clear_crewed_launch_site(sc, log['crew_recovered_before_launch'].append)
+            write_log()
             sc.launch_vessel('VAB', args.craft, 'LaunchPad',
                              crew=['Jebediah Kerman'], recover=False)
             time.sleep(3)

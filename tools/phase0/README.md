@@ -50,11 +50,15 @@ verification instrumentation. No debug-service setter is used. See
 |---|---|
 | `prepare_early_hop.py` | Generate local revision A or B from `IkriaT0`, checking the purchased part inventory |
 | `setup_early_hop.py` | Place a crewed article on the pad, remove and recover its crew, or recover the landed empty article |
-| `early_hop.py` | Fly the empty article with a bounded Python probe and log telemetry |
+| `launch_site.py` | Recover crewed vessels at the launch sites before any launch, failing closed, as rule R20 requires |
+| `early_hop.py` | Fly the empty article with a bounded Python probe, recording a landing only after a settle period |
 | `summarize_early_hops.py` | Generate the comparison table from completed flight logs |
 
 Use the existing Python environment with kRPC for live operations. The scripts take
-the game's saves directory explicitly. Placement does not ignite the motor. Crew
+the game's saves directory explicitly. Placement does not ignite the motor. Before it
+launches, placement recovers every crewed vessel at the launch sites and refuses to
+launch if any crew cannot be recovered or read. Every other script here that launches
+does the same. Crew
 removal must complete before invoking the flight probe. A timeout has an uncertain
 outcome and requires inspecting the game before another operation. Save names use the
 `ipv-` prefix. Output paths must be new, so previous evidence is preserved.
