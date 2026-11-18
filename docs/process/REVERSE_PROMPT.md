@@ -8,8 +8,10 @@ Written by Codex on 2026-11-17. This state file replaces the earlier rehearsal r
 
 The operator requested the software needed for Keleusma flight-control loops. This
 branch builds the live single-vessel verification path on local T10 and rehearsal
-work. The paired separate bridge branch is `feat/codex-live-bridge`. Neither repository
-was pushed. Main was refreshed and remains `1ce12bb` here and `551bb7b` in the bridge.
+work. The paired separate bridge branch is `feat/codex-live-bridge`. The operator
+approved committing, pushing and merging on 2026-11-17, Ikria before the bridge.
+The reviewed implementation tips were `504d4c4` and `b43b710`. The handoffs were valid
+and both local gates were rerun successfully before publication.
 
 The implementation adds the bounded version 2 flight protocol, a guarded Rust kRPC
 bridge, checked Keleusma program loading and nominal resource admission, hop phases,
@@ -57,6 +59,7 @@ E2 vehicle designs, program and financial article checks, the template upstream
 decision, and broader assistant push authority remain open. T11 and the new scoped
 T17 are complete locally. Prior T10 and T16 remain in this branch's history.
 
-Ask before pushing. If approved, publish the Ikria branch before the bridge branch,
-whose continuous integration pins the corresponding records revision. Review both
-repositories and the two earlier local commits included by this branch.
+This publication is authorized through protected pull requests with green checks.
+The bridge pins Ikria implementation revision `504d4c4`, which publication preserves.
+Remote pull-request state and merge ancestry record completion after this pre-merge
+report. The approval is for this publication, not new standing authority.

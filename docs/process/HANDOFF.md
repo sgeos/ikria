@@ -10,14 +10,15 @@ that drops an open item names it in the commit message as completed, moved or ab
 Written by Codex on `feat/codex-flight-control`, based on local rehearsal commit
 `8e7c9f5`, which includes T10 commit `614794e`. Remote main was refreshed and remains
 `1ce12bb`. The paired bridge branch is `feat/codex-live-bridge`, based on `551bb7b`.
-These branches are unpushed. Codex has no standing push or merge authority.
+The operator approved this publication on 2026-11-17, Ikria first, then the bridge.
+This is session-specific authority. Remote merge ancestry records completion.
 
 - **Seed.** `sgeos/project-template` at `3954eba`, tag `v1.0.8`. Public repository
   `https://github.com/sgeos/ikria`. Seed review finished on 2026-11-13. Public rulings
   remain in charter item 10.
 - **Campaign.** `CAMPAIGN_PLAN.md` and `CAMPAIGN_SEQUENCE.md` retain E0 to E6,
   recalibration checkpoints, deferred rescues under R5 and the solvency reserve R18.
-  The campaign appendices remain proposed.
+  Appendices remain proposed.
 - **Record.** Vehicle and mission articles remain unpublished. The operator authorized
   provisional sections on 2026-11-17. M-0001 and VR-0010 use them. I-0001 and I-0002
   follow R11's explicit provisional contents while incident article A391 is unpublished.
@@ -52,9 +53,9 @@ actuation. No career mission is cleared.
 
 ## Next step
 
-1. Review this branch and the bridge branch. Ask before pushing either. Ikria's branch
-   includes the two earlier unpushed commits. Push Ikria first if approved, because the
-   bridge's continuous integration checkout pins this Ikria revision.
+1. Publish through green pull requests under the operator's 2026-11-17 approval,
+   Ikria before the bridge. This branch includes T10 and the earlier rehearsals.
+   Check remote merge ancestry before repeating publication.
 2. T12 is partial. The original sandbox qualification remains open. Resolve a
    campaign-valid control source for the starting capsule, qualify attitude actuation,
    broaden abort tests, establish repeatability, account for crewed mass and loading,
@@ -71,7 +72,7 @@ actuation. No career mission is cleared.
 ## Other open items
 
 - **Authority.** Standing push and merge authority has not been extended to Codex or
-  Grok Build. The operator explicitly asked to be consulted before pushing.
+  Grok Build. This publication has explicit session approval.
 - **Template upstream.** Readiness changes to `scripts/worktree.sh` and `scripts/check.sh`
   diverge from the template and need an upstream decision. A later sync could undo
   them. The rehearsal branch added Python tests to the gate.
@@ -106,7 +107,7 @@ remains in the Phase 0 reports.
   Research and Dev", and "Ikria Physical Verification". Older Rookie and Sandbox saves
   remain untouched. The sandbox still holds IkriaT0, IkriaT1 and one flag. The monolith
   rover setup and checkpoint `ipv-before-early-rehearsal` remain available.
-- Local revision A and B craft, pad and landing saves, and the Python client are
+- Revision A and B craft, pad and landing saves, and the Python client are
   retained. Generated raw journals and process logs are in the flight worktree's tmp.
   Compressed public telemetry and hashes are in VR-0010's data directory.
 
@@ -122,8 +123,7 @@ A valid checkout is clean, its newest commit describes this state, and its gate 
 zero. Report any check not run and commits after this file's last rewrite. Startup
 handoff was valid at `1ce12bb`, with only that merge after rewrite `bf64ba3`. The final
 local gate covers 60 Rust and 13 Python tests here, plus three tests in the separate
-bridge gate, none ignored. Local runs used macOS and Rust 1.100.0. No remote continuous
-integration result was observed.
+bridge gate, none ignored. Local runs used macOS and Rust 1.100.0. Remote results are checked before merging.
 
 ## Mailbox
 
