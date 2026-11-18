@@ -1,0 +1,298 @@
+{
+ "a1-separation-2.json": {
+  "sha256_of_json": "fab8aadd5384926f6b520ffc8b709a2774d938a542c5caa818ce728f105f7437",
+  "label": "a1-separation-2",
+  "debug_uses": 3,
+  "analysis": {
+   "decoupler_relative_speed_mps": 11.294,
+   "stage_mass_before_after_kg": [
+    772.5,
+    712.5
+   ],
+   "stage_dv_measured_mps": 132.04,
+   "stage_dv_rocket_equation_mps": 122.1,
+   "stage_dv_along_velocity_mps": -122.66,
+   "distance_after_decouple_m": {
+    "1": 513.73,
+    "2": 513.73,
+    "5": 513.73,
+    "10": 999.23,
+    "15": 1650.13
+   }
+  }
+ },
+ "a1-separation.json.gz": {
+  "sha256_of_json": "fe5ad56073fdb96dd8363b61cbd2fef6f0dce65ecdc51f22e3bd625e498fb00a",
+  "label": "a1-separation",
+  "debug_uses": 3,
+  "analysis": {
+   "decoupler_relative_speed_mps": 11.295,
+   "stage_mass_before_after_kg": [
+    772.5,
+    712.5
+   ],
+   "stage_dv_measured_mps": 131.65,
+   "stage_dv_rocket_equation_mps": 122.1,
+   "stage_dv_along_velocity_mps": -122.64,
+   "distance_after_decouple_m": {
+    "1": 17.48,
+    "2": 37.28,
+    "5": 303.27,
+    "10": 993.67,
+    "15": 1681.67
+   }
+  }
+ },
+ "a1b-separation.json": {
+  "sha256_of_json": "67ad8bbb2bc5271908ad700d4802f5c7c7d174000c7946e0b17c0c6858768874",
+  "label": "a1b-separation",
+  "debug_uses": 3,
+  "analysis": {
+   "decoupler_relative_speed_mps": 11.12,
+   "stage_mass_before_after_kg": [
+    892.5,
+    772.5
+   ],
+   "stage_dv_measured_mps": 218.09,
+   "stage_dv_rocket_equation_mps": 218.07,
+   "stage_dv_along_velocity_mps": -218.04,
+   "distance_after_decouple_m": {
+    "1": 796.48,
+    "2": 796.48,
+    "5": 796.48,
+    "10": 1694.18,
+    "15": 2775.59
+   }
+  }
+ },
+ "a2c-abort-pad.json.gz": {
+  "sha256_of_json": "a72a9e23dabb40c47ae26ae8d92efefb391ff30715ac7f541dc5a7a58e33c568",
+  "label": "a2c-abort-pad",
+  "debug_uses": 1,
+  "analysis": {
+   "apex_m": 1854.7385994220385,
+   "pod_parts_after": 6,
+   "last_descent_vspeed_mps": -103.11254464429246,
+   "min_gap_m": 1.29
+  }
+ },
+ "a2d-abort-flight-25pct.json.gz": {
+  "sha256_of_json": "8205e6d5b1f0c1fbaadcab1d92e8ee8eaf258ae50ad13054c6e0c5aa83cef772",
+  "label": "a2d-abort-flight-25pct",
+  "debug_uses": 0,
+  "analysis": {
+   "pod_speed_at_burnout_mps": 217.8,
+   "apex_alt_m": 2071.8,
+   "apex_t_s": 20.2,
+   "min_gap_after_1s_m": 12.6,
+   "max_gap_m": 5510.3,
+   "last_airborne_vspeed_mps": -5.16
+  }
+ },
+ "a2d-abort-pad.json.gz": {
+  "sha256_of_json": "14f9fd2f38046fe1c791b6855641356bb4d91af11539aa3b8e11210aaa906b14",
+  "label": "a2d-abort-pad",
+  "debug_uses": 0,
+  "analysis": {
+   "apex_m": 1854.9834357216023,
+   "pod_parts_after": 6,
+   "last_descent_vspeed_mps": -4.998920193489572,
+   "min_gap_m": 1.55
+  }
+ },
+ "a3d-minmus-ascent.json": {
+  "sha256_of_json": "c4b412ab89f52587738987077906f63df83287ca8bf9d2aed476a7b9fe6b346b",
+  "label": "a3d-minmus-ascent",
+  "debug_uses": 1,
+  "analysis": null
+ },
+ "a3e-minmus-ascent-2.json": {
+  "sha256_of_json": "1937fd616148397177198ed1d5442d5081542f81eaa864999da3ee5d123ab493",
+  "label": "a3e-minmus-ascent-2",
+  "debug_uses": 2,
+  "analysis": {
+   "predicted": {
+    "apoapsis_after_burn1_m": 11463,
+    "circular_m": 11463
+   },
+   "after_burn1": {
+    "apoapsis_m": 13475.82671035976,
+    "periapsis_m": -17799.858701602818,
+    "speed_mps": 167.94910432318756,
+    "mass_kg": 215.46746826171875
+   },
+   "final": {
+    "apoapsis_m": 16518.90923709738,
+    "periapsis_m": -9776.822302967455,
+    "speed_mps": 142.04090266466324,
+    "mass_kg": 212.51248168945312
+   }
+  }
+ },
+ "a3e-minmus-ascent.json": {
+  "sha256_of_json": "774cf1cc6e7aa40a6a18a4f84d44480f9302ec8232b22213da1b0f2eb09bec94",
+  "label": "a3e-minmus-ascent",
+  "debug_uses": 2,
+  "analysis": {
+   "predicted": {
+    "apoapsis_after_burn1_m": 11463,
+    "circular_m": 11463
+   },
+   "after_burn1": {
+    "apoapsis_m": 13448.162319081326,
+    "periapsis_m": -17784.572785199372,
+    "speed_mps": 167.94246127049283,
+    "mass_kg": 215.46746826171875
+   },
+   "final": {
+    "apoapsis_m": 16493.96726744117,
+    "periapsis_m": -9876.866467251843,
+    "speed_mps": 141.9983407765629,
+    "mass_kg": 212.51248168945312
+   }
+  }
+ },
+ "a3f-minmus-ascent.json": {
+  "sha256_of_json": "39919c17f8dbc8ff68fffe8b3d008d4746243cd3767b77abed97b4a7924c2e19",
+  "label": "a3f-minmus-ascent",
+  "debug_uses": 2,
+  "analysis": {
+   "predicted": {
+    "apoapsis_after_burn1_m": 11214,
+    "circular_m": 11214
+   },
+   "after_burn1": {
+    "apoapsis_m": 11632.543812541917,
+    "periapsis_m": -19343.607709931886,
+    "speed_mps": 165.1945502867212,
+    "mass_kg": 220.93499755859375
+   },
+   "final": {
+    "apoapsis_m": 12179.79685867588,
+    "periapsis_m": 11615.822881212342,
+    "speed_mps": 157.29433312173938,
+    "mass_kg": 217.5
+   }
+  }
+ },
+ "b-capture.json": {
+  "sha256_of_json": "0a17bf6f3e1d64cb42d144c62bfe004112d4998034935d28757952b994a18b2d",
+  "label": "b-capture",
+  "debug_uses": 2,
+  "analysis": {
+   "dv_rocket_equation_mps": 141.13522813142507,
+   "speed_before_mps": 326.9967076706022,
+   "apoapsis_after_m": 146424.82596649555,
+   "periapsis_after_m": 14995.926670606495,
+   "eccentricity_after": 0.46701921611790076,
+   "captured": true,
+   "predicted": "near-circular at 15 km"
+  }
+ },
+ "b-descent.json": {
+  "sha256_of_json": "596366a7c4933cf3b8bcd4bb77e703f4faf63dd156a9fca450d54be7737f8b47",
+  "label": "b-descent",
+  "debug_uses": 4,
+  "analysis": {
+   "terrain_m": 1688.6354507570795,
+   "pointing_error_deg": 0.01978234015405178,
+   "vspeed_before_mps": -202.46673716660882,
+   "vspeed_after_mps": -69.86431192580457,
+   "radar_before_m": 3677.350214228878,
+   "elapsed_s": 5.520000005140901,
+   "dv_rocket_equation_mps": 141.13522813142507,
+   "predicted_shed_mps": 132.94127650476187,
+   "measured_shed_mps": 132.60242524080425,
+   "gravity_over_elapsed_mps": 8.992169586740566
+  }
+ },
+ "b-softland-2.6.json.gz": {
+  "sha256_of_json": "d6671723ad87a8bffa8b5fdc11e3ea0e1c73ec66a0754b1a789d04b87b5ef06c",
+  "label": "b-softland-2.6",
+  "debug_uses": 1,
+  "analysis": {
+   "last_airborne_vspeed_mps": -2.8696153844901016,
+   "vspeed_at_fire_mps": -4.877386594305025,
+   "baseline_without_retro_mps": [
+    5.0,
+    5.16
+   ],
+   "fire_radar_m": 2.6
+  }
+ },
+ "b-softland.json.gz": {
+  "sha256_of_json": "dcf074a4ea7a87d2aaa57ec59111be03bfba93cf33074fff2606095655d40d35",
+  "label": "b-softland",
+  "debug_uses": 1,
+  "analysis": {
+   "last_airborne_vspeed_mps": -3.8756605788192573,
+   "vspeed_at_fire_mps": -5.234155779573856,
+   "baseline_without_retro_mps": [
+    5.0,
+    5.16
+   ]
+  }
+ },
+ "b-takeoff-IKR-SEP-B4N.json": {
+  "sha256_of_json": "08b50a2ecde0fd281ce6cf6d0e1b4bdc4acc60de5f77051cd9b4da59213237d6",
+  "label": "b-takeoff-IKR-SEP-B4N",
+  "debug_uses": 1,
+  "analysis": {
+   "craft": "IKR-SEP-B4N",
+   "liftoff": {
+    "t": 4.420000004116446,
+    "dist_m": 90.9891490993899,
+    "speed": 42.63304717761334,
+    "situation": "VesselSituation.flying",
+    "radar_m": 1.5229105715407059
+   },
+   "last": {
+    "t": 4.420000004116446,
+    "dist_m": 90.9891490993899,
+    "speed": 42.63304717761334,
+    "situation": "VesselSituation.flying",
+    "radar_m": 1.5229105715407059
+   }
+  }
+ },
+ "b-takeoff-IKR-SEP-B4R.json": {
+  "sha256_of_json": "00f5787b99264168dadf0a59368cda72a0c1fd09c267d6c32495ae7aef4e70de",
+  "label": "b-takeoff-IKR-SEP-B4R",
+  "debug_uses": 1,
+  "analysis": {
+   "craft": "IKR-SEP-B4R",
+   "liftoff": {
+    "t": 3.6000000033527613,
+    "dist_m": 83.47866281977957,
+    "speed": 47.04337026472771,
+    "situation": "VesselSituation.flying",
+    "radar_m": 1.5228495307965204
+   },
+   "last": {
+    "t": 3.6000000033527613,
+    "dist_m": 83.47866281977957,
+    "speed": 47.04337026472771,
+    "situation": "VesselSituation.flying",
+    "radar_m": 1.5228495307965204
+   }
+  }
+ },
+ "diag-orientation.json": {
+  "sha256_of_json": "4a78a8d798fb2b085d2e675a8972db0acd5fdfbb65a09c4ea1193fbd8664c659",
+  "label": "diag-orientation",
+  "debug_uses": 0,
+  "analysis": null
+ },
+ "diag-overlap.json": {
+  "sha256_of_json": "15ee4773ff0ad187b42e1e75f01e0bb6570f8880be4e350e63531678e3cf0003",
+  "label": "diag-overlap",
+  "debug_uses": 0,
+  "analysis": null
+ },
+ "setup.json": {
+  "sha256_of_json": "54595034b7acc4009e0bd044cad810f35a2fb8d297cab07ceed438d1ebdd806b",
+  "label": null,
+  "debug_uses": 1,
+  "analysis": null
+ }
+}

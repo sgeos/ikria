@@ -34,15 +34,11 @@ this handoff on 2026-11-18 and found it valid.
   to a velocity-frame defect. I-0002 records a touchdown bounce that stopped software
   after intact landing. Both were corrected.
 
-## Receiving Claude line
+## Worktrees
 
-Start in the synchronized main checkout with the `CLAUDE.md` startup protocol.
-The paired bridge checkout is `~/projects/keleusma/ikria-bridge`. Confirm main includes
-`docs/codex-claude-handoff` here and `docs/codex-claude-bridge-handoff` there.
-
-The flight worktree `tmp/worktrees/feat-codex-flight-control` remains under the main
-checkout, with raw logs and rehearsal tooling. Preserve it. Other worktrees also remain.
-The sibling `ikria` symlink supplies bridge records. Its workflow pins `504d4c4`.
+Preserve `tmp/worktrees/feat-codex-flight-control`, which holds Codex's raw logs and
+rehearsal tooling. The bridge's sibling `ikria` symlink supplies its records, and its
+workflow pins `504d4c4`.
 
 ## Operator scope and last observed game state
 
@@ -51,9 +47,10 @@ authorized rehearsals in "Ikria Physical Verification", including debug features
 while keeping designs
 within actual starting career limits. No debug setter was used in the recorded series.
 
-On 2026-11-17 the career still had only the start node, zero science and 10,000 funds.
-Its file hash matched before and after. The game was left at the verification Space
-Center with Jebediah available. This task did not query the game. Recheck before use.
+On 2026-11-17 the career had only the start node, zero science and 10,000 funds, and
+was not loaded since. On 2026-11-18 the Sepratron program unlocked the verification
+save's whole tree. Its checkpoints are "ipv-before-sepratron-program" and
+"ipv-after-sepratron-program". Jebediah is Missing there, I-0007. Recheck before use.
 
 The empty starting capsule has no control source or link. The flights used part-level
 verification instrumentation and passive fins. Continuous controls were zero, so
@@ -74,7 +71,10 @@ active attitude actuation is not qualified. No career mission is cleared.
    phase modules and in-flight replacement, calibrated timing admission and the
    mission controller remain unimplemented. JavaScript Object Notation timing and
    atomic bridge batching remain measurement and optimization work.
-4. T14 remains paused after step 4 of TP-0001, until a vessel meets a Green Monolith.
+4. T18, the Sepratron program, is done. Its design rules are in
+   `docs/research/SEPRATRON_PROGRAM.md`. The ejectable cockpit and hybrid ascent are
+   designs, not yet flown. Whether to restore Jebediah is the operator's decision.
+5. T14 remains paused after step 4 of TP-0001, until a vessel meets a Green Monolith.
    The earlier kRPC load hang is unresolved. Training is in `CREW_TRAINING.md`, C13
    sites in `record/sites/`, and body hazards in `HAZARDS.md`.
 

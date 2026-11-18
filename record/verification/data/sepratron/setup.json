@@ -1,0 +1,18 @@
+{
+ "loaded_save": "Ikria Physical Verification",
+ "debug_uses": [
+  {
+   "call": "Debug.unlock_technology_tree",
+   "ut": 279716.942924971
+  }
+ ],
+ "before": {
+  "node_count": 11,
+  "purchased_part_entries": 22
+ },
+ "after": {
+  "node_count": 64,
+  "purchased_part_entries": 0,
+  "precisionPropulsion": true
+ }
+}

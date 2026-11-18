@@ -1,0 +1,84 @@
+{
+ "label": "b-descent",
+ "save": "Ikria Physical Verification",
+ "debug_uses": [
+  {
+   "call": "Debug.set_flight",
+   "ut": 283681.56230222393,
+   "body": "Mun",
+   "altitude_m": 5688.6354507570795,
+   "speed_mps": 200.0,
+   "pitch_deg": -90.0
+  },
+  {
+   "call": "Debug.set_pitch_heading_roll",
+   "ut": 283682.10230222443,
+   "purpose": "upright for braking"
+  },
+  {
+   "call": "Debug.set_landed",
+   "ut": 283719.60230225936,
+   "purpose": "safety net"
+  },
+  {
+   "call": "Debug.set_landed",
+   "ut": 283721.86230226146,
+   "purpose": "cleanup"
+  }
+ ],
+ "events": [
+  {
+   "ut": 283679.10230222164,
+   "event": "launched",
+   "craft": "IKR-SEP-A3C",
+   "parts": 12,
+   "mass_kg": 1345.0
+  },
+  {
+   "ut": 283683.18230222544,
+   "event": "fired",
+   "parts": [
+    "sepMotor1",
+    "sepMotor1"
+   ],
+   "count": 2
+  },
+  {
+   "ut": 283688.66230223054,
+   "event": "analysis",
+   "terrain_m": 1688.6354507570795,
+   "pointing_error_deg": 0.01978234015405178,
+   "vspeed_before_mps": -202.46673716660882,
+   "vspeed_after_mps": -69.86431192580457,
+   "radar_before_m": 3677.350214228878,
+   "elapsed_s": 5.520000005140901,
+   "dv_rocket_equation_mps": 141.13522813142507,
+   "predicted_shed_mps": 132.94127650476187,
+   "measured_shed_mps": 132.60242524080425,
+   "gravity_over_elapsed_mps": 8.992169586740566
+  },
+  {
+   "ut": 283717.3623022573,
+   "event": "safety_net",
+   "radar_m": 299.733295475482,
+   "vspeed": -115.03193942559156
+  },
+  {
+   "ut": 283725.8823022652,
+   "event": "recovered"
+  }
+ ],
+ "samples": {},
+ "analysis": {
+  "terrain_m": 1688.6354507570795,
+  "pointing_error_deg": 0.01978234015405178,
+  "vspeed_before_mps": -202.46673716660882,
+  "vspeed_after_mps": -69.86431192580457,
+  "radar_before_m": 3677.350214228878,
+  "elapsed_s": 5.520000005140901,
+  "dv_rocket_equation_mps": 141.13522813142507,
+  "predicted_shed_mps": 132.94127650476187,
+  "measured_shed_mps": 132.60242524080425,
+  "gravity_over_elapsed_mps": 8.992169586740566
+ }
+}

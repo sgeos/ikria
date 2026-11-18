@@ -1,0 +1,77 @@
+{
+ "label": "b-capture",
+ "save": "Ikria Physical Verification",
+ "debug_uses": [
+  {
+   "call": "Debug.set_orbit",
+   "ut": 283452.02230201015,
+   "body": "Minmus",
+   "sma_m": -29508.19750701639,
+   "eccentricity": 3.541666598990558,
+   "periapsis_alt_m": 15000.0,
+   "v_inf_mps": 244.6242001485832
+  },
+  {
+   "call": "Debug.set_landed",
+   "ut": 283544.7423020965,
+   "purpose": "cleanup"
+  }
+ ],
+ "events": [
+  {
+   "ut": 283449.56230200786,
+   "event": "launched",
+   "craft": "IKR-SEP-A3C",
+   "parts": 12,
+   "mass_kg": 1345.0
+  },
+  {
+   "ut": 283455.04230201297,
+   "event": "placed",
+   "periapsis_m": 14999.999408802789,
+   "eccentricity": 3.5416666855204078,
+   "time_to_periapsis_s": 84.55999117741463,
+   "mass_kg": 1345.0
+  },
+  {
+   "ut": 283463.28230202064,
+   "event": "pointing",
+   "error_deg": 0.5322902798652649,
+   "time_to_periapsis_s": 76.27998065005522
+  },
+  {
+   "ut": 283537.1023020894,
+   "event": "fired",
+   "parts": [
+    "sepMotor1",
+    "sepMotor1"
+   ],
+   "count": 2
+  },
+  {
+   "ut": 283542.4623020944,
+   "event": "analysis",
+   "dv_rocket_equation_mps": 141.13522813142507,
+   "speed_before_mps": 326.9967076706022,
+   "apoapsis_after_m": 146424.82596649555,
+   "periapsis_after_m": 14995.926670606495,
+   "eccentricity_after": 0.46701921611790076,
+   "captured": true,
+   "predicted": "near-circular at 15 km"
+  },
+  {
+   "ut": 283548.66230210016,
+   "event": "recovered"
+  }
+ ],
+ "samples": {},
+ "analysis": {
+  "dv_rocket_equation_mps": 141.13522813142507,
+  "speed_before_mps": 326.9967076706022,
+  "apoapsis_after_m": 146424.82596649555,
+  "periapsis_after_m": 14995.926670606495,
+  "eccentricity_after": 0.46701921611790076,
+  "captured": true,
+  "predicted": "near-circular at 15 km"
+ }
+}
