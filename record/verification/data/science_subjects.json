@@ -93,8 +93,8 @@
  "ksc_normal": 2065,
  "ksc_hard": 1239,
  "surface_feature_subjects": 34,
- "surface_feature_hard_if_unscaled": 900,
+ "surface_feature_hard_if_unscaled": 909,
  "total_subjects": 3104,
- "total_hard": 217818,
+ "total_hard": 217827,
  "total_normal_without_features": 361529
 }

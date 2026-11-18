@@ -34,7 +34,9 @@ MULT = {
     "Eeloo": (15, None, None, None, 12, 10),
 }
 KSC_BIOMES = 37
-ROC_CAPS_TOTAL = 30 * 12 + 45 * 12 + 60 * 10  # the game's 34 surface feature definitions
+# The game's 34 surface feature definitions, 12 at a cap of 30 and 11 each at 45 and 60, in
+# Breaking Ground's ScienceDefs.cfg. Corrected on 2026-11-18 from a 12, 12 and 10 split.
+ROC_CAPS_TOTAL = 30 * 12 + 45 * 11 + 60 * 11
 
 inv = {b["name"]: b for b in json.load(open("tmp/inventory.json"))}
 subjects, value, per_body = 0, 0.0, {}

@@ -65,13 +65,10 @@ following.
 
 **Fact.** Breaking Ground's `ScienceDefs.cfg`, read on 2026-11-18, defines 34 surface
 features with caps of 30 for twelve, 45 for eleven and 60 for eleven, which is 1,515.
-The script's `ROC_CAPS_TOTAL` is `30 * 12 + 45 * 12 + 60 * 10`, which is 1,500. VR-0005
-states the rule as "their own caps times 0.6", so the enumeration follows the rule and
-the file, and the record's figure is short by 15 base points, which is 9 on Hard. The
-VR-0005 deviation says that a wrong split was corrected, so this may be a second error
-or an incomplete correction. The record itself is left unchanged here. Whether to
-correct VR-0005 and its data is a decision for the coordinating line. The test pins the
-difference as `SURFACE_FEATURE_ERRATUM_HARD`, so a correction on either side fails it.
+The Phase 0 script's `ROC_CAPS_TOTAL` was `30 * 12 + 45 * 12 + 60 * 10`, which is 1,500,
+where the game defines 12 features at 30 and 11 each at 45 and 60, which is 1,515. The
+enumeration found the difference of 9 on Hard. VR-0005, the script and its data were
+corrected on 2026-11-18, and the tests now require exact agreement.
 
 ## Identifiers
 

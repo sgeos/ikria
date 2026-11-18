@@ -15,12 +15,6 @@ const RECORD: &str = include_str!("../../../record/verification/data/science_sub
 const INVENTORY: &str = include_str!("../../../record/verification/data/inventory.json");
 const SCRIPT: &str = include_str!("../../../tools/phase0/science_subjects.py");
 
-/// The difference, in Hard points, between the enumeration's surface features and the
-/// script's. The script splits the 34 features as 12, 12 and 10 at caps of 30, 45 and 60,
-/// and the game's file as 12, 11 and 11, so the script is short by 15 base points, which is
-/// 9 on Hard.
-const SURFACE_FEATURE_ERRATUM_HARD: u64 = 9;
-
 fn enumeration() -> Enumeration {
     Enumeration::phase0().expect("the tables hold no defect")
 }
@@ -105,7 +99,7 @@ fn body_and_location_totals_match_the_record_exactly() {
 }
 
 #[test]
-fn the_acceptance_totals_match_apart_from_the_surface_feature_erratum() {
+fn the_acceptance_totals_match_the_corrected_phase0_record() {
     let e = enumeration();
     let record = record();
     // The subject count matches exactly, 3,104.
@@ -117,10 +111,7 @@ fn the_acceptance_totals_match_apart_from_the_surface_feature_erratum() {
         uint(&record, "surface_feature_subjects")
     );
     let recorded_features = uint(&record, "surface_feature_hard_if_unscaled");
-    assert_eq!(
-        features.hard.round_to_points(),
-        recorded_features + SURFACE_FEATURE_ERRATUM_HARD
-    );
+    assert_eq!(features.hard.round_to_points(), recorded_features);
 
     // The total is the sum of the three rounded parts, as the script forms it.
     let parts = [
@@ -130,15 +121,8 @@ fn the_acceptance_totals_match_apart_from_the_surface_feature_erratum() {
     ]
     .map(|k| e.totals_where(|s| s.kind() == k).hard.round_to_points());
     let total: u64 = parts.iter().sum();
-    assert_eq!(
-        total,
-        uint(&record, "total_hard") + SURFACE_FEATURE_ERRATUM_HARD
-    );
-    // Without the erratum, the record's total of 217,818 is reproduced.
-    assert_eq!(
-        total - SURFACE_FEATURE_ERRATUM_HARD,
-        uint(&record, "total_hard")
-    );
+    // The record's Hard total, corrected on 2026-11-18 to 217,827, is reproduced.
+    assert_eq!(total, uint(&record, "total_hard"));
 }
 
 #[test]
@@ -363,7 +347,7 @@ fn constants_agree_with_the_script() {
 }
 
 #[test]
-fn surface_features_differ_from_the_script_only_in_its_split() {
+fn surface_features_agree_with_the_script() {
     // The script's expression is a sum of cap times count terms.
     let expression = script_constant("ROC_CAPS_TOTAL");
     let mut script_count = 0_u64;
@@ -377,12 +361,7 @@ fn surface_features_differ_from_the_script_only_in_its_split() {
     }
     let caps: u64 = SURFACE_FEATURES.iter().map(|f| u64::from(f.cap)).sum();
     assert_eq!(script_count, len_u64(SURFACE_FEATURES.len()));
-    assert_eq!((script_caps, caps), (1500, 1515));
-    // 15 base points at 0.6 is the erratum on Hard.
-    assert_eq!(
-        (caps - script_caps) * u64::from(HARD_TENTHS) / 10,
-        SURFACE_FEATURE_ERRATUM_HARD
-    );
+    assert_eq!(script_caps, caps);
 }
 
 #[test]
