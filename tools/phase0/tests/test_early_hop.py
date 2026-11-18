@@ -33,6 +33,9 @@ setup = load('setup_early_hop')
 launch_site = load('launch_site')
 
 SAVE = 'Ikria Physical Verification'
+PAD = (launch_site.PAD_LATITUDE_DEG, launch_site.PAD_LONGITUDE_DEG)
+RUNWAY = (sum(launch_site.RUNWAY_LATITUDE_DEG) / 2, sum(launch_site.RUNWAY_LONGITUDE_DEG) / 2)
+ELSEWHERE = (5.0, -60.0)
 CRAFT = 'IKR-TS-001B'
 FUEL, THRUST_PERCENT = prepare.REVISIONS['B']
 
@@ -165,6 +168,7 @@ class World:
     def __init__(self, directory):
         self.actions = []
         self.on_sleep = None
+        self.save_text = None
         self.stop_at_ignition = True
         self.loaded = SAVE
         self.directory = pathlib.Path(directory)
@@ -176,7 +180,7 @@ class World:
             ParachuteState=enum(stowed='stowed', deployed='deployed'),
             ParachuteSafeState=enum(safe='safe', unsafe='unsafe'),
             ut=100.0, funds=0.0, science=0.0, vessels=[],
-            save=lambda name: self.act('save ' + name),
+            save=self.save,
             launch_vessel=self.launch,
             get_kerbal=lambda name: types.SimpleNamespace(roster_status='available'))
         self.vessel = self.article()
@@ -184,13 +188,26 @@ class World:
         self.sc.vessels.append(self.vessel)
         self.conn = types.SimpleNamespace(
             space_center=self.sc, close=lambda: self.act('close'),
-            krpc=types.SimpleNamespace(game_scene='flight'),
+            krpc=types.SimpleNamespace(game_scene='flight', GameScene=enum(
+                flight='flight', space_center='space_center')),
             debug=types.SimpleNamespace(infinite_electricity=False, infinite_propellant=False,
                                         no_crash_damage=False, unbreakable_joints=False,
                                         ignore_max_temperature=False))
         craft = self.directory / SAVE / 'Ships' / 'VAB' / (CRAFT + '.craft')
         craft.parent.mkdir(parents=True)
         craft.write_text('ship = ' + CRAFT + '\n')
+
+    def save(self, name):
+        """Record a save. A launch-site check's temporary save is written from
+        `save_text`, with a metadata file beside it, as the game writes both."""
+        self.act('save ' + name)
+        if name.startswith('ikria-site-') and self.save_text is not None:
+            folder = self.directory / SAVE
+            (folder / (name + '.sfs')).write_text(self.save_text)
+            (folder / (name + '.loadmeta')).write_text('meta\n')
+
+    def temporary_saves(self):
+        return sorted(p.name for p in (self.directory / SAVE).glob('ikria-site-*'))
 
     def act(self, what):
         self.actions.append(what)
@@ -200,7 +217,7 @@ class World:
         raise Stop('launch')
 
     def article(self, name=CRAFT, crew=(), situation='pre_launch', body='Kerbin',
-                recoverable=True):
+                recoverable=True, position=None):
         parts = [types.SimpleNamespace(name=n) for n, count in prepare.PARTS.items()
                  for _ in range(count)]
         vessel = types.SimpleNamespace(
@@ -210,7 +227,11 @@ class World:
             comms=types.SimpleNamespace(can_communicate=False),
             resources=types.SimpleNamespace(amount=lambda resource: float(FUEL)),
             orbit=types.SimpleNamespace(body=types.SimpleNamespace(
-                name=body, reference_frame='body')))
+                name=body, reference_frame='body',
+                latitude_at_position=lambda at, frame: at[0],
+                longitude_at_position=lambda at, frame: at[1])))
+        located = position or PAD
+        vessel.position = lambda frame: located
         vessel.crew = [types.SimpleNamespace(name=c, eva=self.eva) for c in crew]
         vessel.parts = types.SimpleNamespace(
             engines=[Engine(self)], all=parts,
@@ -432,6 +453,53 @@ class SetupGuardTests(LiveGuardCase):
         self.assertIsInstance(world.run(setup, 'place'), Stop)
         self.assertEqual(world.actions, ['launch', 'close'])
 
+    def test_crew_elsewhere_on_kerbin_is_neither_recovered_nor_blocking(self):
+        world = self.world()
+        world.sc.vessels.clear()
+        world.sc.vessels.append(world.article(name='camp', crew=['Bob Kerman'],
+                                              situation='landed', recoverable=False,
+                                              position=ELSEWHERE))
+        self.assertIsInstance(world.run(setup, 'place'), Stop)
+        self.assertEqual(world.actions, ['launch', 'close'])
+
+    def test_crew_on_the_runway_is_recovered_before_launch(self):
+        world = self.world()
+        world.sc.vessels.clear()
+        plane = world.article(name='plane', crew=['Val Kerman'], position=RUNWAY)
+        world.sc.vessels.append(plane)
+        self.assertIsInstance(world.run(setup, 'place'), Stop)
+        self.assertEqual(world.actions, ['recover plane', 'launch', 'close'])
+
+    def space_centre_world(self, text):
+        world = self.world()
+        world.conn.krpc.game_scene = 'space_center'
+        # kRPC 0.7.0 refuses to list vessels outside the flight scene.
+        world.sc.vessels = Unlisted()
+        world.save_text = text
+        return world
+
+    def test_space_centre_launch_reads_a_temporary_save(self):
+        cases = {
+            'empty pad': (sfs(), True),
+            'crew elsewhere on Kerbin': (sfs(('camp', 'LANDED', 1, ELSEWHERE, True)), True),
+            'crew on the Mun at pad coordinates': (sfs(('lander', 'LANDED', 2, PAD, True)), True),
+            'uncrewed article on the pad': (sfs(('probe', 'PRELAUNCH', 1, PAD, False)), True),
+            'crew on the pad': (sfs(('pod', 'PRELAUNCH', 1, PAD, True)), False),
+            'crew on the runway': (sfs(('plane', 'LANDED', 1, RUNWAY, True)), False),
+            'malformed save': ('GAME\n{\n', False),
+            'save never written': (None, False),
+        }
+        for label, (text, launches) in cases.items():
+            with self.subTest(label):
+                world = self.space_centre_world(text)
+                if launches:
+                    self.assertIsInstance(world.run(setup, 'place'), Stop)
+                    self.assertIn('launch', world.actions)
+                else:
+                    self.assertRefused(world, setup, 'place', ['launch'])
+                self.assertFalse(any(a.startswith('recover') for a in world.actions))
+                self.assertEqual(world.temporary_saves(), [])
+
     def crewed_pad_world(self):
         world = self.world()
         world.vessel.crew = world.article(crew=['Jebediah Kerman']).crew
@@ -477,16 +545,85 @@ class SetupGuardTests(LiveGuardCase):
                 self.assertRefused(world, setup, 'recover', ['recover ' + CRAFT])
 
 
+class Unlisted:
+    """The vessel list outside the flight scene, which kRPC 0.7.0 refuses."""
+
+    def __iter__(self):
+        raise RuntimeError("Procedure not available in game scene 'SpaceCenter'")
+
+
+def sfs(*vessels):
+    """A minimal save file. Each vessel is (name, sit, orbit REF, (lat, lon), crewed)."""
+    lines = ['GAME', '{', '\tFLIGHTSTATE', '\t{', '\t\tversion = 1.12.5']
+    for name, sit, ref, (lat, lon), crewed in vessels:
+        lines += ['\t\tVESSEL', '\t\t{', f'\t\t\tname = {name}', f'\t\t\tsit = {sit}',
+                  f'\t\t\tlat = {lat!r}', f'\t\t\tlon = {lon!r}', '\t\t\tORBIT', '\t\t\t{',
+                  f'\t\t\t\tREF = {ref}', '\t\t\t}', '\t\t\tPART', '\t\t\t{',
+                  '\t\t\t\tname = mk1pod.v2']
+        if crewed:
+            lines.append('\t\t\t\tcrew = Jebediah Kerman')
+        lines += ['\t\t\t}', '\t\t}']
+    lines += ['\t}', '}']
+    return '\n'.join(lines) + '\n'
+
+
 class LaunchSiteTests(unittest.TestCase):
-    def test_recovery_records_each_crew(self):
+    def offset(self, metres):
+        """Latitude in degrees `metres` south of the pad centre, away from the runway."""
+        return launch_site.PAD_LATITUDE_DEG - math.degrees(metres / launch_site.KERBIN_RADIUS_M)
+
+    def test_pad_area_is_a_circle_of_the_named_radius(self):
+        radius = launch_site.PAD_RADIUS_M
+        self.assertTrue(launch_site.near_launch_site(*PAD))
+        self.assertTrue(launch_site.near_launch_site(self.offset(radius * 0.99), PAD[1]))
+        self.assertFalse(launch_site.near_launch_site(self.offset(radius * 1.01), PAD[1]))
+
+    def test_runway_area_is_the_named_rectangle(self):
+        (south, north), (west, east) = (launch_site.RUNWAY_LATITUDE_DEG,
+                                        launch_site.RUNWAY_LONGITUDE_DEG)
+        for corner in ((south, west), (south, east), (north, west), (north, east)):
+            self.assertTrue(launch_site.near_launch_site(*corner))
+        margin = 0.001
+        for outside in ((north + margin, west), (south, west - margin), (south, east + margin)):
+            self.assertFalse(launch_site.near_launch_site(*outside))
+        self.assertFalse(launch_site.near_launch_site(*ELSEWHERE))
+        with self.assertRaises(launch_site.LaunchSiteError):
+            launch_site.near_launch_site(math.nan, 0.0)
+
+    def test_save_text_selects_only_crew_down_on_kerbin_in_an_area(self):
+        text = sfs(('pod', 'PRELAUNCH', 1, PAD, True), ('plane', 'LANDED', 1, RUNWAY, True),
+                   ('flying', 'FLYING', 1, PAD, True), ('camp', 'LANDED', 1, ELSEWHERE, True),
+                   ('lander', 'LANDED', 2, PAD, True), ('probe', 'PRELAUNCH', 1, PAD, False))
+        found = launch_site.crewed_in_save_text(text)
+        self.assertEqual(found, [('pod', ['Jebediah Kerman']), ('plane', ['Jebediah Kerman'])])
+
+    def test_unreadable_save_text_is_refused(self):
+        crewed = sfs(('pod', 'PRELAUNCH', 1, PAD, True))
+        # A save cut off after a complete vessel could hide a later one on the pad.
+        truncated = sfs(('camp', 'LANDED', 1, ELSEWHERE, True))[:-len('\t}\n}\n')]
+        for text in ('}\n', 'GAME\n{\n', 'GAME\nFLIGHTSTATE\n{\n}\n', 'GAME\n{\n}\n', truncated,
+                     crewed.replace('lat = ', 'latitude = '),
+                     crewed.replace('\t\t\tORBIT\n', '\t\t\tNOTORBIT\n')):
+            with self.assertRaises(launch_site.LaunchSiteError):
+                launch_site.crewed_in_save_text(text)
+
+    def test_space_centre_without_a_saves_directory_is_refused(self):
         directory = tempfile.TemporaryDirectory()
         self.addCleanup(directory.cleanup)
         world = World(directory.name)
-        world.vessel.crew = [types.SimpleNamespace(name='Jebediah Kerman')]
-        recorded = []
-        launch_site.clear_crewed_launch_site(world.sc, recorded.append, sleep=lambda _: None)
-        self.assertEqual(recorded, [['Jebediah Kerman']])
-        self.assertEqual(launch_site.crewed_at_launch_sites(world.sc), [])
+        world.conn.krpc.game_scene = 'space_center'
+        with self.assertRaises(launch_site.LaunchSiteError):
+            launch_site.clear_crewed_launch_site(world.conn, None, print, sleep=lambda _: None)
+        self.assertEqual(world.actions, [])
+
+    def test_unreadable_scene_is_refused(self):
+        directory = tempfile.TemporaryDirectory()
+        self.addCleanup(directory.cleanup)
+        world = World(directory.name)
+        world.conn.krpc = types.SimpleNamespace()
+        with self.assertRaises(launch_site.LaunchSiteError):
+            launch_site.clear_crewed_launch_site(world.conn, directory.name, print,
+                                                 sleep=lambda _: None)
 
 
 if __name__ == '__main__':

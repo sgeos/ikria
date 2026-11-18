@@ -263,11 +263,13 @@ be fixed before further flights is met in code only, pending review.
 | Tests that pin derived constants | Open | Not addressed. | None |
 
 The mutation study for item 5 deleted each guard in a scratch copy of `tools/phase0`
-outside the repository and ran the suite. The rewritten suite caught all 29 deletions,
-covering 13 guards and 3 landing checks in `early_hop.py`, 9 guards in
-`setup_early_hop.py` and 4 in `launch_site.py`. The previous suite, run the same way
-against the previous scripts, caught 1 of the 21 deletions that applied to them, the
-save guard of placement.
+outside the repository and ran the suite. The rewritten suite caught 41 of 42
+deletions, covering 13 guards and 3 landing checks in `early_hop.py`, 9 guards in
+`setup_early_hop.py` and 17 in `launch_site.py`. The survivor removes the check that
+the temporary save appeared exactly once. It is equivalent, because an absent save
+then raises an index error that the module also refuses. The previous suite, run the
+same way against the previous scripts, caught 1 of the 21 deletions that applied to
+them, the save guard of placement.
 
 The following remain open or unverified.
 
@@ -279,8 +281,12 @@ The following remain open or unverified.
   with its own latch would add defence in depth there. No protocol change is needed.
 - Bytes that are not JSON, or that exceed the frame bound, are refused without a
   journal record of their content.
-- Rule R20 is applied in `tools/phase0`. The new helper `tools/phase0/launch_site.py`
-  fails closed on an unreadable vessel and in every scene, whereas
-  `tools/sepratron/flightlib.py` skips unreadable vessels and checks only in the flight
-  scene. The Sepratron helper is unchanged, because its scripts could not be rerun
-  offline. Whether the game lists vessels outside the flight scene is unverified.
+- Rule R20 is applied through `tools/phase0/launch_site.py`, which every launching
+  script in `tools/phase0` and `tools/sepratron/flightlib.py` now uses. It considers
+  only crewed vessels before launch or landed on Kerbin within 300 metres of the pad
+  or inside the runway rectangle. In the flight scene it recovers them. In any other
+  scene, where kRPC 0.7.0 refuses to list vessels, it reads a temporary save, which it
+  always deletes, and refuses the launch if one is found. The launch areas come from
+  the game's waypoints and measured positions, and the save-file reading is tested only
+  against a small fixture, not a save written by the game. The phase 0 sandbox probes
+  take no saves directory, so outside the flight scene they refuse to launch.

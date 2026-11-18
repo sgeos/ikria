@@ -50,7 +50,7 @@ verification instrumentation. No debug-service setter is used. See
 |---|---|
 | `prepare_early_hop.py` | Generate local revision A or B from `IkriaT0`, checking the purchased part inventory |
 | `setup_early_hop.py` | Place a crewed article on the pad, remove and recover its crew, or recover the landed empty article |
-| `launch_site.py` | Recover crewed vessels at the launch sites before any launch, failing closed, as rule R20 requires |
+| `launch_site.py` | Before any launch, recover crewed vessels at the pad or runway, or refuse outside the flight scene, failing closed, as rule R20 requires |
 | `early_hop.py` | Fly the empty article with a bounded Python probe, recording a landing only after a settle period |
 | `summarize_early_hops.py` | Generate the comparison table from completed flight logs |
 

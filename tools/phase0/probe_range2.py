@@ -43,7 +43,9 @@ conn = krpc.connect(name="ikria-probe-range2", address="127.0.0.1")
 k, sc = conn.krpc, conn.space_center
 assert sc.game_mode == sc.GameMode.sandbox, "refusing to run outside the sandbox"
 # Rule R20. Recover crewed vessels at the launch site explicitly before any launch.
-clear_crewed_launch_site(sc, lambda crew: print("recovered before launch:", crew, flush=True))
+# Sandbox probes take no saves directory, so outside the flight scene this refuses.
+clear_crewed_launch_site(conn, None,
+                         lambda crew: print("recovered before launch:", crew, flush=True))
 sc.launch_vessel(craft_directory="VAB", name=CRAFT, launch_site="LaunchPad", recover=True)
 assert wait_for(lambda: k.game_scene == k.GameScene.flight and sc.active_vessel is not None, 120)
 time.sleep(5)

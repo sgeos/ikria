@@ -19,6 +19,7 @@ import krpc
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "phase0"))
 from guard import loaded_save  # noqa: E402
+from launch_site import clear_crewed_launch_site as clear_site  # noqa: E402
 
 SAVE = "Ikria Physical Verification"
 G0 = 9.80665
@@ -28,6 +29,7 @@ OUT = pathlib.Path("tmp/sepratron")
 class Run:
     def __init__(self, label, saves_dir):
         self.label = label
+        self.saves_dir = saves_dir
         self.conn = krpc.connect(name=f"ikria-sep-{label}", address="127.0.0.1")
         self.sc = self.conn.space_center
         save = loaded_save(self.conn, saves_dir)
@@ -46,25 +48,14 @@ class Run:
         print(json.dumps(entry), flush=True)
 
     def clear_crewed_launch_site(self):
-        """Recover every crewed vessel standing at a launch site, explicitly, and confirm
-        each kerbal is back on the roster, before any launch. In TP-0002 a pod left on
-        the pad with Jebediah aboard was removed by the next launch_vessel(recover=True),
-        and he was marked Missing. Launch never relies on that flag for crewed vessels."""
-        k = self.conn.krpc
-        if k.game_scene != k.GameScene.flight:
-            return
-        for v in list(self.sc.vessels):
-            try:
-                crew = [c.name for c in v.crew]
-                situation = str(v.situation)
-            except Exception:
-                continue
-            if crew and situation in ("VesselSituation.pre_launch", "VesselSituation.landed"):
-                if not v.recoverable:
-                    raise SystemExit(f"refusing to launch: {crew} aboard an unrecoverable vessel")
-                v.recover()
-                time.sleep(3)
-                self.event("crewed_vessel_recovered_before_launch", crew=crew)
+        """Recover every crewed vessel in a launch area explicitly before any launch, or
+        refuse, through the shared module `tools/phase0/launch_site.py`. In TP-0002 a pod
+        left on the pad with Jebediah aboard was removed by the next
+        launch_vessel(recover=True), and he was marked Missing. Launch never relies on
+        that flag for crewed vessels. Outside the flight scene the module reads a
+        temporary save from the saves directory given to the constructor."""
+        clear_site(self.conn, self.saves_dir,
+                   lambda crew: self.event("crewed_vessel_recovered_before_launch", crew=crew))
 
     def launch(self, craft, site="LaunchPad", timeout=90.0, directory="VAB"):
         self.clear_crewed_launch_site()

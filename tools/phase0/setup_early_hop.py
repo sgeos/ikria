@@ -59,7 +59,7 @@ def main():
             # and any doubt refuses the launch. An uncrewed craft on the pad still
             # makes the launch fail, because recover=False never clears it.
             log['crew_recovered_before_launch'] = []
-            clear_crewed_launch_site(sc, log['crew_recovered_before_launch'].append)
+            clear_crewed_launch_site(conn, args.saves, log['crew_recovered_before_launch'].append)
             write_log()
             sc.launch_vessel('VAB', args.craft, 'LaunchPad',
                              crew=['Jebediah Kerman'], recover=False)

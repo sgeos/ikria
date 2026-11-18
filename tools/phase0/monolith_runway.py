@@ -42,7 +42,8 @@ assert save == SAVE, f"refusing to run in {save!r}"
 assert sc.game_mode == sc.GameMode.career
 
 # Rule R20. Recover crewed vessels at the launch site explicitly before any launch.
-clear_crewed_launch_site(sc, lambda crew: print("recovered before launch:", crew, flush=True))
+clear_crewed_launch_site(conn, sys.argv[1],
+                         lambda crew: print("recovered before launch:", crew, flush=True))
 sc.launch_vessel(craft_directory="SPH", name="IkriaKN", launch_site="Runway", recover=True)
 assert wait_for(lambda: k.game_scene == k.GameScene.flight
                 and str(sc.active_vessel.situation) == "VesselSituation.pre_launch", 120)
