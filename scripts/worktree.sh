@@ -30,7 +30,8 @@
 # refuses to delete a branch that is not merged, because both use git's own safety
 # checks rather than forcing. A new tree has the tracked tmp/ marker, and `new` copies
 # secret/, which is never in git, from the main checkout when it exists there. A later
-# change to the main checkout's secret/ is not copied again. Inside a sandbox that
+# change to the main checkout's secret/ is not copied again, so a line that relies on a
+# changed file refreshes its copy by hand. Inside a sandbox that
 # protects .git/config, `rm` may warn that it could not lock the configuration while
 # deleting the branch. The warning is harmless.
 
@@ -85,7 +86,8 @@ case "$command" in
             (cd "$path" && scripts/scratch.sh link) >&2
         fi
         # secret/ is never in git, so a new tree lacks the session-start reading and the
-        # gate's terms list. Copy it, keeping its private modes. It stays ignored there.
+        # gate's terms list. Copy it, keeping its private modes. It stays ignored there,
+        # and `rm` removes it with the tree.
         if [[ -d "$main_root/secret" ]]; then
             cp -Rp "$main_root/secret" "$path/secret"
             printf 'worktree.sh: copied secret/ from the main checkout\n' >&2
