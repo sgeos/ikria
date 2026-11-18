@@ -83,9 +83,10 @@ active attitude actuation is not qualified. No career mission is cleared.
 
 - **Template divergence.** `scripts/worktree.sh`, `scripts/check.sh` and
   `scripts/scan_binary_terms.py` diverge from the template, and a sync could undo them.
-  Template feedback goes to the admin line, as the operator ruled on 2026-11-18. Its
-  reply that day accepted seven items for one template pull request, which the operator
-  merges, and deferred two pending tests. Until then a sync leaves Ikria's versions.
+  Items 1 to 8 of the feedback to the admin line are upstream as template commit
+  `8a79622`, pull request 18, merged 2026-11-18, and item 9 is deferred. A sync may adopt
+  them after a comparison. Wording that differs from Ikria's rules needs the operator's
+  confirmation, under `CLAUDE.md`.
 - Main remains protected and requires a pull request with a green `CI result`.
 - Cite and consider Massachusetts Institute of Technology Lincoln Laboratory's KSPDG,
   which uses kRPC and PhysicsRangeExtender for pursuit-evasion games.
