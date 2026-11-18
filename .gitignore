@@ -48,3 +48,6 @@ nvim.log
 # Rust build output. No trailing slash, so a link to a scratch volume still matches.
 /target
 **/target
+# Python's compiled files are build output and are never committed.
+__pycache__/
+*.py[cod]

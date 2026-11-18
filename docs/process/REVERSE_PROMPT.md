@@ -2,70 +2,53 @@
 
 > **Navigation**: [Process](README.md)
 
-Written by Codex on 2026-11-18 for handoff to Claude.
+Written by a Claude line on 2026-11-18, on receiving the Codex handoff.
 
-## Requested work and result
+## Receipt of the Codex handoff
 
-The operator requested handoff preparation after the authorized commit, push and merge
-of Ikria followed by its bridge. Publication is complete. Ikria pull request 34 merged
-as `583e1d4`, then bridge pull request 5 as `5d63344`. Both main checkouts were clean
-and synchronized. Post-merge continuous integration passed in runs `44255410252` and
-`44256254190`, respectively. The bridge workflow pins Ikria implementation `504d4c4`,
-which remains in main ancestry.
+**The handoff is valid.** The checkout was clean at `a4acb44`, whose commit describes the
+state. The gate passed on macOS with 60 Rust and 13 Python tests, none ignored, which
+matches the handoff's count. The disclosure scan over all 90 commits found nothing in
+text files.
 
-The incoming reports were stale about publication. This documentation-only task
-reconciles both handoffs and roadmaps with the merges, retains unfinished work, and
-qualifies game state as last observed on 2026-11-17. The paired local branches are
-`docs/codex-claude-handoff` and `docs/codex-claude-bridge-handoff`. The operator then
-explicitly authorized committing, pushing and merging all work on 2026-11-18. This
-publication report precedes those merges. Check their pull requests and merge ancestry
-for completion, then start Claude in synchronized main. Earlier worktrees remain.
-The approval is session-specific and grants no new standing authority.
+**Review of the Codex commits.** The commits from `614794e` to `a4acb44` were reviewed
+for disclosure and for the operator's rulings, and an independent review read the
+code.
+- **Defects found.** The code review reported seven defects, now listed under "Known
+  defects" in `FLIGHT_CONTROL.md`. The two most serious were confirmed against the code.
+  An invalid program output, such as a refused phase transition, ends the session
+  without the abort program. The abort program is the normal program's own source.
+  I-0002 was a live instance of the first. A bounce made the program claim completion
+  in flight, the completion guard refused it, and the session ended, while the article
+  settled intact by chance. Its correction changed the program's logic, and a refused
+  output still ends the session.
+- **Tools pass.** The review's runs agree with the gate, with 60 Rust tests passing,
+  clippy clean and 13 Python tests passing. Its mutation test showed that some Python
+  boundary tests cannot fail on the guards they name.
+- The eight compressed telemetry journals, about 18 MB decompressed, hold no listed
+  term.
+- The vehicle sheet makes no claim about real-world buildability, as the rulings
+  require.
+- The handoff rewrite dropped the origin of the project's name, which existed nowhere
+  else. The README now carries it, and its stale status is corrected.
 
-## Implemented and verified
+## Binary files in the disclosure scan
 
-T10 provides the scripted harness. T16 records two Python mechanics hops. T11 and T17
-provide the bounded version 2 flight protocol, separate Rust kRPC bridge, checked
-Keleusma loading and nominal resource admission, hop phases, independent precompiled
-abort, latched external abort request, command policy, timeouts, write-ahead intent
-journals and deterministic command replay. Keleusma itself was not modified.
+The gate's text scan uses `git grep -I`, which skips binary files, so binary and
+compressed content was never scanned. A compiled Python file, committed by a Claude line
+on 2026-11-14, was tracked by mistake. This branch makes the following changes.
+- **Untracked.** The file is no longer tracked, and `.gitignore` excludes Python's
+  compiled files.
+- **A binary scan.** `scripts/scan_binary_terms.py` scans binary and gzip-compressed
+  content, printing only paths, and the gate runs it. Its nine tests run in the gate.
+- **The history scan catches it.** `./scripts/check.sh --history` now fails on the two
+  versions of the file in the published history, as it should.
 
-VR-0010 records normal and coast-abort flights recovered with all eight parts. Their
-6,824 and 6,798 samples replay exactly. Monitoring and pad abort also completed and
-replayed. The record retains compressed journals, hashes, setup and recovery metadata,
-and failed development runs. M-0001 and the vehicle sheet use the operator-approved
-provisional sections.
+**Verified.** On macOS, the scanner's tests pass and the gate exits zero on this branch
+with every file staged. The bridge repository holds no binary files.
 
-I-0001 records loss of an empty article when moving-frame velocity concealed descent.
-The recovery probe repeated the frame mistake. I-0002 records a touchdown bounce
-that stopped the harness after intact landing. Both defects were corrected and
-regression-tested before completed flights. Earlier monitoring exposed time encoding
-precision, now tested over 10,000 timestamps. Failed evidence is not replay-certified.
-
-Local gates pass on macOS with Rust 1.100.0. Ikria reaches 60 Rust and 13 Python tests,
-and the bridge reaches three tests, with none ignored, plus formatting, lint and
-repository checks. Remote results above cover the merged implementations. Handoff
-publication requires green remote checks at the final branch tips. Their pull requests
-record those results. No live flight was repeated for this documentation task.
-
-## Limits and continuation
-
-On 2026-11-17 the game was left at the verification Space Center, Jebediah available,
-and the real career unchanged with only the start node, zero science and 10,000 funds.
-Career and craft hashes matched their initial values. Five debug flags were false
-before and after the series, not sampled continuously. No debug setter was used.
-Recheck the current game state before further operations.
-
-The empty capsule had no control source or link and continuous controls were zero.
-The flights demonstrate discrete ignition, deployment and phase decisions, not active
-attitude qualification. The live abort was in coast. Broader abort envelopes,
-repeatability, crewed loading, mission science, career authorization, calibrated timing,
-the original T12 sandbox profile, multiple vessels and the mission controller remain
-open. Solid motors cannot be stopped. Sequential command calls can partially apply,
-and uncertain outcomes must not be retried.
-
-Read the operating guide and incident evidence before resuming rehearsals. Use a fresh
-abort-request path for a normal flight because the old request file remains. T8, T9,
-T14's paused Green Monolith procedure, E1 and E2 designs, program and financial article
-checks, template upstream decisions and broader assistant push authority remain open.
-There is no mailbox. The handoff contains the complete continuation checklist.
+**For the operator.**
+1. A history decision described in the local notes, which would need a force-push
+   and would invalidate every clone and worktree, including Codex's four.
+2. Whether standing push and merge authority extends to Codex or Grok Build.
+3. Whether to upstream the gate and worktree changes to the template.
