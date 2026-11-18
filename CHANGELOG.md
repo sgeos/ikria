@@ -8,6 +8,11 @@ All notable changes are recorded here. The format follows
 
 ### Added
 
+- A read-only save-file reader, `ikria-save`, with a bounded iterative ConfigNode
+  parser and typed extractors for the agency's totals, facility levels, technologies,
+  science subjects, the crew roster, vessels including kerbals outside a vessel and
+  flags, and contracts, tested offline against hand-written fixtures.
+
 - A guarded live flight protocol, verified Keleusma hop and abort programs, bounded
   transport, command journalling, deterministic replay and live verification evidence.
 

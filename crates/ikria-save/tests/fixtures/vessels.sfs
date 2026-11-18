@@ -1,0 +1,112 @@
+// Hand-written fixture for vessels. The structure follows the FLIGHTSTATE node of a
+// career save of game version 1.12.5. The kerbal outside a vessel and the flag are
+// written from the format's known structure, since the save studied held neither. The
+// identifiers and values are invented, and most part fields are left out.
+GAME
+{
+	version = 1.12.5
+	FLIGHTSTATE
+	{
+		version = 1.12.5
+		UT = 284301.14230280096
+		activeVessel = -1
+		VESSEL
+		{
+			pid = 0000000000000000000000000000000a
+			persistentId = 1001
+			name = #autoLOC_501180
+			type = Probe
+			sit = ORBITING
+			landed = False
+			landedAt =
+			splashed = False
+			ref = 1271172195
+			ORBIT
+			{
+				SMA = 850000.00011009153
+				ECC = 2.2971010214526046E-10
+				REF = 1
+			}
+			PART
+			{
+				name = probeCoreSphere.v2
+			}
+		}
+		VESSEL
+		{
+			pid = 0000000000000000000000000000000b
+			persistentId = 1002
+			name = Valentina Ship
+			type = Ship
+			sit = PRELAUNCH
+			landed = True
+			landedAt = LaunchPad
+			ORBIT
+			{
+				REF = 1
+			}
+			PART
+			{
+				name = mk1pod.v2
+				crew = Valentina Kerman
+			}
+			PART
+			{
+				name = solidBooster.sm.v2
+			}
+		}
+		VESSEL
+		{
+			pid = 0000000000000000000000000000000c
+			persistentId = 1003
+			name = Bob Kerman
+			type = EVA
+			sit = LANDED
+			landed = True
+			landedAt =
+			ORBIT
+			{
+				REF = 2
+			}
+			PART
+			{
+				name = kerbalEVA
+				crew = Bob Kerman
+			}
+		}
+		VESSEL
+		{
+			pid = 0000000000000000000000000000000d
+			persistentId = 1004
+			name = Mun Flag
+			type = Flag
+			sit = LANDED
+			landed = True
+			landedAt =
+			ORBIT
+			{
+				REF = 2
+			}
+			PART
+			{
+				name = flag
+			}
+		}
+		VESSEL
+		{
+			pid = 0000000000000000000000000000000e
+			persistentId = 1005
+			name = Debris
+			type = Debris
+			sit = LANDED
+			ORBIT
+			{
+				REF = 1
+			}
+			PART
+			{
+				name = solidBooster.sm.v2
+			}
+		}
+	}
+}

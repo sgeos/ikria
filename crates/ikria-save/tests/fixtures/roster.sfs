@@ -1,0 +1,76 @@
+// Hand-written fixture for the crew roster, with the four stock kerbals. The structure
+// follows the ROSTER node of a career save of game version 1.12.5. The states and values
+// are invented. The experience fields on Valentina Kerman are not written by 1.12.5 and
+// are here to exercise the optional fields.
+GAME
+{
+	version = 1.12.5
+	ROSTER
+	{
+		KERBAL
+		{
+			name = Jebediah Kerman
+			gender = Male
+			type = Crew
+			trait = Pilot
+			brave = 0.5
+			dumb = 0.5
+			badS = True
+			state = Missing
+			ToD = 285784.04230231937
+			extraXP = 0
+			EVACHUTE
+			{
+				name = ModuleEvaChute
+				isEnabled = True
+				EVENTS
+				{
+				}
+			}
+			INVENTORY
+			{
+				inventory = evaChute,evaJetpack
+			}
+			CAREER_LOG
+			{
+				flight = 3
+				0 = ExitVessel,Kerbin
+				0 = Land,Kerbin
+				0 = Recover
+				1 = Recover
+				2 = Recover
+			}
+			FLIGHT_LOG
+			{
+				flight = 3
+			}
+		}
+		KERBAL
+		{
+			name = Bill Kerman
+			gender = Male
+			type = Crew
+			trait = Engineer
+			state = Available
+		}
+		KERBAL
+		{
+			name = Bob Kerman
+			gender = Male
+			type = Crew
+			trait = Scientist
+			state = Assigned
+			extraXP = 1.5
+		}
+		KERBAL
+		{
+			name = Valentina Kerman
+			gender = Female
+			type = Crew
+			trait = Pilot
+			state = Assigned
+			experience = 8
+			experienceLevel = 2
+		}
+	}
+}

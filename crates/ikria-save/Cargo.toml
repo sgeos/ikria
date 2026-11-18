@@ -1,0 +1,16 @@
+[package]
+name = "ikria-save"
+version = "0.1.0"
+description = "A read-only reader for Kerbal Space Program 1 save files, which returns the career state as typed records."
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+publish.workspace = true
+
+# No dependencies, so that a reader of untrusted text brings no code beyond the
+# standard library.
+[dependencies]
+
+[lints]
+workspace = true
