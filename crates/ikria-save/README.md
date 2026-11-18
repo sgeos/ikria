@@ -29,6 +29,8 @@ RUSTC_WRAPPER= cargo run -p ikria-save --example save_summary -- path/to/save.sf
 | `vessels` | `FLIGHTSTATE`, `VESSEL` nodes, with the body from `ORBIT` `REF` | `Vessel` |
 | `contracts` | `ContractSystem`, `CONTRACT` and `CONTRACT_FINISHED` nodes in `CONTRACTS` | `Contract` |
 
+A sandbox save has no `ContractSystem` scenario, so `contracts` returns an error for it. That was observed on the sandbox saves on 2026-11-18, and is expected, since sandbox mode has no contracts.
+
 A kerbal outside a vessel and a planted flag are vessels of the types `EVA` and `Flag`,
 and `Vessel::is_eva` and `Vessel::is_flag` pick them out.
 
