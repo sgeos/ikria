@@ -79,8 +79,9 @@ impl<S, C: FnMut() -> Instant> Deadlined<S, C> {
         self.inner
     }
 
-    /// Whether a frame has been started but not finished in the write direction. A
-    /// caller must not append another frame, such as Close, to a partial one.
+    /// Whether some bytes of a frame, but not its terminating newline, have been
+    /// written. A caller must not append another frame, such as Close, to a partial
+    /// one. A write refused before any byte left does not count.
     pub fn mid_write_frame(&self) -> bool {
         self.write_start.is_some()
     }
@@ -122,12 +123,16 @@ impl<S: Read + TimedStream, C: FnMut() -> Instant> Read for Deadlined<S, C> {
 impl<S: Write + TimedStream, C: FnMut() -> Instant> Write for Deadlined<S, C> {
     fn write(&mut self, buf: &[u8]) -> io::Result<usize> {
         let now = (self.clock)();
-        let start = *self.write_start.get_or_insert(now);
+        let start = self.write_start.unwrap_or(now);
         let left = self.budget(start, now)?;
         self.inner.set_write_limit(left)?;
         let n = self.inner.write(buf)?;
+        // A frame is open only once one of its bytes has been written, so a call refused
+        // before writing anything does not make the stream partial.
         if buf[..n].contains(&b'\n') {
             self.write_start = None;
+        } else if n > 0 {
+            self.write_start = Some(start);
         }
         Ok(n)
     }

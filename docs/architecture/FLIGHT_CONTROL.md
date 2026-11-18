@@ -103,8 +103,9 @@ ignites or commands a continuous control. A transport, telemetry or abort-progra
 fault ends the session. Neutral commands are not a universal safe state and cannot
 replace a functioning descent program.
 
-Ignition and deployment are one-shot. Once a command carrying either has been
-journalled as intent, the session latches it. Programs and policy then see the action
+Ignition and deployment are one-shot. Once the session has decided to send a command
+carrying either, it latches the action, before journalling the intent and before
+sending, so that a failed journal or socket write still counts as an attempt. Programs and policy then see the action
 as done even while its telemetry flag still lags, and a repeated request is refused.
 The latch only adds refusals. The journal keeps the raw sample. The bridge still calls
 the unlatched `authorize`, whose signature and behaviour are unchanged.
@@ -124,8 +125,10 @@ one bridge frame may take at most two seconds and writing one harness frame at m
 most 720 seconds from connection, which is below the 840 seconds that
 `tools/phase0/run_flight.py` allows the process. Each socket call's timeout is set to
 the time left, and an expired deadline refuses every later call. A session that needs
-longer therefore ends as a transport fault. Close is sent outside the session deadline
-but is withheld after a partial frame, which it would corrupt. Disconnection then
+longer therefore ends as a transport fault. Close is sent outside the session deadline,
+with its own 250 millisecond write timeout set on the shared socket first. It is
+withheld after a partial frame, which it would corrupt. A write refused at an expired
+deadline before any byte left does not count as partial. Disconnection then
 releases the tick. Both executables have bounded frame sizes and tick counts. Server timeout configuration
 is an installation assumption, not a remotely negotiated guarantee. Commands are
 sequential kRPC calls, not an atomic batch. A partial write can therefore leave an
@@ -146,8 +149,12 @@ The journal records configuration declared by the peer, program hashes, every sa
 command intent before sending, acknowledgement, faults and completion. Each frame read
 from the bridge is journalled before it is validated, so a refused sample or an
 unexpected acknowledgement remains evidence. A line that is JSON but not a bridge
-frame is journalled as an unparsed frame. Bytes that are not JSON, or that exceed the
-frame bound, cannot be journalled as a record. Flush precedes
+frame is journalled as an unparsed frame, whole up to 4,096 bytes and otherwise as an
+excerpt of that length with its full length, so the record stays below the frame bound.
+A refused hello is journalled as such before the session ends. An accepted hello is
+journalled inside the session header, which replay requires to be the first record.
+Bytes that are not JSON, or that exceed the frame bound, cannot be journalled as a
+record. Flush precedes
 each command, with file synchronization at session end. Per-tick power-loss durability
 is not claimed. Log write failure stops command production. The operating system and
 filesystem can still stall, and no hard real-time guarantee is made.
@@ -271,7 +278,21 @@ then raises an index error that the module also refuses. The previous suite, run
 same way against the previous scripts, caught 1 of the 21 deletions that applied to
 them, the save guard of placement.
 
+A second review of the harness changes, the same day, found no path that sends a
+refused command or retries an uncertain one. Its five findings were fixed in a later
+commit on the same branch. The refusal of continuous commands while aborting is now
+tested. The abort program's sweep runs the session's own decision, `session::decide`,
+over phase 0, the phase table and the completion guard, in every situation and with
+and without control authority, and a direct test checks the guard and the table. A
+refused hello and an unparsed line near the frame bound are journalled. A write
+refused before any byte left no longer withholds Close. Each new test was checked to
+fail with its fix removed.
+
 The following remain open or unverified.
+
+- An abort after an acknowledged ignition, with the vessel still reporting PreLaunch,
+  for example because the motor did not light, does not end as a pad abort. The abort
+  program holds phase 5 and the session ends at the tick budget with an error.
 
 - The deadline bounds are tested only with a simulated stream and clock. The constants
   in `fly` have not been observed against the bridge or the game.

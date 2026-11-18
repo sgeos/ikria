@@ -73,11 +73,18 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         || session::abort_file_requested(abort_file.as_deref()),
     );
     // Close is sent on the raw socket, outside the session deadline, but never after
-    // a partial frame, which it would corrupt. Disconnection also releases the tick.
+    // a partial frame, which it would corrupt. The clones share one socket, so the
+    // writer's last timeout is replaced with Close's own before sending.
+    // Disconnection also releases the tick.
     let close = if writer.mid_write_frame() {
         Err("a partial frame was written, so Close was withheld".to_string())
     } else {
-        write_frame(&mut socket, &HarnessFrame::Close {}).map_err(|e| e.to_string())
+        socket
+            .set_write_timeout(Some(WRITE_FRAME))
+            .map_err(|e| e.to_string())
+            .and_then(|()| {
+                write_frame(&mut socket, &HarnessFrame::Close {}).map_err(|e| e.to_string())
+            })
     };
     let message = serde_json::json!({"event":"session_end","success":result.is_ok(),"error":result.as_ref().err().map(ToString::to_string),"close_sent":close.is_ok(),"close_error":close.err()});
     write_frame(&mut log, &message)?;

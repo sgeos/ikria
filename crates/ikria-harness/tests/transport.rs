@@ -191,3 +191,23 @@ fn partial_write_is_cut_and_reported_as_mid_frame() {
     let written = drip.into_inner().written;
     assert_eq!(written.len() as u128, frame.as_millis() / step.as_millis());
 }
+
+#[test]
+fn write_refused_before_any_byte_is_not_partial() {
+    let start = Instant::now();
+    let now = Rc::new(Cell::new(start));
+    let stream = Simulated::new(&now, Duration::from_millis(10), Vec::new());
+    let session = Duration::from_secs(1);
+    let mut late = Deadlined::with_clock(
+        stream,
+        Duration::from_millis(250),
+        start + session,
+        clock(&now),
+    );
+    now.set(start + session * 2);
+    let error = flight::write_frame(&mut late, &HarnessFrame::Close {}).unwrap_err();
+    assert!(error.to_string().contains("session wall-clock deadline"));
+    // Nothing left, so a following frame, such as Close on its own timeout, is whole.
+    assert!(!late.mid_write_frame());
+    assert!(late.into_inner().written.is_empty());
+}

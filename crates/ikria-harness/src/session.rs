@@ -82,10 +82,13 @@ pub struct ProgramSources<'a> {
 }
 
 /// Session constants that every command is checked against.
-struct Profile {
-    engine: PartId,
-    chute: PartId,
-    armed: bool,
+pub struct Profile {
+    /// Session-local engine part from the hello.
+    pub engine: PartId,
+    /// Session-local parachute part from the hello.
+    pub chute: PartId,
+    /// Whether the bridge declared the session armed.
+    pub armed: bool,
 }
 
 /// Run an explicit verified program pair. Both source hashes are journalled.
@@ -108,26 +111,41 @@ pub fn run_with_sources<R: BufRead, W: Write, L: Write, F: FnMut() -> bool>(
     // Abort is precompiled and independently allocated. A faulted normal VM is never
     // resumed. A fault in the abort VM ends the session.
     let mut abort_program = FlightProgram::new(sources.abort, &abort_arena, 10000)?;
-    let hello: BridgeFrame = flight::read_frame(reader)?;
+    // An accepted hello is journalled inside the session header, which replay requires
+    // to be the first record. A refused or unparsed hello is journalled on its own.
+    let hello = parse_or_journal(flight::read_frame(reader)?, log)?;
+    let refused = match hello {
+        BridgeFrame::Hello {
+            version,
+            ref save,
+            ref vessel,
+            armed,
+            engine,
+            chute,
+        } => (version != flight::VERSION
+            || save != flight::VERIFICATION_SAVE
+            || vessel != "IKR-TS-001B"
+            || armed != (mode != Mode::Monitor)
+            || engine == chute)
+            .then_some("identity, version or mode mismatch"),
+        _ => Some("expected bridge hello"),
+    };
+    if let Some(reason) = refused {
+        flight::write_frame(
+            log,
+            &json!({"event":"hello_refused","hello":hello,"error":reason}),
+        )?;
+        return Err(reason.into());
+    }
     let BridgeFrame::Hello {
-        version,
-        ref save,
-        ref vessel,
         armed,
         engine,
         chute,
+        ..
     } = hello
     else {
         return Err("expected bridge hello".into());
     };
-    if version != flight::VERSION
-        || save != flight::VERIFICATION_SAVE
-        || vessel != "IKR-TS-001B"
-        || armed != (mode != Mode::Monitor)
-        || engine == chute
-    {
-        return Err("identity, version or mode mismatch".into());
-    }
     let profile = Profile {
         engine,
         chute,
@@ -260,24 +278,49 @@ pub fn run_with_sources<R: BufRead, W: Write, L: Write, F: FnMut() -> bool>(
     }
 }
 
+/// Largest unparsed frame journalled whole. A longer one is journalled as an excerpt
+/// of at most this many bytes with its full length, so that the journal record stays
+/// below the frame bound however close to it the received line was.
+pub const UNPARSED_EXCERPT: usize = 4096;
+
 /// Read one frame and journal it before it is interpreted. A frame that is JSON but
 /// not a bridge frame is journalled as an unparsed frame and then refused. Bytes that
 /// are not JSON, or that exceed the frame bound, cannot be journalled as a record.
 fn read_logged<R: BufRead, L: Write>(reader: &mut R, log: &mut L) -> Result<BridgeFrame> {
-    let value: serde_json::Value = flight::read_frame(reader)?;
-    match serde_json::from_value::<BridgeFrame>(value.clone()) {
-        Ok(frame) => {
-            flight::write_frame(log, &frame)?;
-            Ok(frame)
-        }
-        Err(error) => {
-            flight::write_frame(
-                log,
-                &json!({"event":"unparsed_frame","frame":value,"error":error.to_string()}),
-            )?;
-            Err(error.into())
-        }
+    let frame = parse_or_journal(flight::read_frame(reader)?, log)?;
+    flight::write_frame(log, &frame)?;
+    Ok(frame)
+}
+
+/// Parse a received JSON value as a bridge frame. On failure, journal the value, or a
+/// bounded excerpt of it, before refusing.
+fn parse_or_journal<L: Write>(value: serde_json::Value, log: &mut L) -> Result<BridgeFrame> {
+    let error = match serde_json::from_value::<BridgeFrame>(value.clone()) {
+        Ok(frame) => return Ok(frame),
+        Err(error) => error,
+    };
+    // A parse error can quote the input, for example an unknown tag, so it is bounded.
+    let reason = error.to_string();
+    let reason = prefix(&reason, UNPARSED_EXCERPT);
+    let text = value.to_string();
+    let record = if text.len() <= UNPARSED_EXCERPT {
+        json!({"event":"unparsed_frame","frame":value,"error":reason})
+    } else {
+        json!({"event":"unparsed_frame","excerpt":prefix(&text, UNPARSED_EXCERPT),
+        "length":text.len(),"error":reason})
+    };
+    flight::write_frame(log, &record)?;
+    Err(reason.into())
+}
+
+/// The longest prefix of `text` of at most `limit` bytes that ends on a character.
+fn prefix(text: &str, limit: usize) -> &str {
+    let mut end = limit.min(text.len());
+    // Terminates because index 0 is always a character boundary.
+    while !text.is_char_boundary(end) {
+        end -= 1;
     }
+    &text[..end]
 }
 
 /// Step the abort program and check its output. Any error here ends the session,
@@ -298,8 +341,10 @@ fn abort_decision(
 
 /// Check one program output against phase sequencing, the ignition rule, the abort
 /// rule and the completion guard, then convert it and authorize the whole command.
-/// Returns the next phase and the command. Nothing is sent here.
-fn decide(
+/// Returns the next phase and the command. Nothing is sent here. It is public so that
+/// tests can check a program against the session's own rules. `view` must already
+/// carry the latch, as `Commanded::latch` produces it.
+pub fn decide(
     view: &Telemetry,
     phase: i64,
     aborting: bool,

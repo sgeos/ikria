@@ -3,7 +3,7 @@ use ikria_harness::{
     flight::{ABORT, FlightProgram, HOP},
     session::{self, Mode},
 };
-use ikria_records::flight::{self, BridgeFrame, HarnessFrame, Telemetry};
+use ikria_records::flight::{self, BridgeFrame, Commanded, HarnessFrame, Telemetry};
 use ikria_records::{GameTime, PartId, Situation, Vector3, VesselId};
 use keleusma::Arena;
 use std::io::Cursor;
@@ -433,13 +433,19 @@ fn refused_normal_output_selects_the_abort_program() {
 #[test]
 fn refused_abort_output_ends_the_session_without_sending_it() {
     let igniting = ABORT.replace("ignite: 0", "ignite: 1");
+    let steering = ABORT.replace("pitch: 0,", "pitch: 500,");
     assert_ne!(igniting, ABORT);
+    assert_ne!(steering, ABORT);
     let frames = [
         hello(true),
         tick(0, sample()),
         BridgeFrame::Applied { seq: 0 },
     ];
-    for (abort, ends) in [(ABORT, false), (igniting.as_str(), true)] {
+    for (abort, ends) in [
+        (ABORT, false),
+        (igniting.as_str(), true),
+        (steering.as_str(), true),
+    ] {
         let mut output = Vec::new();
         let result = session::run_with_sources(
             &mut wire(&frames),
@@ -451,11 +457,9 @@ fn refused_abort_output_ends_the_session_without_sending_it() {
             || false,
         );
         assert_eq!(result.is_err(), ends);
-        assert!(
-            !String::from_utf8(output)
-                .unwrap()
-                .contains("activate_engine")
-        );
+        // A refused abort output sends no command at all, only the hello.
+        let lines = String::from_utf8(output).unwrap().lines().count();
+        assert_eq!(lines, if ends { 1 } else { 2 });
     }
 }
 #[test]
@@ -472,26 +476,34 @@ fn default_abort_program_is_not_the_normal_source() {
     assert_ne!(header["program_sha256"], header["abort_sha256"]);
 }
 /// The validated domain's bounds and the deployment envelope's edges, in both
-/// directions, so that rounding to thousandths is exercised.
+/// directions, so that rounding to thousandths is exercised, in every situation the
+/// abort program can meet, with and without control authority.
 fn boundary_samples() -> Vec<Telemetry> {
     let mut out = Vec::new();
-    for altitude in [-1000.0, 0.0, 5.0, 5.0006, 1499.9994, 1500.0, 1e9] {
-        for speed in [-1e6, -1.0006, -1.0, 0.0, 1e6] {
+    for altitude in [-1000.0, 5.0, 5.0006, 1499.9994, 1500.0, 1e9] {
+        for speed in [-1e6, -1.0006, -1.0, 1e6] {
             for fuel in [0.0, 0.0094, 0.01, 1e9] {
-                for situation in [Situation::Flying, Situation::Landed] {
+                for situation in [
+                    Situation::PreLaunch,
+                    Situation::Flying,
+                    Situation::Landed,
+                    Situation::Splashed,
+                ] {
                     for (safe, deployed) in [(true, false), (false, false), (true, true)] {
-                        for rate in [-1000.0, 0.0, 1000.0] {
-                            let mut t = sample();
-                            t.controllable = true;
-                            t.situation = situation;
-                            t.altitude_m = altitude;
-                            t.vertical_speed_m_s = speed;
-                            t.solid_fuel = fuel;
-                            t.chute_safe = safe;
-                            t.chute_deployed = deployed;
-                            t.rates_body = Vector3::new(rate, -rate, rate).unwrap();
-                            t.up_body = Vector3::new(0.0, 0.0, -1.0).unwrap();
-                            out.push(t);
+                        for controllable in [true, false] {
+                            for rate in [-1000.0, 1000.0] {
+                                let mut t = sample();
+                                t.controllable = controllable;
+                                t.situation = situation;
+                                t.altitude_m = altitude;
+                                t.vertical_speed_m_s = speed;
+                                t.solid_fuel = fuel;
+                                t.chute_safe = safe;
+                                t.chute_deployed = deployed;
+                                t.rates_body = Vector3::new(rate, -rate, rate).unwrap();
+                                t.up_body = Vector3::new(0.0, 0.0, -1.0).unwrap();
+                                out.push(t);
+                            }
                         }
                     }
                 }
@@ -501,26 +513,43 @@ fn boundary_samples() -> Vec<Telemetry> {
     out
 }
 #[test]
-fn abort_program_is_total_and_inside_policy_over_the_validated_bounds() {
+fn abort_program_is_total_and_inside_the_session_rules_over_the_validated_bounds() {
     let arena = Arena::with_capacity(1024 * 1024);
     let mut abort = FlightProgram::new(ABORT, &arena, 10000).unwrap();
-    let samples = boundary_samples();
-    let mut deployments = 0;
-    for t in &samples {
-        for phase in 1..=5 {
-            let out = abort.step(t, phase, true).unwrap();
-            assert_eq!(
-                [out.ignite, out.throttle, out.pitch, out.yaw, out.roll],
-                [0; 5]
-            );
-            let command = ikria_harness::flight::command(t, out, PartId(1), PartId(2)).unwrap();
-            // Whatever the abort program requests, the shared policy also permits.
-            flight::authorize(t, &command, PartId(1), PartId(2), true).unwrap();
-            deployments += out.deploy;
+    let profile = session::Profile {
+        engine: PartId(1),
+        chute: PartId(2),
+        armed: true,
+    };
+    let (mut pad_aborts, mut completions, mut deployments) = (0, 0, 0);
+    for t in &boundary_samples() {
+        // Phase 0 is reachable only on the first sample, untouched on the pad, with
+        // nothing commanded. Every later phase follows a commanded ignition.
+        let mut cases = Vec::new();
+        if t.situation == Situation::PreLaunch && !t.chute_deployed {
+            cases.push((0, Commanded::default()));
+        }
+        for deployment in [false, true] {
+            let commanded = Commanded {
+                ignition: true,
+                deployment,
+            };
+            cases.extend((1..=5).map(|phase| (phase, commanded)));
+        }
+        for (phase, commanded) in cases {
+            let view = commanded.latch(t);
+            let out = abort.step(&view, phase, true).unwrap();
+            // The session's own decision, with the phase table, the completion guard,
+            // the abort rules and the latched policy.
+            let (next, command) =
+                session::decide(&view, phase, true, out, &profile, commanded).unwrap();
+            pad_aborts += i32::from(phase == 0 && next == 4);
+            completions += i32::from(phase != 0 && next == 4);
+            deployments += command.requests.len();
         }
     }
-    // The grid includes the envelope, so the permission check above was not vacuous.
-    assert!(deployments > 0);
+    // The grid reaches every kind of decision, so the checks above were not vacuous.
+    assert!(pad_aborts > 0 && completions > 0 && deployments > 0);
 }
 #[test]
 fn sample_that_faults_the_normal_program_does_not_fault_the_abort_program() {
@@ -625,6 +654,119 @@ fn refused_samples_and_frames_are_journalled_before_refusal() {
     let last = records(&String::from_utf8(log).unwrap()).pop().unwrap();
     assert_eq!(last["event"], "unparsed_frame");
     assert_eq!(last["frame"]["seq"], 0);
+}
+#[test]
+fn decision_refuses_completion_in_flight_and_skipped_phases() {
+    let profile = session::Profile {
+        engine: PartId(1),
+        chute: PartId(2),
+        armed: true,
+    };
+    let neutral = |phase| ikria_harness::flight::FlightOutput {
+        phase,
+        ignite: 0,
+        deploy: 0,
+        throttle: 0,
+        pitch: 0,
+        yaw: 0,
+        roll: 0,
+    };
+    let mut t = sample();
+    t.engine_active = true;
+    t.solid_fuel = 0.0;
+    let decide = |t: &Telemetry, from, to| {
+        session::decide(t, from, false, neutral(to), &profile, Commanded::default()).is_ok()
+    };
+    // Completion is accepted on the ground and refused in the air, from the same phase.
+    t.situation = Situation::Landed;
+    assert!(decide(&t, 3, 4));
+    t.situation = Situation::Flying;
+    assert!(!decide(&t, 3, 4));
+    // The same output is accepted or refused by the phase it follows.
+    assert!(decide(&t, 2, 3));
+    assert!(!decide(&t, 5, 3));
+    assert!(!decide(&t, 0, 2));
+}
+#[test]
+fn refused_or_unparsed_hello_is_journalled() {
+    let wrong_vessel = BridgeFrame::Hello {
+        version: flight::VERSION,
+        save: flight::VERIFICATION_SAVE.into(),
+        vessel: "another vessel".into(),
+        armed: true,
+        engine: PartId(1),
+        chute: PartId(2),
+    };
+    for first in [wrong_vessel, hello(false), BridgeFrame::Applied { seq: 0 }] {
+        let mut output = Vec::new();
+        let mut log = Vec::new();
+        let result = session::run(
+            &mut wire(std::slice::from_ref(&first)),
+            &mut output,
+            &mut log,
+            Mode::Hop,
+            1,
+            HOP,
+        );
+        assert!(result.is_err());
+        assert!(output.is_empty());
+        let last = records(&String::from_utf8(log).unwrap()).pop().unwrap();
+        assert_eq!(last["event"], "hello_refused");
+        assert_eq!(
+            serde_json::from_value::<BridgeFrame>(last["hello"].clone()).unwrap(),
+            first
+        );
+    }
+    let mut log = Vec::new();
+    let unparsed = b"{\"type\":\"hello\"}\n".to_vec();
+    assert!(
+        session::run(
+            &mut Cursor::new(unparsed),
+            &mut Vec::new(),
+            &mut log,
+            Mode::Hop,
+            1,
+            HOP
+        )
+        .is_err()
+    );
+    let last = records(&String::from_utf8(log).unwrap()).pop().unwrap();
+    assert_eq!(last["event"], "unparsed_frame");
+}
+#[test]
+fn unparsed_line_near_the_frame_bound_is_journalled_as_an_excerpt() {
+    // The longest line the reader accepts, one byte below the bound with its newline.
+    let fill = |template: &str| {
+        let pad = flight::MAX_FRAME - 2 - template.len() + 2;
+        template.replace("{}", &"x".repeat(pad))
+    };
+    for line in [
+        fill(r#"{"type":"sample","pad":"{}"}"#),
+        fill(r#"{"type":"{}"}"#),
+    ] {
+        assert_eq!(line.len() + 1, flight::MAX_FRAME - 1);
+        let mut bytes = wire(&[hello(true)]).into_inner();
+        bytes.extend_from_slice(line.as_bytes());
+        bytes.push(b'\n');
+        let mut log = Vec::new();
+        assert!(
+            session::run(
+                &mut Cursor::new(bytes),
+                &mut Vec::new(),
+                &mut log,
+                Mode::Hop,
+                1,
+                HOP
+            )
+            .is_err()
+        );
+        let last = records(&String::from_utf8(log).unwrap()).pop().unwrap();
+        assert_eq!(last["event"], "unparsed_frame");
+        assert_eq!(last["length"], line.len());
+        let excerpt = last["excerpt"].as_str().unwrap();
+        assert!(excerpt.len() <= session::UNPARSED_EXCERPT);
+        assert!(last["error"].as_str().unwrap().len() <= session::UNPARSED_EXCERPT);
+    }
 }
 #[test]
 fn abort_request_file_fails_closed() {
