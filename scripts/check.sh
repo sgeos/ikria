@@ -340,8 +340,9 @@ if [[ -f "$terms_file" ]]; then
         ((${#exclusions[@]} == 1)) && excluded="1 excluded path"
         pass "disclosure scan found no listed term in $scope, with $excluded"
         # git grep -I skips binary files, so a compiled or compressed file is invisible
-        # to the scan above. Scan those files separately, printing only paths. Status 1 is a match and any other failure means the scan could
-        # not run, and both fail the gate.
+        # to the scan above. Scan those files separately, printing only paths. Status 1
+        # is a match, and any other failure means the scan could not run. Both fail the
+        # gate.
         binary_args=("$terms_file")
         [[ "$history" == false ]] || binary_args+=(--history)
         if python3 -I -B scripts/scan_binary_terms.py "${binary_args[@]}"; then
@@ -361,6 +362,11 @@ else
     printf 'check.sh: note: no %s, so the disclosure scan was skipped\n' "$terms_label"
     [[ "$history" == false ]] || fail "--history was given, but there is no $terms_label to scan with"
 fi
+
+# The gate's own tests, such as those of scripts/scan_binary_terms.py. They need only
+# python3, and run here so that a broken scanner cannot pass unnoticed.
+python3 -I -B -m unittest discover -s scripts/tests -q || fail "the gate's own tests failed, as listed above"
+pass "the gate's own tests pass"
 
 if [[ "$hygiene_only" == true ]]; then
     printf 'check.sh: note: --hygiene-only, so the project checks were not run\n'
@@ -392,5 +398,3 @@ pass "cargo test passes"
 # The early rehearsal decisions are tested without a game or kRPC connection.
 python3 -I -B -m unittest discover -s tools/phase0/tests || fail "offline rehearsal tests failed"
 pass "offline rehearsal tests pass"
-python3 -I -B -m unittest discover -s scripts/tests || fail "the gate's own tests failed"
-pass "the gate's own tests pass"

@@ -28,8 +28,9 @@ import io
 import subprocess
 import sys
 
-# Decompressed bytes read from one gzip stream. The telemetry journals are a few
-# megabytes each, so the cap leaves a wide margin while bounding a hostile archive.
+# Decompressed bytes read from one gzip stream. The cap bounds a hostile or corrupt
+# archive while leaving a wide margin for ordinary compressed records. Raise it for a
+# project that tracks larger compressed files.
 MAX_DECOMPRESSED = 256 * 1024 * 1024
 # Bytes inspected for a NUL to classify a file as binary, as git does.
 SNIFF = 8000
