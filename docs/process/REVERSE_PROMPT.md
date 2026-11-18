@@ -38,6 +38,10 @@ save reader and the launch check were run read-only on real non-campaign saves.
 **Not verified.** No change was exercised in the game. The flight fixes still owe a live
 check before a career flight.
 
-**For the operator.**
-1. Load "ipv-jeb-restored" in the verification save when convenient.
-2. Confirm or decline the template's differing wording for `CLAUDE.md` and `AGENTS.md`.
+**Closed after the report.** The operator loaded "ipv-jeb-restored", and the verification
+save's roster lists Jebediah as Available. The operator said on 2026-11-18 that exact
+wording in the documents is not a concern, so the template's wording for concurrent lines
+and for the worktree copy of local material was adopted in `CLAUDE.md`. Ikria's
+`AGENTS.md` keeps its Grok Build sentence.
+
+**For the operator.** Nothing.
