@@ -22,6 +22,42 @@ import time
 
 CRAFT = 'IKR-TS-001A'
 SAVE = 'Ikria Physical Verification'
+# A landing counts only after the craft has stayed down and slow for this much game
+# time. The Keleusma harness requires one second. This probe samples about four times
+# a second and also has to see a tip-over or a late part loss, so it waits longer.
+SETTLE_S = 3.0
+SETTLE_SPEED_M_S = 0.5
+
+
+class Touchdown:
+    """Decide when a landing has settled, and count bounces.
+
+    A sample is settled-down when the craft is landed or splashed and its vertical speed
+    is below SETTLE_SPEED_M_S in magnitude. The landing is settled once such samples
+    have continued for SETTLE_S of game time. Leaving the ground after being down is a
+    bounce, which restarts the wait. Game time must not run backwards."""
+
+    def __init__(self):
+        self.since = None
+        self.down = False
+        self.last_ut = None
+        self.bounces = 0
+
+    def update(self, ut, down, vertical_speed):
+        if not (math.isfinite(ut) and math.isfinite(vertical_speed)):
+            raise ValueError('non-finite touchdown telemetry')
+        if self.last_ut is not None and ut < self.last_ut:
+            raise ValueError('game time ran backwards')
+        self.last_ut = ut
+        if self.down and not down:
+            self.bounces += 1
+        self.down = down
+        if not (down and abs(vertical_speed) < SETTLE_SPEED_M_S):
+            self.since = None
+            return False
+        if self.since is None:
+            self.since = ut
+        return ut - self.since >= SETTLE_S
 
 
 def should_deploy(altitude, vertical_speed, solid_fuel, safe):
@@ -106,6 +142,7 @@ def main():
         log['actions'][-1]['status'] = 'returned'
         deployed = False
         airborne = False
+        touchdown = Touchdown()
         start = time.monotonic()
         flight = v.flight(v.orbit.body.reference_frame)
         for _ in range(1000):
@@ -123,11 +160,18 @@ def main():
             write_log()
             if v.situation == sc.VesselSituation.flying:
                 airborne = True
-            if airborne and v.situation in (sc.VesselSituation.landed, sc.VesselSituation.splashed):
+            down = v.situation in (sc.VesselSituation.landed, sc.VesselSituation.splashed)
+            # A touchdown is not a landing until it has settled. A bounce or a tip-over
+            # inside the settle period is recorded, and a run that ends unsettled has
+            # no outcome.
+            if airborne and touchdown.update(sample['ut'], down, sample['vertical_speed_m_s']):
                 log['outcome'] = 'landed' if len(v.parts.all) == log['initial_parts'] else 'landed with part loss'
                 log['final_parts'] = len(v.parts.all)
+                log['bounces'] = touchdown.bounces
+                log['settled_ut'] = sample['ut']
                 sc.save('ipv-' + args.craft.lower() + '-after')
                 break
+            log['bounces'] = touchdown.bounces
             if not deployed and should_deploy(sample['surface_altitude_m'],
                     sample['vertical_speed_m_s'], sample['solid_fuel'],
                     chute.safe_state == sc.ParachuteSafeState.safe):

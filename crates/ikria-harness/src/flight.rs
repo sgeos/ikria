@@ -13,6 +13,10 @@ use keleusma::{Arena, KeleusmaType, Value};
 pub const DIALOGUE: &str = include_str!("../../../programs/dialogue.kl");
 /// First hop and parachute program.
 pub const HOP: &str = include_str!("../../../programs/hop.kl");
+/// Default abort program for the hop profile. It is a distinct source with no attitude
+/// arithmetic, so a sample that faults the attitude law of [`HOP`] cannot fault it.
+/// Both still share the dialogue, the loader and the Keleusma virtual machine.
+pub const ABORT: &str = include_str!("../../../programs/abort.kl");
 /// Maximum source bytes admitted before compilation.
 pub const MAX_SOURCE: usize = 65_536;
 

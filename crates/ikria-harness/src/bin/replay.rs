@@ -1,6 +1,6 @@
 //! Deterministically replay a completed flight journal without the bridge or game.
 use ikria_harness::{
-    flight::{DIALOGUE, HOP, MAX_SOURCE},
+    flight::{ABORT, DIALOGUE, HOP, MAX_SOURCE},
     session::{self, Mode},
 };
 use ikria_records::flight::{self, BridgeFrame, HarnessFrame};
@@ -40,6 +40,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     {
         return Err("journal is not for the bundled hop program".into());
     }
+    let hash = |body: &str| format!("{:x}", Sha256::digest(format!("{DIALOGUE}\n{body}")));
     let abort_source = if args.len() == 3 {
         let mut text = String::new();
         File::open(&args[2])?
@@ -49,17 +50,16 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             return Err("abort body exceeds size limit".into());
         }
         text
-    } else if header["abort_sha256"] == header["program_sha256"] {
-        source.clone()
     } else {
-        HOP.into()
+        // Journals before the distinct abort program used the hop source for both.
+        // The recorded hash selects among the known bodies and is checked below.
+        [source.as_str(), ABORT, HOP]
+            .into_iter()
+            .find(|body| header["abort_sha256"] == hash(body))
+            .unwrap_or(ABORT)
+            .to_string()
     };
-    if header["abort_sha256"]
-        != format!(
-            "{:x}",
-            Sha256::digest(format!("{DIALOGUE}\n{abort_source}"))
-        )
-    {
+    if header["abort_sha256"] != hash(&abort_source) {
         return Err("abort program hash mismatch".into());
     }
     let mode = match header["mode"].as_str() {

@@ -14,7 +14,7 @@ publish = false
 
 [workspace.dependencies]
 # Keleusma at its released version, which the harness follows deliberately.
-keleusma = "0.2.2"
+keleusma = "=0.2.2"
 # Serialization of the records and the messages between processes.
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1", features = ["float_roundtrip"] }

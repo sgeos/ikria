@@ -5,9 +5,14 @@ sends the kerbal out, lists what the kerbal can do, tries the reports and any fl
 boards again and recovers the vessel. Writes tmp/probe_pad_eva.json.
 """
 import json
+import pathlib
+import sys
 import time
 
 import krpc
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from launch_site import clear_crewed_launch_site  # noqa: E402
 
 OUT = {}
 
@@ -28,6 +33,10 @@ conn = krpc.connect(name="ikria-probe-pad-eva", address="127.0.0.1")
 k, sc = conn.krpc, conn.space_center
 assert sc.game_mode == sc.GameMode.sandbox, "refusing to run outside the sandbox"
 
+# Rule R20. Recover crewed vessels at the launch site explicitly before any launch.
+# Sandbox probes take no saves directory, so outside the flight scene this refuses.
+clear_crewed_launch_site(conn, None,
+                         lambda crew: print("recovered before launch:", crew, flush=True))
 sc.launch_vessel(craft_directory="VAB", name="IkriaT0", launch_site="LaunchPad", recover=True)
 assert wait_for(lambda: k.game_scene == k.GameScene.flight and sc.active_vessel is not None, 120), "no flight scene"
 time.sleep(5)

@@ -4,26 +4,40 @@
 
 Written by a Claude line on 2026-11-18.
 
-## The operator's rulings on the tool saves and on learning
+## An hour of work that needed no operator attention
 
-**Decided.** By the operator on 2026-11-18, the campaign plan's twelfth set of rulings.
-- **The tool saves.** The verification save is a tool for getting the career right, and
-  the line does whatever is sensible there. R4 and R10 are amended to match.
-- **Learning.** All sensible learning is adopted. The verification and R&D modes may run
-  experimental procedures, and the career save is very conservative.
+The operator asked on 2026-11-18 for obvious tasks that need no operator attention.
+Two agents worked in separate worktrees, and two independent reviews checked their
+code before merging.
 
 **Done.**
-- **Rules adopted.** R16 gains the separation clearances. R19 adopts the Sepratron
-  program's rules for solid motors. R20 adopts the incident lessons as safety rules for
-  every script and the harness. The harness design's enforcement table lists both.
-- **Jebediah prepared.** The copy "ipv-jeb-restored" of the verification save differs
-  only in Jebediah's state, from Missing to Available, and the removal of his time of
-  loss. The save's respawn setting is left as the career's, so the tool save stays
-  faithful to the career's crew mechanics.
+- **Known flight-control defects fixed.** All seven, with tests that fail without each
+  fix, merged in this branch.
+  - Refused program outputs now select a distinct abort program, `programs/abort.kl`.
+  - Deployment is latched.
+  - Frames and sessions have wall-clock deadlines.
+  - Every frame is journalled before validation.
+  - The Python guards are tested so that deleting any one fails a test, 41 of 42 by
+    mutation.
+  - Landings need a settle period.
+- **R20 in the tools.** `tools/phase0/launch_site.py` recovers crewed vessels near the
+  pad or runway before any launch, through kRPC in the flight scene and through a
+  temporary save elsewhere, and `tools/sepratron/flightlib.py` uses it. Its save-file
+  path found a real crewed plane at the runway's start in an old save.
+- **T8, the save reader,** merged as `crates/ikria-save`, pull request 43. A review found
+  that finished contracts were read from the wrong node, which the old Rookie save
+  confirmed, and that is fixed.
+- **Template sync.** The gate and worktree scripts of Ikria and of the bridge now match
+  template commit `8a79622`, pull requests 42 here and 8 in the bridge. Both now scan
+  binary files.
 
-**Verified.** The restored copy, by a diff of two lines. The gate exits zero on this
-branch with every file staged, on macOS.
+**Verified.** The gate exits zero on macOS with every file staged, 78 Rust tests in this
+branch before the save reader's 42, 50 phase 0 Python tests and the gate's own 12. The
+save reader and the launch check were run read-only on real non-campaign saves.
 
-**Not verified.** Jebediah's return in game, until the copy is loaded.
+**Not verified.** No change was exercised in the game. The flight fixes still owe a live
+check before a career flight.
 
-**For the operator.** Load "ipv-jeb-restored" in the verification save when convenient.
+**For the operator.**
+1. Load "ipv-jeb-restored" in the verification save when convenient.
+2. Confirm or decline the template's differing wording for `CLAUDE.md` and `AGENTS.md`.

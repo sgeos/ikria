@@ -140,6 +140,48 @@ fn parachute_requires_burnout_descent_safe_height_and_correct_part() {
 }
 
 #[test]
+fn latch_refuses_a_repeat_that_lagging_telemetry_would_permit() {
+    let mut descent = sample();
+    descent.situation = Situation::Flying;
+    descent.solid_fuel = 0.0;
+    descent.vertical_speed_m_s = -3.0;
+    descent.altitude_m = 100.0;
+    for (t, request) in [
+        (sample(), Request::ActivateEngine { part: PartId(1) }),
+        (descent, Request::DeployParachute { part: PartId(2) }),
+    ] {
+        let c = VesselCommand {
+            id: t.id,
+            requests: vec![request],
+            ..Default::default()
+        };
+        // The unlatched policy and an empty latch agree that the first request is valid.
+        assert!(authorize(&t, &c, PartId(1), PartId(2), true).is_ok());
+        let mut commanded = Commanded::default();
+        assert!(authorize_latched(&t, &c, PartId(1), PartId(2), true, commanded).is_ok());
+        commanded.record(&c);
+        // The telemetry flag has not changed, so only the latch can refuse the repeat.
+        assert!(authorize(&t, &c, PartId(1), PartId(2), true).is_ok());
+        assert!(authorize_latched(&t, &c, PartId(1), PartId(2), true, commanded).is_err());
+        assert_ne!(commanded.latch(&t), t);
+    }
+}
+
+#[test]
+fn latch_never_permits_what_the_policy_refuses() {
+    let c = VesselCommand {
+        id: VesselId(1),
+        requests: vec![Request::Abort],
+        ..Default::default()
+    };
+    let mut commanded = Commanded::default();
+    commanded.record(&c);
+    assert_eq!(commanded, Commanded::default());
+    assert!(authorize(&sample(), &c, PartId(1), PartId(2), true).is_err());
+    assert!(authorize_latched(&sample(), &c, PartId(1), PartId(2), true, commanded).is_err());
+}
+
+#[test]
 fn game_time_roundtrips_bit_exactly_at_observed_epoch() {
     for offset in 0..10000 {
         let time = 187634.1029476383_f64 + f64::from(offset) * 0.02;
