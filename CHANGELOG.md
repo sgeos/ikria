@@ -8,6 +8,11 @@ All notable changes are recorded here. The format follows
 
 ### Added
 
+- The science ledger, `ikria-ledger`, which enumerates the 3,104 subjects of the Phase 0
+  count with their identifiers and Hard values, and joins them with a save's subjects
+  read through `ikria-save`. It finds that the count's surface features are short by 9
+  science on Hard.
+
 - A read-only save-file reader, `ikria-save`, with a bounded iterative ConfigNode
   parser and typed extractors for the agency's totals, facility levels, technologies,
   science subjects, the crew roster, vessels including kerbals outside a vessel and

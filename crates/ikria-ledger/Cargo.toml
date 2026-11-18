@@ -1,0 +1,21 @@
+[package]
+name = "ikria-ledger"
+version = "0.1.0"
+description = "The science ledger, which joins the enumeration of every counted science subject with a save's science subjects."
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+publish.workspace = true
+
+# The save reader is the only dependency, so the ledger brings no code beyond it and the
+# standard library.
+[dependencies]
+ikria-save = { path = "../ikria-save" }
+
+# The tests read the tracked Phase 0 record, which is JSON.
+[dev-dependencies]
+serde_json.workspace = true
+
+[lints]
+workspace = true
