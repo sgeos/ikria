@@ -1,0 +1,40 @@
+{
+ "label": "a3d-minmus-ascent",
+ "save": "Ikria Physical Verification",
+ "debug_uses": [
+  {
+   "call": "Debug.set_landed",
+   "ut": 281517.9429266483,
+   "body": "Minmus"
+  }
+ ],
+ "events": [
+  {
+   "ut": 281509.38292664033,
+   "event": "site",
+   "lat": -1.0,
+   "lon": -15.0,
+   "height_m": 0.0
+  },
+  {
+   "ut": 281515.7029266462,
+   "event": "launched",
+   "craft": "IKR-SEP-A3D",
+   "parts": 12,
+   "mass_kg": 1155.550048828125
+  },
+  {
+   "ut": 281522.982926653,
+   "event": "landed_on_minmus",
+   "situation": "VesselSituation.landed",
+   "mass_kg": 1155.550048828125
+  },
+  {
+   "ut": 281523.2029266532,
+   "event": "decoupled",
+   "ascent_mass_kg": 263.04998779296875,
+   "descent_mass_kg": 892.5
+  }
+ ],
+ "samples": {}
+}

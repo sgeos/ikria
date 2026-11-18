@@ -1,0 +1,27 @@
+{
+ "label": "diag-overlap",
+ "save": "Ikria Physical Verification",
+ "debug_uses": [],
+ "events": [
+  {
+   "ut": 283616.0023021629,
+   "event": "launched",
+   "craft": "IKR-SEP-A3C",
+   "parts": 12,
+   "mass_kg": 1345.0
+  },
+  {
+   "ut": 283616.122302163,
+   "event": "overlaps",
+   "craft": "IKR-SEP-A3C",
+   "sepratron_box_size_m": [
+    0.178,
+    0.538,
+    0.341
+   ],
+   "count": 0,
+   "overlaps": []
+  }
+ ],
+ "samples": {}
+}

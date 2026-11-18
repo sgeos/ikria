@@ -1,0 +1,66 @@
+{
+ "label": "diag-orientation",
+ "save": "Ikria Physical Verification",
+ "debug_uses": [],
+ "events": [
+  {
+   "ut": 280021.2229252544,
+   "event": "launched",
+   "craft": "IKR-SEP-A1",
+   "parts": 7,
+   "mass_kg": 872.5
+  },
+  {
+   "ut": 280021.28292525443,
+   "event": "orientation",
+   "craft": "IKR-SEP-A1",
+   "cosines": [
+    -0.695,
+    -0.695,
+    -0.695,
+    -0.695
+   ]
+  },
+  {
+   "ut": 280026.98292525974,
+   "event": "launched",
+   "craft": "IKR-SEP-A2",
+   "parts": 8,
+   "mass_kg": 2650.0
+  },
+  {
+   "ut": 280027.00292525976,
+   "event": "orientation",
+   "craft": "IKR-SEP-A2",
+   "cosines": [
+    0.259,
+    0.259,
+    0.259,
+    0.259
+   ]
+  },
+  {
+   "ut": 280032.80292526516,
+   "event": "launched",
+   "craft": "IKR-SEP-A3",
+   "parts": 12,
+   "mass_kg": 1105.0
+  },
+  {
+   "ut": 280032.8229252652,
+   "event": "orientation",
+   "craft": "IKR-SEP-A3",
+   "cosines": [
+    0.627,
+    0.627,
+    0.627,
+    0.627,
+    0.892,
+    0.892,
+    0.892,
+    0.892
+   ]
+  }
+ ],
+ "samples": {}
+}

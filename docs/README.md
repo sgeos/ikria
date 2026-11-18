@@ -11,3 +11,4 @@ from the indexes.
 | Decisions | [`decisions/`](decisions/README.md) | Decisions and the analysis behind them |
 | Roadmap | [`roadmap/`](roadmap/README.md) | Milestones and their tasks |
 | Process | [`process/`](process/README.md) | The working line's state, reports and instructions |
+| Research | [`research/`](research/README.md) | Programs that establish how parts and mechanics behave |

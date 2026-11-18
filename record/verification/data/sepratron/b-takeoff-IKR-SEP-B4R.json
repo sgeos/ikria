@@ -1,0 +1,427 @@
+{
+ "label": "b-takeoff-IKR-SEP-B4R",
+ "save": "Ikria Physical Verification",
+ "debug_uses": [
+  {
+   "call": "Debug.set_landed",
+   "ut": 284240.8623027448,
+   "purpose": "cleanup"
+  }
+ ],
+ "events": [
+  {
+   "ut": 284222.2423027275,
+   "event": "launched",
+   "craft": "IKR-SEP-B4R",
+   "parts": 23,
+   "mass_kg": 5945.0
+  },
+  {
+   "ut": 284229.94230273465,
+   "event": "crew_removed",
+   "names": [
+    "Bill Kerman"
+   ],
+   "crew_now": 0
+  },
+  {
+   "ut": 284235.0223027394,
+   "event": "fired",
+   "parts": [
+    "sepMotor1",
+    "sepMotor1",
+    "sepMotor1",
+    "sepMotor1"
+   ],
+   "count": 4
+  },
+  {
+   "ut": 284235.0223027394,
+   "event": "released",
+   "jet_thrust_kN": 50.076359375,
+   "sepratrons": 4,
+   "mass_kg": 5847.4580078125
+  },
+  {
+   "ut": 284238.6023027427,
+   "event": "analysis",
+   "craft": "IKR-SEP-B4R",
+   "liftoff": {
+    "t": 3.6000000033527613,
+    "dist_m": 83.47866281977957,
+    "speed": 47.04337026472771,
+    "situation": "VesselSituation.flying",
+    "radar_m": 1.5228495307965204
+   },
+   "last": {
+    "t": 3.6000000033527613,
+    "dist_m": 83.47866281977957,
+    "speed": 47.04337026472771,
+    "situation": "VesselSituation.flying",
+    "radar_m": 1.5228495307965204
+   }
+  },
+  {
+   "ut": 284244.5823027483,
+   "event": "not_recovered",
+   "error": "Vessel is not recoverable"
+  }
+ ],
+ "samples": {
+  "roll": [
+   {
+    "t": 0.0400000000372529,
+    "dist_m": 0.06164702076840802,
+    "speed": 1.5924380000466671,
+    "situation": "VesselSituation.pre_launch",
+    "radar_m": 1.4090387113392353
+   },
+   {
+    "t": 0.14000000013038516,
+    "dist_m": 0.2648722618724339,
+    "speed": 2.3822737310040627,
+    "situation": "VesselSituation.pre_launch",
+    "radar_m": 1.4091161264805123
+   },
+   {
+    "t": 0.20000000018626451,
+    "dist_m": 0.4324763794213346,
+    "speed": 3.0044158480173677,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.4068688692059368
+   },
+   {
+    "t": 0.2800000002607703,
+    "dist_m": 0.7174497152035287,
+    "speed": 3.9021097221214864,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.4027562192641199
+   },
+   {
+    "t": 0.3600000003352761,
+    "dist_m": 1.0762992470323078,
+    "speed": 4.837129216525749,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.4005940649658442
+   },
+   {
+    "t": 0.4200000003911555,
+    "dist_m": 1.3950891773119503,
+    "speed": 5.550447423083686,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.4001489902148023
+   },
+   {
+    "t": 0.5000000004656613,
+    "dist_m": 1.8871447192562805,
+    "speed": 6.510221939070122,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.400286277406849
+   },
+   {
+    "t": 0.5800000005401671,
+    "dist_m": 2.4562879994570146,
+    "speed": 7.475964848347538,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.4005104580428451
+   },
+   {
+    "t": 0.6400000005960464,
+    "dist_m": 2.933964938720153,
+    "speed": 8.203115509445848,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.4005733808735386
+   },
+   {
+    "t": 0.7200000006705523,
+    "dist_m": 3.638950019002971,
+    "speed": 9.177507067807333,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.400041946908459
+   },
+   {
+    "t": 0.8000000007450581,
+    "dist_m": 4.42211632692955,
+    "speed": 10.156439962092941,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.3993221771670505
+   },
+   {
+    "t": 0.9000000008381903,
+    "dist_m": 5.511504825867506,
+    "speed": 11.385795309238608,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.3988341363146901
+   },
+   {
+    "t": 1.0000000009313226,
+    "dist_m": 6.724238546507739,
+    "speed": 12.870141169003121,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.3983715045033023
+   },
+   {
+    "t": 1.1000000010244548,
+    "dist_m": 8.060972812995663,
+    "speed": 13.8648025736817,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.398200025781989
+   },
+   {
+    "t": 1.1600000010803342,
+    "dist_m": 8.922797015964433,
+    "speed": 14.613424899470177,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.3980632605962455
+   },
+   {
+    "t": 1.24000000115484,
+    "dist_m": 10.141921639398774,
+    "speed": 15.615072797851935,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.3976975684054196
+   },
+   {
+    "t": 1.3000000012107193,
+    "dist_m": 11.108943398586197,
+    "speed": 16.36850092598155,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.3974535362794995
+   },
+   {
+    "t": 1.3800000012852252,
+    "dist_m": 12.468746674118007,
+    "speed": 17.375899996005035,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.3971425947966054
+   },
+   {
+    "t": 1.460000001359731,
+    "dist_m": 13.909310561006793,
+    "speed": 18.386789577250752,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.396800586138852
+   },
+   {
+    "t": 1.5200000014156103,
+    "dist_m": 15.042896520737537,
+    "speed": 19.147295069672957,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.3966168359620497
+   },
+   {
+    "t": 1.6000000014901161,
+    "dist_m": 16.625518565143004,
+    "speed": 20.165859528631948,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.3962172729661688
+   },
+   {
+    "t": 1.7000000015832484,
+    "dist_m": 18.71881282166942,
+    "speed": 21.446551150819733,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.3959268847247586
+   },
+   {
+    "t": 1.7800000016577542,
+    "dist_m": 20.48593341892638,
+    "speed": 22.476533670151284,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.3956229401519522
+   },
+   {
+    "t": 1.8400000017136335,
+    "dist_m": 21.865442445102023,
+    "speed": 23.250992521711687,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.3954111252678558
+   },
+   {
+    "t": 1.9200000017881393,
+    "dist_m": 23.77708218698858,
+    "speed": 24.283993044971922,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.3952034114627168
+   },
+   {
+    "t": 1.9800000018440187,
+    "dist_m": 25.2650548967231,
+    "speed": 25.059077151230447,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.395061359158717
+   },
+   {
+    "t": 2.040000001899898,
+    "dist_m": 26.799517890905975,
+    "speed": 25.83391962042354,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.3949832826619968
+   },
+   {
+    "t": 2.120000001974404,
+    "dist_m": 28.91780176403434,
+    "speed": 27.126631790518488,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.3948092351201922
+   },
+   {
+    "t": 2.2400000020861626,
+    "dist_m": 32.25050265245067,
+    "speed": 28.421730104845658,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.3941233954392374
+   },
+   {
+    "t": 2.300000002142042,
+    "dist_m": 33.98684877115916,
+    "speed": 29.200607570986275,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.3938156310468912
+   },
+   {
+    "t": 2.3600000021979213,
+    "dist_m": 35.770034415547684,
+    "speed": 29.982247899439066,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.3936635048594326
+   },
+   {
+    "t": 2.4200000022538006,
+    "dist_m": 37.6002153726133,
+    "speed": 30.766577022703636,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.393683000584133
+   },
+   {
+    "t": 2.5000000023283064,
+    "dist_m": 40.11398504804555,
+    "speed": 31.819731151438187,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.3938540667295456
+   },
+   {
+    "t": 2.560000002384186,
+    "dist_m": 42.05480275550484,
+    "speed": 32.61385548737034,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.394037080113776
+   },
+   {
+    "t": 2.620000002440065,
+    "dist_m": 44.04330891488283,
+    "speed": 33.408999918050284,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.394264995586127
+   },
+   {
+    "t": 2.7200000025331974,
+    "dist_m": 47.46353903345531,
+    "speed": 34.73498222232837,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.3951384933898225
+   },
+   {
+    "t": 2.800000002607703,
+    "dist_m": 50.295546052545824,
+    "speed": 35.807137321682696,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.3972689820220694
+   },
+   {
+    "t": 2.8600000026635826,
+    "dist_m": 52.47633329992771,
+    "speed": 36.620575021826326,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.4077408880693838
+   },
+   {
+    "t": 2.920000002719462,
+    "dist_m": 54.70600416061897,
+    "speed": 37.4363507396935,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.421312446007505
+   },
+   {
+    "t": 3.0000000027939677,
+    "dist_m": 57.75528704700336,
+    "speed": 39.08268812306562,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.438840685528703
+   },
+   {
+    "t": 3.1000000028871,
+    "dist_m": 61.691125470826464,
+    "speed": 39.91773433955233,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.4436208048136905
+   },
+   {
+    "t": 3.180000002961606,
+    "dist_m": 64.94037984429382,
+    "speed": 41.03883002382853,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.4514079439686611
+   },
+   {
+    "t": 3.240000003017485,
+    "dist_m": 67.43594483499722,
+    "speed": 41.8727921671363,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.458673623506911
+   },
+   {
+    "t": 3.3000000030733645,
+    "dist_m": 69.98132390930792,
+    "speed": 42.702487523338476,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.4665338681079447
+   },
+   {
+    "t": 3.3800000031478703,
+    "dist_m": 73.4532457294261,
+    "speed": 43.82638415134586,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.478007516125217
+   },
+   {
+    "t": 3.460000003222376,
+    "dist_m": 77.01679623565975,
+    "speed": 44.98449571247462,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.4914435729151592
+   },
+   {
+    "t": 3.5200000032782555,
+    "dist_m": 79.75094126920483,
+    "speed": 45.86675434591161,
+    "situation": "VesselSituation.landed",
+    "radar_m": 1.506797211477533
+   },
+   {
+    "t": 3.6000000033527613,
+    "dist_m": 83.47866281977957,
+    "speed": 47.04337026472771,
+    "situation": "VesselSituation.flying",
+    "radar_m": 1.5228495307965204
+   }
+  ]
+ },
+ "analysis": {
+  "craft": "IKR-SEP-B4R",
+  "liftoff": {
+   "t": 3.6000000033527613,
+   "dist_m": 83.47866281977957,
+   "speed": 47.04337026472771,
+   "situation": "VesselSituation.flying",
+   "radar_m": 1.5228495307965204
+  },
+  "last": {
+   "t": 3.6000000033527613,
+   "dist_m": 83.47866281977957,
+   "speed": 47.04337026472771,
+   "situation": "VesselSituation.flying",
+   "radar_m": 1.5228495307965204
+  }
+ }
+}

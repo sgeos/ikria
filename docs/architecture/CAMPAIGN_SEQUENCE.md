@@ -162,11 +162,17 @@ The operator set these out on 2026-11-14.
 - **Shed the bulk before the ascent.** On a body with low gravity, a lander can leave its
   heavy descent stage on the surface and lift only a small science and command module,
   either to orbit for docking or straight onto a transfer home. Small solid motors can
-  give enough Δv for that there. *(files)* Kerbal Space Program 1 has them. The FM1
-  Mite is in Propulsion Systems, at 90 science and inside the first research window, and
-  the Sepratron I and the F3S0 Shrimp are in Precision Propulsion, at 160.
+  give enough Δv for that there. The operator's small solid motors are the Sepratron I,
+  in Precision Propulsion at 160 science, as the operator clarified on 2026-11-18.
+  *(files)* The FM1 Mite, in Propulsion Systems at 90 science, and the F3S0 Shrimp, at
+  160, are slower-burning alternatives. The Sepratron program,
+  [`SEPRATRON_PROGRAM.md`](../research/SEPRATRON_PROGRAM.md), flew a sepratron ascent
+  from Minmus to orbit on about 3.7 units of solid fuel, and gives the design rules.
 - **Pair the solids with control.** The more realistic design pairs small solid motors
-  with reaction control and small engines that can be throttled. *(files)* The Ant and
+  with reaction control and small engines that can be throttled. The operator noted on
+  2026-11-18 that sepratrons give a fixed block of ascent Δv while the engine covers the
+  rest and later manoeuvres, such as a rendezvous. The program found that a fixed burn
+  cannot absorb pointing or launch errors, which supports the pairing. *(files)* The Ant and
   the Spark are in Propulsion Systems and the RV-105 thruster block in Advanced Flight
   Control, both at 90 science. The Spider, the Twitch and the Puff are in Precision
   Propulsion, at 160.

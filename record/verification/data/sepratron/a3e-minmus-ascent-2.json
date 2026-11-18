@@ -1,0 +1,125 @@
+{
+ "label": "a3e-minmus-ascent-2",
+ "save": "Ikria Physical Verification",
+ "debug_uses": [
+  {
+   "call": "Debug.set_landed",
+   "ut": 282200.00855175755,
+   "body": "Minmus"
+  },
+  {
+   "call": "Debug.set_landed",
+   "ut": 282775.20980180876,
+   "purpose": "cleanup"
+  }
+ ],
+ "events": [
+  {
+   "ut": 282192.7685517508,
+   "event": "site",
+   "lat": -1.0,
+   "lon": -10.0,
+   "height_m": 0.0
+  },
+  {
+   "ut": 282197.76855175546,
+   "event": "launched",
+   "craft": "IKR-SEP-A3E",
+   "parts": 12,
+   "mass_kg": 1131.8050537109375
+  },
+  {
+   "ut": 282205.0085517622,
+   "event": "landed_on_minmus",
+   "situation": "VesselSituation.landed",
+   "mass_kg": 1131.8050537109375
+  },
+  {
+   "ut": 282205.24855176243,
+   "event": "decoupled",
+   "ascent_mass_kg": 239.30499267578125,
+   "descent_mass_kg": 892.5
+  },
+  {
+   "ut": 282208.1285517651,
+   "event": "burn1_attitude",
+   "pitch_deg": 16.372406005859375,
+   "heading_deg": 89.99837493896484,
+   "radar_m": 11.576291643264994
+  },
+  {
+   "ut": 282208.1285517651,
+   "event": "fired",
+   "parts": [
+    "sepMotor1",
+    "sepMotor1"
+   ],
+   "count": 2
+  },
+  {
+   "ut": 282211.1285517679,
+   "event": "after_burn1",
+   "apoapsis_m": 13475.82671035976,
+   "periapsis_m": -17799.858701602818,
+   "speed_mps": 167.94910432318756,
+   "mass_kg": 215.46746826171875
+  },
+  {
+   "ut": 282751.04980178626,
+   "event": "pointing_settled",
+   "error_deg": 63.56007385253906,
+   "waited_s": 50.020000046584755
+  },
+  {
+   "ut": 282770.92980180477,
+   "event": "burn2_attitude",
+   "error_deg": 66.2115478515625,
+   "alt_m": 13476.506233415144
+  },
+  {
+   "ut": 282770.92980180477,
+   "event": "fired",
+   "parts": [
+    "sepMotor1",
+    "sepMotor1"
+   ],
+   "count": 2
+  },
+  {
+   "ut": 282772.92980180663,
+   "event": "final_orbit",
+   "apoapsis_m": 16518.90923709738,
+   "periapsis_m": -9776.822302967455,
+   "speed_mps": 142.04090266466324,
+   "mass_kg": 212.51248168945312
+  },
+  {
+   "ut": 282772.94980180665,
+   "event": "ascent_short",
+   "periapsis_m": -9776.822302967455
+  },
+  {
+   "ut": 282779.2298018125,
+   "event": "ascent_stage_recovered"
+  }
+ ],
+ "samples": {},
+ "analysis": {
+  "predicted": {
+   "apoapsis_after_burn1_m": 11463,
+   "circular_m": 11463
+  },
+  "after_burn1": {
+   "apoapsis_m": 13475.82671035976,
+   "periapsis_m": -17799.858701602818,
+   "speed_mps": 167.94910432318756,
+   "mass_kg": 215.46746826171875
+  },
+  "final": {
+   "apoapsis_m": 16518.90923709738,
+   "periapsis_m": -9776.822302967455,
+   "speed_mps": 142.04090266466324,
+   "mass_kg": 212.51248168945312
+  }
+ }
+}
