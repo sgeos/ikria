@@ -100,6 +100,38 @@ class ScanTests(unittest.TestCase):
         self.assertEqual(status, 1)
         self.assertIn("old.bin (blob ", err)
 
+    def test_accepted_historical_blob_passes_but_not_when_tracked(self):
+        data = b"\0" + TERM.encode()
+        self.r.add("old.bin", data)
+        self.r.commit()
+        oid = subprocess.run(["git", "-C", str(self.r.repo), "rev-parse", "HEAD:old.bin"],
+                             capture_output=True, text=True, check=True).stdout.strip()
+        self.r.terms.write_text(TERM + "\nblob:" + oid + "\n", encoding="utf-8")
+        self.assertEqual(self.r.run()[0], 1, "a tracked copy is always scanned")
+        git(self.r.repo, "rm", "-q", "old.bin")
+        self.r.commit()
+        status, err = self.r.run("--history")
+        self.assertEqual(status, 0)
+        self.assertIn("1 known historical blobs are accepted", err)
+
+    def test_acceptance_covers_only_the_named_blob(self):
+        self.r.add("a.bin", b"\0" + TERM.encode() + b" one")
+        self.r.add("b.bin", b"\0" + TERM.encode() + b" two")
+        self.r.commit()
+        oid = subprocess.run(["git", "-C", str(self.r.repo), "rev-parse", "HEAD:a.bin"],
+                             capture_output=True, text=True, check=True).stdout.strip()
+        self.r.terms.write_text(TERM + "\nblob:" + oid + "\n", encoding="utf-8")
+        status, err = self.r.run("--history")
+        self.assertEqual(status, 1)
+        self.assertIn("b.bin", err)
+        self.assertNotIn("a.bin", err)
+
+    def test_malformed_acceptance_fails_closed(self):
+        self.r.add("a.bin", b"\0 clean")
+        for bad in ("blob:1234", "blob:" + "g" * 40, "blob:"):
+            self.r.terms.write_text(TERM + "\n" + bad + "\n", encoding="utf-8")
+            self.assertEqual(self.r.run("--history")[0], 2, bad)
+
     def test_bad_arguments_and_missing_terms_file_fail_closed(self):
         self.assertEqual(self.r.run("--bogus")[0], 2)
         self.r.terms.unlink()

@@ -80,14 +80,10 @@ active attitude actuation is not qualified. No career mission is cleared.
 
 ## Other open items
 
-- **The history scan fails** on a compiled file untracked on 2026-11-18. The local
-  notes hold the details and the operator's decision is pending. Until then
-  `./scripts/check.sh --history` fails.
-- Standing push and merge authority has not been extended to Codex or Grok Build.
-  The completed publication had explicit session approval, not new standing authority.
-- Readiness changes to `scripts/worktree.sh` and `scripts/check.sh` diverge from the
-  template and need an upstream decision. A sync could undo them. The gate also runs
-  Python tests.
+- **Template divergence.** `scripts/worktree.sh`, `scripts/check.sh` and
+  `scripts/scan_binary_terms.py` diverge from the template, and a sync could undo them.
+  Template feedback goes to the admin line, as the operator ruled on 2026-11-18. It was
+  sent then, and its reply is awaited.
 - Main remains protected and requires a pull request with a green `CI result`.
 - Cite and consider Massachusetts Institute of Technology Lincoln Laboratory's KSPDG,
   which uses kRPC and PhysicsRangeExtender for pursuit-evasion games.

@@ -6,6 +6,13 @@ compressed files were never scanned. This script closes that gap. It reads every
 decompresses gzip up to a fixed cap, and matches the terms as case-insensitive fixed
 strings, as the text scan does.
 
+A line of the form `blob:<object name>`, with the full hexadecimal name, accepts one
+historical blob that is known to match and cannot be removed without rewriting
+published history. Acceptance applies only to the history scan. A tracked file is
+always scanned, so a known blob that returns to the tree fails the gate again. A
+malformed acceptance line fails the scan, so that a typing error cannot accept a blob
+silently.
+
 Output names only the path of each matching file, never the term or its context, so
 that the gate's own output discloses nothing. A path from the history is printed with
 the blob's abbreviated object name, since a deleted file has no current copy.
@@ -29,18 +36,31 @@ SNIFF = 8000
 GZIP_MAGIC = b"\x1f\x8b"
 
 
+HEX = frozenset("0123456789abcdef")
+# Object names are 40 hexadecimal digits under SHA-1 and 64 under SHA-256.
+OBJECT_NAME_LENGTHS = (40, 64)
+
+
 def parse_terms(text):
-    """Return (terms, exclusions) from the terms file's text, as check.sh parses it."""
-    terms, exclusions = [], []
+    """Return (terms, exclusions, accepted) from the terms file's text.
+
+    Terms and exclusions are parsed as check.sh parses them. Raises ValueError on a
+    malformed acceptance line."""
+    terms, exclusions, accepted = [], [], set()
     for raw in text.splitlines():
         line = raw.strip()
         if not line or line.startswith("#"):
             continue
         if line.startswith(":!"):
             exclusions.append(line[2:])
+        elif line.startswith("blob:"):
+            name = line[5:].strip().lower()
+            if len(name) not in OBJECT_NAME_LENGTHS or not set(name) <= HEX:
+                raise ValueError("an acceptance line does not hold a full object name")
+            accepted.add(name)
         else:
             terms.append(line.lower())
-    return terms, exclusions
+    return terms, exclusions, accepted
 
 
 def is_scannable(data):
@@ -89,12 +109,13 @@ def tracked_files(exclusions):
             yield path, handle.read()
 
 
-def history_blobs(exclusions):
-    """Yield (label, bytes) for each blob reachable from any reference, once each."""
+def history_blobs(exclusions, accepted=frozenset()):
+    """Yield (label, bytes) for each blob reachable from any reference, once each,
+    leaving out accepted blobs."""
     seen = set()
     for line in git("rev-list", "--all", "--objects").decode("utf-8", "replace").splitlines():
         oid, _, path = line.partition(" ")
-        if not path or oid in seen or excluded(path, exclusions):
+        if not path or oid in seen or oid in accepted or excluded(path, exclusions):
             continue
         if git("cat-file", "-t", oid).strip() != b"blob":
             continue
@@ -117,10 +138,16 @@ def main(argv):
         return 2
     try:
         with open(argv[0], encoding="utf-8") as handle:
-            terms, exclusions = parse_terms(handle.read())
+            terms, exclusions, accepted = parse_terms(handle.read())
         if not terms:
             return 0
-        source = history_blobs(exclusions) if len(argv) == 2 else tracked_files(exclusions)
+        if len(argv) == 2:
+            source = history_blobs(exclusions, accepted)
+            if accepted:
+                print(f"scan_binary_terms.py: note: {len(accepted)} known historical blobs "
+                      "are accepted", file=sys.stderr)
+        else:
+            source = tracked_files(exclusions)
         hits = scan(source, terms)
     except (OSError, ValueError, subprocess.CalledProcessError) as error:
         print(f"scan_binary_terms.py: could not complete the scan: {type(error).__name__}",
