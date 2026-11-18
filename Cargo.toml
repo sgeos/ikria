@@ -3,7 +3,7 @@
 # design require.
 [workspace]
 resolver = "3"
-members = ["crates/ikria-harness", "crates/ikria-records"]
+members = ["crates/ikria-harness", "crates/ikria-records", "crates/ikria-save"]
 
 [workspace.package]
 edition = "2024"

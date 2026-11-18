@@ -1,0 +1,57 @@
+// Hand-written fixture for researched technologies and science subjects. The structure
+// follows the ResearchAndDevelopment scenario of a career save of game version 1.12.5,
+// including a part listed twice. The values are invented.
+GAME
+{
+	version = 1.12.5
+	SCENARIO
+	{
+		name = ResearchAndDevelopment
+		scene = 7, 8, 5, 6
+		sci = 4.5
+		Tech
+		{
+			id = start
+			state = Available
+			cost = 0
+			part = mk1pod.v2
+			part = mk1pod.v2
+			part = solidBooster.sm.v2
+		}
+		Tech
+		{
+			id = engineering101
+			state = Available
+			cost = 5
+			part = Decoupler.1
+			part = sensorThermometer
+		}
+		Tech
+		{
+			id = basicRocketry
+			state = Available
+			cost = 5
+		}
+		Science
+		{
+			id = recovery@KerbinFlew
+			title = Recovery of a vessel returned from a flight over Kerbin
+			dsc = 1
+			scv = 0
+			sbv = 5
+			sci = 6
+			asc = True
+			cap = 6
+		}
+		Science
+		{
+			id = temperatureScan@KerbinSrfLandedLaunchPad
+			title = Temperature Scan while on the launch pad
+			dsc = 1
+			scv = 0.5
+			sbv = 0.3
+			sci = 1.2
+			cap = 2.4
+		}
+	}
+}

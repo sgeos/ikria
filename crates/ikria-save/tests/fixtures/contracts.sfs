@@ -1,0 +1,64 @@
+// Hand-written fixture for contracts. The structure follows the ContractSystem scenario
+// of a career save of game version 1.12.5. The CONTRACTS_FINISHED list is written from
+// the format's known structure, since the save studied held no finished contract. The
+// identifiers and values are invented.
+GAME
+{
+	version = 1.12.5
+	SCENARIO
+	{
+		name = ContractSystem
+		scene = 7, 8, 5, 6
+		update = 284295.98230279615
+		WEIGHTS
+		{
+			ExplorationContract = 30
+			Kerbin = 30
+		}
+		CONTRACTS
+		{
+			CONTRACT
+			{
+				guid = 00000000-0000-4000-8000-000000000001
+				type = ExplorationContract
+				prestige = 0
+				state = Offered
+				agent = Kerbin World-Firsts Record-Keeping Society
+				values = 86400,0,672,1248,672,1,1,0,370625.962302731,0,0,0
+				targetBody = 1
+				PARAM
+				{
+					name = ProgressTrackingParameter
+					state = Incomplete
+					values = 1920,0,1,1,0
+				}
+			}
+			CONTRACT
+			{
+				guid = 00000000-0000-4000-8000-000000000002
+				type = CollectScience
+				state = Active
+				agent = StrutCo
+				values = 43200,46008000,4590,11780.9994649887,4819.49978113174,2,2.857143,5,327425.962302731,290000,46298000,0
+				body = 1
+			}
+			CONTRACT
+			{
+				guid = 00000000-0000-4000-8000-000000000003
+				type = PartTest
+				state = Generated
+			}
+		}
+		CONTRACTS_FINISHED
+		{
+			CONTRACT
+			{
+				guid = 00000000-0000-4000-8000-000000000004
+				type = PlantFlag
+				state = Completed
+				agent = Kerbal Motion LLC
+				values = 0,0,100,200,50,3,1,2,0,1000,2000,1500
+			}
+		}
+	}
+}
