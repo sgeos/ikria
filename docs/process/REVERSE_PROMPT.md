@@ -4,44 +4,34 @@
 
 Written by a Claude line on 2026-11-18.
 
-## An hour of work that needed no operator attention
+## T9, the science ledger
 
-The operator asked on 2026-11-18 for obvious tasks that need no operator attention.
-Two agents worked in separate worktrees, and two independent reviews checked their
-code before merging.
+**Done.** `crates/ikria-ledger` enumerates every science subject the Phase 0 count
+counts, 3,104 of them, each with the identifier the game writes in saves and its Hard
+value, and joins them with a save's subjects through `crates/ikria-save`. It reports
+possible, collected and remaining science by subject, body, experiment and situation,
+lists unmatched and repeated save subjects, and accounts for every point of a save's
+science. Differences in a subject's cap or multiplier are reported, never silently
+resolved.
 
-**Done.**
-- **Known flight-control defects fixed.** All seven, with tests that fail without each
-  fix, merged in this branch.
-  - Refused program outputs now select a distinct abort program, `programs/abort.kl`.
-  - Deployment is latched.
-  - Frames and sessions have wall-clock deadlines.
-  - Every frame is journalled before validation.
-  - The Python guards are tested so that deleting any one fails a test, 41 of 42 by
-    mutation.
-  - Landings need a settle period.
-- **R20 in the tools.** `tools/phase0/launch_site.py` recovers crewed vessels near the
-  pad or runway before any launch, through kRPC in the flight scene and through a
-  temporary save elsewhere, and `tools/sepratron/flightlib.py` uses it. Its save-file
-  path found a real crewed plane at the runway's start in an old save.
-- **T8, the save reader,** merged as `crates/ikria-save`, pull request 43. A review found
-  that finished contracts were read from the wrong node, which the old Rookie save
-  confirmed, and that is fixed.
-- **Template sync.** The gate and worktree scripts of Ikria and of the bridge now match
-  template commit `8a79622`, pull requests 42 here and 8 in the bridge. Both now scan
-  binary files.
+**A correction to the record.** The enumeration found the Phase 0 Hard total short by
+9 points. Breaking Ground's science definitions split the 34 surface features 12, 11 and
+11 across caps of 30, 45 and 60, where the Phase 0 script had 12, 12 and 10. VR-0005,
+its script and its data now carry the correct split, with a note that keeps the old
+figure, and the Hard total is 217,827. An independent review confirmed the split
+against the game's file.
 
-**Verified.** The gate exits zero on macOS with every file staged, 78 Rust tests in this
-branch before the save reader's 42, 50 phase 0 Python tests and the gate's own 12. The
-save reader and the launch check were run read-only on real non-campaign saves.
+**Review.** The independent review also found an unverified assumption, that surface
+features carry no body multiplier, which the ledger now checks against each save
+subject's own multiplier. It found 21 location names that are display names, now
+flagged as unverified, a residue that kept collected subjects open, and repeated save
+records missing from the totals. All are fixed.
 
-**Not verified.** No change was exercised in the game. The flight fixes still owe a live
-check before a career flight.
+**Verified.** The acceptance totals in tests, 37 tests in the crate, and a read-only run
+on the old Rookie save, which matches 174 of 177 subjects with no cap or multiplier
+differences. The gate exits zero on macOS with every file staged.
 
-**Closed after the report.** The operator loaded "ipv-jeb-restored", and the verification
-save's roster lists Jebediah as Available. The operator said on 2026-11-18 that exact
-wording in the documents is not a concern, so the template's wording for concurrent lines
-and for the worktree copy of local material was adopted in `CLAUDE.md`. Ikria's
-`AGENTS.md` keeps its Grok Build sentence.
+**Not verified.** Identifiers away from Kerbin, the 25 unverified location names and the
+surface-feature multiplier, until a save holds such subjects.
 
 **For the operator.** Nothing.
