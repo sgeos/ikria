@@ -241,7 +241,7 @@ code's own formulas.
 
 ### Status after the fixes of 2026-11-18
 
-The fixes are in commit `FIXCOMMIT` on a feature branch. Each fixed item has a test.
+The fixes are in commit `70ee0ef`, on a feature branch. Each fixed item has a test.
 For items 1, 2, 3 and 7 and the abort-request check, the new session tests were also
 run against the previous `session.rs` and failed there. They have not been exercised
 in the game. No flight has used them, so the statement above that the defects are to
