@@ -166,6 +166,12 @@ the operator on 2026-11-14.
   reentry heating, the part and kerbal acceleration limits, pressure limits and the
   signal settings. The vehicle uses only parts the career holds, as the charter
   requires.
+
+  *Amended 2026-11-18 at the operator's ruling.* The verification and sandbox saves are
+  tools for getting the career right. They may run experimental procedures, including
+  debug placement, untested sequences and deliberate failures, to learn how the game
+  behaves. The career is flown very conservatively. It uses only procedures that have
+  been qualified in a tool save, and takes no experimental step.
 - **R5, crew safety.** *Decided.* No kerbal flies on a vehicle's first flight. Every
   crewed vehicle has an abort mode for every flight phase. Every first crewed landing on
   a body follows an uncrewed landing there that used the same descent and ascent
@@ -229,6 +235,11 @@ the operator on 2026-11-14.
     the campaign continues.
   - **Classification.** The operator confirms whether a loss was a defect before any
     restore, so that the record cannot quietly undo its own mistakes.
+
+  *Amended 2026-11-18 at the operator's ruling.* This rule governs the career. In the
+  verification and sandbox saves a loss is documented under R11, and the line may then
+  restore the save, edit it or repair its roster as is sensible for the save's purpose,
+  recording each edit. Jebediah's restoration after I-0007 is the first such repair.
 - **R11, incident reports.** *Decided.* Every reload of the career save and every loss
   of a kerbal requires an incident report, as does every Mission mode or scenario
   attempt that loses a kerbal. So does every loss or failed mission of an uncrewed
@@ -288,6 +299,13 @@ the operator on 2026-11-14.
   release, the relative velocity, and the clearance distance and time before either
   vessel manoeuvres. Its qualification shows no recontact. A spent stage burning off its
   Δv under R13 does so only after it is clear.
+
+  *Amended 2026-11-18 from the Sepratron program.* A separation motor clears every part
+  that leaves with the other vessel by the motor's full length, checked on the pad from
+  the parts' bounding boxes before flight, I-0003. The decoupler is commanded first and
+  the motors after it. Motors leave every hatch clear, I-0007. A vessel whose burn is
+  still running is kept as the active vessel, since in orbit a vessel that is not
+  active goes on rails 350 m away and stops thrusting.
 - **R17, priorities.** *Decided by the operator, 2026-11-14.* When goals conflict, the
   order is as follows.
   1. **Personnel survive.** In an accident, the first goal is that the crew survive in a
@@ -315,6 +333,36 @@ the operator on 2026-11-14.
      within funds above the reserve.
   4. **A forecast.** The program-level tracking software forecasts funds to the next
      funds gate of the sequence, and warns when the reserve would be breached.
+- **R19, solid motors.** *Adopted 2026-11-18 at the operator's ruling, from the Sepratron
+  program, [`SEPRATRON_PROGRAM.md`](../research/SEPRATRON_PROGRAM.md).*
+  1. **Size by calculation.** A solid burn is sized from the rocket equation with the
+     vessel's actual mass at ignition, and its fuel load and thrust limit are stated in
+     the design.
+  2. **Fall short, then trim.** A fixed burn is sized to fall short of its target by a
+     margin that a throttleable engine or reaction control covers, never to exceed it,
+     since excess solid impulse cannot be taken back.
+  3. **Escape from a solid booster.** An escape system outruns a booster that cannot be
+     shut down for the whole of its remaining burn, or carries the crew module out of
+     the booster's line.
+  4. **Power across coasts.** A vessel that must point after a coast carries the charge
+     to hold its pointing through the whole coast, with margin.
+  5. **Retro motors under a parachute** fire at full thrust in a short burn, at a firing
+     height calibrated from a measured first contact.
+- **R20, safety of automation.** *Adopted 2026-11-18 at the operator's ruling, from
+  incidents I-0003 to I-0007.* These bind every script and the harness.
+  1. **No crew left in harm's way.** No sequence leaves a kerbal aboard a vessel that a
+     later step may replace, clear or destroy, on any path including an error path.
+     Every launch first recovers any crewed vessel at the launch site explicitly, and
+     refuses to launch if it cannot. A launch call is never relied on to clear crew.
+  2. **Reset reused configurations.** A part or craft reused from another design is reset
+     to its configuration's defaults, and its differences are reviewed before flight.
+  3. **Check every commanded state.** A state that a script sets, such as a placement, a
+     velocity or a direction, is stated with its reference frame and read back for
+     plausibility before anything fires.
+  4. **One loop for concurrent duties.** Safety duties that run at the same time, such as
+     a parachute, a collision watch and a safety net, run in one loop on every tick.
+  5. **Keep the evidence.** Logs are flushed as written and saved after each phase, and a
+     script's time limit exceeds its longest path.
 - **R15, orbital hazards.** *Decided as a requirement by the operator, 2026-11-14.* Every
   trajectory is checked against the moons' hazard bands of [`HAZARDS.md`](HAZARDS.md),
   and an encounter is either shown impossible or planned.
@@ -502,6 +550,13 @@ No questions remain open.
 |---|---|
 | Deferred rescue | Kerbals can live indefinitely in space and cross whole bodies on foot, so a rescue can wait for funds. R5 is amended to allow it, with the crew left in a stable state. |
 | Solvency | Running out of money can fail the whole program, and is a realistic failure mode on Hard. R18. |
+
+## Rulings, twelfth set, 2026-11-18
+
+| Subject | Ruling |
+|---|---|
+| The tool saves | The verification save is a tool for figuring the game out so that the program is right in the real career. The line does whatever is sensible there to achieve that. R4 and R10 are amended. |
+| Learning | All sensible learning is adopted. The verification and R&D modes may perform experimental procedures, and the real career save is very conservative. R16 is amended, and R19 and R20 are adopted. |
 
 ## Appendix, Hard preset
 

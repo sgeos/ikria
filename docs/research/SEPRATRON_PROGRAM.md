@@ -7,8 +7,9 @@ Verification", Kerbal Space Program 1.12.5 with kRPC 0.7.0. The procedure is
 [TP-0002](../../record/verification/TP-0002.md), the measured results are
 [VR-0011](../../record/verification/VR-0011.md), and the scripts that reproduce every
 run are in [`tools/sepratron/`](../../tools/sepratron/README.md). The operator asked for
-the program on 2026-11-18 and named its use cases. Where this document recommends a
-design rule, the rule is a proposal until the operator adopts it.
+the program on 2026-11-18 and named its use cases. On the same day the operator ruled that
+all sensible learning is adopted, and the campaign plan carries this document's rules as
+R16, R19 and R20.
 
 **Audience.** Future sessions of this project, and anyone designing with small solid
 motors in KSP1. Each claim is marked as measured, *(files)* for the game's own

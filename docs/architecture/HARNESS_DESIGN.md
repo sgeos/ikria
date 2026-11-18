@@ -206,6 +206,8 @@ save file or kRPC.
 | R10 and R11, losses | The harness quicksaves into the sandbox and snapshots the career save outside the game before each career flight. It restores a career snapshot only after the operator confirms a defect, and every restore and loss writes an incident report. |
 | No cheats | kRPC's `KRPC.Debug` service sets funds and science, upgrades facilities, unlocks the tree, and moves vessels into orbits or onto the ground at will. The harness never calls it against the campaign's career or its sandbox qualification runs, and refuses any request that would. It may be used only in the test career save, for setting up a test, and each use is logged. |
 | R7, configuration record | Each flight logs the game version, the settings, and the hash of every craft file and Keleusma module flown. |
+| R20, safety of automation | Before any launch the harness recovers every crewed vessel at the launch site explicitly and refuses to launch if one cannot be recovered. Every commanded placement, velocity or direction names its frame and is read back for plausibility before ignition. Concurrent safety duties run in one loop per tick. Craft built from reused parts are reset to part defaults and diffed before flight. The Python reference implementation is `tools/sepratron/flightlib.py`, and the Rust harness is to adopt it. |
+| R16 and R19, separation and solid motors | Before flight the harness checks from bounding boxes that each separation motor clears every part leaving with the other vessel, commands decouplers before motors, and keeps a vessel whose burn is running as the active vessel. |
 
 ## The bridge to kRPC
 
