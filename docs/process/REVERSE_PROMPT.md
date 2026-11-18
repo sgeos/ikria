@@ -16,9 +16,11 @@ which remains in main ancestry.
 The incoming reports were stale about publication. This documentation-only task
 reconciles both handoffs and roadmaps with the merges, retains unfinished work, and
 qualifies game state as last observed on 2026-11-17. The paired local branches are
-`docs/codex-claude-handoff` and `docs/codex-claude-bridge-handoff`. No new push or merge
-was performed. The receiving Claude line should review these local commits and follow
-its applicable authority. Earlier implementation worktrees remain available.
+`docs/codex-claude-handoff` and `docs/codex-claude-bridge-handoff`. The operator then
+explicitly authorized committing, pushing and merging all work on 2026-11-18. This
+publication report precedes those merges. Check their pull requests and merge ancestry
+for completion, then start Claude in synchronized main. Earlier worktrees remain.
+The approval is session-specific and grants no new standing authority.
 
 ## Implemented and verified
 
@@ -42,9 +44,9 @@ precision, now tested over 10,000 timestamps. Failed evidence is not replay-cert
 
 Local gates pass on macOS with Rust 1.100.0. Ikria reaches 60 Rust and 13 Python tests,
 and the bridge reaches three tests, with none ignored, plus formatting, lint and
-repository checks. Remote results above cover the merged implementations. These local
-handoff commits have not run in remote continuous integration. No live flight was
-repeated for this documentation task.
+repository checks. Remote results above cover the merged implementations. Handoff
+publication requires green remote checks at the final branch tips. Their pull requests
+record those results. No live flight was repeated for this documentation task.
 
 ## Limits and continuation
 

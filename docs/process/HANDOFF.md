@@ -11,7 +11,8 @@ Written by Codex for Claude on `docs/codex-claude-handoff`, based on main `583e1
 Ikria [pull request 34](https://github.com/sgeos/ikria/pull/34) merged as `583e1d4`,
 then bridge [pull request 5](https://github.com/sgeos/ikria-bridge/pull/5) merged as
 `5d63344`, both on 2026-11-18 in Coordinated Universal Time. Both main checkouts
-were synchronized and clean. These new handoff changes are local and unpushed.
+were synchronized and clean. The operator approved publishing both handoffs on
+2026-11-18. Their pull requests and merge ancestry record publication completion.
 
 - **Seed.** `sgeos/project-template` at `3954eba`, tag `v1.0.8`. Seed review finished
   on 2026-11-13. Public rulings remain in charter item 10.
@@ -36,19 +37,19 @@ were synchronized and clean. These new handoff changes are local and unpushed.
 
 ## Receiving Claude line
 
-Start here with the `CLAUDE.md` startup protocol.
-The paired bridge handoff is on `docs/codex-claude-bridge-handoff`, under the main
-Ikria checkout's `tmp/worktrees/docs-codex-claude-bridge-handoff`. Review the local
-commits before publication under the receiving line's applicable authority.
+Start in the synchronized main checkout with the `CLAUDE.md` startup protocol.
+The paired bridge checkout is `~/projects/keleusma/ikria-bridge`. Confirm main includes
+`docs/codex-claude-handoff` here and `docs/codex-claude-bridge-handoff` there.
 
 The flight worktree `tmp/worktrees/feat-codex-flight-control` remains under the main
 checkout, with raw logs and rehearsal tooling. Preserve it. Other worktrees also remain.
-The sibling `ikria` symlink supplies the bridge records dependency. Its workflow pins preserved Ikria revision `504d4c4`.
+The sibling `ikria` symlink supplies bridge records. Its workflow pins `504d4c4`.
 
 ## Operator scope and last observed game state
 
 Scope remains in `PROJECT_CHARTER.md`, questions in `OPEN_QUESTIONS.md`. The operator
-authorized early rehearsals and mechanics work in "Ikria Physical Verification", including debug features, while keeping designs
+authorized rehearsals in "Ikria Physical Verification", including debug features,
+while keeping designs
 within actual starting career limits. No debug setter was used in the recorded series.
 
 On 2026-11-17 the career still had only the start node, zero science and 10,000 funds.
@@ -127,8 +128,8 @@ zero. Report checks not run and later commits. The inherited handoff was stale a
 publication. The local gates pass on macOS with Rust 1.100.0, covering 60 Rust and 13
 Python tests here and three bridge tests, none ignored. Post-merge continuous
 integration passed for Ikria in run `44255410252` and bridge in run `44256254190`.
-Remote results cover the implementations, not these local documentation commits.
-Live observations are separate evidence.
+Those results cover the implementations. Check the handoff pull requests for their
+required checks and merge state. Live observations are separate evidence.
 
 ## Mailbox
 
