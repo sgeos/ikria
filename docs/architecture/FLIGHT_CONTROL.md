@@ -248,11 +248,13 @@ code's own formulas.
 
 ### Status after the fixes of 2026-11-18
 
-The fixes are in commit `70ee0ef`, on a feature branch. Each fixed item has a test.
-For items 1, 2, 3 and 7 and the abort-request check, the new session tests were also
-run against the previous `session.rs` and failed there. They have not been exercised
-in the game. No flight has used them, so the statement above that the defects are to
-be fixed before further flights is met in code only, pending review.
+The fixes are in commits `a44555f`, `ff86d34` and `ee8e877`, merged into `main` on
+2026-11-18 after two independent reviews. Each fixed item has a test. For items 1, 2, 3
+and 7 and the abort-request check, the new session tests were also run against the
+previous `session.rs` and failed there, and removing each later fix made its test fail.
+They have not been exercised in the game. No flight has used them, so the statement
+above that the defects are to be fixed before further flights is met in code, and a
+live check is still owed.
 
 | Item | Status | Change | Test |
 |---|---|---|---|

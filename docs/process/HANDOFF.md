@@ -58,8 +58,8 @@ active attitude actuation is not qualified. No career mission is cleared.
 
 ## Open work and recommended resumption
 
-1. Fix the known defects in `FLIGHT_CONTROL.md` first. Read VR-0010, M-0001, I-0001
-   and I-0002 before more flights. Use a fresh abort-request
+1. The known defects in `FLIGHT_CONTROL.md` are fixed in code and reviewed, but not yet
+   flown. Read VR-0010, M-0001, I-0001 and I-0002 before more flights. Use a fresh abort-request
    path for a normal run. The flight worktree still contains `tmp/abort-flight-4`.
    Never retry an uncertain command.
 2. T12 is partial. The original sandbox qualification remains open. Resolve a
