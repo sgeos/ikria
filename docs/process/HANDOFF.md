@@ -1,142 +1,131 @@
 # Handoff
 
-> **Navigation**: [Process](./README.md) | [Documentation Root](../README.md)
+> **Navigation**: [Process](README.md) | [Documentation Root](../README.md)
 
-This is a state file. It is overwritten whole on every update and holds only what is in
-flight, why, what is owed and the next step, within a budget of 8 KB. History lives in
-git. A rewrite that drops an open item says in its commit message whether the item was
-completed, moved or abandoned.
+This state file is overwritten whole within 8 KB. History lives in git. A rewrite
+that drops an open item names it in the commit message as completed, moved or abandoned.
 
-## State on 2026-11-14
+## State on 2026-11-17
 
-- **Seeded** by the admin session from `sgeos/project-template` at `3954eba`, tag
-  `v1.0.8`. The public repository is
-  `https://github.com/sgeos/ikria`.
-- **Seed review done** on 2026-11-13. The public rulings are in charter item 10.
-- **Campaign plan final.** [`CAMPAIGN_PLAN.md`](../architecture/CAMPAIGN_PLAN.md) holds
-  the criteria, rules, constraints and phases, settled by the operator on 2026-11-14,
-  with proposed appendices on technology order and
-  community practice. Charter item 2 is amended, and `CLAUDE.md` records the standing
-  authority to push. R5 now allows deferred rescues, and R18 adds a solvency reserve.
-- **Sequence proposed.** [`CAMPAIGN_SEQUENCE.md`](../architecture/CAMPAIGN_SEQUENCE.md)
-  gives the early game as stages E0 to E6, with research, purchases, upgrades, science
-  and a funds plan, and checkpoints for recalibration. Its end-of-E0 measurements join
-  the Phase 0 questions below.
-- **Record decided.** [`AGENCY_RECORD.md`](../architecture/AGENCY_RECORD.md) defines
-  the agency's documents, from vehicle sheets and mission plans to program and
-  financial records. The operator decided its scope on 2026-11-14, and its methodology
-  is to hold up to professional scrutiny. Formats wait for the blog articles.
-- **The operator's aim.** A technology demonstrator for Keleusma, with no physical-world
-  impact. Keleusma stream processors fly craft in Kerbal Space Program 1 through the
-  kRPC mod, an MCP server exposes the same controls to agents, and the record documents
-  missions against a textbook model of the game, as a sandbox. The name is the Greek
-  word for the land-based rowing benches on which crews learned to row in time.
+Written by Codex on `feat/codex-flight-control`, based on local rehearsal commit
+`8e7c9f5`, which includes T10 commit `614794e`. Remote main was refreshed and remains
+`1ce12bb`. The paired bridge branch is `feat/codex-live-bridge`, based on `551bb7b`.
+The operator approved this publication on 2026-11-17, Ikria first, then the bridge.
+This is session-specific authority. Remote merge ancestry records completion.
 
-## Operator brief, 2026-11-13
+- **Seed.** `sgeos/project-template` at `3954eba`, tag `v1.0.8`. Public repository
+  `https://github.com/sgeos/ikria`. Seed review finished on 2026-11-13. Public rulings
+  remain in charter item 10.
+- **Campaign.** `CAMPAIGN_PLAN.md` and `CAMPAIGN_SEQUENCE.md` retain E0 to E6,
+  recalibration checkpoints, deferred rescues under R5 and the solvency reserve R18.
+  Appendices remain proposed.
+- **Record.** Vehicle and mission articles remain unpublished. The operator authorized
+  provisional sections on 2026-11-17. M-0001 and VR-0010 use them. I-0001 and I-0002
+  follow R11's explicit provisional contents while incident article A391 is unpublished.
+  Program and financial articles remain pending. The first records of those types
+  still require the article-status check.
+- **T10 and T16.** The scripted harness and two Python mechanics hops remain complete
+  locally. They are retained in the branch history and VR-0009.
+- **T11 and T17.** The separate Rust bridge and single-vessel Keleusma flight path are
+  implemented locally. The runtime has checked dialogue loading, resource admission,
+  normal and independent abort programs, command policy, timeouts, journals and replay.
+  [FLIGHT_CONTROL.md](../architecture/FLIGHT_CONTROL.md) gives commands and limits.
+- **Live evidence.** [VR-0010](../../record/verification/VR-0010.md) records a complete
+  normal flight and a coast-abort flight with intact eight-part recovery. Their 6,824
+  and 6,798 samples replay to identical commands. An earlier frame defect lost an
+  empty article, I-0001. A later touchdown bounce stopped software after intact landing,
+  I-0002. Both defects were corrected and their evidence retained.
 
-Ikria has three parts.
+## Operator scope and game state
 
-1. **A global mission controller** that runs outside KSP, probably with MCP
-   functionality, and a way to run its own space-program-level driver loops.
-2. **A harness** that drives individual craft and personnel with stream processors
-   written in Keleusma. It supports many concurrent craft, whether or not that is wise
-   for a given mission. It hot loads new stream processors to change behaviour, which
-   is sometimes simpler than one complex state machine across mission phases.
-3. **A bridge** to the KSP simulator.
+Ikria remains a Keleusma technology demonstrator with no physical-world impact.
+The architecture and scope remain in `PROJECT_CHARTER.md`, with open questions in
+`OPEN_QUESTIONS.md`. The operator authorized early rehearsals and mechanics work in
+"Ikria Physical Verification", including debug features, while keeping designs within
+actual starting career limits. No debug setter was used in the recorded flight series.
 
-The working loop is to design and test craft in a sandbox save, then fly the real
-missions in a career save. The whole project and its progress are presented publicly as
-a Keleusma technology demonstrator.
-
-The operator's answers to the first questions are the charter,
-[`docs/decisions/PROJECT_CHARTER.md`](../decisions/PROJECT_CHARTER.md). The questions
-still open are in [`docs/architecture/OPEN_QUESTIONS.md`](../architecture/OPEN_QUESTIONS.md).
+The real career remains unchanged, with only the start node, zero science and 10,000
+funds. Its persistent-file hash was checked before and after the series. The game was
+left at the verification Space Center after recovery. Jebediah is available. The
+starting empty capsule has no control source or link. The successful flights used
+part-level verification instrumentation and passive fins, not qualified attitude
+actuation. No career mission is cleared.
 
 ## Next step
 
-1. Work the open tasks of [`V0_1_0.md`](../roadmap/V0_1_0.md). T4, T6 and T7 are done.
-   Next are T8, the save-file reader, and T10, the harness skeleton. The bridge can now
-   start T11 against `ikria-records`, as a git dependency on this repository, and
-   measure there the cost of JSON encoding at 50 ticks a second.
-2. The Green Monolith test, T14, is paused after step 4 of
-   `record/verification/TP-0001.md`, until a vessel meets a Green Monolith. kRPC's `load`
-   hangs, so the operator loads saves by hand. The
-   training program is `CREW_TRAINING.md`, the C13 sites are in `record/sites/`, and the
-   hazards by body are in `HAZARDS.md`. The sandbox holds the test craft `IkriaT0` and
-   `IkriaT1` and one flag. The Python client 0.7.0 and the probes are local scratch in
-   `tmp/`.
+1. Publish through green pull requests under the operator's 2026-11-17 approval,
+   Ikria before the bridge. This branch includes T10 and the earlier rehearsals.
+   Check remote merge ancestry before repeating publication.
+2. T12 is partial. The original sandbox qualification remains open. Resolve a
+   campaign-valid control source for the starting capsule, qualify attitude actuation,
+   broaden abort tests, establish repeatability, account for crewed mass and loading,
+   and include mission science. E1 and E2 designs remain open.
+3. T8, the save reader, and T9, the generated science ledger, remain open. Career
+   authorization must come from the actual save. Multi-vessel scheduling, general
+   phase modules and in-flight replacement, calibrated timing admission and the
+   mission controller remain unimplemented. JSON timing and atomic bridge batching
+   remain measurement and optimization work.
+4. T14 remains paused after step 4 of TP-0001, until a vessel meets a Green Monolith.
+   The earlier kRPC load hang is unresolved. Training is in `CREW_TRAINING.md`, C13
+   sites in `record/sites/`, and body hazards in `HAZARDS.md`.
 
-## Open
+## Other open items
 
-- **The default branch is protected** by the template ruleset, so changes reach `main`
-  only by pull request with a green `CI result` check.
-- **Gate.** `scripts/check.sh` runs `cargo fmt`, `cargo clippy` and `cargo test` over the
-  workspace. Inside the sandbox it needs `RUSTC_WRAPPER=`, because `sccache` cannot run
-  there.
-- **Prior art to cite and perhaps reuse.** MIT Lincoln Laboratory's KSPDG drives KSP
-  headlessly through kRPC for multi-agent pursuit-evasion games, and handles distant
-  craft with PhysicsRangeExtender.
-- **Determinism** is a result to measure, not an assumption. KSP slows the simulation
-  under load rather than taking larger physics steps, so records use game time.
+- **Authority.** Standing push and merge authority has not been extended to Codex or
+  Grok Build. This publication has explicit session approval.
+- **Template upstream.** Readiness changes to `scripts/worktree.sh` and `scripts/check.sh`
+  diverge from the template and need an upstream decision. A later sync could undo
+  them. The rehearsal branch added Python tests to the gate.
+- **Protected main.** Changes reach main through a pull request with a green `CI result`.
+- **Prior art.** Cite and consider MIT Lincoln Laboratory's KSPDG, which uses kRPC
+  and PhysicsRangeExtender for multi-agent pursuit-evasion games.
+- **Determinism.** Measure game determinism rather than infer it from software replay.
+  The journals establish command replay and observed clock increments only.
 
-## Environment
+## Environment and retained observations
 
-Observed by the admin session on 2026-11-13.
+KSP 1.12.5 build 03190 with both expansions, kRPC 0.7.0 and Module Manager 4.2.3 runs
+under Rosetta 2. Anticipated Rosetta removal in macOS 28 remains a risk. CKAN instance
+`ksp1` uses CKAN 1.36.4 under MacPorts Mono. Earlier installation and mechanics evidence
+remains in the Phase 0 reports.
 
-- **The game.** KSP 1.12.5, build 03190, from Steam, at
-  `~/Library/Application Support/Steam/steamapps/common/Kerbal Space Program`, with
-  both expansions. It is Intel-only and runs under Rosetta 2. Rosetta is expected to be
-  removed in macOS 28, which would stop the game on this Mac.
-- **Mods.** kRPC 0.7.0 and Module Manager 4.2.3, installed with CKAN as the instance
-  `ksp1`. The `ckan` command wraps CKAN 1.36.4 under MacPorts Mono. kRPC is GPL-3.0.
-- **Game settings.** Running in the background, advanced tweakables and the extra
-  action groups are on. The exit and physics-warp confirmations are off. The window is
-  1920 by 1080, not full screen.
-- **kRPC server.** Verified 2026-11-13: version 0.7.0, listening on `127.0.0.1` ports
-  50000 (RPC) and 50001 (streams) only. The official Python client 0.7.0 connected and
-  read the save read-only. In this version the game scene is `krpc.game_scene`, not
-  `current_game_scene`.
-- **kRPC multi-vessel control,** from the installed 0.7.0 client's docstrings, since
-  the online API pages returned 404 that day:
-  - Each vessel has its own `control` and `auto_pilot`, not only the active vessel.
-  - A vessel on rails "produces no thrust and ignores control input". In orbit the game
-    puts a vessel on rails 350 m from the active vessel and unloads it at 2.5 km.
-  - `vessel.physics_range` raises one vessel's range, as PhysicsRangeExtender does for
-    KSPDG. It persists past client disconnect until the game exits, "costs
-    performance, and accumulates positional error that can destroy it".
-  - Rails time warp puts everything on rails, so multi-agent runs use real time or
-    physical warp.
-  - No documented limit on several clients at once was found.
-- **kRPC EVA control,** same source:
-  - `crew_member.eva()` returns the kerbal as a vessel that can be "walked around and
-    flown using its `Vessel.control`".
-  - `control.board()` boards only through a hatch the kerbal already stands at.
-  - The jetpack and helmet lamp switch only for the active vessel.
-  - Flags and carried items were not checked.
-- **Bridge repository, 2026-11-14.** `sgeos/ikria-bridge`, public, GPL-3.0-only, seeded
-  by this line at the operator's instruction and checked out at
-  `~/projects/keleusma/ikria-bridge`, outside this line's sandbox, so writing there
-  needs escalation.
-- **Saves, 2026-11-14.** The operator created "Ikria Automated Space Agency", a career on
-  Hard, "Ikria Simulated Research and Dev", a sandbox on Hard whose name the game
-  shortened, and "Ikria Physical Verification", a test career on Hard with reloading
-  enabled. The older "Rookie" and "Sandbox" saves are left untouched.
+- Local kRPC uses ports 50000 and 50001. The new bridge uses a configurable loopback
+  port, demonstrated with 50120. `krpc.game_scene` is the scene property.
+- Empty-capsule placement timed out. Crewed placement, followed by crew removal and
+  recovery before ignition, works. Missing control sources remain the unproved cause.
+- Four verification difficulty groups matched the career in VR-0009. Five debug flags
+  were false before and after the new series, not sampled continuously.
+- Body-frame velocity is required. Reading velocity in the vessel-moving surface
+  frame returned zero while altitude changed. The bridge now transforms directions
+  separately from the frame used to measure velocity.
+- Rails, physics-range limits, boarding, jetpack, flags and inventory observations
+  remain in the Phase 0 reports. No documented multi-client limit was found.
+- The bridge is a separate public GPL-3.0-only repository at
+  `~/projects/keleusma/ikria-bridge`. Its worktree is under this checkout's `tmp/worktrees`.
+  Its local records dependency resolves through a sibling `ikria` symlink there.
+- Saves remain the career "Ikria Automated Space Agency", sandbox "Ikria Simulated
+  Research and Dev", and "Ikria Physical Verification". Older Rookie and Sandbox saves
+  remain untouched. The sandbox still holds IkriaT0, IkriaT1 and one flag. The monolith
+  rover setup and checkpoint `ipv-before-early-rehearsal` remain available.
+- Revision A and B craft, pad and landing saves, and the Python client are
+  retained. Generated raw journals and process logs are in the flight worktree's tmp.
+  Compressed public telemetry and hashes are in VR-0010's data directory.
 
 ## Validity
 
 ```sh
-git status --short          # clean
-git log --oneline -5        # the newest commit should describe this state
-./scripts/check.sh          # exits zero
+git status --short
+git log --oneline -5
+RUSTC_WRAPPER= ./scripts/check.sh
 ```
 
-Report any check not run, and any commit after the one that last rewrote this file.
+A valid checkout is clean, its newest commit describes this state, and its gate exits
+zero. Report any check not run and commits after this file's last rewrite. Startup
+handoff was valid at `1ce12bb`, with only that merge after rewrite `bf64ba3`. The final
+local gate covers 60 Rust and 13 Python tests here, plus three tests in the separate
+bridge gate, none ignored. Local runs used macOS and Rust 1.100.0. Remote results are checked before merging.
 
 ## Mailbox
 
-None assigned. The blog line does not use the Keleusma interline mailbox. A Claude Code
-line messages its running session, and a Codex or Grok Build line asks the operator. On
-2026-11-14 this line asked for articles on incident reports, drafted as A391 and
-unpublished, on vehicle sheets and mission documents, and on program and financial
-management. Templates follow the published articles, so before writing the first of
-each document, ask the operator whether its article exists.
+None assigned. The blog line does not use the Keleusma interline mailbox. Other
+assistants ask the operator rather than sending unauthorized messages. Earlier article requests remain context.

@@ -3,7 +3,8 @@
 > **Navigation**: [Architecture](./README.md) | [Documentation Root](../README.md)
 
 **Status.** Proposed, 2026-11-14, for the operator's review, with the process layout and
-the bridge's repository decided by the operator the same day. Nothing is implemented.
+the bridge's repository decided by the operator the same day. The version 1 records and
+the T10 scripted skeleton are implemented. The [live verification path](FLIGHT_CONTROL.md) is also implemented. Other portions of the design remain proposed.
 Each point is marked **Decided**, **Proposed** or **Open**. Facts about Keleusma come
 from a read-only reading of its repository at version 0.2.2 and the unreleased 0.2.3
 work, with file references kept in this line's notes. Facts about kRPC come from the
@@ -51,6 +52,45 @@ the harness and any source of telemetry. It has two implementations.
 - **A scripted host,** which replays recorded telemetry or runs a simple model. It lets
   the harness, the rule enforcement and the MCP tools be tested without the game
   running, and makes those tests deterministic.
+
+### T10 scripted skeleton
+
+**Implemented by Codex, 2026-11-16.** `ikria-harness` has a `Host` trait, a finite
+`ScriptedHost`, and a `Harness` that binds one control loop to one vessel. The host
+exchanges owned `ikria-records` values. It holds one tick until the matching command is
+applied, and retains applied commands in order. It does not simulate their effects.
+
+The scheduler checks vessel identity and strictly increasing game time before calling
+the loop. It checks the command's vessel and request bounds before applying it. A
+failure permanently stops the scheduler. It neither resumes a faulted loop nor retries
+an application whose outcome may be uncertain. Exhaustion is also terminal. Each call
+handles at most one tick, so callers can bound a replay by the script length.
+
+`RateDamper` adapts the existing Keleusma attitude loop with zero attitude errors. Its
+scripted convention maps angular velocity components to pitch, yaw and roll rates. It
+rounds rates to thousandths of a radian per second and saturates the input at one radian
+per second. The default loop already saturates its output at larger magnitudes. This
+adapter tests the data path and the loop's yield and reset sequence. It has no frame
+transformation or target orientation and is not qualified for flight.
+
+**Verified locally on macOS.** Thirteen deterministic tests cover consecutive steps
+against the Rust reference, identical replay, conversion boundaries, host ordering,
+identity and time refusals, invalid requests, runtime faults, invalid loop outputs,
+host failures and terminal states. A runnable example emits three command messages
+using the existing version 1 JSON encoding.
+
+```sh
+RUSTC_WRAPPER= cargo run -p ikria-harness --example scripted_host
+```
+
+**Not implemented or verified here.** Bridge transport, a protocol handshake, held tick
+release against the game, frame conversion, multiple vessels, program swaps, timing
+admission, telemetry logs on disk, safe commands after faults and campaign rule
+enforcement. The adapter consumes only the validated angular velocity vector and
+vessel identifier. Other telemetry fields are retained without additional validation.
+Scripts and the applied command log reside in memory and are bounded by the supplied
+script length, with no flight memory budget established. The local tests do not
+establish game behaviour or timing.
 
 ## Keleusma in the harness
 

@@ -19,6 +19,8 @@
 //! cost is to be measured once the bridge exists, and a binary encoding can replace JSON
 //! behind the same types if it proves too slow.
 
+pub mod flight;
+
 use core::fmt;
 
 use serde::{Deserialize, Serialize};
@@ -355,7 +357,7 @@ pub struct VesselTelemetry {
 
 /// A request a loop may make of its vessel, beyond the continuous controls.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case", tag = "kind")]
+#[serde(rename_all = "snake_case", tag = "kind", deny_unknown_fields)]
 pub enum Request {
     /// Fire an action group, 1 to 10.
     ActionGroup {
@@ -367,6 +369,11 @@ pub enum Request {
     /// Light one engine, which works on a vessel that is not active, unlike staging.
     ActivateEngine {
         /// The engine part.
+        part: PartId,
+    },
+    /// Deploy one parachute.
+    DeployParachute {
+        /// The parachute part.
         part: PartId,
     },
     /// Fire one decoupler.
@@ -402,6 +409,7 @@ impl Request {
 
 /// One vessel's commands for one tick.
 #[derive(Debug, Clone, PartialEq, Default, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct VesselCommand {
     /// The vessel.
     pub id: VesselId,

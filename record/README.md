@@ -8,4 +8,7 @@ defines it. Directories are added as each kind of record begins.
 | Directory | Contents |
 |---|---|
 | [`verification/`](verification/README.md) | Reports of R&D and verification activities, test procedures, and their raw data |
+| [`vehicles/`](vehicles/README.md) | Provisional vehicle specifications and development status |
 | [`sites/`](sites/README.md) | The special sites of C13, with coordinates |
+| [`missions/`](missions/README.md) | Provisional development mission reports |
+| [`incidents/`](incidents/README.md) | Incident reports and anomaly log |

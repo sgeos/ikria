@@ -1,45 +1,65 @@
 # Reverse Prompt
 
-> **Navigation**: [Process](./README.md)
+> **Navigation**: [Process](README.md)
 
-A state file, overwritten whole after each task. It reports what was done, what was
-decided and by whom, what was verified and how, what was not verified, and what the
-operator needs to decide. Facts, inferences and hypotheses are marked as such. Written
-by a Claude Code line.
+Written by Codex on 2026-11-17. This state file replaces the earlier rehearsal report.
 
-## Readiness for Codex and Grok Build, 2026-11-16
+## Requested work and result
 
-**Done.**
-- **Session start.** `AGENTS.md` now says to read `CLAUDE.md` at the start of every
-  session. Codex loads only `AGENTS.md`. Grok Build loads both once the folder is
-  trusted, according to its local user guide.
-- **Worktrees.** `scripts/worktree.sh new` copies the main checkout's local material
-  into a new worktree. `scripts/check.sh` falls back to the main checkout's terms list
-  in a worktree that lacks one, and names the list by a relative label, so that its
-  output carries no home directory.
-- **Shared state files.** Lines rewrite the state files on top of the latest `main`, keep
-  the other lines' open items, and name the assistant that wrote the report.
-- **Gate discipline.** Stage before the gate, and commit only on its exit status.
-- **The blog line.** Only a Claude Code line can message it. Others ask the operator.
-- **Standing authority.** It stays with Claude Code lines until the operator says
-  otherwise.
+The operator requested the software needed for Keleusma flight-control loops. This
+branch builds the live single-vessel verification path on local T10 and rehearsal
+work. The paired separate bridge branch is `feat/codex-live-bridge`. The operator
+approved committing, pushing and merging on 2026-11-17, Ikria before the bridge.
+The reviewed implementation tips were `504d4c4` and `b43b710`. The handoffs were valid
+and both local gates were rerun successfully before publication.
 
-**Decided.** Nothing by the operator. The line held the standing authority to Claude
-Code lines by default.
+The implementation adds the bounded version 2 flight protocol, a guarded Rust kRPC
+bridge, checked Keleusma program loading and nominal resource admission, hop phases,
+an independent precompiled abort program, a latched external abort request, strict
+command policy, timeouts, write-ahead intent journals and deterministic replay.
+The bridge uses explicit rotating-body velocity and transforms rates and local up
+into vessel coordinates. Career writes are disabled.
 
-**Verified.** In a throwaway worktree, on macOS.
-- **The copy.** `worktree.sh new` produced an identical copy with private modes.
-- **The fallback.** With the copy removed, the gate scanned with the main checkout's
-  list.
-- **A negative test.** A planted term made the gate fail, naming only the file and line.
-- **Cleanup.** `worktree.sh rm` removed the tree and its copy.
+## Observed verification
 
-The gate exits zero on this branch with every file staged.
+A normal flight and a coast-abort flight completed with all eight parts and were
+recovered. Their 6,824 and 6,798 samples replay to identical commands. A telemetry-only
+session and pad abort also completed and replayed. VR-0010 retains compressed journals,
+program hashes, command events, setup, recovery and outcome metadata. M-0001 supplies
+the provisional mission report and the vehicle sheet is updated.
 
-**Not verified.** No Codex or Grok Build session was run against the repository.
+The development series also exposed two substantive faults. I-0001 records an empty
+article lost because moving-frame velocity prevented descent detection. The recovery
+probe repeated the same frame mistake. I-0002 records an intact landing whose bounce
+stopped the harness. Both were corrected, regression-tested and followed by completed
+flights. Earlier monitoring also exposed JSON time round-trip precision, now tested
+over 10,000 timestamps. Failed evidence was retained and is not certified by replay.
 
-**For the operator.**
-1. Whether the standing authority to push and merge extends to Codex and Grok Build
-   lines.
-2. The two script changes diverge from `sgeos/project-template`, and a later template
-   sync would undo them unless they are upstreamed.
+The staged local gates cover 60 Rust and 13 Python tests in Ikria and three bridge
+tests, with no ignored cases, plus format, lint and repository checks. The local
+platform was macOS with Rust 1.100.0. No remote continuous integration was observed.
+
+## Final state and limits
+
+The game is at the verification Space Center. Jebediah is available. The career and
+craft hashes match their initial values. Five debug flags read false before and after
+the series, and no debug setter was used. No career flight occurred.
+
+The live capsule had no control source or link. Its continuous controls were zero.
+The record establishes discrete ignition, deployment and phase decisions under
+Keleusma, not qualified attitude actuation. One live abort was in coast, not boost.
+Broader abort envelopes, statistical repeatability, career authorization, calibrated
+timing, the original sandbox profile, multiple vessels and the mission controller
+remain open. The operating guide names these limits explicitly.
+
+## Preserved open work and next action
+
+T8, T9, the remaining T12 qualification, the paused Green Monolith procedure, E1 and
+E2 vehicle designs, program and financial article checks, the template upstream
+decision, and broader assistant push authority remain open. T11 and the new scoped
+T17 are complete locally. Prior T10 and T16 remain in this branch's history.
+
+This publication is authorized through protected pull requests with green checks.
+The bridge pins Ikria implementation revision `504d4c4`, which publication preserves.
+Remote pull-request state and merge ancestry record completion after this pre-merge
+report. The approval is for this publication, not new standing authority.
