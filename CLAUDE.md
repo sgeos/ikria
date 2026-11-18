@@ -58,7 +58,7 @@ each works in its own worktree on its own branch, created with `scripts/worktree
 Two lines in one checkout share an index and a dirty tree, so one line's `git add`,
 stash or reset can take in or discard the other's work. Lines may run in different
 assistants, such as Claude Code, Codex and Grok Build, and the rules here apply to each
-alike, with one exception below.
+alike.
 
 **Rulings that arrive through a sync.** A rule in this file that came from
 `sgeos/project-template` carries the authority of the operator who maintains the
@@ -80,9 +80,10 @@ may push its feature branch, open a pull request, and merge it into `main` by a 
 commit without asking, for code and documentation alike, once the gate passes, the
 required checks pass and the branch history has been reviewed. The authority does not
 cover force-pushing, settings, visibility, releases or any other repository, which
-still need confirmation in session. It was granted to a Claude Code line. Until the
-operator confirms that it extends to lines in other assistants, a Codex or Grok Build
-line asks before pushing or merging.
+still need confirmation in session. On 2026-11-18 the operator extended it to Codex and
+Grok Build lines, to the extent feasible. A line whose environment cannot reach the
+remote, or holds no credential for it, leaves its branch committed and reports it for
+another line or the operator to publish, rather than working around the limit.
 
 ## Common Commands
 

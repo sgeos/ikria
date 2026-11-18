@@ -26,9 +26,10 @@ protocol and the rules on local material.
 - **Do not edit Keleusma.** It is a separate repository.
 - **Commit once per prompt,** with no `Co-Authored-By` trailer.
 - **Ask before outward-facing actions,** such as pushing, changing visibility or
-  settings, or publishing. A standing authority to push and merge, which `CLAUDE.md`
-  defines, was granted to a Claude Code line. Until the operator confirms that it
-  extends to Codex or Grok Build, ask before pushing or merging.
+  settings, or publishing. The standing authority to push and merge pull requests here
+  and in `sgeos/ikria-bridge`, which `CLAUDE.md` defines, extends to Codex and Grok
+  Build lines, to the extent their environments allow, as the operator ruled on
+  2026-11-18.
 - **Scratch directories.** Use `tmp/` for transient files. Its contents are ignored. Never
   commit anything under `secret/`, and never copy its contents into tracked files.
 - **Run `./scripts/check.sh` before committing.** Stage new files first, since its

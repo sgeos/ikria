@@ -267,7 +267,9 @@ pass "shellcheck is clean on ${#shell_files[@]} shell $noun"
 # disclose a term. The list lives under secret/, so the scan cannot run in a clone or
 # in continuous integration, and it says so rather than passing silently. A line that
 # starts with `:!` is not a term but a git pathspec to exclude, such as `:!uv.lock`
-# for a generated lockfile whose dependency names would otherwise match.
+# for a generated lockfile whose dependency names would otherwise match. A line that
+# starts with `blob:` accepts one historical blob by its full object name, for the
+# binary scan's history mode only, where removal would need a history rewrite.
 terms_file="secret/disclosure-terms.txt"
 # Messages name the list by this relative label, never by an absolute path, which would
 # carry the account's home directory into output that a line might paste into a pull
@@ -298,6 +300,9 @@ if [[ -f "$terms_file" ]]; then
         term="${term%"${term##*[![:space:]]}"}"
         if [[ "$term" == :!* ]]; then
             exclusions+=("$term")
+        elif [[ "$term" == blob:* ]]; then
+            # An accepted historical blob, read by scripts/scan_binary_terms.py.
+            continue
         else
             patterns+=(-e "$term")
         fi
