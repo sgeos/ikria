@@ -50,7 +50,7 @@ within actual starting career limits. No debug setter was used in the recorded s
 On 2026-11-17 the career had only the start node, zero science and 10,000 funds, and
 was not loaded since. On 2026-11-18 the Sepratron program unlocked the verification
 save's whole tree. Its checkpoints are "ipv-before-sepratron-program" and
-"ipv-after-sepratron-program". Jebediah is Missing there, I-0007. Recheck before use.
+"ipv-after-sepratron-program". Jebediah was restored, I-0007. Recheck before use.
 
 The empty starting capsule has no control source or link. The flights used part-level
 verification instrumentation and passive fins. Continuous controls were zero, so
@@ -73,8 +73,7 @@ active attitude actuation is not qualified. No career mission is cleared.
    atomic bridge batching remain measurement and optimization work.
 4. T18, the Sepratron program, is done. Its design rules are in
    `docs/research/SEPRATRON_PROGRAM.md`. The ejectable cockpit and hybrid ascent are
-   designs, not yet flown. Its rules are adopted as R16, R19 and R20. Jebediah's restored
-   copy "ipv-jeb-restored" awaits the operator's load, I-0007.
+   designs, not yet flown. Its rules are adopted as R16, R19 and R20.
 5. T14 remains paused after step 4 of TP-0001, until a vessel meets a Green Monolith.
    The earlier kRPC load hang is unresolved. Training is in `CREW_TRAINING.md`, C13
    sites in `record/sites/`, and body hazards in `HAZARDS.md`.

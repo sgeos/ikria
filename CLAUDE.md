@@ -29,9 +29,9 @@ operator instead.
 1. Mark the task in the roadmap table.
 2. Overwrite `docs/process/HANDOFF.md` and `docs/process/REVERSE_PROMPT.md`. Both are state
    files. A rewrite that drops an open item names it in the commit message as completed,
-   moved or abandoned. When several lines work at once, each rewrites them on top of the
-   latest `main`, keeps the other lines' open items, and names the assistant that wrote
-   the report.
+   moved or abandoned. When several lines work at once, each in its own worktree, each
+   rewrites them on top of the latest `main`, keeps the other lines' open items, and
+   names the assistant that wrote the report.
 3. Commit once per prompt with a conventional commit.
 4. If blocked or uncertain, say so in `REVERSE_PROMPT.md` and **stop**.
 
@@ -131,9 +131,9 @@ progress stays with the project and survives a restart.
 environment-specific notes. It is ignored whole and does not exist in a fresh clone.
 Never copy its contents into tracked files, commit messages, issues or pull requests.
 If `secret/README.md` exists, read it at session start and before writing anything
-tracked. A new worktree has no `secret/`, so copy it from the main checkout first.
-`scripts/worktree.sh new` copies it, and the gate falls back to the main checkout's
-terms list in a worktree that lacks one.
+tracked. A new worktree has no `secret/` of its own, so `scripts/worktree.sh new`
+copies it from the main checkout. A later change there is not copied again. The gate
+falls back to the main checkout's terms list in a worktree that lacks one.
 
 `scripts/check.sh` fails if anything under `secret/`, or anything under `tmp/` other than
 its marker, is tracked. If `secret/disclosure-terms.txt` exists, one term per line, the
