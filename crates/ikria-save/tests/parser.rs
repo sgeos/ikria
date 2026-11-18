@@ -103,12 +103,42 @@ fn repeated_child_nodes_keep_their_order() {
 }
 
 #[test]
-fn braces_inside_a_value_belong_to_the_value() {
-    let root = parse("G\n{\nname = odd { name }\n}\n").unwrap();
-    assert_eq!(
-        only_child(&root).value("name").unwrap().value(),
-        "odd { name }"
-    );
+fn a_brace_in_a_value_line_is_refused() {
+    // The game would read the closing brace as the end of `G`, so accepting the line as
+    // a value would disagree with the game silently.
+    for (text, line) in [
+        ("G\n{\nk = v }\n", 3),
+        ("G\n{\nk = v }\n}\n", 3),
+        ("G\n{\nname = odd { name\n}\n", 3),
+        ("G\n{\nk{ = value\n}\n", 3),
+    ] {
+        match parse(text) {
+            Err(ParseError::Malformed { line: got, reason }) => {
+                assert_eq!(got, line, "for {text:?}");
+                assert!(reason.contains("brace"), "{reason}");
+            }
+            other => panic!("{text:?} gave {other:?}"),
+        }
+    }
+}
+
+#[test]
+fn a_lone_carriage_return_is_refused() {
+    for (text, line) in [
+        ("G\r{\r}\r", 1),
+        ("G\n{\nk = v\rj = w\n}\n", 3),
+        ("G\n{\n}\r", 3),
+    ] {
+        match parse(text) {
+            Err(ParseError::Malformed { line: got, reason }) => {
+                assert_eq!(got, line, "for {text:?}");
+                assert!(reason.contains("carriage return"), "{reason}");
+            }
+            other => panic!("{text:?} gave {other:?}"),
+        }
+    }
+    // A carriage return before a line feed is an ordinary line ending.
+    assert!(parse("G\r\n{\r\nk = v\r\n}\r\n").is_ok());
 }
 
 #[test]
@@ -166,7 +196,6 @@ fn malformed_lines_are_refused_with_line_numbers() {
     );
     for (text, line) in [
         ("G\n{\n = value\n}\n", 3),
-        ("G\n{\nk{ = value\n}\n", 3),
         ("G\n{\n} extra\n", 3),
         ("G\n{\nH { }\n}\n", 3),
         ("{}\n", 1),
@@ -315,9 +344,55 @@ fn writing_and_reparsing_every_fixture_is_a_fixed_point() {
         let written = first.to_config_text();
         let second = parse(&written).unwrap();
         assert_eq!(second.to_config_text(), written, "{name}");
-        // The trees agree in every name, key and value, though not in line numbers.
-        assert_eq!(count_nodes(&first), count_nodes(&second), "{name}");
+        assert_same_tree(&first, &second, name);
     }
+}
+
+#[test]
+fn the_tree_comparison_notices_a_difference() {
+    let base = parse("G\n{\nk = v\nC\n{\nj = w\n}\n}\n").unwrap();
+    // The same tree at other line numbers is the same.
+    let moved = parse("\n\nG\n{\n\nk = v\nC\n{\nj = w\n}\n}\n").unwrap();
+    assert_same_tree(&base, &moved, "moved");
+    for other in [
+        "G\n{\nk = v\nC\n{\nj = x\n}\n}\n",
+        "G\n{\nk = v\nD\n{\nj = w\n}\n}\n",
+        "G\n{\nk = v\nC\n{\nj = w\n}\nC\n{\n}\n}\n",
+        "G\n{\nk = v\nk = v\nC\n{\nj = w\n}\n}\n",
+    ] {
+        let different = parse(other).unwrap();
+        assert!(
+            tree_difference(&base, &different).is_some(),
+            "{other:?} should differ"
+        );
+    }
+}
+
+fn assert_same_tree(a: &Node, b: &Node, label: &str) {
+    if let Some(difference) = tree_difference(a, b) {
+        panic!("{label}: {difference}");
+    }
+}
+
+/// Compares two trees in every name, key and value and in their order, ignoring line
+/// numbers, without recursion. Returns the first difference found.
+fn tree_difference(a: &Node, b: &Node) -> Option<String> {
+    let mut stack = vec![(a, b)];
+    while let Some((x, y)) = stack.pop() {
+        if x.name() != y.name() {
+            return Some(format!("names {:?} and {:?}", x.name(), y.name()));
+        }
+        let xv: Vec<(&str, &str)> = x.values().iter().map(|v| (v.key(), v.value())).collect();
+        let yv: Vec<(&str, &str)> = y.values().iter().map(|v| (v.key(), v.value())).collect();
+        if xv != yv {
+            return Some(format!("values of {:?} differ", x.name()));
+        }
+        if x.children().len() != y.children().len() {
+            return Some(format!("child counts of {:?} differ", x.name()));
+        }
+        stack.extend(x.children().iter().zip(y.children()));
+    }
+    None
 }
 
 #[test]
@@ -327,18 +402,6 @@ fn a_named_node_writes_itself_with_its_braces() {
         only_child(&root).to_config_text(),
         "G\n{\n\tk = v\n\tC\n\t{\n\t}\n}\n"
     );
-}
-
-fn count_nodes(root: &Node) -> (usize, usize) {
-    let mut nodes = 0;
-    let mut values = 0;
-    let mut stack = vec![root];
-    while let Some(node) = stack.pop() {
-        nodes += 1;
-        values += node.values().len();
-        stack.extend(node.children());
-    }
-    (nodes, values)
 }
 
 #[test]

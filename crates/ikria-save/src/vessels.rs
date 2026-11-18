@@ -6,8 +6,12 @@ use crate::field::{
 };
 use crate::node::Node;
 
-/// A vessel's type, from `type`, the closed set of game version 1.12.5.
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+/// A vessel's type, from `type`.
+///
+/// It is an open set. The named variants are the types this crate is confident the
+/// game writes, and any other non-empty value is kept in [`VesselType::Other`], so that
+/// a type the list omits cannot make [`vessels`] refuse the whole fleet.
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum VesselType {
     /// Debris.
     Debris,
@@ -41,9 +45,22 @@ pub enum VesselType {
     DeployedSciencePart,
     /// A part dropped from a kerbal's inventory.
     DroppedPart,
+    /// A ground part deployed from a kerbal's inventory.
+    DeployedGroundPart,
+    /// Any other type, kept as written.
+    Other(String),
 }
 
-const VESSEL_TYPES: [(&str, VesselType); 16] = [
+impl VesselType {
+    fn from_save(name: &str) -> Self {
+        VESSEL_TYPES
+            .iter()
+            .find(|(written, _)| *written == name)
+            .map_or_else(|| Self::Other(name.to_owned()), |(_, kind)| kind.clone())
+    }
+}
+
+const VESSEL_TYPES: [(&str, VesselType); 17] = [
     ("Debris", VesselType::Debris),
     ("SpaceObject", VesselType::SpaceObject),
     ("Unknown", VesselType::Unknown),
@@ -63,6 +80,7 @@ const VESSEL_TYPES: [(&str, VesselType); 16] = [
     ),
     ("DeployedSciencePart", VesselType::DeployedSciencePart),
     ("DroppedPart", VesselType::DroppedPart),
+    ("DeployedGroundPart", VesselType::DeployedGroundPart),
 ];
 
 /// A vessel's situation, from `sit`.
@@ -164,7 +182,8 @@ impl Vessel {
 /// # Errors
 ///
 /// A missing `FLIGHTSTATE`, or a vessel without a valid `pid`, `persistentId`, `name`,
-/// `type`, `sit` or `ORBIT` with `REF`.
+/// non-empty `type`, `sit` or `ORBIT` with `REF`. The situation remains a closed set,
+/// so an unlisted situation is still an error.
 pub fn vessels(game: &Node) -> Result<Vec<Vessel>, ExtractError> {
     child(game, "FLIGHTSTATE")?
         .children_named("VESSEL")
@@ -185,7 +204,7 @@ fn vessel(node: &Node) -> Result<Vessel, ExtractError> {
         pid: pid.to_owned(),
         persistent_id: unsigned(node, "persistentId")?,
         name: non_empty(node, "name")?,
-        vessel_type: one_of(node, "type", &VESSEL_TYPES, "a stock vessel type")?,
+        vessel_type: VesselType::from_save(&non_empty(node, "type")?),
         situation: one_of(node, "sit", &SITUATIONS, "a stock vessel situation")?,
         body,
         landed_at: optional_text(node, "landedAt"),

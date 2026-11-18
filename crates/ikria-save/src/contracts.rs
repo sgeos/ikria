@@ -45,10 +45,11 @@ const CONTRACT_STATES: [(&str, ContractState); 10] = [
 /// Which list of the `ContractSystem` scenario a contract was read from.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum ContractList {
-    /// `CONTRACTS`, the offered and active contracts.
+    /// A `CONTRACT` node of `CONTRACTS`, an offered or active contract.
     Current,
-    /// `CONTRACTS_FINISHED`, the contracts that have ended. The node's name is an
-    /// inference, not observed in the save studied on 2026-11-18.
+    /// A `CONTRACT_FINISHED` node of `CONTRACTS`, a contract that has ended. Observed on
+    /// 2026-11-18 in a career save of game version 1.12.5, which held 13 `CONTRACT` and
+    /// 94 `CONTRACT_FINISHED` nodes in a single `CONTRACTS` node.
     Finished,
 }
 
@@ -108,8 +109,10 @@ pub struct Contract {
     pub values: Option<ContractValues>,
 }
 
-/// Reads every `CONTRACT` node of the `ContractSystem` scenario, first from `CONTRACTS`
-/// and then from `CONTRACTS_FINISHED`. Either list may be absent, and is then empty.
+/// Reads the contracts of the `ContractSystem` scenario's `CONTRACTS` node, the current
+/// ones from its `CONTRACT` children and the finished ones from its `CONTRACT_FINISHED`
+/// children, in the order the save lists them. An absent `CONTRACTS` node is an empty
+/// list, and a repeated one is read in full.
 ///
 /// # Errors
 ///
@@ -117,16 +120,15 @@ pub struct Contract {
 /// a `values` field that is not twelve finite numbers separated by commas.
 pub fn contracts(game: &Node) -> Result<Vec<Contract>, ExtractError> {
     let system = scenario(game, "ContractSystem")?;
-    let lists = [
-        ("CONTRACTS", ContractList::Current),
-        ("CONTRACTS_FINISHED", ContractList::Finished),
-    ];
     let mut out = Vec::new();
-    for (name, list) in lists {
-        for holder in system.children_named(name) {
-            for node in holder.children_named("CONTRACT") {
-                out.push(contract(node, list)?);
-            }
+    for holder in system.children_named("CONTRACTS") {
+        for node in holder.children() {
+            let list = match node.name() {
+                "CONTRACT" => ContractList::Current,
+                "CONTRACT_FINISHED" => ContractList::Finished,
+                _ => continue,
+            };
+            out.push(contract(node, list)?);
         }
     }
     Ok(out)
@@ -147,7 +149,14 @@ fn contract_values(node: &Node) -> Result<Option<ContractValues>, ExtractError> 
     let Some(value) = node.value("values") else {
         return Ok(None);
     };
-    let fields: Vec<&str> = value.value().split(',').map(str::trim).collect();
+    // One field past the count is enough to refuse a list that is too long, so no more
+    // are collected, however many commas the value holds.
+    let fields: Vec<&str> = value
+        .value()
+        .split(',')
+        .map(str::trim)
+        .take(CONTRACT_VALUE_COUNT + 1)
+        .collect();
     let [
         time_expiry,
         time_deadline,

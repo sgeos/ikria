@@ -4,8 +4,8 @@
 use std::path::Path;
 
 use ikria_save::{
-    BodyIndex, ContractList, ContractState, ExtractError, Facility, FacilityLevel, KerbalType,
-    RosterStatus, Save, TechState, Trait, VesselSituation, VesselType,
+    BodyIndex, ContractList, ContractState, ContractValues, ExtractError, Facility, FacilityLevel,
+    KerbalType, Node, RosterStatus, Save, TechState, Trait, VesselSituation, VesselType,
 };
 
 fn fixture(name: &str) -> Save {
@@ -51,10 +51,24 @@ fn assert_missing_node<T: core::fmt::Debug>(result: Result<T, ExtractError>, wan
 
 #[test]
 fn agency_totals_are_read_from_their_scenarios() {
-    let agency = fixture("agency.sfs").agency().unwrap();
-    assert_eq!(agency.funds.get(), 2_181_250.676_021_337_5);
-    assert_eq!(agency.science.get(), 29.766_666_4);
-    assert_eq!(agency.reputation.get(), -12.5);
+    let save = fixture("agency.sfs");
+    let agency = save.agency().unwrap();
+    let raw = |scenario: &str, key: &str| -> f64 {
+        save.scenario(scenario)
+            .unwrap()
+            .value(key)
+            .unwrap()
+            .value()
+            .parse()
+            .unwrap()
+    };
+    assert_eq!(agency.funds.get(), raw("Funding", "funds"));
+    assert_eq!(agency.science.get(), raw("ResearchAndDevelopment", "sci"));
+    assert_eq!(agency.reputation.get(), raw("Reputation", "rep"));
+    assert!(
+        agency.reputation.get() < 0.0,
+        "a negative reputation is read"
+    );
 }
 
 #[test]
@@ -344,51 +358,49 @@ fn the_roster_keeps_an_unknown_trait_and_refuses_unknown_types_and_states() {
 
 #[test]
 fn vessels_include_a_kerbal_outside_a_vessel_and_a_flag() {
-    let vessels = fixture("vessels.sfs").vessels().unwrap();
-    let summary: Vec<(&str, VesselType, VesselSituation, Option<&str>)> = vessels
+    let save = fixture("vessels.sfs");
+    let vessels = save.vessels().unwrap();
+    // The text fields, counts and crew are derived from the parsed fixture, and only the
+    // mapping of written names to enumerations is pinned.
+    let nodes: Vec<&Node> = save
+        .game()
+        .child("FLIGHTSTATE")
+        .unwrap()
+        .children_named("VESSEL")
+        .collect();
+    assert_eq!(vessels.len(), nodes.len());
+    let raw = |node: &Node, key: &str| node.value(key).map(|v| v.value().to_owned());
+    for (vessel, node) in vessels.iter().zip(&nodes) {
+        assert_eq!(Some(vessel.name.clone()), raw(node, "name"));
+        assert_eq!(Some(vessel.pid.clone()), raw(node, "pid"));
+        assert_eq!(
+            Some(vessel.persistent_id.to_string()),
+            raw(node, "persistentId")
+        );
+        assert_eq!(
+            vessel.landed_at,
+            raw(node, "landedAt").filter(|s| !s.is_empty()),
+            "an empty landedAt is absent"
+        );
+        let parts: Vec<&Node> = node.children_named("PART").collect();
+        assert_eq!(vessel.part_count, parts.len());
+        let crew: Vec<String> = parts.iter().filter_map(|p| raw(p, "crew")).collect();
+        assert_eq!(vessel.crew, crew);
+        let orbit = node.child("ORBIT").unwrap();
+        assert_eq!(Some(vessel.body.0.to_string()), raw(orbit, "REF"));
+    }
+    let kinds: Vec<(VesselType, VesselSituation, Option<&str>)> = vessels
         .iter()
-        .map(|v| {
-            (
-                v.name.as_str(),
-                v.vessel_type,
-                v.situation,
-                v.body.stock_name(),
-            )
-        })
+        .map(|v| (v.vessel_type.clone(), v.situation, v.body.stock_name()))
         .collect();
     assert_eq!(
-        summary,
+        kinds,
         [
-            (
-                "#autoLOC_501180",
-                VesselType::Probe,
-                VesselSituation::Orbiting,
-                Some("Kerbin")
-            ),
-            (
-                "Valentina Ship",
-                VesselType::Ship,
-                VesselSituation::Prelaunch,
-                Some("Kerbin")
-            ),
-            (
-                "Bob Kerman",
-                VesselType::Eva,
-                VesselSituation::Landed,
-                Some("Mun")
-            ),
-            (
-                "Mun Flag",
-                VesselType::Flag,
-                VesselSituation::Landed,
-                Some("Mun")
-            ),
-            (
-                "Debris",
-                VesselType::Debris,
-                VesselSituation::Landed,
-                Some("Kerbin")
-            ),
+            (VesselType::Probe, VesselSituation::Orbiting, Some("Kerbin")),
+            (VesselType::Ship, VesselSituation::Prelaunch, Some("Kerbin")),
+            (VesselType::Eva, VesselSituation::Landed, Some("Mun")),
+            (VesselType::Flag, VesselSituation::Landed, Some("Mun")),
+            (VesselType::Debris, VesselSituation::Landed, Some("Kerbin")),
         ]
     );
     let eva: Vec<_> = vessels.iter().filter(|v| v.is_eva()).collect();
@@ -401,12 +413,46 @@ fn vessels_include_a_kerbal_outside_a_vessel_and_a_flag() {
     let flags: Vec<_> = vessels.iter().filter(|v| v.is_flag()).collect();
     assert_eq!(flags.len(), 1);
     assert!(flags[0].crew.is_empty());
-    assert_eq!(vessels[1].crew, ["Valentina Kerman"]);
-    assert_eq!(vessels[1].part_count, 2);
-    assert_eq!(vessels[1].landed_at.as_deref(), Some("LaunchPad"));
-    assert_eq!(vessels[0].landed_at, None, "an empty landedAt is absent");
-    assert_eq!(vessels[0].pid, "0000000000000000000000000000000a");
-    assert_eq!(vessels[0].persistent_id, 1001);
+    assert!(vessels.iter().any(|v| v.landed_at.is_some()));
+    assert!(vessels.iter().any(|v| v.crew.len() == 1 && !v.is_eva()));
+}
+
+#[test]
+fn an_unlisted_vessel_type_is_kept_rather_than_refusing_the_fleet() {
+    let vessel = |kind: &str| {
+        format!(
+            "VESSEL\n{{\npid = 0a\npersistentId = 1\nname = V\ntype = {kind}\nsit = LANDED\nORBIT\n{{\nREF = 1\n}}\n}}"
+        )
+    };
+    let save = game(&format!(
+        "FLIGHTSTATE\n{{\n{}\n{}\n{}\n{}\n{}\n}}",
+        vessel("Probe"),
+        vessel("SomeFutureType"),
+        vessel("DeployedGroundPart"),
+        vessel("DeployedSciencePart"),
+        vessel("DroppedPart"),
+    ));
+    let kinds: Vec<VesselType> = save
+        .vessels()
+        .unwrap()
+        .into_iter()
+        .map(|v| v.vessel_type)
+        .collect();
+    assert_eq!(
+        kinds,
+        [
+            VesselType::Probe,
+            VesselType::Other("SomeFutureType".into()),
+            VesselType::DeployedGroundPart,
+            VesselType::DeployedSciencePart,
+            VesselType::DroppedPart,
+        ]
+    );
+    // The type must still be present and not empty.
+    assert_invalid_field(
+        game(&format!("FLIGHTSTATE\n{{\n{}\n}}", vessel(""))).vessels(),
+        "type",
+    );
 }
 
 #[test]
@@ -435,7 +481,7 @@ fn vessels_refuse_missing_or_invalid_fields() {
         ("pid", ""),
         ("persistentId", "-4"),
         ("name", ""),
-        ("type", "Spaceship"),
+        ("type", ""),
         ("sit", "Orbiting"),
     ] {
         let body: Vec<String> = full
@@ -462,57 +508,94 @@ fn vessels_refuse_missing_or_invalid_fields() {
 
 // --- Contracts -----------------------------------------------------------------------
 
+/// The twelve values of a contract in the order the save writes them.
+fn values_in_order(v: &ContractValues) -> [f64; 12] {
+    [
+        v.time_expiry.get(),
+        v.time_deadline.get(),
+        v.funds_advance.get(),
+        v.funds_completion.get(),
+        v.funds_failure.get(),
+        v.reputation_completion.get(),
+        v.reputation_failure.get(),
+        v.science_completion.get(),
+        v.date_expire.get(),
+        v.date_accepted.get(),
+        v.date_deadline.get(),
+        v.date_finished.get(),
+    ]
+}
+
 #[test]
-fn contracts_are_read_from_both_lists_with_their_values() {
-    let contracts = fixture("contracts.sfs").contracts().unwrap();
-    let summary: Vec<(&str, ContractState, ContractList)> = contracts
+fn contracts_are_read_from_current_and_finished_nodes_with_their_values() {
+    let save = fixture("contracts.sfs");
+    let contracts = save.contracts().unwrap();
+    // Every CONTRACT and CONTRACT_FINISHED child of CONTRACTS, in order, is derived from
+    // the parsed fixture. The CONTRACTS_FINISHED node is not one the game writes, and
+    // its contract is not read.
+    let holder = save
+        .scenario("ContractSystem")
+        .unwrap()
+        .child("CONTRACTS")
+        .unwrap();
+    let nodes: Vec<&Node> = holder
+        .children()
         .iter()
-        .map(|c| (c.contract_type.as_str(), c.state, c.list))
+        .filter(|n| n.name() == "CONTRACT" || n.name() == "CONTRACT_FINISHED")
         .collect();
+    assert_eq!(contracts.len(), nodes.len());
+    let raw = |node: &Node, key: &str| node.value(key).map(|v| v.value().to_owned());
+    for (contract, node) in contracts.iter().zip(&nodes) {
+        let expected_list = if node.name() == "CONTRACT" {
+            ContractList::Current
+        } else {
+            ContractList::Finished
+        };
+        assert_eq!(contract.list, expected_list);
+        assert_eq!(Some(contract.guid.clone()), raw(node, "guid"));
+        assert_eq!(Some(contract.contract_type.clone()), raw(node, "type"));
+        assert_eq!(contract.agent, raw(node, "agent"));
+        let expected: Option<Vec<f64>> = raw(node, "values").map(|text| {
+            text.split(',')
+                .map(|f| f.trim().parse::<f64>().unwrap())
+                .collect()
+        });
+        let got = contract
+            .values
+            .as_ref()
+            .map(|v| values_in_order(v).to_vec());
+        assert_eq!(got, expected, "{}", contract.guid);
+    }
+    assert!(contracts.iter().all(|c| c.contract_type != "NotRead"));
+    let lists: Vec<ContractList> = contracts.iter().map(|c| c.list).collect();
     assert_eq!(
-        summary,
+        lists,
         [
-            (
-                "ExplorationContract",
-                ContractState::Offered,
-                ContractList::Current
-            ),
-            (
-                "CollectScience",
-                ContractState::Active,
-                ContractList::Current
-            ),
-            ("PartTest", ContractState::Generated, ContractList::Current),
-            (
-                "PlantFlag",
-                ContractState::Completed,
-                ContractList::Finished
-            ),
+            ContractList::Current,
+            ContractList::Current,
+            ContractList::Finished,
+            ContractList::Current,
+            ContractList::Finished,
+        ],
+        "finished and current contracts interleave as the save lists them"
+    );
+    let states: Vec<ContractState> = contracts.iter().map(|c| c.state).collect();
+    assert_eq!(
+        states,
+        [
+            ContractState::Offered,
+            ContractState::Active,
+            ContractState::Completed,
+            ContractState::Generated,
+            ContractState::Failed,
         ]
     );
-    let exploration = contracts[0].values.unwrap();
-    assert_eq!(exploration.time_expiry.get(), 86_400.0);
-    assert_eq!(exploration.funds_advance.get(), 672.0);
-    assert_eq!(exploration.funds_completion.get(), 1_248.0);
-    assert_eq!(exploration.funds_failure.get(), 672.0);
-    assert_eq!(exploration.reputation_completion.get(), 1.0);
-    assert_eq!(exploration.science_completion.get(), 0.0);
-    assert_eq!(exploration.date_expire.get(), 370_625.962_302_731);
-    let science = contracts[1].values.unwrap();
-    assert_eq!(science.science_completion.get(), 5.0);
-    assert_eq!(science.reputation_failure.get(), 2.857_143);
-    assert_eq!(science.date_accepted.get(), 290_000.0);
+    let active = contracts[1].values.unwrap();
     assert_eq!(
-        science.date_deadline.get(),
-        science.date_accepted.get() + science.time_deadline.get(),
+        active.date_deadline.get(),
+        active.date_accepted.get() + active.time_deadline.get(),
         "the deadline falls its duration after acceptance in the fixture"
     );
-    assert_eq!(contracts[2].values, None);
-    assert_eq!(contracts[2].agent, None);
-    let finished = contracts[3].values.unwrap();
-    assert_eq!(finished.date_finished.get(), 1_500.0);
-    assert_eq!(contracts[3].agent.as_deref(), Some("Kerbal Motion LLC"));
-    assert_eq!(contracts[0].guid, "00000000-0000-4000-8000-000000000001");
 }
 
 #[test]
@@ -526,6 +609,34 @@ fn contracts_refuse_missing_or_invalid_fields() {
     assert_missing_field(contract("type = T\nstate = Active").contracts(), "guid");
     assert_missing_field(contract("guid = g\nstate = Active").contracts(), "type");
     assert_missing_field(contract("guid = g\ntype = T").contracts(), "state");
+    assert_invalid_field(
+        contract("guid =\ntype = T\nstate = Active").contracts(),
+        "guid",
+    );
+    assert_invalid_field(
+        contract("guid = g\ntype =\nstate = Active").contracts(),
+        "type",
+    );
+    let finished = |body: &str| {
+        with_scenario(
+            "ContractSystem",
+            &format!("CONTRACTS\n{{\nCONTRACT_FINISHED\n{{\n{body}\n}}\n}}"),
+        )
+    };
+    assert_invalid_field(
+        finished("guid =\ntype = T\nstate = Completed").contracts(),
+        "guid",
+    );
+    assert_missing_field(finished("guid = g\nstate = Completed").contracts(), "type");
+    // A value with a great many fields is refused after reading one past the count.
+    let many = vec!["1"; 100_000].join(",");
+    assert_invalid_field(
+        contract(&format!(
+            "guid = g\ntype = T\nstate = Active\nvalues = {many}"
+        ))
+        .contracts(),
+        "values",
+    );
     assert_invalid_field(
         contract("guid = g\ntype = T\nstate = Pending").contracts(),
         "state",

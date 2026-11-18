@@ -8,8 +8,12 @@
 //! # Assumptions
 //!
 //! - A value runs from the first `=` on its line to the end of the line, so it may hold
-//!   further `=` signs, spaces and braces. Leading and trailing white space is trimmed
-//!   from keys and values.
+//!   further `=` signs and spaces. Leading and trailing white space is trimmed from keys
+//!   and values.
+//! - A brace anywhere in a value line is refused. The game's reader is believed to take
+//!   a brace as a node boundary wherever it appears, which is an inference, so a line
+//!   such as `key = value }` would close a node in the game. Refusing it keeps this
+//!   reader from silently disagreeing with the game. The saves studied held no such line.
 //! - `//` starts a comment wherever it appears, as in the game's own reader. This is an
 //!   inference from the game's behaviour, not verified against its code. A value that
 //!   contains `//` is therefore cut short, in the game and here alike.
@@ -22,12 +26,25 @@
 //! input larger than [`ParseLimits::max_bytes`] and nesting deeper than
 //! [`ParseLimits::max_depth`], and the depth limit cannot exceed [`MAX_DEPTH_CEILING`],
 //! because dropping a tree is recursive in its depth. Every refusal is a [`ParseError`]
-//! that names the line, numbered from one.
+//! that names the line, numbered from one. The size limit bounds memory only to within
+//! a factor of about 17, as [`DEFAULT_MAX_BYTES`] records.
+//!
+//! A line ends with a line feed, or a carriage return and line feed. A lone carriage
+//! return is refused as malformed rather than taken into a key or value. The two saves
+//! studied on 2026-11-18 held no carriage return at all.
 
 use core::fmt;
 
-/// The default largest input accepted, 64 MiB. A career save with a large fleet runs to
-/// a few megabytes, so this leaves an ample margin while bounding memory.
+/// The default largest input accepted, 64 MiB. The saves studied ran to a few hundred
+/// kilobytes, and a career save with a large fleet is expected to run to a few
+/// megabytes, which is an inference, so this leaves a wide margin.
+///
+/// The size limit bounds memory only loosely, because a parsed tree is much larger
+/// than its text. On 2026-11-18, a release build on macOS parsing 60 MB made only of
+/// six-byte value lines peaked at about 930 MB resident, about 15 times the input, and
+/// 60 MB made only of empty nodes peaked at about 1.0 GB, about 17 times. Both figures
+/// include the input text. A caller that must bound memory more tightly should lower
+/// this limit, allowing about 17 bytes of memory per byte of input.
 pub const DEFAULT_MAX_BYTES: usize = 64 * 1024 * 1024;
 
 /// The default deepest nesting accepted, counting the top-level `GAME` node as depth 1.
@@ -384,8 +401,8 @@ fn classify(line: &str) -> Result<Line<'_>, &'static str> {
         if key.is_empty() {
             return Err("a value has an empty key");
         }
-        if key.contains(['{', '}']) {
-            return Err("a key contains a brace");
+        if line.contains(['{', '}']) {
+            return Err("a value line contains a brace, which the game reads as a node boundary");
         }
         return Ok(Line::Value(key, value.trim()));
     }
@@ -509,6 +526,14 @@ pub fn parse_with_limits(text: &str, limits: ParseLimits) -> Result<Node, ParseE
     let mut pending: Option<(&str, usize)> = None;
     for (index, raw) in text.lines().enumerate() {
         let number = index + 1;
+        // `lines` removes a carriage return only directly before a line feed, so any
+        // left in the line is a lone one.
+        if raw.contains('\r') {
+            return Err(ParseError::Malformed {
+                line: number,
+                reason: "a carriage return that does not end a line",
+            });
+        }
         let line = strip_comment(raw).trim();
         if line.is_empty() {
             continue;

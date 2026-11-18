@@ -1,6 +1,7 @@
 // Hand-written fixture for contracts. The structure follows the ContractSystem scenario
-// of a career save of game version 1.12.5. The CONTRACTS_FINISHED list is written from
-// the format's known structure, since the save studied held no finished contract. The
+// of career saves of game version 1.12.5, where finished contracts are CONTRACT_FINISHED
+// nodes beside the current CONTRACT nodes in one CONTRACTS node. A CONTRACTS_FINISHED
+// node, which the game does not write, is included to show that it is not read. The
 // identifiers and values are invented.
 GAME
 {
@@ -42,22 +43,35 @@ GAME
 				values = 43200,46008000,4590,11780.9994649887,4819.49978113174,2,2.857143,5,327425.962302731,290000,46298000,0
 				body = 1
 			}
-			CONTRACT
-			{
-				guid = 00000000-0000-4000-8000-000000000003
-				type = PartTest
-				state = Generated
-			}
-		}
-		CONTRACTS_FINISHED
-		{
-			CONTRACT
+			CONTRACT_FINISHED
 			{
 				guid = 00000000-0000-4000-8000-000000000004
 				type = PlantFlag
 				state = Completed
 				agent = Kerbal Motion LLC
 				values = 0,0,100,200,50,3,1,2,0,1000,2000,1500
+			}
+			CONTRACT
+			{
+				guid = 00000000-0000-4000-8000-000000000003
+				type = PartTest
+				state = Generated
+			}
+			CONTRACT_FINISHED
+			{
+				guid = 00000000-0000-4000-8000-000000000005
+				type = CollectScience
+				state = Failed
+				values = 43200,46008000,4590,11780.9994649887,4819.49978113174,2,2.857143,5,0,1000,46009000,46009000
+			}
+		}
+		CONTRACTS_FINISHED
+		{
+			CONTRACT
+			{
+				guid = 00000000-0000-4000-8000-0000000000ff
+				type = NotRead
+				state = Completed
 			}
 		}
 	}
