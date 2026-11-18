@@ -66,7 +66,7 @@ active attitude actuation is not qualified. No career mission is cleared.
    campaign-valid control source, qualify attitude actuation, broaden abort tests,
    establish repeatability, account for crewed mass and loading, and include mission
    science. E1 and E2 designs remain open.
-3. T8 is done as `crates/ikria-save`. T9, the generated science ledger, remains open. Career
+3. T8 and T9 are done as `crates/ikria-save` and `crates/ikria-ledger`. Career
    authorization must come from the actual save. Multi-vessel scheduling, general
    phase modules and in-flight replacement, calibrated timing admission and the
    mission controller remain unimplemented. JavaScript Object Notation timing and
