@@ -60,8 +60,12 @@ following.
 | Location subjects | 370 | 370 | Exact |
 | Location value on Hard | 1,239 | 1,239 | Exact |
 | Surface feature subjects | 34 | 34 | Exact |
-| Surface feature value on Hard | 900 | 909 | Differs by 9 |
-| Total value on Hard | 217,818 | 217,827 | Differs by 9 |
+| Surface feature value on Hard | 909 | 909 | Exact, after the correction below |
+| Total value on Hard | 217,827 | 217,827 | Exact, after the correction below |
+
+Exact agreement shows that the enumeration applies the count's rules faithfully. It
+does not verify those rules against the game. The surface feature multiplier and the 21
+dictionary names below are unverified assumptions that the record shares.
 
 **Fact.** Breaking Ground's `ScienceDefs.cfg`, read on 2026-11-18, defines 34 surface
 features with caps of 30 for twelve, 45 for eleven and 60 for eleven, which is 1,515.
@@ -78,7 +82,8 @@ The biome is omitted when the experiment does not depend on the biome in that
 situation, or the body has none. Otherwise it is the biome's name with spaces removed.
 
 - **Fact.** The operator's older career save held 177 subjects, all at Kerbin. Of
-  these, 174 matched the enumeration exactly and none had a cap that differed from it.
+  these, 174 matched the enumeration exactly, and none had a cap or a multiplier that
+  differed from it.
   The other 3 were recovery subjects, which the count leaves out. The matched forms
   include biome subjects in the landed, splashed, flying low and space low situations,
   subjects without a biome, and the name `R&D` with its ampersand.
@@ -88,6 +93,22 @@ situation, or the body has none. Otherwise it is the biome's name with spaces re
   definition has a situation mask of 1 and a biome mask of 0. Its body is the one its
   name gives, and `ROCScience_DunaEjectaOnIke` is taken to stand on Ike. No save read
   held one.
+
+## Surface feature multiplier, an unverified assumption
+
+Each surface feature is given a multiplier of one, with no body multiplier, so its value
+is its cap times 0.6 on Hard. This is an **unverified assumption** carried over from the
+Phase 0 script, which labelled its figure as unscaled rather than stating a rule. The
+definitions set `applyScienceScale = false`, which suggests the assumption but does not
+prove it, and no save read holds a surface feature subject. If the game applies the
+body's landed multiplier, a Mun feature with a cap of 30 is worth 120 rather than 30,
+and the 34 features are worth far more than the 909 counted. `Subject::multiplier_is_assumed`
+marks the 34 subjects, and `Enumeration::assumed_multiplier_count` counts them.
+
+The ledger compares each save subject's own multiplier, its `sbv` field, with the
+enumeration's, and reports any difference as `MultiplierCheck::Differs`, apart from the
+cap check. The first collected feature therefore settles the question, and the same check
+catches any other wrong multiplier in the tables.
 
 ## Location biomes
 
@@ -112,6 +133,13 @@ names come from three places, and each subject carries its name's provenance.
   to `<unnamed location 4>`. They keep the count and value correct, and they never match
   a save, even one that holds their identifier.
 
+The 21 dictionary names are **unverified**, as the placeholders are. They are display
+names, and a save may write a different internal name, in which case those subjects
+would appear as unmatched and their enumerated twins would never be collected.
+`Provenance::is_verified` is false for both kinds, and
+`Enumeration::unverified_name_count` gives the number of subjects that rely on such a
+name, which is 250, the 25 unverified locations times the 10 landed biome experiments.
+
 The biome names live in compiled game assets rather than configuration files, so the
 files cannot settle the question. A save in which a kerbal has reported from each part
 of the launch pad would.
@@ -128,12 +156,21 @@ of the launch pad would.
   by more than a relative 1e-5, with a floor of 1e-4, the entry reports both values as
   `CapCheck::Differs`, and the ledger counts the differences. Neither value is chosen
   silently.
+- **Possible multiplier** is the enumeration's. Where the save's `sbv` differs from it
+  under the same tolerance, the entry reports both as `MultiplierCheck::Differs`, and the
+  ledger counts these differences separately from the cap differences.
 - **Remaining science** is the possible less the collected, never below zero, summed per
-  subject. Science beyond the enumeration's value is reported as `Entry::excess`.
+  subject. It is exactly zero when the collected agrees with the possible under the cap
+  tolerance, because the game stores single precision numbers and a fully collected
+  subject otherwise leaves a residue of a few millionths. Science beyond the
+  enumeration's value is reported as `Entry::excess`, which is also zero within the
+  tolerance.
 - **Unmatched and repeated subjects.** A save subject that matches nothing, such as a
   recovery or an asteroid sample, is listed with its science. A save subject that repeats
   an earlier identifier is listed as repeated, and the first is the one joined. Every
-  save subject is accounted for once.
+  save subject is accounted for once. `Ledger::save_account` splits all of the save's
+  science into the matched, unmatched and repeated parts, so the science of repeated
+  records, which no entry holds, is not missing from the totals.
 - **Matching is exact**, including case.
 
 ## Limits and failure modes
@@ -143,8 +180,8 @@ of the launch pad would.
 - **Rules from Phase 0.** The rules carry VR-0005's assumptions. Splashed subjects exist
   only at Kerbin, Eve and Laythe, and at every biome there, including biomes without
   water. Location biomes count for landed experiments only. The multipliers are the
-  wiki's, not read from the game. A save that disagrees shows as cap differences or
-  unmatched subjects, which is the intended way to find such errors.
+  wiki's, not read from the game. A save that disagrees shows as cap or multiplier
+  differences or as unmatched subjects, which is the intended way to find such errors.
 - **Stock bodies only.** A modification that adds or renames bodies or biomes is not
   covered.
 - **Panics.** No input is known to make the ledger panic. Building the enumeration can
@@ -156,13 +193,18 @@ of the launch pad would.
 `tests/phase0.rs` holds the acceptance totals, the per-body figures, the agreement with
 the script and the inventory, the identifier form on observed and constructed examples,
 and identifiers the rules exclude. `tests/ledger.rs` joins a hand-written fixture,
-`tests/fixtures/ledger.sfs`, that holds a partly collected subject, a collected one, two
-cap differences, one with collection beyond the enumeration's value, an asteroid sample,
-a recovery, a repeated identifier, an identifier differing only in case and a
-placeholder identifier. It also covers a save without subjects, a missing or invalid
-science multiplier, a save without research, and a malformed subject.
+`tests/fixtures/ledger.sfs`, that holds a partly collected subject, a collected one
+whose single precision residue is clamped, three cap differences, two multiplier
+differences including a surface feature at the Mun's landed multiplier, collection
+beyond the enumeration's value, an asteroid sample, a recovery, a repeated identifier,
+an identifier differing only in case and a placeholder identifier. It checks that the
+save account holds all of the save's science. It also covers the tolerance boundary of
+the remaining science, a save without subjects, a missing or invalid science
+multiplier, a save without research, and a malformed subject. `tests/phase0.rs` also
+counts the subjects that rely on an unverified name or an assumed multiplier.
 
 **Coverage gaps.** No test runs against a save written by the game, since none is
 committed. The run on the older career save is recorded above and covers Kerbin only.
 No identifier away from Kerbin, of a surface feature, or of a location other than the
-twelve observed has been checked against a real save.
+twelve observed has been checked against a real save, and neither has the surface
+feature multiplier.

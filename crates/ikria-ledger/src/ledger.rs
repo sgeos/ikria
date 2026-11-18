@@ -15,10 +15,11 @@
 //! A save subject matches the enumeration only when its identifier is equal, byte for
 //! byte. Nothing is normalized, so a difference of case is a mismatch. A placeholder
 //! subject of an unnamed location never matches, even when a save holds its identifier,
-//! since that identifier is not the game's. A save subject
-//! that matches nothing is kept as unmatched with its science, and a save subject whose
-//! identifier repeats an earlier one is kept as repeated. The first of a repeated
-//! identifier is the one joined. No save subject is dropped.
+//! since that identifier is not the game's. A save subject that matches nothing is kept
+//! as unmatched with its science, and a save subject whose identifier repeats an earlier
+//! one is kept as repeated. The first of a repeated identifier is the one joined. No save
+//! subject is dropped, and [`Ledger::save_account`] sums the science of all three kinds
+//! of record.
 
 use std::collections::BTreeMap;
 use std::collections::HashMap;
@@ -120,6 +121,8 @@ pub struct SaveRecord {
     pub collected: f64,
     /// The save's own cap, in base units, from `cap`.
     pub cap: f64,
+    /// The save's own multiplier of the body and situation, from `sbv`.
+    pub multiplier: f64,
 }
 
 impl SaveRecord {
@@ -128,8 +131,17 @@ impl SaveRecord {
             id: subject.id.clone(),
             collected: subject.science.get(),
             cap: subject.cap.get(),
+            multiplier: subject.subject_value.get(),
         }
     }
+}
+
+/// Whether a value read from a save agrees with the enumeration's, within the tolerance
+/// that the cap and multiplier checks and the remaining science share.
+#[must_use]
+pub fn agrees(save: f64, enumerated: f64) -> bool {
+    let tolerance = (enumerated.abs() * CAP_RELATIVE_TOLERANCE).max(CAP_ABSOLUTE_TOLERANCE);
+    (save - enumerated).abs() <= tolerance
 }
 
 /// How a save's cap compares with the enumeration's value.
@@ -151,8 +163,37 @@ pub enum CapCheck {
 
 impl CapCheck {
     fn compare(save: f64, enumerated: f64) -> Self {
-        let tolerance = (enumerated.abs() * CAP_RELATIVE_TOLERANCE).max(CAP_ABSOLUTE_TOLERANCE);
-        if (save - enumerated).abs() <= tolerance {
+        if agrees(save, enumerated) {
+            Self::Agrees
+        } else {
+            Self::Differs { save, enumerated }
+        }
+    }
+}
+
+/// How a save's own multiplier, its `sbv`, compares with the enumeration's multiplier.
+///
+/// This is reported apart from the cap, because it names the cause. A wrong body or
+/// situation multiplier in the tables, such as the unverified multiplier of one that
+/// surface features are given, shows here the first time a save holds such a subject.
+#[derive(Debug, Clone, Copy, PartialEq)]
+pub enum MultiplierCheck {
+    /// The save holds no such subject, so there is nothing to compare.
+    NotInSave,
+    /// The two agree within the tolerance.
+    Agrees,
+    /// The two differ.
+    Differs {
+        /// The save's `sbv`.
+        save: f64,
+        /// The enumeration's multiplier.
+        enumerated: f64,
+    },
+}
+
+impl MultiplierCheck {
+    fn compare(save: f64, enumerated: f64) -> Self {
+        if agrees(save, enumerated) {
             Self::Agrees
         } else {
             Self::Differs { save, enumerated }
@@ -193,18 +234,43 @@ impl<'e> Entry<'e> {
     }
 
     /// The science remaining in base units, the possible less the collected, and never
-    /// below zero. Where the save holds more than the enumeration allows, see
-    /// [`Entry::cap_check`] and [`Entry::excess`].
+    /// below zero. It is exactly zero when the collected science agrees with the possible
+    /// within the cap check's tolerance, since the game stores single precision numbers
+    /// and a fully collected subject otherwise leaves a residue of a few millionths.
+    /// Where the save holds more than the enumeration allows, see [`Entry::cap_check`] and
+    /// [`Entry::excess`].
     #[must_use]
     pub fn remaining(&self) -> f64 {
-        (self.possible() - self.collected()).max(0.0)
+        let (possible, collected) = (self.possible(), self.collected());
+        if agrees(collected, possible) {
+            0.0
+        } else {
+            (possible - collected).max(0.0)
+        }
     }
 
     /// The science collected beyond the enumeration's value, which is zero unless the
-    /// save's cap is higher than the enumeration's.
+    /// save's cap is higher than the enumeration's. Like [`Entry::remaining`], it is
+    /// exactly zero within the tolerance.
     #[must_use]
     pub fn excess(&self) -> f64 {
-        (self.collected() - self.possible()).max(0.0)
+        let (possible, collected) = (self.possible(), self.collected());
+        if agrees(collected, possible) {
+            0.0
+        } else {
+            (collected - possible).max(0.0)
+        }
+    }
+
+    /// How the save's own multiplier compares with the enumeration's.
+    #[must_use]
+    pub fn multiplier_check(&self) -> MultiplierCheck {
+        match &self.save {
+            None => MultiplierCheck::NotInSave,
+            Some(record) => {
+                MultiplierCheck::compare(record.multiplier, self.subject.multiplier().get())
+            }
+        }
     }
 
     /// How the save's cap compares with the enumeration's value.
@@ -226,6 +292,8 @@ pub struct Totals {
     pub in_save: usize,
     /// How many of them have a cap that differs from the save's.
     pub cap_differences: usize,
+    /// How many of them have a multiplier that differs from the save's `sbv`.
+    pub multiplier_differences: usize,
     /// The possible science.
     pub possible: f64,
     /// The science collected.
@@ -243,6 +311,9 @@ impl Totals {
         }
         if matches!(entry.cap_check(), CapCheck::Differs { .. }) {
             self.cap_differences = self.cap_differences.saturating_add(1);
+        }
+        if matches!(entry.multiplier_check(), MultiplierCheck::Differs { .. }) {
+            self.multiplier_differences = self.multiplier_differences.saturating_add(1);
         }
         self.possible += entry.possible();
         self.collected += entry.collected();
@@ -402,10 +473,66 @@ impl<'e> Ledger<'e> {
         .map(|k| (k, self.totals_where(|s| s.kind() == k)))
     }
 
+    /// The entries whose save multiplier differs from the enumeration's.
+    pub fn multiplier_differences(&self) -> impl Iterator<Item = &Entry<'e>> {
+        self.entries
+            .iter()
+            .filter(|e| matches!(e.multiplier_check(), MultiplierCheck::Differs { .. }))
+    }
+
     /// The science the save holds in subjects that match nothing, in base units.
     #[must_use]
     pub fn unmatched_collected(&self) -> f64 {
-        self.unmatched.iter().map(|u| u.collected).sum()
+        // A fold from positive zero, since an empty `sum` of floats is negative zero.
+        self.unmatched.iter().fold(0.0, |sum, u| sum + u.collected)
+    }
+
+    /// The science the save holds in repeated records, in base units. The entries join
+    /// only the first record of an identifier, so this science is in no entry's total.
+    #[must_use]
+    pub fn repeated_collected(&self) -> f64 {
+        self.repeated.iter().fold(0.0, |sum, r| sum + r.collected)
+    }
+
+    /// An account of all the science the save holds, split by where the ledger puts it.
+    #[must_use]
+    pub fn save_account(&self) -> SaveAccount {
+        let matched = self.totals();
+        SaveAccount {
+            records: matched
+                .in_save
+                .saturating_add(self.unmatched.len())
+                .saturating_add(self.repeated.len()),
+            matched_records: matched.in_save,
+            matched: matched.collected,
+            unmatched: self.unmatched_collected(),
+            repeated: self.repeated_collected(),
+        }
+    }
+}
+
+/// All the science a save holds, in base units, split into the part joined to the
+/// enumeration, the part in unmatched records and the part in repeated records. The three
+/// parts sum to the save's whole, so no save science is missing from the ledger.
+#[derive(Debug, Clone, Copy, PartialEq)]
+pub struct SaveAccount {
+    /// The number of science records in the save.
+    pub records: usize,
+    /// How many of them were joined to the enumeration.
+    pub matched_records: usize,
+    /// The science in the joined records.
+    pub matched: f64,
+    /// The science in records that match nothing.
+    pub unmatched: f64,
+    /// The science in records whose identifier repeats an earlier one.
+    pub repeated: f64,
+}
+
+impl SaveAccount {
+    /// The whole of the save's science.
+    #[must_use]
+    pub fn total(&self) -> f64 {
+        self.matched + self.unmatched + self.repeated
     }
 }
 

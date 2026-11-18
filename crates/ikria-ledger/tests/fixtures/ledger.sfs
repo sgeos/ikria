@@ -61,6 +61,17 @@ GAME
 		}
 		Science
 		{
+			id = ROCScience_MunStone@MunSrfLanded
+			title = A surface feature at the landed multiplier of the Mun, which the enumeration does not assume
+			dsc = 1
+			scv = 0.4
+			sbv = 4
+			sci = 72
+			asc = False
+			cap = 120
+		}
+		Science
+		{
 			id = asteroidSample@KerbinInSpaceLow_PotatoroidAAA-001
 			title = Sample of an invented asteroid
 			dsc = 1

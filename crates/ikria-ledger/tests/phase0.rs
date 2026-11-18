@@ -391,3 +391,28 @@ fn biomes_and_atmospheres_agree_with_the_inventory() {
         );
     }
 }
+
+#[test]
+fn unverified_names_and_multipliers_are_counted() {
+    let e = enumeration();
+    let unverified_locations = LOCATION_BIOMES
+        .iter()
+        .filter(|l| !l.provenance.is_verified())
+        .count();
+    assert_eq!(unverified_locations, 21 + 4);
+    // Each location carries ten landed biome experiments.
+    assert_eq!(e.unverified_name_count(), unverified_locations * 10);
+    assert!(
+        e.subjects()
+            .iter()
+            .filter(|s| s.kind() == SubjectKind::Body)
+            .all(|s| !s.relies_on_unverified_name())
+    );
+    assert_eq!(e.assumed_multiplier_count(), SURFACE_FEATURES.len());
+    assert!(
+        e.subjects()
+            .iter()
+            .filter(|s| s.multiplier_is_assumed())
+            .all(|s| s.kind() == SubjectKind::SurfaceFeature)
+    );
+}

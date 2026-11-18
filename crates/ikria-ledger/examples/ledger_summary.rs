@@ -12,7 +12,7 @@
 use std::path::PathBuf;
 use std::process::ExitCode;
 
-use ikria_ledger::{CapCheck, Enumeration, Ledger, Totals, science_scale};
+use ikria_ledger::{CapCheck, Enumeration, Ledger, MultiplierCheck, Totals, science_scale};
 use ikria_save::Save;
 
 fn main() -> ExitCode {
@@ -50,12 +50,26 @@ fn main() -> ExitCode {
     // At a multiplier of one, points equal base units, so the second row is omitted.
     let scale = scale.ok().filter(|s| (s.get() - 1.0).abs() > f64::EPSILON);
 
-    let matched = ledger.totals().in_save;
-    let save_subjects = matched + ledger.unmatched().len() + ledger.repeated().len();
+    println!(
+        "enumerated subjects: {}, of which {} rely on an unverified location name and {} on an assumed multiplier",
+        enumeration.len(),
+        enumeration.unverified_name_count(),
+        enumeration.assumed_multiplier_count()
+    );
+    let account = ledger.save_account();
+    let matched = account.matched_records;
+    let save_subjects = account.records;
     println!(
         "save subjects: {save_subjects}, matched {matched}, unmatched {}, repeated {}",
         ledger.unmatched().len(),
         ledger.repeated().len()
+    );
+    println!(
+        "save science: {:.2}, of which matched {:.2}, unmatched {:.2}, repeated {:.2}",
+        account.total(),
+        account.matched,
+        account.unmatched,
+        account.repeated
     );
     if save_subjects > 0 {
         #[allow(clippy::cast_precision_loss)]
@@ -110,6 +124,16 @@ fn main() -> ExitCode {
     println!("cap differences: {}", differences.len());
     for entry in differences {
         if let CapCheck::Differs { save, enumerated } = entry.cap_check() {
+            println!(
+                "  {} save {save:.4}, enumerated {enumerated:.4}",
+                entry.subject().id()
+            );
+        }
+    }
+    let differences: Vec<_> = ledger.multiplier_differences().collect();
+    println!("multiplier differences: {}", differences.len());
+    for entry in differences {
+        if let MultiplierCheck::Differs { save, enumerated } = entry.multiplier_check() {
             println!(
                 "  {} save {save:.4}, enumerated {enumerated:.4}",
                 entry.subject().id()

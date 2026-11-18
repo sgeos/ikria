@@ -17,10 +17,9 @@
 //!
 //! The tests in `tests/phase0.rs` hold the ported tables in agreement with the script and
 //! the tracked inventory, and recompute the record's totals from the enumeration. The
-//! subject counts all agree. The Hard values agree for every body and for the location
-//! biomes. The surface features differ by 9 points on Hard, because the script's split of
-//! the features by cap does not match the game's file. The crate's `README.md` gives the
-//! details.
+//! subject counts and the Hard values all agree exactly, after the correction of the
+//! script's surface feature split on 2026-11-18. The crate's `README.md` gives the
+//! details, and lists the assumptions that no save has yet verified.
 
 #![forbid(unsafe_code)]
 
@@ -33,5 +32,6 @@ pub use enumeration::{
     Biome, CountTotals, Enumeration, EnumerationError, Hundredths, Source, Subject, SubjectKind,
 };
 pub use ledger::{
-    CapCheck, Entry, Ledger, SaveRecord, ScaleError, ScienceScale, Totals, science_scale,
+    CapCheck, Entry, Ledger, MultiplierCheck, SaveAccount, SaveRecord, ScaleError, ScienceScale,
+    Totals, agrees, science_scale,
 };

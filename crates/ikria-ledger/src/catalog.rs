@@ -97,7 +97,8 @@ impl fmt::Display for Situation {
 pub struct Multiplier(u16);
 
 impl Multiplier {
-    /// A multiplier of exactly one, which surface features carry.
+    /// A multiplier of exactly one, which surface features are assumed to carry. See
+    /// [`SURFACE_FEATURES`] for why that is unverified.
     pub const ONE: Self = Self(10);
 
     /// Wraps a multiplier given in tenths. Zero is refused, since a situation without
@@ -572,6 +573,17 @@ pub enum Provenance {
     Placeholder,
 }
 
+impl Provenance {
+    /// Whether the name is known to be the one a save writes. Inventory names are the
+    /// game's own, and observed names were seen in a save. Localization names are display
+    /// names, and a save may use a different internal name, so they are unverified, as
+    /// placeholders are.
+    #[must_use]
+    pub fn is_verified(self) -> bool {
+        matches!(self, Self::Inventory | Self::ObservedInSave)
+    }
+}
+
 /// A Space Center location biome, one of the small biomes of the space centre's
 /// buildings and grounds on Kerbin.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -673,8 +685,16 @@ const fn feature(id: &'static str, body: Body, cap: u16) -> SurfaceFeature {
 /// The 34 surface features, in the order of Breaking Ground's `ScienceDefs.cfg`. Each has
 /// a situation mask of 1 and a biome mask of 0 there, so its subject is landed and has no
 /// biome. Twelve have a cap of 30, eleven of 45 and eleven of 60, which sums to 1,515.
-/// The Phase 0 script's split, twelve, twelve and ten, sums to 1,500, so it undercounts
-/// the features by 15 science before the difficulty multiplier.
+/// The Phase 0 script once split them twelve, twelve and ten, which sums to 1,500, and was
+/// corrected on 2026-11-18.
+///
+/// Each feature is given a multiplier of one, with no body multiplier. That is an
+/// *unverified assumption* carried over from the Phase 0 script, which labelled its
+/// figure as unscaled. The definitions set `applyScienceScale = false`, which suggests
+/// but does not prove it, and no save read holds a surface feature subject. If the game
+/// applies the body's landed multiplier, a Mun feature at a cap of 30 is worth 120. The
+/// ledger compares each save subject's own `sbv` with the enumeration's multiplier, so
+/// the first collected feature settles the question.
 pub const SURFACE_FEATURES: [SurfaceFeature; 34] = [
     feature("ROCScience_KerbinBaobabTree", Body::Kerbin, 60),
     feature("ROCScience_KerbinGiantQuartz", Body::Kerbin, 45),

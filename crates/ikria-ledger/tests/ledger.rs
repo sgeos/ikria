@@ -1,11 +1,12 @@
 //! The join of the enumeration with a hand-written save, covering collected, partially
-//! collected, unmatched, repeated and cap-mismatch subjects, and the refusals.
+//! collected, unmatched, repeated, cap-mismatch and multiplier-mismatch subjects, and the
+//! refusals.
 
 use ikria_ledger::{
-    Body, CapCheck, Enumeration, Ledger, ScaleError, ScienceScale, Situation, SubjectKind,
-    science_scale,
+    Body, CapCheck, Enumeration, Ledger, MultiplierCheck, ScaleError, ScienceScale, Situation,
+    SubjectKind, science_scale,
 };
-use ikria_save::Save;
+use ikria_save::{NonNegative, Save, ScienceSubject};
 
 const FIXTURE: &str = include_str!("fixtures/ledger.sfs");
 const TOLERANCE: f64 = 1e-6;
@@ -52,8 +53,49 @@ fn fully_collected_subject_agrees_within_single_precision() {
         .entry("temperatureScan@KerbinFlyingHigh")
         .expect("an entry");
     assert_eq!(entry.cap_check(), CapCheck::Agrees);
-    assert!(entry.remaining() < 1e-6);
+    assert_eq!(entry.multiplier_check(), MultiplierCheck::Agrees);
+    // The single precision residue is clamped to exactly zero.
+    assert!(entry.possible() - entry.collected() > 0.0);
+    assert_eq!(entry.remaining(), 0.0);
+    assert_eq!(entry.excess(), 0.0);
     assert!(close(entry.possible(), 8.0 * 0.9));
+}
+
+fn subject(id: &str, science: f64, cap: f64, multiplier: f64) -> ScienceSubject {
+    let n = |v| NonNegative::new(v).expect("a value not negative");
+    ScienceSubject {
+        id: id.to_owned(),
+        title: String::new(),
+        science: n(science),
+        cap: n(cap),
+        data_scale: n(1.0),
+        subject_value: n(multiplier),
+        scientific_value: n(0.0),
+        apply_science_scale: Some(true),
+    }
+}
+
+#[test]
+fn remaining_is_zero_only_within_the_tolerance() {
+    let e = enumeration();
+    let id = "crewReport@KerbinFlyingHigh";
+    let possible = base(&e, id);
+    let cases = [
+        (possible - 4e-6, 0.0),
+        (possible + 4e-6, 0.0),
+        (possible - 0.01, 0.01),
+        (0.0, possible),
+    ];
+    for (collected, expected) in cases {
+        let subjects = [subject(id, collected, possible, 0.9)];
+        let ledger = Ledger::build(&e, &subjects);
+        let entry = ledger.entry(id).expect("an entry");
+        assert!(close(entry.remaining(), expected), "{collected}");
+        if expected == 0.0 {
+            assert_eq!(entry.remaining(), 0.0, "{collected}");
+            assert_eq!(entry.excess(), 0.0, "{collected}");
+        }
+    }
 }
 
 #[test]
@@ -79,12 +121,79 @@ fn cap_mismatches_are_reported_not_resolved() {
     assert!(close(baro.excess(), 9.0 - baro.possible()));
 
     let ids: Vec<&str> = ledger.cap_differences().map(|x| x.subject().id()).collect();
-    // In the enumeration's order, where Kerbin precedes the Mun.
+    // In the enumeration's order, where Kerbin precedes the Mun and features come last.
     assert_eq!(
         ids,
-        ["barometerScan@KerbinFlyingLow", "mysteryGoo@MunInSpaceLow"]
+        [
+            "barometerScan@KerbinFlyingLow",
+            "mysteryGoo@MunInSpaceLow",
+            "ROCScience_MunStone@MunSrfLanded"
+        ]
     );
-    assert_eq!(ledger.totals().cap_differences, 2);
+    assert_eq!(ledger.totals().cap_differences, 3);
+}
+
+#[test]
+fn multiplier_mismatches_are_reported_apart_from_caps() {
+    let e = enumeration();
+    let ledger = Ledger::from_save(&e, &save()).expect("the subjects extract");
+    // The Mun goo has a wrong cap in the save but the right multiplier.
+    let goo = ledger.entry("mysteryGoo@MunInSpaceLow").expect("an entry");
+    assert_eq!(goo.multiplier_check(), MultiplierCheck::Agrees);
+    // A save that applied the Mun's landed multiplier to a surface feature would show
+    // that the enumeration's assumed multiplier of one is wrong.
+    let feature = ledger
+        .entry("ROCScience_MunStone@MunSrfLanded")
+        .expect("an entry");
+    assert!(feature.subject().multiplier_is_assumed());
+    assert_eq!(
+        feature.multiplier_check(),
+        MultiplierCheck::Differs {
+            save: 4.0,
+            enumerated: 1.0
+        }
+    );
+    assert!(close(feature.excess(), 72.0 - feature.possible()));
+    let ids: Vec<&str> = ledger
+        .multiplier_differences()
+        .map(|x| x.subject().id())
+        .collect();
+    assert_eq!(
+        ids,
+        [
+            "barometerScan@KerbinFlyingLow",
+            "ROCScience_MunStone@MunSrfLanded"
+        ]
+    );
+    assert_eq!(ledger.totals().multiplier_differences, 2);
+    let none = Ledger::build(&e, &[]);
+    assert!(
+        none.entries()
+            .iter()
+            .all(|x| x.multiplier_check() == MultiplierCheck::NotInSave)
+    );
+}
+
+#[test]
+fn the_account_holds_all_the_science_of_the_save() {
+    let e = enumeration();
+    let save = save();
+    let subjects = save.science_subjects().expect("the subjects extract");
+    let ledger = Ledger::build(&e, &subjects);
+    let account = ledger.save_account();
+    let whole: f64 = subjects.iter().map(|s| s.science.get()).sum();
+    assert_eq!(account.records, subjects.len());
+    assert_eq!(account.matched_records, ledger.totals().in_save);
+    assert!(close(account.total(), whole));
+    assert!(close(account.matched, ledger.totals().collected));
+    assert!(close(account.unmatched, ledger.unmatched_collected()));
+    assert!(close(account.repeated, 1.5));
+    assert!(close(ledger.repeated_collected(), 1.5));
+
+    let empty = Ledger::build(&e, &[]).save_account();
+    assert_eq!(empty.records, 0);
+    assert!(close(empty.total(), 0.0));
+    assert!(empty.repeated.is_sign_positive() && empty.unmatched.is_sign_positive());
 }
 
 #[test]
@@ -134,12 +243,20 @@ fn totals_follow_from_the_entries() {
         .map(|s| s.base_value().as_points())
         .sum();
     assert_eq!(totals.subjects, e.len());
-    assert_eq!(totals.in_save, 4);
+    assert_eq!(totals.in_save, 5);
     assert!(close(totals.possible, possible));
-    assert!(close(totals.collected, 0.9 + 7.199_999_81 + 20.0 + 9.0));
-    // The barometer's excess does not offset any other remainder.
-    let expected_remaining =
-        possible - 0.9 - 7.199_999_81 - 20.0 - base(&e, "barometerScan@KerbinFlyingLow");
+    assert!(close(
+        totals.collected,
+        0.9 + 7.199_999_81 + 20.0 + 9.0 + 72.0
+    ));
+    // The excesses of the barometer and the feature do not offset any other remainder,
+    // and the temperature scan's residue is clamped to zero.
+    let expected_remaining = possible
+        - 0.9
+        - base(&e, "temperatureScan@KerbinFlyingHigh")
+        - 20.0
+        - base(&e, "barometerScan@KerbinFlyingLow")
+        - base(&e, "ROCScience_MunStone@MunSrfLanded");
     assert!(close(totals.remaining, expected_remaining));
 
     let (p, c, r) = totals.points(ScienceScale::HARD);
@@ -203,7 +320,7 @@ fn grouped_totals_partition_the_whole() {
         .find(|(b, _)| *b == Body::Mun)
         .map(|(_, t)| t)
         .expect("the Mun");
-    assert!(close(mun.collected, 20.0));
+    assert!(close(mun.collected, 20.0 + 72.0));
     let high = ledger
         .by_situation()
         .into_iter()

@@ -18,7 +18,8 @@
 //!    multiplier. The script does not test the atmosphere here, and neither does this
 //!    port. Kerbin has one, so the result is the same.
 //! 3. **Surface features.** One landed subject without a biome per feature, at its own
-//!    cap and a multiplier of one.
+//!    cap and a multiplier of one. The multiplier of one is an unverified assumption,
+//!    described at [`crate::catalog::SURFACE_FEATURES`].
 //!
 //! A subject's value before the difficulty multiplier is its cap times its multiplier,
 //! and its Hard value is that times 0.6. Both are exact, in hundredths of a point.
@@ -63,7 +64,9 @@ impl Hundredths {
     #[must_use]
     #[allow(clippy::cast_precision_loss)]
     pub fn as_points(self) -> f64 {
-        // Every value of the count is far below 2^53, so the conversion is exact.
+        // Every value of the count is far below 2^53, so the integer converts exactly, but
+        // most hundredths have no exact binary fraction, so the quotient is the nearest
+        // double to the decimal value, not the value itself.
         self.0 as f64 / 100.0
     }
 
@@ -245,6 +248,20 @@ impl Subject {
         self.multiplier
     }
 
+    /// Whether the multiplier is an unverified assumption, which holds for the surface
+    /// features.
+    #[must_use]
+    pub fn multiplier_is_assumed(&self) -> bool {
+        self.kind == SubjectKind::SurfaceFeature
+    }
+
+    /// Whether the identifier relies on a biome name that no save has confirmed, a
+    /// localization display name or a placeholder.
+    #[must_use]
+    pub fn relies_on_unverified_name(&self) -> bool {
+        self.biome.is_some_and(|b| !b.provenance.is_verified())
+    }
+
     /// The value before the difficulty multiplier, the cap times the multiplier. This is
     /// the scale of the `cap` and `sci` fields of a save, an inference the README explains.
     #[must_use]
@@ -380,6 +397,24 @@ impl Enumeration {
     #[must_use]
     pub fn totals(&self) -> CountTotals {
         self.totals_where(|_| true)
+    }
+
+    /// The number of subjects whose identifier relies on an unverified biome name.
+    #[must_use]
+    pub fn unverified_name_count(&self) -> usize {
+        self.subjects
+            .iter()
+            .filter(|s| s.relies_on_unverified_name())
+            .count()
+    }
+
+    /// The number of subjects whose multiplier is an unverified assumption.
+    #[must_use]
+    pub fn assumed_multiplier_count(&self) -> usize {
+        self.subjects
+            .iter()
+            .filter(|s| s.multiplier_is_assumed())
+            .count()
     }
 }
 
