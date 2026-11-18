@@ -15,10 +15,14 @@ A Keleusma technology demonstrator that flies Kerbal Space Program craft through
 
 ## Status
 
-**Seeded.** Nothing is implemented yet. What Ikria is, and the rules it follows, are in
-its charter, [`docs/decisions/PROJECT_CHARTER.md`](docs/decisions/PROJECT_CHARTER.md).
-The next step is a design document, and milestones follow in
-[`docs/roadmap/`](docs/roadmap/README.md).
+**Early development.** The scripted harness and a single-vessel flight path are
+implemented, and verification flights have been flown in a test save. No career mission
+is cleared yet. What Ikria is, and the rules it follows, are in its charter,
+[`docs/decisions/PROJECT_CHARTER.md`](docs/decisions/PROJECT_CHARTER.md). The first
+milestone is in [`docs/roadmap/`](docs/roadmap/README.md).
+
+The name is the Greek word for the land-based rowing benches on which crews learned to
+row in time.
 
 ## Development
 

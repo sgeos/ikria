@@ -334,6 +334,21 @@ if [[ -f "$terms_file" ]]; then
         excluded="${#exclusions[@]} excluded paths"
         ((${#exclusions[@]} == 1)) && excluded="1 excluded path"
         pass "disclosure scan found no listed term in $scope, with $excluded"
+        # git grep -I skips binary files, so a compiled or compressed file is invisible
+        # to the scan above. Scan those files separately, printing only paths. Status 1 is a match and any other failure means the scan could
+        # not run, and both fail the gate.
+        binary_args=("$terms_file")
+        [[ "$history" == false ]] || binary_args+=(--history)
+        if python3 -I -B scripts/scan_binary_terms.py "${binary_args[@]}"; then
+            binary_status=0
+        else
+            binary_status=$?
+        fi
+        case "$binary_status" in
+            0) pass "no listed term in binary or compressed files in $scope" ;;
+            1) fail "terms from $terms_label appear in binary or compressed files in $scope, at the paths listed above" ;;
+            *) fail "the binary and compressed scan could not run, with status $binary_status" ;;
+        esac
     else
         printf 'check.sh: note: %s lists no terms, so the disclosure scan did nothing\n' "$terms_label"
     fi
@@ -372,3 +387,5 @@ pass "cargo test passes"
 # The early rehearsal decisions are tested without a game or kRPC connection.
 python3 -I -B -m unittest discover -s tools/phase0/tests || fail "offline rehearsal tests failed"
 pass "offline rehearsal tests pass"
+python3 -I -B -m unittest discover -s scripts/tests || fail "the gate's own tests failed"
+pass "the gate's own tests pass"

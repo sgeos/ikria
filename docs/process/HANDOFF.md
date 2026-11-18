@@ -10,9 +10,8 @@ items in the commit message.
 Written by Codex for Claude on `docs/codex-claude-handoff`, based on main `583e1d4`.
 Ikria [pull request 34](https://github.com/sgeos/ikria/pull/34) merged as `583e1d4`,
 then bridge [pull request 5](https://github.com/sgeos/ikria-bridge/pull/5) merged as
-`5d63344`, both on 2026-11-18 in Coordinated Universal Time. Both main checkouts
-were synchronized and clean. The operator approved publishing both handoffs on
-2026-11-18. Their pull requests and merge ancestry record publication completion.
+`5d63344`, both on 2026-11-18 in Coordinated Universal Time. A Claude line received
+this handoff on 2026-11-18 and found it valid.
 
 - **Seed.** `sgeos/project-template` at `3954eba`, tag `v1.0.8`. Seed review finished
   on 2026-11-13. Public rulings remain in charter item 10.
@@ -62,7 +61,8 @@ active attitude actuation is not qualified. No career mission is cleared.
 
 ## Open work and recommended resumption
 
-1. Read VR-0010, M-0001, I-0001 and I-0002 before more flights. Use a fresh abort-request
+1. Fix the known defects in `FLIGHT_CONTROL.md` first. Read VR-0010, M-0001, I-0001
+   and I-0002 before more flights. Use a fresh abort-request
    path for a normal run. The flight worktree still contains `tmp/abort-flight-4`.
    Never retry an uncertain command.
 2. T12 is partial. The original sandbox qualification remains open. Resolve a
@@ -80,6 +80,9 @@ active attitude actuation is not qualified. No career mission is cleared.
 
 ## Other open items
 
+- **The history scan fails** on a compiled file untracked on 2026-11-18. The local
+  notes hold the details and the operator's decision is pending. Until then
+  `./scripts/check.sh --history` fails.
 - Standing push and merge authority has not been extended to Codex or Grok Build.
   The completed publication had explicit session approval, not new standing authority.
 - Readiness changes to `scripts/worktree.sh` and `scripts/check.sh` diverge from the
@@ -87,14 +90,14 @@ active attitude actuation is not qualified. No career mission is cleared.
   Python tests.
 - Main remains protected and requires a pull request with a green `CI result`.
 - Cite and consider Massachusetts Institute of Technology Lincoln Laboratory's KSPDG,
-  which uses kRPC and PhysicsRangeExtender for multi-agent pursuit-evasion games.
+  which uses kRPC and PhysicsRangeExtender for pursuit-evasion games.
 - Measure game determinism rather than infer it from software replay. The journals
   establish command replay and observed clock increments only.
 
 ## Environment and retained observations
 
 Kerbal Space Program 1.12.5 build 03190 with both expansions, kRPC 0.7.0 and Module
-Manager 4.2.3 runs under Rosetta 2. Anticipated Rosetta removal in macOS 28 remains a
+Manager 4.2.3 runs under Rosetta 2. Rosetta removal in macOS 28 is a
 risk. CKAN instance `ksp1` uses CKAN 1.36.4 under MacPorts Mono.
 
 - kRPC uses ports 50000 and 50001. Bridge loopback port 50120 was exercised.

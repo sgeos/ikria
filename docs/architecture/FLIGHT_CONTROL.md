@@ -163,3 +163,40 @@ envelopes, science collection, a save-derived career authorization model, and th
 mission controller. Multi-vessel scheduling, staging, general phase-module loading,
 arbitrary in-flight program replacement and orbital guidance remain outside this
 single-vessel implementation.
+
+## Known defects
+
+An independent review of the implementation on 2026-11-18 reported the defects below.
+Items 1 and 2 were confirmed against the code by the receiving Claude line. The others
+are the review's findings, confirmed by its reading or, for item 5, by mutation, and are
+to be rechecked when fixed. They are to be fixed before further flights.
+
+1. **An invalid program output ends the session without the abort program.** In
+   `session.rs`, a refused phase transition, the completion guard and a refusal by
+   `authorize` return an error, and only faults inside the normal program's step select
+   the abort program. A lagging `chute_deployed` flag in phase 3, or a brief `Landed`
+   report during boost, can then stop all commands in flight. This contradicts
+   "A program fault selects the precompiled abort program". I-0002 was a live
+   instance, in which the completion guard ended the session after a bounce. Its
+   correction changed the program's logic and left this path unchanged.
+2. **The abort program is the normal program's source.** The live default compiles
+   `hop.kl` for both, in separate arenas with the `abort` input set. A sample that
+   faults one will probably fault the other, which ends the session. The arena is
+   independent, but the logic is not.
+3. **Parachute deployment is not latched.** Neither the session nor `authorize`
+   remembers a deployment already sent, so a lagging flag permits repeats.
+4. **No deadline bounds a frame or a session in wall time.** Read timeouts bound each
+   read call only.
+5. **Some Python boundary tests cannot fail on the guards they name.** Comparisons
+   between mock objects raise the expected error even with the guard removed, and
+   attribute assignment on a mock is not recorded.
+6. **`early_hop.py` records a landing at the first `Landed` sample,** without a settle
+   period, so a later bounce or tip-over is recorded as intact.
+7. **A refused sample is not journalled.** Validation runs before the sample is logged,
+   although the journal is to record every sample.
+
+Lesser items are that boost's zero continuous commands are enforced only by `hop.kl`,
+that a Close frame can follow a partial command write, that `keleusma = "0.2.2"` is a
+caret requirement pinned only by `--locked`, that the abort-request check treats a
+permission error as no request, and that several tests pin constants derived from the
+code's own formulas.
