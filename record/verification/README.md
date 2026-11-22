@@ -25,5 +25,5 @@ Test procedures are designated TP- and reports VR-.
 | [VR-0011](VR-0011.md) | Sepratron research program results | T18 |
 | [TP-0001](TP-0001.md) | Green Monolith test procedure, paused after step 4 | T14 |
 | [TP-0002](TP-0002.md) | Sepratron research program procedure | T18 |
-| [VR-0012](VR-0012.md) | Flight-control fix verification, monitor passed and armed checks blocked | T17 follow-up |
+| [VR-0012](VR-0012.md) | Flight-control fix verification, pad checks passed and normal flight timed out | T17 follow-up |
 | [TP-0003](TP-0003.md) | Flight-control fix verification procedure | T17 follow-up |

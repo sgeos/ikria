@@ -1,0 +1,243 @@
+{
+  "initial": {
+    "date_utc": "2026-11-22T08:32:20.077661+00:00",
+    "save": "Ikria Physical Verification",
+    "scene": "GameScene.flight",
+    "ut": 569228.7825681604,
+    "crew": {
+      "Jebediah Kerman": "RosterStatus.available",
+      "Bill Kerman": "RosterStatus.available",
+      "Bob Kerman": "RosterStatus.available",
+      "Valentina Kerman": "RosterStatus.available"
+    },
+    "crewed_launch_site": [],
+    "craft_sha256": "bb9da59b912553268d9eddeb9b420c59438955c73594dcd08d95d2d5097d795e",
+    "career_sha256": "bb4fed57674a796ad9c2b2fcce3db3c65646b494df60d03caf6cb9703632017a",
+    "debug_flags": {
+      "infinite_electricity": false,
+      "infinite_propellant": false,
+      "no_crash_damage": false,
+      "unbreakable_joints": false,
+      "ignore_max_temperature": false
+    },
+    "debug_uses": []
+  },
+  "manual_pad": {
+    "vessel": "IKR-TS-001B",
+    "crew": 0,
+    "situation": "VesselSituation.pre_launch",
+    "ut": 569178.3625681135,
+    "parts": 8,
+    "height_m": 1.6691230072174221,
+    "vertical_speed_m_s": -8.792058399896639e-05,
+    "latitude": -0.09720775447431289,
+    "longitude": -74.55768462467324,
+    "engine_active": [
+      false
+    ],
+    "fuel": 35.0,
+    "sas": false,
+    "chutes": [
+      "ParachuteState.stowed"
+    ]
+  },
+  "checkpoint": {
+    "checkpoint": "ipv-flight-fix-manual-pad-20261122",
+    "ut": 569234.0825681654
+  },
+  "craft_metadata_changes": {
+    "baseline_sha256": "627e2b8d0384c455c4f50fa4793fcde99bb66a7e2b11daf517f8d36a9819b529",
+    "current_sha256": "bb9da59b912553268d9eddeb9b420c59438955c73594dcd08d95d2d5097d795e",
+    "changed_root_fields": [
+      "version",
+      "description"
+    ],
+    "part_configuration_changed": false
+  },
+  "ikria_base": "79076972a4c3c23c2fcb47dcdde3871c580ebdc8",
+  "bridge_base": "ef85dd80c83f9eecbd3615c374d2f5e9abdcc393",
+  "harness_binary_sha256": "2fceaf92d8da12a926887521cc9c3fd1d84d81b456c8be8b5277ebb3c626bd48",
+  "descent_after_stop": {
+    "vessel": "IKR-TS-001B",
+    "crew": 0,
+    "situation": "VesselSituation.flying",
+    "ut": 569425.3425683435,
+    "parts": 8,
+    "height_m": 73.94523480080534,
+    "vertical_speed_m_s": -6.367907456484094,
+    "latitude": -0.09781398117267183,
+    "longitude": -74.56280859572973,
+    "engine_active": [
+      true
+    ],
+    "fuel": 0.0,
+    "sas": false,
+    "chutes": [
+      "ParachuteState.deployed"
+    ]
+  },
+  "landing_observation": [
+    {
+      "vessel": "IKR-TS-001B",
+      "crew": 0,
+      "situation": "VesselSituation.landed",
+      "ut": 569560.9625684698,
+      "parts": 8,
+      "height_m": 1.799121526768431,
+      "vertical_speed_m_s": -0.00067602055254471,
+      "latitude": -0.09781488835240029,
+      "longitude": -74.56281554850716,
+      "engine_active": [
+        true
+      ],
+      "fuel": 0.0,
+      "sas": false,
+      "chutes": [
+        "ParachuteState.cut"
+      ]
+    },
+    {
+      "vessel": "IKR-TS-001B",
+      "crew": 0,
+      "situation": "VesselSituation.landed",
+      "ut": 569561.5825684704,
+      "parts": 8,
+      "height_m": 1.799121530726552,
+      "vertical_speed_m_s": -0.0006798621372621375,
+      "latitude": -0.09781488857435545,
+      "longitude": -74.56281554850716,
+      "engine_active": [
+        true
+      ],
+      "fuel": 0.0,
+      "sas": false,
+      "chutes": [
+        "ParachuteState.cut"
+      ]
+    },
+    {
+      "vessel": "IKR-TS-001B",
+      "crew": 0,
+      "situation": "VesselSituation.landed",
+      "ut": 569562.5825684713,
+      "parts": 8,
+      "height_m": 1.7991258559050038,
+      "vertical_speed_m_s": -0.0007142958017409462,
+      "latitude": -0.09781488839437842,
+      "longitude": -74.56281554910709,
+      "engine_active": [
+        true
+      ],
+      "fuel": 0.0,
+      "sas": false,
+      "chutes": [
+        "ParachuteState.cut"
+      ]
+    },
+    {
+      "vessel": "IKR-TS-001B",
+      "crew": 0,
+      "situation": "VesselSituation.landed",
+      "ut": 569563.4025684721,
+      "parts": 8,
+      "height_m": 1.7991215299116448,
+      "vertical_speed_m_s": -0.000686564576660581,
+      "latitude": -0.09781488852598061,
+      "longitude": -74.56281554850716,
+      "engine_active": [
+        true
+      ],
+      "fuel": 0.0,
+      "sas": false,
+      "chutes": [
+        "ParachuteState.cut"
+      ]
+    },
+    {
+      "vessel": "IKR-TS-001B",
+      "crew": 0,
+      "situation": "VesselSituation.landed",
+      "ut": 569564.382568473,
+      "parts": 8,
+      "height_m": 1.7991215308429673,
+      "vertical_speed_m_s": -0.0006966429369619317,
+      "latitude": -0.0978148885672415,
+      "longitude": -74.56281554850716,
+      "engine_active": [
+        true
+      ],
+      "fuel": 0.0,
+      "sas": false,
+      "chutes": [
+        "ParachuteState.cut"
+      ]
+    },
+    {
+      "vessel": "IKR-TS-001B",
+      "crew": 0,
+      "situation": "VesselSituation.landed",
+      "ut": 569565.422568474,
+      "parts": 8,
+      "height_m": 1.7991215327056125,
+      "vertical_speed_m_s": -0.0006510759579129059,
+      "latitude": -0.09781488867964186,
+      "longitude": -74.56281554850716,
+      "engine_active": [
+        true
+      ],
+      "fuel": 0.0,
+      "sas": false,
+      "chutes": [
+        "ParachuteState.cut"
+      ]
+    }
+  ],
+  "recovery": {
+    "date_utc": "2026-11-22T08:40:27.697488+00:00",
+    "operation": "recover",
+    "craft": "IKR-TS-001B",
+    "debug_service_uses": [],
+    "uncrewed_placement": false,
+    "save": "Ikria Physical Verification",
+    "start_ut": 569576.0825684839,
+    "parts": 8,
+    "funds_before": 2178416.6760213375,
+    "science_before": 29.766666412353516,
+    "funds_after": 2178416.6760213375,
+    "science_after": 29.766666412353516,
+    "scene": "GameScene.space_center"
+  },
+  "final": {
+    "date_utc": "2026-11-22T08:40:49.118357+00:00",
+    "save": "Ikria Physical Verification",
+    "scene": "GameScene.space_center",
+    "ut": 569586.3625684935,
+    "crew": {
+      "Jebediah Kerman": "RosterStatus.available",
+      "Bill Kerman": "RosterStatus.available",
+      "Bob Kerman": "RosterStatus.available",
+      "Valentina Kerman": "RosterStatus.available"
+    },
+    "crewed_launch_site": [],
+    "craft_sha256": "bb9da59b912553268d9eddeb9b420c59438955c73594dcd08d95d2d5097d795e",
+    "career_sha256": "bb4fed57674a796ad9c2b2fcce3db3c65646b494df60d03caf6cb9703632017a",
+    "debug_flags": {
+      "infinite_electricity": false,
+      "infinite_propellant": false,
+      "no_crash_damage": false,
+      "unbreakable_joints": false,
+      "ignore_max_temperature": false
+    },
+    "debug_uses": []
+  },
+  "timeout_diagnostics": {
+    "bridge_stderr": "profile guarded, game state checked\nready on 127.0.0.1:50120\nError: Elapsed(())\n",
+    "harness_stderr": "Error: Codec(\"truncated or oversized frame\")\n",
+    "log_creation_utc": "2026-11-22T08:33:37Z",
+    "log_last_write_utc": "2026-11-22T08:36:06Z",
+    "elapsed_wall_s_approx": 149,
+    "deadline_source_inference": "700 ms bridge cycle deadline, given completed handshake and elapsed wall time below 900 s outer deadline",
+    "stall_location": "not identified",
+    "game_log_observation": "Disconnection recorded at local 00:36:06.331 and 00:36:06.333. Next recorded autosave at 00:37:37.170. No cause inferred from absence of an earlier log event."
+  }
+}

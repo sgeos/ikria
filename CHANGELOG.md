@@ -10,7 +10,9 @@ All notable changes are recorded here. The format follows
 
 - Flight-control verification procedure, explicit fault fixtures and retained monitor
   evidence, with a guarded uncrewed-placement option and configurable supervisor source.
-  Armed verification remains blocked by the preparation anomaly recorded in I-0008.
+  Manual placement admitted two successful pad checks. A normal flight ended on a
+  bridge deadline during descent, I-0009, followed by passive landing and recovery.
+  Its failed journal and the outstanding qualification work are retained.
 
 - The science ledger, `ikria-ledger`, which enumerates the 3,104 subjects of the Phase 0
   count with their identifiers and Hard values, and joins them with a save's subjects
