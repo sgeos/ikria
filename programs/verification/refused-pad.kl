@@ -1,0 +1,10 @@
+// VERIFICATION FAULT FIXTURE. Never use for a nominal flight.
+// Phase 0 to phase 2 is forbidden. No ignition is requested.
+loop main(a: FlightInput) -> FlightOutput {
+    let c = FlightOutput {
+        phase: 2, ignite: 0, deploy: 0,
+        throttle: 0, pitch: 0, yaw: 0, roll: 0
+    };
+    let _next = yield c;
+    c
+}

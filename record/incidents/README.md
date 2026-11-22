@@ -16,3 +16,4 @@ R8 anomaly log for this development activity.
 | [I-0005](I-0005.md) | Uncrewed abort pod lost while a booster watch ran alone | One loop for every task, repeat flight recovered |
 | [I-0006](I-0006.md) | Uncrewed lander destroyed by a velocity set in a moving frame | Placement by `set_flight`, plausibility check |
 | [I-0007](I-0007.md) | Jebediah Kerman marked Missing in the verification save | Crewed vessels recovered before any launch, restoration for the operator |
+| [I-0008](I-0008.md) | Empty article became Landed after crew removal, direct uncrewed placement timed out with a control warning | Open, monitor passed, armed checks deferred without changing policy |

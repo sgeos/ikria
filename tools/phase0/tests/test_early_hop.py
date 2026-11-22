@@ -253,13 +253,14 @@ class World:
         self.act('eva')
         raise Stop('eva')
 
-    def run(self, module, operation=None):
+    def run(self, module, operation=None, extra=()):
         """Run the script's main, returning the exception that ended it, if any."""
         output = self.directory / 'log.json'
         arguments = ['probe', str(self.directory)]
         if operation:
             arguments.append(operation)
         arguments += [str(output), '--craft', CRAFT]
+        arguments += list(extra)
         modules = {'krpc': types.SimpleNamespace(connect=lambda **_: self.conn),
                    'guard': types.SimpleNamespace(loaded_save=lambda *_: self.loaded)}
         with mock.patch.dict('sys.modules', modules), \
@@ -405,6 +406,35 @@ def hop_log(world):
 
 
 class SetupGuardTests(LiveGuardCase):
+    def test_uncrewed_placement_sends_no_crew_and_checks_returned_state(self):
+        for change in (None, 'crew', 'landed', 'engine', 'name'):
+            with self.subTest(change=change):
+                world = self.world()
+                calls = []
+
+                def launch(*args, **kwargs):
+                    calls.append(kwargs)
+                    world.act('launch')
+                    if change == 'crew':
+                        world.vessel.crew_count = 1
+                    elif change == 'landed':
+                        world.vessel.situation = 'landed'
+                    elif change == 'engine':
+                        world.vessel.parts.engines[0]._active = True
+                    elif change == 'name':
+                        world.vessel.name = 'another vessel'
+
+                world.sc.launch_vessel = launch
+                error = world.run(setup, 'place', ['--uncrewed'])
+                self.assertEqual(calls, [{'crew': [], 'recover': False}])
+                if change is None:
+                    self.assertIsNone(error)
+                    self.assertTrue(any(a.startswith('save ipv-') for a in world.actions))
+                else:
+                    self.assertIsInstance(error, RuntimeError)
+                    self.assertFalse(any(a.startswith('save ipv-') for a in world.actions))
+                self.assertNotIn('ignite', world.actions)
+
     def test_control_empty_pad_reaches_launch(self):
         world = self.world()
         world.sc.vessels.clear()

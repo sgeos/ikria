@@ -1,9 +1,10 @@
 """Checkpoint, place, empty or recover a hop article in the verification save.
 
 Placement first recovers every crewed vessel at the launch sites explicitly, as rule R20
-requires, and refuses to launch if it cannot. It then carries Jebediah to the pad with
-the engine off. Empty-capsule placement
-hung in the observed setup. The empty operation sends him outside, recovers him,
+requires, and refuses to launch if it cannot. By default it carries Jebediah to the pad
+with the engine off. With --uncrewed it requests no crew and waits up to 180 seconds
+for the operator to accept the game's No Control warning. A timed-out request must
+be inspected, never retried blindly. The empty operation sends Jebediah outside, recovers him,
 and returns to the empty article. None of these operations ignites an engine.
 Every invocation identifies the loaded save before changing vessel state. A deadline
 is an uncertain command outcome, so inspect the game before retrying any operation.
@@ -23,7 +24,11 @@ def main():
     parser.add_argument('operation', choices=['place', 'empty', 'recover'])
     parser.add_argument('output', type=pathlib.Path)
     parser.add_argument('--craft', choices=['IKR-TS-001A', 'IKR-TS-001B'], required=True)
+    parser.add_argument('--uncrewed', action='store_true',
+                        help='place without crew, allowing time for the No Control warning')
     args = parser.parse_args()
+    if args.uncrewed and args.operation != 'place':
+        parser.error('--uncrewed applies only to place')
     if args.output.exists():
         raise ValueError('refusing to overwrite a log')
     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -34,16 +39,19 @@ def main():
     from launch_site import clear_crewed_launch_site
 
     log = {'date_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
-           'operation': args.operation, 'craft': args.craft, 'debug_service_uses': []}
+           'operation': args.operation, 'craft': args.craft, 'debug_service_uses': [],
+           'uncrewed_placement': args.uncrewed}
 
     def write_log():
         args.output.write_text(json.dumps(log, indent=2, allow_nan=False) + '\n')
 
+    limit = 180 if args.uncrewed else 60
+
     def deadline(*_):
-        raise TimeoutError('setup exceeded 60 seconds, inspect before retrying')
+        raise TimeoutError(f'setup exceeded {limit} seconds, inspect before retrying')
 
     signal.signal(signal.SIGALRM, deadline)
-    signal.alarm(60)
+    signal.alarm(limit)
     conn = None
     try:
         conn = krpc.connect(name='ikria-hop-setup', address='127.0.0.1',
@@ -60,13 +68,18 @@ def main():
             # makes the launch fail, because recover=False never clears it.
             log['crew_recovered_before_launch'] = []
             clear_crewed_launch_site(conn, args.saves, log['crew_recovered_before_launch'].append)
+            crew = [] if args.uncrewed else ['Jebediah Kerman']
+            log['launch_intent'] = {'crew': crew, 'recover': False, 'ut': sc.ut}
             write_log()
             sc.launch_vessel('VAB', args.craft, 'LaunchPad',
-                             crew=['Jebediah Kerman'], recover=False)
+                             crew=crew, recover=False)
             time.sleep(3)
             v = sc.active_vessel
-            if v.name != args.craft or v.crew_count != 1:
-                raise RuntimeError('placement did not produce the expected crewed craft')
+            if v.name != args.craft or v.crew_count != len(crew):
+                raise RuntimeError('placement did not produce the expected craft and crew')
+            if args.uncrewed and (v.situation != sc.VesselSituation.pre_launch
+                                  or any(engine.active for engine in v.parts.engines)):
+                raise RuntimeError('uncrewed placement must be prelaunch with engines off')
         else:
             v = sc.active_vessel
             if v.name != args.craft:

@@ -797,3 +797,55 @@ fn invalid_command_is_not_hidden_by_authority_masking() {
     };
     assert!(ikria_harness::flight::command(&sample(), out, PartId(1), PartId(2)).is_err());
 }
+
+#[test]
+fn live_verification_fault_fixtures_abort_without_sending_refused_outputs() {
+    // Check the actual sources used by TP-0003, including the first valid launch
+    // command and the first refused boost output. The default abort must finish.
+    let pad_source = include_str!("../../../programs/verification/refused-pad.kl");
+    let pad_frames = [
+        hello(true),
+        tick(0, sample()),
+        BridgeFrame::Applied { seq: 0 },
+    ];
+    let (ok, output, log) = run_frames(&pad_frames, Mode::Hop, pad_source);
+    assert!(ok, "{log}");
+    assert!(!output.contains("activate_engine"));
+    assert!(log.contains("invalid phase transition 0 to 2"));
+
+    let boost_source = include_str!("../../../programs/verification/early-completion.kl");
+    let mut frames = vec![hello(true)];
+    for seq in 0..6 {
+        let mut t = sample();
+        if seq > 0 {
+            t.engine_active = true;
+            t.situation = Situation::Flying;
+            t.solid_fuel = 30.0 - seq as f64;
+            t.altitude_m = if seq == 1 { 20.0 } else { 21.0 };
+            t.vertical_speed_m_s = 10.0;
+        }
+        if seq >= 4 {
+            t.solid_fuel = 0.0;
+            t.vertical_speed_m_s = -3.0;
+            t.altitude_m = 100.0;
+        }
+        frames.push(tick(seq, t));
+        frames.push(BridgeFrame::Applied { seq });
+    }
+    settle(&mut frames, 6);
+    let (ok, output, log) = run_frames(&frames, Mode::Hop, boost_source);
+    assert!(ok, "{log}");
+    let rows = records(&log);
+    let fault = rows.iter().find(|r| r["event"] == "program_fault").unwrap();
+    assert_eq!(fault["seq"], 2);
+    let takeover = rows
+        .iter()
+        .find(|r| r["event"] == "command_intent" && r["request"]["seq"] == 2)
+        .unwrap();
+    assert_eq!(takeover["aborting"], true);
+    assert_eq!(takeover["phase"], 5);
+    assert_eq!(output.matches("activate_engine").count(), 1);
+    assert_eq!(output.matches("deploy_parachute").count(), 1);
+    let completion = rows.iter().find(|r| r["event"] == "complete").unwrap();
+    assert_eq!(completion["aborted"], true);
+}
