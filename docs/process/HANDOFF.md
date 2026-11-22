@@ -5,116 +5,96 @@
 Keep this state file within 8 KB. History lives in git. Account for removed open
 items in the commit message.
 
-## State on 2026-11-18
+## State on 2026-11-21
 
-Written by Codex for Claude on `docs/codex-claude-handoff`, based on main `583e1d4`.
-Ikria [pull request 34](https://github.com/sgeos/ikria/pull/34) merged as `583e1d4`,
-then bridge [pull request 5](https://github.com/sgeos/ikria-bridge/pull/5) merged as
-`5d63344`, both on 2026-11-18 in Coordinated Universal Time. A Claude line received
-this handoff on 2026-11-18 and found it valid.
+Written by a Claude line for Codex, based on main `c44c8c6`, after the operator's
+machine restart. Both checkouts were clean and in step with origin.
 
-- **Seed.** `sgeos/project-template` at `3954eba`, tag `v1.0.8`. Seed review finished
-  on 2026-11-13. Public rulings remain in charter item 10.
-- **Campaign.** `CAMPAIGN_PLAN.md` and `CAMPAIGN_SEQUENCE.md` retain E0 to E6,
-  recalibration checkpoints, deferred rescues under R5 and the solvency reserve R18.
-  Appendices remain proposed.
-- **Record.** Vehicle and mission articles remain unpublished. The operator authorized
-  provisional sections on 2026-11-17. M-0001 and VR-0010 use them. I-0001 and I-0002
-  follow R11's provisional contents while incident article A391 is unpublished.
-  Program and financial articles remain pending. Check their status before the first
-  records of those types.
-- **Completed and merged.** T10 is the scripted harness, T16 the two Python mechanics
-  hops, T11 the separate Rust bridge and T17 the single-vessel Keleusma flight path.
-  The latter includes checked dialogue loading, resource admission, independent abort,
-  command policy, timeouts, journals and replay. Commands and limits are in
-  [FLIGHT_CONTROL.md](../architecture/FLIGHT_CONTROL.md).
-- **Live evidence.** [VR-0010](../../record/verification/VR-0010.md) records a complete
-  normal flight and a coast-abort flight with intact eight-part recovery. Their 6,824
-  and 6,798 samples replay to identical commands. I-0001 records an empty article lost
-  to a velocity-frame defect. I-0002 records a touchdown bounce that stopped software
-  after intact landing. Both were corrected.
+- **Milestone.** Every task of [`V0_1_0.md`](../roadmap/V0_1_0.md) is done except T12,
+  partial, and T14, paused. Since the last Codex handoff, these merged.
+  - **T8 and T9.** `crates/ikria-save` reads saves, and `crates/ikria-ledger` gives the
+    science ledger, 3,104 subjects and 217,827 science on Hard. VR-0005 was corrected
+    from 217,818.
+  - **Flight-control defects fixed.** All seven, reviewed twice, in pull request 44. A
+    refused output selects the distinct `programs/abort.kl`. See
+    [FLIGHT_CONTROL.md](../architecture/FLIGHT_CONTROL.md). Not yet flown.
+  - **T18, the Sepratron program.**
+    [`SEPRATRON_PROGRAM.md`](../research/SEPRATRON_PROGRAM.md), TP-0002, VR-0011 and
+    incidents I-0003 to I-0007. Its rules are campaign rules R16, R19 and R20.
+- **Rulings of 2026-11-18,** in the campaign plan's twelfth set. The verification and
+  sandbox saves are tools, used as is sensible, with experimental procedures allowed.
+  The career is very conservative. All sensible learning is adopted. Standing push
+  and merge authority covers Codex lines. Exact document wording is the line's to settle.
+
+## For the receiving Codex line
+
+1. Follow `CLAUDE.md`'s startup protocol, and read `secret/README.md`, before anything.
+2. Run cargo and the gate as `RUSTC_WRAPPER= ...`. Stage files before the gate, and
+   commit only on its exit status.
+3. Before any game run, read `tools/sepratron/README.md` and rule R20.
+   - Every launch first clears crewed vessels near the pad or runway, through
+     `tools/phase0/launch_site.py`.
+   - kRPC's `load` hangs, so the operator loads saves from the game's menu.
+   - A Flight Results dialog after a lost active vessel blocks the next launch until
+     the operator closes it.
+   - `set_velocity` takes its frame literally. Place falling vessels with `set_flight`,
+     and read back every commanded state.
+   - Announce each run's start, ask for no input during it, and keep the measured
+     vessel active so the camera follows it.
+4. The debug service is allowed only in "Ikria Physical Verification". Never load or
+   change the career "Ikria Automated Space Agency" without the operator's word.
+
+## Open work, in recommended order
+
+1. **A live check of the flight-control fixes** in the verification save, including a
+   refused output and the abort program, before any further flight claim.
+2. **T12, the sandbox qualification.** A campaign-valid control source, attitude
+   actuation, broader abort tests, repeatability, crewed mass and mission science.
+   E1 and E2 designs remain open.
+3. **Dependabot pull request 47,** `sha2` 0.10.9 to 0.11.1, opened 2026-11-20. Review it
+   like any change before merging.
+4. **R20 in the Rust harness.** The Python tools enforce it. The harness design's
+   enforcement table says the Rust side is to adopt it.
+5. **Sepratron follow-ups.** Fly the ejectable cockpit, a hybrid ascent and a
+   full-thrust soft landing, and settle the surface-feature multiplier and the 25
+   unverified location names when a save holds such subjects.
+6. **T14** stays paused after step 4 of TP-0001, until a vessel meets a Green Monolith.
+7. **Later work.** Multi-vessel scheduling, phase modules, in-flight program
+   replacement, calibrated timing admission, the mission controller and bridge
+   batching remain unimplemented.
+
+## Last observed game state
+
+- **The career** had only the start node, zero science and 10,000 funds on 2026-11-17,
+  and was not loaded since.
+- **The verification save** has its whole tree researched and purchased since the
+  Sepratron program. Jebediah was restored after I-0007, and all four kerbals were
+  Available on 2026-11-18. Checkpoints include "ipv-before-sepratron-program",
+  "ipv-after-sepratron-program" and "ipv-jeb-restored". Debris from tests remains in
+  orbit and on Minmus and the Mun.
+- KSP may have been quit for the restart. kRPC starts only once a save is loaded.
 
 ## Worktrees
 
 Preserve `tmp/worktrees/feat-codex-flight-control`, which holds Codex's raw logs and
-rehearsal tooling. The bridge's sibling `ikria` symlink supplies its records, and its
+rehearsal tooling. Codex's other three worktrees under `tmp/worktrees` are merged and
+may be removed. The bridge's sibling `ikria` symlink supplies its records, and its
 workflow pins `504d4c4`.
-
-## Operator scope and last observed game state
-
-Scope remains in `PROJECT_CHARTER.md`, questions in `OPEN_QUESTIONS.md`. The operator
-authorized rehearsals in "Ikria Physical Verification", including debug features,
-while keeping designs
-within actual starting career limits. No debug setter was used in the recorded series.
-
-On 2026-11-17 the career had only the start node, zero science and 10,000 funds, and
-was not loaded since. On 2026-11-18 the Sepratron program unlocked the verification
-save's whole tree. Its checkpoints are "ipv-before-sepratron-program" and
-"ipv-after-sepratron-program". Jebediah was restored, I-0007. Recheck before use.
-
-The empty starting capsule has no control source or link. The flights used part-level
-verification instrumentation and passive fins. Continuous controls were zero, so
-active attitude actuation is not qualified. No career mission is cleared.
-
-## Open work and recommended resumption
-
-1. The known defects in `FLIGHT_CONTROL.md` are fixed in code and reviewed, but not yet
-   flown. Read VR-0010, M-0001, I-0001 and I-0002 before more flights. Use a fresh abort-request
-   path for a normal run. The flight worktree still contains `tmp/abort-flight-4`.
-   Never retry an uncertain command.
-2. T12 is partial. The original sandbox qualification remains open. Resolve a
-   campaign-valid control source, qualify attitude actuation, broaden abort tests,
-   establish repeatability, account for crewed mass and loading, and include mission
-   science. E1 and E2 designs remain open.
-3. T8 and T9 are done as `crates/ikria-save` and `crates/ikria-ledger`. Career
-   authorization must come from the actual save. Multi-vessel scheduling, general
-   phase modules and in-flight replacement, calibrated timing admission and the
-   mission controller remain unimplemented. JavaScript Object Notation timing and
-   atomic bridge batching remain measurement and optimization work.
-4. T18, the Sepratron program, is done. Its design rules are in
-   `docs/research/SEPRATRON_PROGRAM.md`. The ejectable cockpit and hybrid ascent are
-   designs, not yet flown. Its rules are adopted as R16, R19 and R20.
-5. T14 remains paused after step 4 of TP-0001, until a vessel meets a Green Monolith.
-   The earlier kRPC load hang is unresolved. Training is in `CREW_TRAINING.md`, C13
-   sites in `record/sites/`, and body hazards in `HAZARDS.md`.
 
 ## Other open items
 
-- **Template divergence.** `scripts/worktree.sh`, `scripts/check.sh` and
-  `scripts/scan_binary_terms.py` diverge from the template, and a sync could undo them.
-  Items 1 to 8 of the feedback to the admin line are upstream as template commit
-  `8a79622`, pull request 18, merged 2026-11-18, and item 9 is deferred. A sync may adopt
-  them after a comparison. Wording that differs from Ikria's rules needs the operator's
-  confirmation, under `CLAUDE.md`.
-- Main remains protected and requires a pull request with a green `CI result`.
-- Cite and consider Massachusetts Institute of Technology Lincoln Laboratory's KSPDG,
-  which uses kRPC and PhysicsRangeExtender for pursuit-evasion games.
-- Measure game determinism rather than infer it from software replay. The journals
-  establish command replay and observed clock increments only.
+- Main is protected and needs a pull request with a green `CI result`.
+- The scripts match template commit `8a79622`, except Ikria's own project checks.
+- Cite and consider Massachusetts Institute of Technology Lincoln Laboratory's KSPDG.
+- Measure game determinism rather than infer it from software replay.
 
-## Environment and retained observations
+## Environment
 
-Kerbal Space Program 1.12.5 build 03190 with both expansions, kRPC 0.7.0 and Module
-Manager 4.2.3 runs under Rosetta 2. Rosetta removal in macOS 28 is a
-risk. CKAN instance `ksp1` uses CKAN 1.36.4 under MacPorts Mono.
-
-- kRPC uses ports 50000 and 50001. Bridge loopback port 50120 was exercised.
-  `krpc.game_scene` is the scene property. Recheck the server hold timeout before
-  changing the installation. The bridge deadline assumes a one-second server hold.
-- Empty-capsule placement timed out. Crewed placement, then crew removal and recovery
-  before ignition, works. Missing control sources remain the unproved cause.
-- Four verification difficulty groups matched the career in VR-0009. Five debug flags
-  were false before and after the new series, not sampled continuously.
-- Measure velocity in the rotating body frame. The vessel-moving surface frame
-  returned zero during flight. Transform directions separately from velocity sampling.
-- Rails, physics range, boarding, jetpack, flags and inventory observations remain in
-  the Phase 0 reports. Multi-client limits remain undocumented.
-- The separate GPL-3.0-only bridge is at `~/projects/keleusma/ikria-bridge`.
-- Saves remain "Ikria Automated Space Agency", "Ikria Simulated Research and Dev" and
-  "Ikria Physical Verification". Rookie and Sandbox remain untouched. The sandbox
-  holds IkriaT0, IkriaT1 and one flag. The monolith rover and checkpoint
-  `ipv-before-early-rehearsal`, revision A and B craft, pad and landing saves, and the
-  Python client remain available. Compressed telemetry and hashes are in VR-0010.
+KSP 1.12.5 build 03190 with both expansions, kRPC 0.7.0 and Module Manager 4.2.3, under
+Rosetta 2, whose removal in macOS 28 is a risk. kRPC uses ports 50000 and 50001, and the
+bridge uses 50120. The kRPC Python client 0.7.0 is in `tmp/krpc-venv`, local scratch.
+The bridge is at `~/projects/keleusma/ikria-bridge`, GPL-3.0-only, with no outside
+contributions. Rookie and Sandbox saves are the operator's and are read only.
 
 ## Validity
 
@@ -125,14 +105,12 @@ RUSTC_WRAPPER= ./scripts/check.sh
 ```
 
 A valid checkout is clean, its newest commit describes this state, and its gate exits
-zero. Report checks not run and later commits. The inherited handoff was stale about
-publication. The local gates pass on macOS with Rust 1.100.0, covering 60 Rust and 13
-Python tests here and three bridge tests, none ignored. Post-merge continuous
-integration passed for Ikria in run `44255410252` and bridge in run `44256254190`.
-Those results cover the implementations. Check the handoff pull requests for their
-required checks and merge state. Live observations are separate evidence.
+zero. On 2026-11-21 the gate passed on macOS with 157 Rust tests, 50 Phase 0 Python tests
+and the gate's own 12, none ignored. Continuous integration passed on pull request 46.
+Report checks not run and later commits.
 
 ## Mailbox
 
-None assigned. The blog line does not use the Keleusma interline mailbox. Coordinate
-through the operator. Article requests remain context.
+None assigned. The blog line is reached through its running Claude Code session and
+the admin line through `Op55hi-admin-polybasite`, so a Codex line coordinates through
+the operator. Article requests remain context.
