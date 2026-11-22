@@ -252,9 +252,11 @@ The fixes are in commits `a44555f`, `ff86d34` and `ee8e877`, merged into `main` 
 2026-11-18 after two independent reviews. Each fixed item has a test. For items 1, 2, 3
 and 7 and the abort-request check, the new session tests were also run against the
 previous `session.rs` and failed there, and removing each later fix made its test fail.
-They have not been exercised in the game. No flight has used them, so the statement
-above that the defects are to be fixed before further flights is met in code, and a
-live check is still owed.
+On 2026-11-22, [VR-0012](../../record/verification/VR-0012.md) exercised a monitor,
+a default pad abort and same-sample takeover from a refused pad output. All three
+completed and replayed exactly. A normal hop then ended on a bridge cycle deadline
+during parachute descent, I-0009. It landed passively and was recovered. Completed
+normal and refused-boost flights with these fixes remain owed.
 
 | Item | Status | Change | Test |
 |---|---|---|---|
@@ -296,8 +298,10 @@ The following remain open or unverified.
   for example because the motor did not light, does not end as a pad abort. The abort
   program holds phase 5 and the session ends at the tick budget with an error.
 
-- The deadline bounds are tested only with a simulated stream and clock. The constants
-  in `fly` have not been observed against the bridge or the game.
+- Deadline extremes remain covered only by simulated streams and clocks. VR-0012
+  exercised ordinary live traffic but the bridge timed out first. I-0009 requires
+  cycle and operation diagnostics without weakening the deadline or reusing a
+  cancelled connection.
 - The abort program shares the dialogue, loader and Keleusma virtual machine with the
   normal program, so a defect in any of them can still fault both.
 - The bridge keeps calling the unlatched `authorize`. Adopting `authorize_latched`

@@ -2,27 +2,26 @@
 
 > **Navigation**: [Process](README.md) | [Documentation Root](../README.md)
 
-Keep this state file within 8 KB. History lives in git. Account for removed open
-items in the commit message.
+Keep within 8 KB. History lives in git. Account for removed open items in commits.
 
 ## State on 2026-11-22
 
-Written by Codex on `test/codex-flight-fix-verification`, based on refreshed main
-`4ebd894`. Bridge main is `ef85dd8`. The operator loaded the verification save and
-authorized continued work and reports. Publication follows the standing authority.
-The branch's pull request and merge ancestry record its publication state.
+Written by Codex on `test/codex-flight-fix-live`, based on refreshed main
+`7907697`, with bridge `ef85dd8`. Verification and publication are authorized.
+The pull request records publication and required checks.
 
 - **Milestone.** Every task of [`V0_1_0.md`](../roadmap/V0_1_0.md) is done except T12,
-  partial, and T14, paused. Since the last Codex handoff, these merged.
+  partial, and T14, paused. Merged work follows.
   - **T8 and T9.** `crates/ikria-save` reads saves, and `crates/ikria-ledger` gives the
     science ledger, 3,104 subjects and 217,827 science on Hard. VR-0005 was corrected
     from 217,818.
   - **Flight-control defects fixed.** All seven, reviewed twice, in pull request 44. A
     refused output selects the distinct `programs/abort.kl`. See
-    [FLIGHT_CONTROL.md](../architecture/FLIGHT_CONTROL.md). Not yet flown.
-  - **VR-0012.** The corrected harness completed a 50-sample monitor with exact replay.
-    Armed checks are blocked by preparation, I-0008. TP-0003 and tested fault fixtures
-    are ready. No flight or ignition occurred on 2026-11-22.
+    [FLIGHT_CONTROL.md](../architecture/FLIGHT_CONTROL.md). Partial live checks follow.
+  - **VR-0012.** Monitor, default pad abort and refused-pad takeover passed and replayed
+    exactly. Manual placement bypassed I-0008 once. A normal hop reached 1,241 m, then
+    hit the bridge cycle deadline during parachute descent, I-0009. Passive landing
+    and recovery retained eight parts. Normal completion and boost refusal remain open.
   - **T18, the Sepratron program.**
     [`SEPRATRON_PROGRAM.md`](../research/SEPRATRON_PROGRAM.md), TP-0002, VR-0011 and
     incidents I-0003 to I-0007. Its rules are campaign rules R16, R19 and R20.
@@ -51,15 +50,17 @@ The branch's pull request and merge ancestry record its publication state.
 
 ## Open work, in recommended order
 
-1. **Resolve I-0008 and resume TP-0003.** Crewed placement followed by crew removal
-   left the empty article Landed. Direct empty-crew placement displayed No Control
-   and timed out. A second request also timed out. Snapshots after each showed no
-   test article. The operator was asked to cancel any remaining warning. Check the
-   actual state before any further command. Do not weaken the PreLaunch requirement.
-   The guarded `place --uncrewed` option permits a 180-second warning-response window
-   but has not completed live placement. Normal, pad-abort, refused-pad and refused-boost
-   checks are still owed. `run_flight.py --program-body` selects the test sources.
-   Their exact files are covered by an offline same-sample abort regression test.
+1. **Diagnose I-0009 before further TP-0003 flights.** The bridge exited on a cycle
+   deadline after 3,558 acknowledged normal-hop commands. Current diagnostics do not
+   identify the stalled operation. Add cycle and operation context while preserving
+   deadlines and discarding cancelled connections. Do not extend the 700 ms bound to
+   force a pass. The failed journal is retained and replay refuses it. Normal completion
+   and refused-boost flight remain owed. The two pad checks passed. I-0008 remains open
+   for placement reliability. Manual editor placement admitted the empty PreLaunch
+   article once, preserved in `ipv-flight-fix-manual-pad-20261122`. The operator loads
+   it through the menu when testing resumes. Inspect the actual state again. Do not
+   weaken PreLaunch or repeat an uncertain command. `place --uncrewed` is still not
+   verified live. Tested fault fixtures use `run_flight.py --program-body`.
 2. **T12, the sandbox qualification.** A campaign-valid control source, attitude
    actuation, broader abort tests, repeatability, crewed mass and mission science.
    E1 and E2 designs remain open.
@@ -84,33 +85,37 @@ The branch's pull request and merge ancestry record its publication state.
   Available on 2026-11-18 and again on 2026-11-22. Checkpoints include "ipv-before-sepratron-program",
   "ipv-after-sepratron-program" and "ipv-jeb-restored". Debris from tests remains in
   orbit and on Minmus and the Mun.
-- On 2026-11-22 the game was at the verification Space Center after the failed
-  placements, with kRPC responsive, no test article on the pad and no crew at either
-  launch site. Five debug flags were false before and after, and no debug setter was
-  used. The new checkpoint is `ipv-before-flight-fix-verification-20261122`. A warning
-  dialog may remain, which telemetry cannot establish.
+- On 2026-11-22 the game returned to the verification Space Center after the empty
+  article's settled landing and recovery. All four kerbals were Available, no crew
+  occupied either launch site, and the career hash was unchanged. Five debug flags
+  were false and no debug setter was used. A recovery dialog may be visible, which
+  telemetry does not establish. Retain `ipv-before-flight-fix-verification-20261122`
+  and the manual-pad checkpoint above. Editor changes to the craft affected only its
+  root version and description, with no part-configuration change.
 
 ## Worktrees
 
 Preserve `tmp/worktrees/feat-codex-flight-control`, which holds Codex's raw logs and
-rehearsal tooling. Codex's other three worktrees under `tmp/worktrees` are merged and
-may be removed. The bridge's sibling `ikria` symlink supplies its records, and its
+rehearsal tooling. Preserve `test-codex-flight-fix-verification` and
+`test-codex-flight-fix-live` for the latest raw logs and probes. Earlier merged
+worktrees may be removed after checking their retained evidence. The bridge's sibling `ikria` symlink supplies its records, and its
 workflow pins `504d4c4`.
 
 ## Other open items
 
 - Main is protected and needs a pull request with a green `CI result`.
-- The scripts match template commit `8a79622`, except Ikria's own project checks.
+- Scripts match template `8a79622`, except project checks.
 - Cite and consider Massachusetts Institute of Technology Lincoln Laboratory's KSPDG.
 - Measure game determinism rather than infer it from software replay.
+- Architecture notes retain derived-constant tests, the post-ignition PreLaunch abort
+  edge case, shared loader faults, bridge latch defence and unjournalled invalid bytes.
 
 ## Environment
 
 KSP 1.12.5 build 03190 with both expansions, kRPC 0.7.0 and Module Manager 4.2.3, under
 Rosetta 2, whose removal in macOS 28 is a risk. kRPC uses ports 50000 and 50001, and the
 bridge uses 50120. The kRPC Python client 0.7.0 is in `tmp/krpc-venv`, local scratch.
-The bridge is at `~/projects/keleusma/ikria-bridge`, GPL-3.0-only, with no outside
-contributions. Rookie and Sandbox saves are the operator's and are read only.
+The bridge is at `~/projects/keleusma/ikria-bridge`, GPL-3.0-only, with no outside contributions. Rookie and Sandbox saves are read only.
 
 ## Validity
 
@@ -123,7 +128,7 @@ RUSTC_WRAPPER= ./scripts/check.sh
 A valid checkout is clean, its newest commit describes this state, and its gate exits
 zero. The gate passes on macOS with 158 Rust tests, 51 Phase 0 Python tests and
 the gate's own 12, none ignored. Bridge validation passed with three Rust tests.
-Startup main checks passed remotely at `4ebd894` and `ef85dd8`. The current pull
+Main checks passed remotely at `7907697` and `ef85dd8`. The current pull
 request records its required checks. Report checks not run and later commits.
 
 ## Mailbox

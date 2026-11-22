@@ -6,58 +6,62 @@ Written by Codex on 2026-11-22.
 
 ## Requested work and results
 
-The operator loaded the verification save, started kRPC and authorized obvious next
-work with reports. The primary handoff was valid. Both main checkouts matched origin
-and had passing remote checks. The current work began from Ikria `4ebd894` and bridge
-`ef85dd8`, in an isolated worktree.
+The operator reported the article on the pad after manual placement. This continues
+the authorization to perform obvious verification work and write reports. Work used
+an isolated branch from current main `7907697`, whose remote checks passed. The
+bridge remained at `ef85dd8`. No runtime source was changed in this continuation.
 
-TP-0003 specifies live checks of the reviewed flight-control fixes. VR-0012 records the
-results so far. A rebuilt monitor completed 50 samples and acknowledgements, closed
-successfully and replayed all 50 commands exactly. The journal, hashes, setup and
-failed-placement observations are retained. No armed session or flight occurred.
+Guarded inspection confirmed the empty eight-part IKR-TS-001B in PreLaunch with its
+engine inactive and chute stowed. All four kerbals were Available. The career hash
+was unchanged. An editor save changed only the craft's root version and description.
+Part configuration matched the original derivation. The manual-pad checkpoint is
+`ipv-flight-fix-manual-pad-20261122`.
 
-Two explicit normal-program fault fixtures are now tested against the session's actual
-policy and distinct abort program. The offline test checks pad inhibition, boost
-refusal and same-sample takeover through simulated descent. The supervisor accepts
-`--program-body` so those sources can be exercised without changing the live policy.
+Both the default pad abort and refused-pad test passed. Each produced one acknowledged
+neutral command, no discrete action and a successful aborted completion. The refused
+normal output selected the distinct abort program on the same sample. Both journals
+replayed exactly. The earlier 50-sample monitor remains a pass.
 
-## Blocker and containment
+## Failure and containment
 
-After crewed placement and Jebediah's recovery, the empty eight-part article reported
-Landed. The arming profile requires PreLaunch, so only monitoring was performed. The
-article was then recovered intact. An explicit uncrewed placement timed out after
-60 seconds. The operator identified the No Control warning and later reported the
-Space Center. A snapshot showed no test article before a new request was made.
-That request allowed 180 seconds and also timed out. Its outcome was inspected again.
+The normal hop ignited once, reached 1,241.222 m and deployed its parachute once.
+After 3,558 samples and acknowledgements over 71.14 game seconds, the bridge exited
+with `Elapsed(())`. The last sample showed eight parts descending at 410.842 m.
+The harness recorded a failed terminal event and no completion. Replay correctly
+refuses to certify this journal.
 
-I-0008 records the unresolved preparation anomaly. It does not classify a game defect
-or assert why the second attempt timed out. The operator was asked to cancel any
-remaining warning. Do not infer placement from a dismissed warning or retry an
-uncertain outcome. The arming and ignition rules were not relaxed.
+Completed handshaking and approximately 149 wall seconds identify the bridge's
+700 ms cycle timeout by source-code inference. The specific operation and stall
+cause remain unknown. The next logged autosave was later, so an autosave explanation
+is not established. I-0009 records the failure. The planned refused-boost flight
+was not started.
 
-The setup tool now offers `place --uncrewed`, logs launch intent, permits a bounded
-180-second response window and checks the returned identity, crew, PreLaunch state
-and inactive engine. Negative tests exercise those postconditions. The diagnostic
-calls preceded this integrated option, whose live success is still unverified.
+No further control was sent. Independent observations confirmed passive descent and
+then six settled landed samples over 4.46 game seconds, with eight parts and zero
+crew. Recovery returned to the verification Space Center. All four kerbals remained
+Available, no crew occupied either launch site, and the career hash was unchanged.
+Five debug flags remained false. No debug setter was used.
 
-## Verification and state
+## Verification and evidence
 
-The local gate passes with 158 Rust tests, 51 Phase 0 Python tests and 12 gate tests,
-none ignored. The unchanged bridge's local gate also passed. The new fixture test was
-run before live operations, and the final full gate covers the completed changes.
-Remote publication remains conditional on required checks at the branch tip, with
-results recorded by the pull request. No Keleusma changes were made.
+VR-0012 retains all four compressed journals and their summaries. Continuation context
+records source revisions, binary hash, manual-pad checks, metadata changes, diagnostics,
+landing observations, recovery and final state. No game craft or save is redistributed.
+The full local gate covers 158 Rust tests, 51 Phase 0 Python tests and 12 gate tests,
+none ignored. Required remote checks are recorded by the pull request. The bridge was
+unchanged and its previously passing gate was not rerun for this documentation update.
 
-The last observation was the verification Space Center with no IKR-TS-001B in the
-vessel list, all four kerbals Available and no crew at either launch area. Five debug
-flags were false before and after. No debug setter was used. The career and revision
-B craft hashes matched the initial values. The pre-test checkpoint is retained.
+## Continuation and uncertainty
 
-## Continuation
+Live testing is paused on I-0009. Add bridge cycle and operation diagnostics while
+preserving the timeout and the rule that cancelled connections are discarded without
+cleanup calls. Diagnose the stall before another normal or refused-boost flight.
+Do not increase the deadline merely to obtain a pass. The operator can reload the
+manual-pad checkpoint through the game menu when testing resumes. Inspect again
+before arming. Do not use the hanging kRPC load operation.
 
-Live work is blocked on a reliable empty PreLaunch placement and the visible warning
-state. Resolve that with the operator, inspect actual state, then resume TP-0003's
-four armed checks. The monitor pass does not qualify the abort path in the game.
-T12, E1 and E2, R20 adoption in the Rust harness, Dependabot pull request 47, Sepratron
-follow-ups, the paused Green Monolith procedure and the later architecture tasks all
-remain open. HANDOFF.md retains their details. No mailbox is assigned.
+I-0008 remains open for repeated placement and the unverified automated alternative,
+although manual placement worked once. T12, E1 and E2, R20 adoption in the Rust
+harness, Dependabot pull request 47, Sepratron follow-ups, the paused Green Monolith
+procedure and later architecture work remain open. HANDOFF.md retains them and the
+architecture's remaining edge cases. No mailbox is assigned.
