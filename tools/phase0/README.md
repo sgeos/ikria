@@ -79,3 +79,18 @@ repository root and are included in the local gate. They never connect to the ga
 ```sh
 python3 -I -B -m unittest discover -s tools/phase0/tests
 ```
+
+## Flight-control fix verification
+
+[TP-0003](../../record/verification/TP-0003.md) uses the current bridge and harness.
+`run_flight.py --program-body PATH` selects an explicit normal program body. The fault
+fixtures under `programs/verification/` are deliberately invalid flight decisions and
+must never be used as nominal programs.
+
+`setup_early_hop.py place --uncrewed` requests an empty crew list and allows 180 seconds
+for the operator to handle the No Control warning. The default crewed placement is
+unchanged. The empty option requires PreLaunch and an inactive engine on return. A
+dismissed warning is not proof of placement, and an expired request is never retried
+without independent inspection. This option has offline guard tests but has not yet
+completed a live placement. [VR-0012](../../record/verification/VR-0012.md) records the
+monitor pass and the unresolved preparation anomaly.

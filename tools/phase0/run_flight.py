@@ -21,9 +21,13 @@ def main():
     parser.add_argument('--ticks', type=int, default=50)
     parser.add_argument('--port', type=int, default=50120)
     parser.add_argument('--abort-file', type=pathlib.Path)
+    parser.add_argument('--program-body', type=pathlib.Path,
+                        help='optional normal program body, including verification fault fixtures')
     args = parser.parse_args()
     if not 1 <= args.ticks <= 29995 or not 1024 <= args.port <= 65535:
         parser.error('ticks or port outside supported bounds')
+    if args.program_body is not None and not args.program_body.is_file():
+        parser.error('program body must be an existing file')
     args.output.mkdir(parents=True, exist_ok=False)
     bridge_args = [str(args.bridge.resolve()), str(args.saves.resolve()), 'IKR-TS-001B',
                    str(args.port), str(args.ticks + 5)]
@@ -47,9 +51,13 @@ def main():
             else:
                 env.pop('IKRIA_ABORT_FILE', None)
             with (args.output / 'harness.txt').open('x') as harness_log:
+                harness_args = [str(args.harness.resolve()), f'127.0.0.1:{args.port}',
+                                str((args.output / 'flight.jsonl').resolve()),
+                                args.mode, str(args.ticks)]
+                if args.program_body is not None:
+                    harness_args.append(str(args.program_body.resolve()))
                 result = subprocess.run(
-                    [str(args.harness.resolve()), f'127.0.0.1:{args.port}',
-                     str((args.output / 'flight.jsonl').resolve()), args.mode, str(args.ticks)],
+                    harness_args,
                     env=env, stdout=harness_log, stderr=subprocess.STDOUT, timeout=840,
                     check=False)
             bridge_status = bridge.wait(timeout=5)

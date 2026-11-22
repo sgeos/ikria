@@ -8,6 +8,10 @@ All notable changes are recorded here. The format follows
 
 ### Added
 
+- Flight-control verification procedure, explicit fault fixtures and retained monitor
+  evidence, with a guarded uncrewed-placement option and configurable supervisor source.
+  Armed verification remains blocked by the preparation anomaly recorded in I-0008.
+
 - The science ledger, `ikria-ledger`, which enumerates the 3,104 subjects of the Phase 0
   count with their identifiers and Hard values, and joins them with a save's subjects
   read through `ikria-save`. It finds that the count's surface features are short by 9

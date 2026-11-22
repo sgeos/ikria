@@ -1,0 +1,70 @@
+{
+  "monitor-landed": {
+    "journal_sha256": "5b7a8ca43c9dedb3f52651fa564956414bfd06e86ca3c76a72755ea24fdacbb6",
+    "uncompressed_bytes": 41663,
+    "session": {
+      "abort_nominal_cycles": 117,
+      "abort_sha256": "abd71cae81c85e323f597cd38340f5a4f6b26d5b9f15df948bb07273246b8b5f",
+      "event": "session",
+      "hello": {
+        "armed": false,
+        "chute": 2,
+        "engine": 1,
+        "save": "Ikria Physical Verification",
+        "type": "hello",
+        "version": 2,
+        "vessel": "IKR-TS-001B"
+      },
+      "mode": "Monitor",
+      "nominal_cycles": 325,
+      "program_sha256": "12e1eb4eb2f52558365ad3eb25103aabae4541f388cb076ce79bc843c67cafcb"
+    },
+    "samples": 50,
+    "acknowledged_commands": 50,
+    "first_ut": 567393.0825664508,
+    "last_ut": 567394.0625664517,
+    "duration_game_s": 0.9800000009126961,
+    "tick_delta_min_s": 0.02000000001862645,
+    "tick_delta_max_s": 0.02000000001862645,
+    "maximum_altitude_m": 1.669122102088295,
+    "max_abs_vertical_speed_m_s": 2.647488991240113e-05,
+    "last_telemetry": {
+      "id": 1,
+      "situation": "landed",
+      "altitude_m": 1.6691220935899764,
+      "vertical_speed_m_s": -2.6371968950634557e-05,
+      "solid_fuel": 35.0,
+      "mass_kg": 1688.5,
+      "crew": 0,
+      "controllable": false,
+      "has_link": false,
+      "physics_active": true,
+      "parts": 8,
+      "engine_active": false,
+      "chute_deployed": false,
+      "chute_safe": true,
+      "up_body": [
+        0.0007505079436506135,
+        0.9999997182205884,
+        -1.7221221544325152e-05
+      ],
+      "rates_body": [
+        -2.6640354905754505e-07,
+        -4.898506139199265e-07,
+        0.000291569416370507
+      ]
+    },
+    "discrete_commands": [],
+    "max_compute_ns": 153709,
+    "completion": null,
+    "terminal": {
+      "close_error": null,
+      "close_sent": true,
+      "error": null,
+      "event": "session_end",
+      "success": true
+    },
+    "successful_session": true,
+    "flight_completed": false
+  }
+}

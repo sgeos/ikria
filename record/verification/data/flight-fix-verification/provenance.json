@@ -1,0 +1,12 @@
+{
+  "ikria_base": "4ebd8941c870c56dd457465f6ea6f1c10f1bc05e",
+  "bridge_base": "ef85dd80c83f9eecbd3615c374d2f5e9abdcc393",
+  "files": {
+    "programs/hop.kl": "f27458fb70a80db07efdfbcba88abc8f4d35bc845f75da9f4c7ff990641aa2a7",
+    "programs/abort.kl": "12f86ed6842c373440a706c9cffbb852da07b2408344967e0269449592882209",
+    "programs/verification/refused-pad.kl": "c6e929d94db2ff1e948c699e679f17c7c2f75f6a26183e6546d53ad85a741ae9",
+    "programs/verification/early-completion.kl": "a0bf9e93eb52f0f0cb66e7481a5d84c6c2500ab4289574cf277dc8db299ea27c",
+    "target/debug/fly": "d6ad1fdff770edd34972d4c4e3ac95380fe7e8c8db879b8588bec29374969e8f"
+  },
+  "bridge_binary_sha256": "bceac6f13d524a8d563fb4b00e02218d89e83df844b4f35ca7c459770db65f56"
+}

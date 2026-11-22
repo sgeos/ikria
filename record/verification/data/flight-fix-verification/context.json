@@ -1,0 +1,274 @@
+{
+  "initial": {
+    "date_utc": "2026-11-22T07:54:28.362064+00:00",
+    "save": "Ikria Physical Verification",
+    "scene": "GameScene.space_center",
+    "ut": 567157.4025662313,
+    "crew": {
+      "Jebediah Kerman": "RosterStatus.available",
+      "Bill Kerman": "RosterStatus.available",
+      "Bob Kerman": "RosterStatus.available",
+      "Valentina Kerman": "RosterStatus.available"
+    },
+    "crewed_launch_site": [],
+    "craft_sha256": "627e2b8d0384c455c4f50fa4793fcde99bb66a7e2b11daf517f8d36a9819b529",
+    "career_sha256": "bb4fed57674a796ad9c2b2fcce3db3c65646b494df60d03caf6cb9703632017a",
+    "debug_flags": {
+      "infinite_electricity": false,
+      "infinite_propellant": false,
+      "no_crash_damage": false,
+      "unbreakable_joints": false,
+      "ignore_max_temperature": false
+    },
+    "debug_uses": []
+  },
+  "checkpoint": {
+    "checkpoint": "ipv-before-flight-fix-verification-20261122",
+    "ut": 567277.6625663433
+  },
+  "operations": {
+    "after-placement-timeout": {
+      "scene": "GameScene.space_center",
+      "ut": 567516.5825665658,
+      "crew": {
+        "Jebediah Kerman": "RosterStatus.available",
+        "Bill Kerman": "RosterStatus.available",
+        "Bob Kerman": "RosterStatus.available",
+        "Valentina Kerman": "RosterStatus.available"
+      }
+    },
+    "article-inspection": {
+      "vessel": "IKR-TS-001B",
+      "crew": 0,
+      "situation": "VesselSituation.landed",
+      "ut": 567376.6025664355,
+      "parts": 8,
+      "height_m": 1.6691220935899764,
+      "vertical_speed_m_s": -2.6381482743064087e-05,
+      "latitude": -0.09720882261576734,
+      "longitude": -74.55769206606641,
+      "engine_active": [
+        false
+      ],
+      "fuel": 35.0,
+      "sas": false,
+      "chutes": [
+        "ParachuteState.stowed"
+      ]
+    },
+    "empty-normal": {
+      "date_utc": "2026-11-22T07:57:25.616276+00:00",
+      "operation": "empty",
+      "craft": "IKR-TS-001B",
+      "debug_service_uses": [],
+      "save": "Ikria Physical Verification",
+      "start_ut": 567320.302566383,
+      "name": "IKR-TS-001B",
+      "crew": 0,
+      "control": "ControlState.none",
+      "link": false,
+      "situation": "VesselSituation.landed",
+      "ut": 567331.1425663931,
+      "mass_kg": 1688.5,
+      "dry_mass_kg": 1386.0,
+      "parts": 8,
+      "crew_status": "RosterStatus.available"
+    },
+    "place-normal": {
+      "date_utc": "2026-11-22T07:56:58.538568+00:00",
+      "operation": "place",
+      "craft": "IKR-TS-001B",
+      "debug_service_uses": [],
+      "save": "Ikria Physical Verification",
+      "start_ut": 567303.6825663676,
+      "crew_recovered_before_launch": [],
+      "name": "IKR-TS-001B",
+      "crew": 1,
+      "control": "ControlState.full",
+      "link": true,
+      "situation": "VesselSituation.pre_launch",
+      "ut": 567308.6425663722,
+      "mass_kg": 1782.5001220703125,
+      "dry_mass_kg": 1480.0,
+      "parts": 8,
+      "crew_status": "RosterStatus.assigned"
+    },
+    "place-uncrewed-normal-2": {
+      "date_utc": "2026-11-22T08:04:46.156861+00:00",
+      "operation": "place_uncrewed",
+      "crew_recovered_before_launch": [],
+      "debug_service_uses": [],
+      "save": "Ikria Physical Verification",
+      "launch_intent": {
+        "craft": "IKR-TS-001B",
+        "crew": [],
+        "recover": false,
+        "ut": 567744.0825667777
+      },
+      "error": "TimeoutError: uncrewed placement timed out; inspect before any further operation"
+    },
+    "place-uncrewed-normal": {
+      "date_utc": "2026-11-22T07:59:39.996258+00:00",
+      "operation": "place_uncrewed",
+      "crew_recovered_before_launch": [],
+      "debug_service_uses": [],
+      "save": "Ikria Physical Verification",
+      "launch_intent": {
+        "craft": "IKR-TS-001B",
+        "crew": [],
+        "recover": false,
+        "ut": 567439.402566494
+      },
+      "error": "TimeoutError: uncrewed placement timed out; inspect before any further operation"
+    },
+    "recover-landed-preparation": {
+      "date_utc": "2026-11-22T07:59:05.265773+00:00",
+      "operation": "recover",
+      "craft": "IKR-TS-001B",
+      "debug_service_uses": [],
+      "save": "Ikria Physical Verification",
+      "start_ut": 567409.362566466,
+      "parts": 8,
+      "funds_before": 2178416.6760213375,
+      "science_before": 29.766666412353516,
+      "funds_after": 2178416.6760213375,
+      "science_after": 29.766666412353516,
+      "scene": "GameScene.space_center"
+    },
+    "snapshot-after-second-timeout": {
+      "scene": "GameScene.space_center",
+      "ut": 567948.9025669685,
+      "vessels": [
+        {
+          "name": "#autoLOC_501180",
+          "situation": "ORBITING",
+          "latitude": "87.976336102402072",
+          "longitude": "-21.082104129819687",
+          "parts": 26,
+          "crew": []
+        },
+        {
+          "name": "IKR-SEP-A3D",
+          "situation": "LANDED",
+          "latitude": "-1.0005682828034741",
+          "longitude": "-14.999985593202146",
+          "parts": 6,
+          "crew": []
+        },
+        {
+          "name": "IKR-SEP-A3D Debris",
+          "situation": "LANDED",
+          "latitude": "-1.0000831540005881",
+          "longitude": "-15.000000257697732",
+          "parts": 6,
+          "crew": []
+        },
+        {
+          "name": "IKR-SEP-A3E Debris",
+          "situation": "LANDED",
+          "latitude": "-1.0000135268414134",
+          "longitude": "-4.9999997669111469",
+          "parts": 6,
+          "crew": []
+        },
+        {
+          "name": "IKR-SEP-A3E Debris",
+          "situation": "LANDED",
+          "latitude": "-0.99999909259898256",
+          "longitude": "-9.9999994084435286",
+          "parts": 6,
+          "crew": []
+        },
+        {
+          "name": "IKR-SEP-A3F Debris",
+          "situation": "LANDED",
+          "latitude": "-0.99999979188948795",
+          "longitude": "-3.9076946221200089E-08",
+          "parts": 6,
+          "crew": []
+        }
+      ]
+    },
+    "snapshot-after-warning": {
+      "scene": "GameScene.space_center",
+      "ut": 567725.8025667607,
+      "vessels": [
+        {
+          "name": "#autoLOC_501180",
+          "situation": "ORBITING",
+          "latitude": "87.976336102402072",
+          "longitude": "-21.082104129819687",
+          "parts": 26,
+          "crew": []
+        },
+        {
+          "name": "IKR-SEP-A3D",
+          "situation": "LANDED",
+          "latitude": "-1.0005682828034741",
+          "longitude": "-14.999985593202146",
+          "parts": 6,
+          "crew": []
+        },
+        {
+          "name": "IKR-SEP-A3D Debris",
+          "situation": "LANDED",
+          "latitude": "-1.0000831540005881",
+          "longitude": "-15.000000257697732",
+          "parts": 6,
+          "crew": []
+        },
+        {
+          "name": "IKR-SEP-A3E Debris",
+          "situation": "LANDED",
+          "latitude": "-1.0000135268414134",
+          "longitude": "-4.9999997669111469",
+          "parts": 6,
+          "crew": []
+        },
+        {
+          "name": "IKR-SEP-A3E Debris",
+          "situation": "LANDED",
+          "latitude": "-0.99999909259898256",
+          "longitude": "-9.9999994084435286",
+          "parts": 6,
+          "crew": []
+        },
+        {
+          "name": "IKR-SEP-A3F Debris",
+          "situation": "LANDED",
+          "latitude": "-0.99999979188948795",
+          "longitude": "-3.9076946221200089E-08",
+          "parts": 6,
+          "crew": []
+        }
+      ]
+    }
+  },
+  "final": {
+    "date_utc": "2026-11-22T08:08:12.272645+00:00",
+    "save": "Ikria Physical Verification",
+    "scene": "GameScene.space_center",
+    "ut": 567949.3225669689,
+    "crew": {
+      "Jebediah Kerman": "RosterStatus.available",
+      "Bill Kerman": "RosterStatus.available",
+      "Bob Kerman": "RosterStatus.available",
+      "Valentina Kerman": "RosterStatus.available"
+    },
+    "crewed_launch_site": [],
+    "craft_sha256": "627e2b8d0384c455c4f50fa4793fcde99bb66a7e2b11daf517f8d36a9819b529",
+    "career_sha256": "bb4fed57674a796ad9c2b2fcce3db3c65646b494df60d03caf6cb9703632017a",
+    "debug_flags": {
+      "infinite_electricity": false,
+      "infinite_propellant": false,
+      "no_crash_damage": false,
+      "unbreakable_joints": false,
+      "ignore_max_temperature": false
+    },
+    "debug_uses": []
+  },
+  "operator_observations": [
+    "The first uncrewed-placement attempt displayed Warning No Control with Launch anyway and Cancel.",
+    "The operator subsequently reported the Space Center. The timing of any warning-button interaction was not established."
+  ]
+}
